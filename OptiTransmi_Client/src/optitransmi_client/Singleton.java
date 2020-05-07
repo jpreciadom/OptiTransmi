@@ -37,4 +37,20 @@ public class Singleton {
     public ClientConnection getClient(){
         return client;
     }
+    
+    public synchronized boolean AddInToWriteQueue(BasePackage toAdd){
+        return toWrite.add(toAdd);
+    }
+    
+    public synchronized BasePackage ReadInToWriteQueue(){
+        return toWrite.poll();
+    }
+    
+    public synchronized boolean AddInToReadQueue(BasePackage toAdd){
+        return toRead.add(toAdd);
+    }
+    
+    public synchronized BasePackage ReadFromToReadQueue(){
+        return toRead.poll();
+    }
 }

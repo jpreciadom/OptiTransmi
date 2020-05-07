@@ -1,7 +1,7 @@
 package optitransmi_client;
 
-import java.util.PriorityQueue;
 import Information.*;
+import java.util.Scanner;
 
 /**
  * @author Juan Diego Preciado

@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Juan Diego
  */
-public abstract class BasePackage implements Serializable{
+public abstract class BasePackage implements Serializable, Comparable<BasePackage> {
     protected int priority;
     
     public BasePackage(){
@@ -21,8 +21,9 @@ public abstract class BasePackage implements Serializable{
     public int getPriority(){
         return priority;
     }
-    
-    public int compare(BasePackage obj){
-        return this.priority - obj.priority;
+
+    @Override
+    public int compareTo(BasePackage o) {
+        return this.priority - o.priority;
     }
 }
