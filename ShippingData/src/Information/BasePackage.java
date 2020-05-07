@@ -21,4 +21,8 @@ public abstract class BasePackage implements Serializable{
     public int getPriority(){
         return priority;
     }
+    
+    public int compare(BasePackage obj){
+        return this.priority - obj.priority;
+    }
 }

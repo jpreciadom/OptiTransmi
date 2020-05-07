@@ -5,11 +5,12 @@
  */
 package ServerConection;
 
-import java.io.DataOutputStream;
 import java.net.Socket;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.PriorityQueue;
+import Information.BasePackage;
 
 /**
  * Esta clase alamacena la información del usuario conectado. Almacenando la
@@ -19,12 +20,24 @@ import java.util.logging.Logger;
  * @author Juan Diego
  */
 public class User {
-    private final Socket clientSocket;
     private String userName;
+    private final Socket clientSocket;
+    private ObjectOutputStream output;
+    private ObjectInputStream input;
+    private final PriorityQueue<BasePackage> toWrite;
+    private final PriorityQueue<BasePackage> toRead;
     
     public User(Socket client, String userName){
         this.clientSocket = client;
         this.userName = userName;
+        try{
+            output = new ObjectOutputStream(client.getOutputStream());
+            input = new ObjectInputStream(client.getInputStream());
+        } catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
+        toWrite = new PriorityQueue<>();
+        toRead = new PriorityQueue<>();
     }
     
     public Socket getUserSocket(){
