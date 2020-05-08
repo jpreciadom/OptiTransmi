@@ -16,6 +16,7 @@ public class Test extends BasePackage{
     public Test(int p, String message){
         super();
         priority = p;
+        this.message = message;
     }
     
     public String getMessage(){
