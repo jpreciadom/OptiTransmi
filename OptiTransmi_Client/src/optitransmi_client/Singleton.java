@@ -8,6 +8,7 @@ package optitransmi_client;
 import Connection.ClientConnection;
 import java.util.PriorityQueue;
 import Information.BasePackage;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  *
@@ -16,14 +17,18 @@ import Information.BasePackage;
 public class Singleton {
     
     private final ClientConnection client;
+    private final ReentrantLock mutexToWrite;
     private final PriorityQueue<BasePackage> toWrite;
+    private final ReentrantLock mutexToRead;
     private final PriorityQueue<BasePackage> toRead;
     
     private static Singleton singleton;
     
     public Singleton(){
         client = new ClientConnection(7777);
+        mutexToWrite = new ReentrantLock();
         toWrite = new PriorityQueue<>();
+        mutexToRead = new ReentrantLock();
         toRead = new PriorityQueue<>();
     }
     
@@ -38,19 +43,47 @@ public class Singleton {
         return client;
     }
     
-    public synchronized boolean AddInToWriteQueue(BasePackage toAdd){
-        return toWrite.add(toAdd);
+    public boolean AddInToWriteQueue(BasePackage toAdd){
+        boolean added = false;
+        try{
+            mutexToWrite.lock();
+            added = toWrite.add(toAdd);
+        } finally {
+            mutexToWrite.unlock();
+        }
+        return added;
     }
     
-    public synchronized BasePackage ReadInToWriteQueue(){
-        return toWrite.poll();
+    public BasePackage ReadInToWriteQueue(){
+        BasePackage toReturn = null;
+        try {
+            mutexToWrite.lock();
+            toReturn = toWrite.poll();
+        } finally {
+            mutexToWrite.unlock();
+        }
+        return toReturn;
     }
     
-    public synchronized boolean AddInToReadQueue(BasePackage toAdd){
-        return toRead.add(toAdd);
+    public boolean AddInToReadQueue(BasePackage toAdd){
+        boolean added = false;
+        try{
+            mutexToRead.lock();
+            added = toRead.add(toAdd);
+        } finally {
+            mutexToRead.unlock();
+        }
+        return added;
     }
     
-    public synchronized BasePackage ReadFromToReadQueue(){
-        return toRead.poll();
+    public BasePackage ReadFromToReadQueue(){
+        BasePackage toReturn = null;
+        try {
+            mutexToRead.lock();
+            toReturn = toRead.poll();
+        } finally {
+            mutexToRead.unlock();
+        }
+        return toReturn;
     }
 }

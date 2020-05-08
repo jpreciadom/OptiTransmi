@@ -19,9 +19,10 @@ public class Conexion {
             Class.forName(driver);
             connection=DriverManager.getConnection(url, user, pass);
             connection.setAutoCommit(true);
-            JOptionPane.showMessageDialog(null,"Conexion realizada exitosamente");
+            System.out.println("Base de datos conectada");
         }catch(ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
+            System.exit(-1);
         }
     }
     

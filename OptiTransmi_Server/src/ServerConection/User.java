@@ -10,9 +10,12 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.util.PriorityQueue;
-import Information.BasePackage;
-import Information.Test;
+import Information.*;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import optitransmi_server.Singleton;
 
 /**
  * Esta clase alamacena la información del usuario conectado. Almacenando la
@@ -26,7 +29,9 @@ public class User extends Thread {
     private final Socket clientSocket;
     private ObjectOutputStream output;
     private ObjectInputStream input;
+    private final ReentrantLock mutexToWrite;
     private final PriorityQueue<BasePackage> toWrite;
+    private final ReentrantLock mutexToRead;
     private final PriorityQueue<BasePackage> toRead;
     
     private static Semaphore sinc;
@@ -40,11 +45,14 @@ public class User extends Thread {
         } catch(IOException ex){
             System.out.println(ex.getMessage());
         }
+        
+        mutexToWrite = new ReentrantLock();
         toWrite = new PriorityQueue<>();
+        mutexToRead = new ReentrantLock();
         toRead = new PriorityQueue<>();
         
         if(sinc == null)
-            sinc = new Semaphore(6);
+            sinc = new Semaphore(4);
         
         start();
     }
@@ -61,20 +69,48 @@ public class User extends Thread {
         return userName;
     }
     
-    public synchronized boolean AddInToWriteQueue(BasePackage toAdd){
-        return toWrite.add(toAdd);
+    public boolean AddInToWriteQueue(BasePackage toAdd){
+        boolean added = false;
+        try{
+            mutexToWrite.lock();
+            added = toWrite.add(toAdd);
+        } finally {
+            mutexToWrite.unlock();
+        }
+        return added;
     }
     
-    public synchronized BasePackage ReadInToWriteQueue(){
-        return toWrite.poll();
+    public BasePackage ReadInToWriteQueue(){
+        BasePackage toReturn = null;
+        try {
+            mutexToWrite.lock();
+            toReturn = toWrite.poll();
+        } finally {
+            mutexToWrite.unlock();
+        }
+        return toReturn;
     }
     
-    public synchronized boolean AddInToReadQueue(BasePackage toAdd){
-        return toRead.add(toAdd);
+    public boolean AddInToReadQueue(BasePackage toAdd){
+        boolean added = false;
+        try{
+            mutexToRead.lock();
+            added = toRead.add(toAdd);
+        } finally {
+            mutexToRead.unlock();
+        }
+        return added;
     }
     
-    public synchronized BasePackage ReadFromToReadQueue(){
-        return toRead.poll();
+    public BasePackage ReadFromToReadQueue(){
+        BasePackage toReturn = null;
+        try {
+            mutexToRead.lock();
+            toReturn = toRead.poll();
+        } finally {
+            mutexToRead.unlock();
+        }
+        return toReturn;
     }
     
     /**
@@ -87,7 +123,6 @@ public class User extends Thread {
         try{
             BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
             AddInToReadQueue(readed);                                           //Lo agrega a la cola de objetos leidos
-            System.out.println(((Test)readed).getMessage());
             answer = true;                                                      //Marca la respuesta como verdadero
         } catch(Exception ex){
             System.out.println(ex.getMessage());                                //Imprime el mensaje de error
@@ -124,17 +159,40 @@ public class User extends Thread {
     
     @Override
     public void run(){
+        new Thread(){
+            @Override
+            public void run(){
+                TryToRead();
+            }
+        }.start();
         while(isConnected()){
+            
             try {
                 sinc.acquire();
             } catch (InterruptedException ex) {
-                System.out.println(ex.getMessage());
-                continue;
+                Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
             }
-            boolean readAnswer = read();
-            //boolean writeAnswer = send();
+            
+            boolean sendAnswer = send();
+            
+            BasePackage readedObject = ReadFromToReadQueue();
+            
+            if(readedObject == null){
+                sinc.release();
+                continue;
+            } else if(readedObject instanceof SingIn) {
+                SingIn singIn = (SingIn)readedObject;
+            }else {
+                System.out.println(readedObject.getPriority());
+            }
             
             sinc.release();
+        }
+    }
+    
+    private void TryToRead(){
+        while(isConnected()){
+            boolean readAnswer = read();
         }
     }
 }
