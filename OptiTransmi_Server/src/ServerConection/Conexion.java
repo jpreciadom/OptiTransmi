@@ -2,33 +2,34 @@ package ServerConection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class Conexion {
     
-    String driver="com.mysql.cj.jdbc.Driver";
-    String url="jdbc:mysql://localhost:3306/dboptitransmi?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-    String user="root";
-    String pass="wigeta777";
-    Connection conn=null;
-    Statement st=null;
-    ResultSet rs=null;
+    private Connection connection;
 
     public Conexion() {
-            try{
-                Class.forName(driver);
-                conn=DriverManager.getConnection(url, user, pass);
-                st=conn.createStatement();
-            }catch(ClassNotFoundException e){
-                e.printStackTrace();
-            }catch(SQLException e){
-                e.printStackTrace();
-            }finally{
-                JOptionPane.showMessageDialog(null,"Conexion realizada exitosamente");
-            }
+        String driver="com.mysql.cj.jdbc.Driver";
+        String url="jdbc:mysql://localhost:3306/dboptitransmi?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        String user="root";
+        String pass="wigeta777";
+        try{
+            Class.forName(driver);
+            connection=DriverManager.getConnection(url, user, pass);
+            connection.setAutoCommit(true);
+            JOptionPane.showMessageDialog(null,"Conexion realizada exitosamente");
+        }catch(ClassNotFoundException | SQLException e){
+            System.out.println(e.getMessage());
+        }
     }
     
+    public Statement getStatement(){
+        try{
+            return connection.createStatement();
+        } catch(SQLException e){
+            return null;
+        }
+    }
 }

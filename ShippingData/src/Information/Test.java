@@ -10,8 +10,15 @@ package Information;
  * @author Juan Diego
  */
 public class Test extends BasePackage{
-    public Test(int p){
+    
+    private String message;
+    
+    public Test(int p, String message){
         super();
         priority = p;
+    }
+    
+    public String getMessage(){
+        return message;
     }
 }

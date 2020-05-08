@@ -13,8 +13,6 @@ import java.util.PriorityQueue;
 import Information.BasePackage;
 import Information.Test;
 import java.util.concurrent.Semaphore;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Esta clase alamacena la información del usuario conectado. Almacenando la
@@ -87,10 +85,9 @@ public class User extends Thread {
     private boolean read(){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         try{
-            if(input.available() > 0){
-                BasePackage readed = (BasePackage)input.readObject();           //Lee el objeto
-                AddInToReadQueue(readed);                                       //Lo agrega a la cola de objetos leidos
-            }
+            BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
+            AddInToReadQueue(readed);                                           //Lo agrega a la cola de objetos leidos
+            System.out.println(((Test)readed).getMessage());
             answer = true;                                                      //Marca la respuesta como verdadero
         } catch(Exception ex){
             System.out.println(ex.getMessage());                                //Imprime el mensaje de error
@@ -135,7 +132,7 @@ public class User extends Thread {
                 continue;
             }
             boolean readAnswer = read();
-            boolean writeAnswer = send();
+            //boolean writeAnswer = send();
             
             sinc.release();
         }

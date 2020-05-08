@@ -1,8 +1,5 @@
 package optitransmi_server;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-
 
 /**
  * @author Juan Diego Preciado
@@ -17,9 +14,5 @@ public class Server {
         System.out.println("Prueba de conexion");
         Singleton s = Singleton.getSingleton();
         System.out.println("El servidor esta escuchando solicitudes");
-        
-        while(true){
-            
-        }
     }
 }

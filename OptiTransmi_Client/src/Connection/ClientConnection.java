@@ -60,6 +60,14 @@ public class ClientConnection extends Thread {
         }
     }
     
+    public void disconnect(){
+        try{
+            this.socket.close();
+        } catch(IOException ex) {
+            
+        }
+    }
+    
     /**
      * Lee los datos disponible en el buffer. Se encarga de leer los objetos
      * que esten disponibles y los guarda en la cola de objetos leidos.
@@ -68,13 +76,12 @@ public class ClientConnection extends Thread {
     private boolean read(){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         try{
-            if(input.available() > 0){
-                BasePackage readed = (BasePackage)input.readObject();           //Lee el objeto
-                Singleton.getSingleton().AddInToReadQueue(readed);              //Lo agrega a la cola de objetos leidos
-            }
+            BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
+            Singleton.getSingleton().AddInToReadQueue(readed);                  //Lo agrega a la cola de objetos leidos
             answer = true;                                                      //Marca la respuesta como verdadero
+            System.out.println("Objeto recibido");
         } catch(Exception ex){
-            System.out.println(ex.getMessage());                                //Imprime el mensaje de error
+            disconnect();                                                       //Imprime el mensaje de error
             answer = false;                                                     //Marca la respuesta como false
         }
         return answer;                                                          //Devuelve la respuesta
@@ -92,9 +99,10 @@ public class ClientConnection extends Thread {
         if(toSend != null){
             try{
                 output.writeObject(toSend);                                     //Intenta hacer el envío, si puede
+                System.out.println("Obeto enviado");
                 answer = true;                                                  //Marca como verdadero el estado del envio si se pudo hacer
             } catch(IOException ex){
-                System.out.println(ex.getMessage());                            //Imprime el mensaje del error que ocurrió y
+                disconnect();
                 answer = false;                                                 //Marca como false el estado del envio
             }
         } else {
@@ -112,9 +120,17 @@ public class ClientConnection extends Thread {
      */
     @Override
     public void run(){
+        new Thread(){
+            @Override
+            public void run(){
+                while(isConnected()){
+                    boolean readAnswer = read();
+                }
+            }
+        }.start();
+        
         while(isConnected()){
             boolean writeAnswer = send();
-            boolean readAnswer = read();
         }
     }
 }
