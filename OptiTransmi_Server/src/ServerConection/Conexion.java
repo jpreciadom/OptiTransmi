@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 public class Conexion {
     
@@ -15,6 +14,7 @@ public class Conexion {
         String url="jdbc:mysql://localhost:3306/dboptitransmi?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         String user="root";
         String pass="wigeta777";
+        connection=null;
         try{
             Class.forName(driver);
             connection=DriverManager.getConnection(url, user, pass);
