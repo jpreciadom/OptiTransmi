@@ -2,6 +2,7 @@ package ServerConection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -26,10 +27,29 @@ public class Conexion {
         }
     }
     
-    public Statement getStatement(){
+    private Statement getStatement(){
         try{
             return connection.createStatement();
         } catch(SQLException e){
+            return null;
+        }
+    }
+    
+    public boolean executeSQL(String SQL){
+        try {
+            Statement st = getStatement();
+            st.execute(SQL);
+            return true;
+        } catch(SQLException ex){
+            return false;
+        }
+    }
+    
+    public ResultSet executeQuery(String query){
+        try {
+            Statement st = getStatement();
+            return st.executeQuery(query);
+        } catch (SQLException ex) {
             return null;
         }
     }

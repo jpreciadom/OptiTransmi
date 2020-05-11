@@ -11,10 +11,9 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.util.PriorityQueue;
 import Information.*;
+import java.sql.ResultSet;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import optitransmi_server.Singleton;
 
 /**
@@ -170,7 +169,7 @@ public class User extends Thread {
             try {
                 sinc.acquire();
             } catch (InterruptedException ex) {
-                Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+                continue;
             }
             
             boolean sendAnswer = send();
@@ -180,9 +179,44 @@ public class User extends Thread {
             if(readedObject == null){
                 sinc.release();
                 continue;
-            } else if(readedObject instanceof SingIn) {
+            } 
+            
+            Singleton singleton = Singleton.getSingleton();
+            
+            if(readedObject instanceof SingIn) {
                 SingIn singIn = (SingIn)readedObject;
-            }else {
+                
+                String query = "validarlogin('"
+                        + singIn.getMail() + "', '"
+                        + singIn.getPassword() + "')";
+                ResultSet result = singleton.getConexion().executeQuery(query);
+            } else if (readedObject instanceof SingUp) {
+                SingUp singUp = (SingUp)readedObject;
+                
+                boolean UserAlreadyExist = false;
+                String SQL = "SELECT COUNT(*) FROM USUARIO WHERE correo = '"
+                        + singUp.getMail() + "'";
+                
+                ResultSet result = singleton.getConexion().executeQuery(SQL);
+                try {
+                    if(result.next()){
+                        UserAlreadyExist = result.getInt(1) == 1;
+                    }
+                } catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
+                
+                if(!UserAlreadyExist){
+                    SQL = "INSERT INTO USUARIO VALUES('"
+                            + singUp.getMail() + "', '"
+                            + singUp.getPassword() + "', '"
+                            + singUp.getName() + "', "
+                            + singUp.getUserType() + ")";
+                    singleton.getConexion().executeSQL(SQL);
+                } else {
+                    //Mandar mensaje de error al usuario
+                }
+            } else {
                 System.out.println(readedObject.getPriority());
             }
             

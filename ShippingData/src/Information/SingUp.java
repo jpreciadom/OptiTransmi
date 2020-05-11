@@ -9,16 +9,19 @@ package Information;
  *
  * @author Juan Diego
  */
-public class SingIn extends BasePackage {
-    
+public class SingUp extends BasePackage {
     private final String mail;
     private final String password;
+    private final String name;
+    private final int userType;
 
-    public SingIn(String mail, String password) {
+    public SingUp(String mail, String password, String name, int userType) {
         super();
         this.priority = 0;
         this.mail = mail;
         this.password = password;
+        this.name = name;
+        this.userType = userType;
     }
 
     public String getMail() {
@@ -27,5 +30,13 @@ public class SingIn extends BasePackage {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getUserType() {
+        return userType;
     }
 }
