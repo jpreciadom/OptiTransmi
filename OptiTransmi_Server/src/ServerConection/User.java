@@ -186,7 +186,7 @@ public class User extends Thread {
             if(readedObject instanceof SingIn) {
                 SingIn singIn = (SingIn)readedObject;
                 
-                String query = "validarlogin('"
+                String query = "select ValidateLogin('"
                         + singIn.getMail() + "', '"
                         + singIn.getPassword() + "')";
                 ResultSet result = singleton.getConexion().executeQuery(query);

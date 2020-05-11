@@ -41,6 +41,7 @@ public class Conexion {
             st.execute(SQL);
             return true;
         } catch(SQLException ex){
+            System.out.println(ex.getMessage());
             return false;
         }
     }
@@ -50,6 +51,7 @@ public class Conexion {
             Statement st = getStatement();
             return st.executeQuery(query);
         } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
             return null;
         }
     }

@@ -37,7 +37,7 @@ public class Client {
             contrasenna = lector.next();
             System.out.print("Nombre: ");
             nombre = lector.next();
-            singleton.AddInToWriteQueue(new SingUp(nombre, nombre, nombre, 1));
+            singleton.AddInToWriteQueue(new SingUp(correo, contrasenna, nombre, 1));
             System.out.println("\n Usuario registrado\n");
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
@@ -62,7 +62,7 @@ public class Client {
     
     public static void main(String[] args) {
         System.out.println("Prueba de conexion");
-        //singleton = Singleton.getSingleton();
+        singleton = Singleton.getSingleton();
         int option;
         do {
             option = 0;
