@@ -16,7 +16,7 @@ public class SingIn extends BasePackage {
 
     public SingIn(String mail, String password) {
         super();
-        this.priority = 0;
+        this.priority = 1;
         this.mail = mail;
         this.password = password;
     }

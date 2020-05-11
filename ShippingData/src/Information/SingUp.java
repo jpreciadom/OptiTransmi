@@ -17,7 +17,7 @@ public class SingUp extends BasePackage {
 
     public SingUp(String mail, String password, String name, int userType) {
         super();
-        this.priority = 0;
+        this.priority = 1;
         this.mail = mail;
         this.password = password;
         this.name = name;

@@ -190,6 +190,23 @@ public class User extends Thread {
                         + singIn.getMail() + "', '"
                         + singIn.getPassword() + "')";
                 ResultSet result = singleton.getConexion().executeQuery(query);
+                
+                try {
+                    boolean userExist = false;
+                    if(result.next()){
+                        userExist = result.getInt(1) == 1;
+                    }
+                    Answer answer;
+                    if(userExist){
+                        answer = new Answer(true, "Ingreso exitoso");
+                    } else {
+                        answer = new Answer(false, "Datos de inicio de sesión no válidos");
+                    }
+                    AddInToWriteQueue(answer);
+                } catch(Exception e){
+                    System.out.println(e.getMessage());
+                    continue;
+                }
             } else if (readedObject instanceof SingUp) {
                 SingUp singUp = (SingUp)readedObject;
                 
@@ -213,8 +230,9 @@ public class User extends Thread {
                             + singUp.getName() + "', "
                             + singUp.getUserType() + ")";
                     singleton.getConexion().executeSQL(SQL);
+                    AddInToWriteQueue(new Answer(true));
                 } else {
-                    //Mandar mensaje de error al usuario
+                    AddInToWriteQueue(new Answer(false, "El correo ya esta en uso"));
                 }
             } else {
                 System.out.println(readedObject.getPriority());

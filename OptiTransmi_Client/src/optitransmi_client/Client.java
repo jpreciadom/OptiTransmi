@@ -1,7 +1,6 @@
 package optitransmi_client;
 
-import Information.SingIn;
-import Information.SingUp;
+import Information.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -38,7 +37,9 @@ public class Client {
             System.out.print("Nombre: ");
             nombre = lector.next();
             singleton.AddInToWriteQueue(new SingUp(correo, contrasenna, nombre, 1));
-            System.out.println("\n Usuario registrado\n");
+            singleton.getClient().send();
+            singleton.getClient().read();
+            System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
         }
@@ -54,7 +55,9 @@ public class Client {
             System.out.print("Contraseña: ");
             contrasenna = lector.next();
             singleton.AddInToWriteQueue(new SingIn(correo, contrasenna));
-            System.out.println("\n Iniciando sesion\n");
+            singleton.getClient().send();
+            singleton.getClient().read();
+            System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
         }

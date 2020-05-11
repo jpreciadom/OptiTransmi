@@ -17,17 +17,22 @@ import optitransmi_client.Singleton;
  * @author Juan Diego
  */
 
-public class ClientConnection extends Thread {
+public class Model extends Thread {
     private final int port;
     private Socket socket;
     private ObjectOutputStream output;
     private ObjectInputStream input;
     
-    public ClientConnection(int port){
+    public Model(int port){
         this.port = port;
         connect();
-        start();
-    }
+        new Thread(){
+            @Override
+            public void run(){
+                TryToRead();
+            }
+        }.start();
+    };
     
     /**
      * Consulta si el socket esta conectado con el servidor
@@ -73,7 +78,7 @@ public class ClientConnection extends Thread {
      * que esten disponibles y los guarda en la cola de objetos leidos.
      * @return falso si ocurre alguna excepcion y verdadero en otro caso
      */
-    private boolean read(){
+    public boolean read(){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         try{
             BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
@@ -93,7 +98,7 @@ public class ClientConnection extends Thread {
      * vuelve a poner el objeto en la cola.
      * @return falso si ocurre alguna excepcion y verdadero en otro caso
      */
-    private boolean send(){
+    public boolean send(){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         BasePackage toSend = Singleton.getSingleton().ReadInToWriteQueue();     //Saca el objeto a enviar de la cola de envios
         if(toSend != null){
@@ -120,17 +125,14 @@ public class ClientConnection extends Thread {
      */
     @Override
     public void run(){
-        new Thread(){
-            @Override
-            public void run(){
-                while(isConnected()){
-                    boolean readAnswer = read();
-                }
-            }
-        }.start();
-        
         while(isConnected()){
             boolean writeAnswer = send();
+        }
+    }
+    
+    private void TryToRead(){
+        while(isConnected()){
+            boolean readAnswer = read();
         }
     }
 }
