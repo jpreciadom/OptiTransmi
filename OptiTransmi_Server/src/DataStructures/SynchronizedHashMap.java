@@ -75,7 +75,7 @@ public class SynchronizedHashMap<K, T> {
         boolean answer = false;
         try{
             hashMutex.lock();
-            if(!hashMap.containsKey(key)){
+            if(hashMap.containsKey(key)){
                 T object = hashMap.remove(key);
                 hashMap.put(newKey, object);
                 answer = true;

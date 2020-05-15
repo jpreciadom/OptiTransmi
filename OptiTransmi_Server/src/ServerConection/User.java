@@ -212,6 +212,8 @@ public class User extends Thread {
                         Answer answer;
                         if(userExist){
                             answer = new Answer(true, "Ingreso exitoso");
+                            Singleton.getSingleton().getActiveUsers().update(this.userName, singIn.getMail());
+                            this.userName = singIn.getMail();
                         } else {
                             answer = new Answer(false, "Datos de inicio de sesión no válidos");
                         }
