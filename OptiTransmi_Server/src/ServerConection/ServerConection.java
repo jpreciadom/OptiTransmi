@@ -43,7 +43,7 @@ public class ServerConection extends Thread {
             //Se busca un nombre disponible en la hash para el proximo usuario a conectar
             while(!availableName){
                 int userNum = (int)(Math.random() * Integer.MAX_VALUE);
-                if(!Singleton.getSingleton().getActiveUsers().containsKey(nextUserName + userNum)){
+                if(!Singleton.getSingleton().getActiveUsers().exist(nextUserName + userNum)){
                     nextUserName += userNum;
                     availableName = true;
                 }

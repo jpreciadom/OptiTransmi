@@ -66,6 +66,11 @@ public class Client {
     public static void main(String[] args) {
         System.out.println("Prueba de conexion");
         singleton = Singleton.getSingleton();
+        singleton.getClient().connect();
+        if (!singleton.getClient().isConnected()){
+            System.out.println("No se pudo conectar, prueba fallida");
+            System.exit(-1);
+        }
         int option;
         do {
             option = 0;
@@ -98,6 +103,7 @@ public class Client {
             }
             
         } while(option != 0);
+        singleton.getClient().disconnect();
         System.out.println("Prueba realizada");
     }
 }

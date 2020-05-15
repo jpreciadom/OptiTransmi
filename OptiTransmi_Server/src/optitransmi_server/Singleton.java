@@ -7,7 +7,7 @@ package optitransmi_server;
 
 import ServerConection.ServerConection;
 import ServerConection.Conexion;
-import java.util.HashMap;
+import DataStructures.SynchronizedHashMap;
 
 /**
  *
@@ -16,16 +16,16 @@ import java.util.HashMap;
 public class Singleton {
     
     private final Conexion conexion;
-    private final ServerConection server;       //Objeto con el socket del servior
-    private final HashMap activeUsers;          //Tabla hash para almacenar a los usuarios conectados
+    private final ServerConection server;                   //Objeto con el socket del servior
+    private final SynchronizedHashMap activeUsers;          //Tabla hash para almacenar a los usuarios conectados
     
     private static Singleton singleton;
     
     public Singleton(){
-        conexion = new Conexion();              //Se establece conexion con la base de datos
-        server = new ServerConection(7777);     //Se inicia el socket con el puerto 7777
-        activeUsers = new HashMap();            //Se inicializa las tabla hash
-        server.start();                         //Se inicia el hilo
+        conexion = new Conexion();                          //Se establece conexion con la base de datos
+        server = new ServerConection(7777);                 //Se inicia el socket con el puerto 7777
+        activeUsers = new SynchronizedHashMap();            //Se inicializa las tabla hash
+        server.start();                                      //Se inicia el hilo
     }
     
     public static Singleton getSingleton(){
@@ -39,7 +39,7 @@ public class Singleton {
         return conexion;
     }
     
-    public HashMap getActiveUsers(){
+    public SynchronizedHashMap getActiveUsers(){
         return activeUsers;
     }
 }

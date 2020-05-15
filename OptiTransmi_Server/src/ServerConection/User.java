@@ -112,6 +112,16 @@ public class User extends Thread {
         return toReturn;
     }
     
+    private void disconnect(){
+        Singleton singleton = Singleton.getSingleton();
+        singleton.getActiveUsers().remove(this.userName);
+        try {
+            this.clientSocket.close();
+        } catch (IOException ex) {
+
+        }
+    }
+    
     /**
      * Lee los datos disponible en el buffer. Se encarga de leer los objetos
      * que esten disponibles y los guarda en la cola de objetos leidos.
@@ -124,7 +134,7 @@ public class User extends Thread {
             AddInToReadQueue(readed);                                           //Lo agrega a la cola de objetos leidos
             answer = true;                                                      //Marca la respuesta como verdadero
         } catch(Exception ex){
-            System.out.println(ex.getMessage());                                //Imprime el mensaje de error
+            disconnect();                                                       //Desconecta el socket
             answer = false;                                                     //Marca la respuesta como false
         }
         return answer;                                                          //Devuelve la respuesta
@@ -144,7 +154,7 @@ public class User extends Thread {
                 output.writeObject(toSend);                                         //Intenta hacer el envío, si puede
                 answer = true;                                                      //Marca como verdadero el estado del envio si se pudo hacer
             } catch(IOException ex){
-                System.out.println(ex.getMessage());                                //Imprime el mensaje del error que ocurrió y
+                disconnect();                                                       //Imprime el mensaje del error que ocurrió y
                 answer = false;                                                     //Marca como false el estado del envio
             }
         } else {
@@ -186,26 +196,30 @@ public class User extends Thread {
             if(readedObject instanceof SingIn) {
                 SingIn singIn = (SingIn)readedObject;
                 
-                String query = "select ValidateLogin('"
-                        + singIn.getMail() + "', '"
-                        + singIn.getPassword() + "')";
-                ResultSet result = singleton.getConexion().executeQuery(query);
-                
-                try {
-                    boolean userExist = false;
-                    if(result.next()){
-                        userExist = result.getInt(1) == 1;
+                if(Singleton.getSingleton().getActiveUsers().exist(singIn.getMail())){
+                    AddInToWriteQueue(new Answer(false, "Ya tiene una sesión activa"));
+                } else {
+                    String query = "select ValidateLogin('"
+                            + singIn.getMail() + "', '"
+                            + singIn.getPassword() + "')";
+                    ResultSet result = singleton.getConexion().executeQuery(query);
+
+                    try {
+                        boolean userExist = false;
+                        if(result.next()){
+                            userExist = result.getInt(1) == 1;
+                        }
+                        Answer answer;
+                        if(userExist){
+                            answer = new Answer(true, "Ingreso exitoso");
+                        } else {
+                            answer = new Answer(false, "Datos de inicio de sesión no válidos");
+                        }
+                        AddInToWriteQueue(answer);
+                    } catch(Exception e){
+                        System.out.println(e.getMessage());
+                        continue;
                     }
-                    Answer answer;
-                    if(userExist){
-                        answer = new Answer(true, "Ingreso exitoso");
-                    } else {
-                        answer = new Answer(false, "Datos de inicio de sesión no válidos");
-                    }
-                    AddInToWriteQueue(answer);
-                } catch(Exception e){
-                    System.out.println(e.getMessage());
-                    continue;
                 }
             } else if (readedObject instanceof SingUp) {
                 SingUp singUp = (SingUp)readedObject;

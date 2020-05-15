@@ -18,6 +18,8 @@ import optitransmi_client.Singleton;
  */
 
 public class Model extends Thread {
+    
+    private boolean connected;
     private final int port;
     private Socket socket;
     private ObjectOutputStream output;
@@ -25,13 +27,6 @@ public class Model extends Thread {
     
     public Model(int port){
         this.port = port;
-        connect();
-        new Thread(){
-            @Override
-            public void run(){
-                TryToRead();
-            }
-        }.start();
     };
     
     /**
@@ -39,7 +34,7 @@ public class Model extends Thread {
      * @return Verdadero si el socket esta conectado y falso en otro caso
      */
     public boolean isConnected(){
-        return !socket.isClosed();
+        return connected;
     }
     
     /**
@@ -55,19 +50,24 @@ public class Model extends Thread {
      * el cliente y el servidor con el puerto establecido ajustando los Streams
      * de entrada y salida de datos
      */
-    public void connect(){
+    public synchronized void connect(){
+        if(isConnected()){
+            disconnect();
+        }
         try {
-            socket = new Socket("localhost", port);                             //Se conecta con el servidor
+            socket = new Socket("25.18.189.67", port);                        //Se conecta con el servidor
             output = new ObjectOutputStream(socket.getOutputStream());          //Obtiene el stream de salida
             input = new ObjectInputStream(socket.getInputStream());             //Obtiene el stream de entrada
+            connected = true;
         } catch (IOException ex){
             System.out.println(ex.getMessage());                                //Imprime el mensaje de error
         }
     }
     
-    public void disconnect(){
+    public synchronized void disconnect(){
         try{
             this.socket.close();
+            this.connected = false;
         } catch(IOException ex) {
             
         }
@@ -117,6 +117,16 @@ public class Model extends Thread {
         if(!answer)                                                             //Si no se pudo hacer el envio
             Singleton.getSingleton().AddInToWriteQueue(toSend);                 //Vuelve a poner el objeo a enviar en la cola
         return answer;                                                          //Devuelve la respuesta
+    }
+    
+    public void StartThreads(){
+        new Thread(){
+            @Override
+            public void run(){
+                TryToRead();
+            }
+        }.start();
+        start();
     }
     
     /**
