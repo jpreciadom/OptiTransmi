@@ -1,0 +1,534 @@
+Codigo_ruta;Tipo Dia;H_ Inicio Operaci?_1;H_ Fin  Operaci?_1
+16_7;Habil;4:30:00;0:20:00
+16_7;Sabado;5:00:00;0:20:00
+16_7;Festivo;5:30:00;23:20:00
+M83 Museo Nacional;Habil;4:30:00;23:00:00
+M83 Museo Nacional;Sabado;5:00:00;22:30:00
+M83 Museo Nacional;Festivo;5:30:00;21:30:00
+H83 Usme Porvenir II;Habil;5:00:00;23:00:00
+H83 Usme Porvenir II;Sabado;5:30:00;22:30:00
+H83 Usme Porvenir II;Festivo;6:00:00;21:30:00
+6 Portal 80;Habil;4:30:00;23:30:00
+6 Portal 80;Festivo;5:30:00;22:00:00
+J70 Aguas;Habil;5:30:00;9:00:00
+H75 P.Usme;Habil;5:00:00;23:00:00
+H75 P.Usme;Sabado;5:00:00;23:00:00
+H75 P.Usme;Festivo;5:30:00;22:00:00
+H73 P. Tunal;Habil;5:30:00;9:00:00
+B72  Toberin;Habil;5:30:00;23:00:00
+B72  Toberin;Sabado;5:30:00;23:00:00
+H72 P. Usme;Habil;5:30:00;23:00:00
+H72 P. Usme;Sabado;5:30:00;23:00:00
+J74 Aguas;Habil;16:00:00;21:30:00
+J74 Aguas;Sabado;6:30:00;9:00:00
+A74 Calle 72;Habil;6:00:00;8:30:00
+F14 P. Americas;Habil;5:30:00;22:00:00
+F14 P. Americas;Sabado;6:00:00;22:00:00
+F14 P. Americas;Festivo;5:30:00;22:00:00
+B14 P. Norte;Habil;4:30:00;21:30:00
+B14 P. Norte;Sabado;5:00:00;21:30:00
+B14 P. Norte;Festivo;5:00:00;22:00:00
+F28 P. AMERICAS;Habil;5:00:00;9:00:00
+F28 P. AMERICAS;Sabado;5:00:00;9:00:00
+D51 P. 80;Habil;5:30:00;8:30:00
+H21 Portal Tunal;Habil;4:00:00;23:00:00
+H21 Portal Tunal;Sabado;5:00:00;23:00:00
+D21 Portal 80;Habil;4:00:00;23:00:00
+D21 Portal 80;Sabado;5:00:00;23:00:00
+D10 Portal 80;Habil;5:30:00;22:00:00
+D10 Portal 80;Sabado;6:00:00;22:00:00
+D10 Portal 80;Festivo;6:30:00;20:00:00
+B10 Portal Norte;Habil;5:00:00;21:30:00
+B10 Portal Norte;Sabado;5:30:00;21:30:00
+B10 Portal Norte;Festivo;6:30:00;20:00:00
+B55 HEROES;Habil;6:00:00;8:30:00
+H20 PORTAL USME;Habil;5:00:00;22:00:00
+H20 PORTAL USME;Sabado;6:00:00;20:00:00
+D20 PORTAL 80;Habil;5:00:00;22:00:00
+D20 PORTAL 80;Sabado;6:00:00;20:00:00
+B50 P. NORTE;Habil;6:00:00;8:30:00
+B23 ALCALA;Habil;5:00:00;22:00:00
+B23 ALCALA;Sabado;5:30:00;22:00:00
+B13 P. Norte;Habil;5:00:00;22:00:00
+B13 P. Norte;Sabado;5:30:00;21:30:00
+8 Terminal;Habil;4:30:00;23:00:00
+8 Terminal;Sabado;5:00:00;23:20:00
+8 Terminal;Festivo;5:30:00;22:00:00
+6_5;Habil;4:00:00;9:00:00
+6_5;Sabado;5:00:00;20:00:00
+G42 - San Mateo;Festivo;5:30:00;22:40:00
+K42 - Corferias;Festivo;5:00:00;22:00:00
+6 Universidades;Habil;4:30:00;23:00:00
+6 Universidades;Sabado;5:00:00;23:00:00
+6 Universidades;Festivo;5:30:00;22:00:00
+H51 P. Usme;Habil;6:00:00;9:00:00
+B75 P. Norte ;Habil;4:30:00;23:00:00
+B75 P. Norte ;Sabado;5:00:00;23:00:00
+B75 P. Norte ;Festivo;5:30:00;22:00:00
+D24 P.80;Habil;6:00:00;23:00:00
+D24 P.80;Sabado;6:00:00;21:00:00
+C29 PORTAL SUBA ;Habil;5:30:00;8:30:00
+F29 PORTAL AMERICAS;Habil;5:30:00;8:30:00
+L18 P. 20 de Julio;Habil;5:00:00;22:00:00
+L18 P. 20 de Julio;Sabado;5:30:00;21:30:00
+B18 Terminal;Habil;4:30:00;22:00:00
+B18 Terminal;Sabado;5:00:00;21:30:00
+D50 P. 80;Habil;5:30:00;8:30:00
+F62 Americas;Habil;17:00:00;20:00:00
+8 Guatoque;Habil;4:30:00;23:00:00
+8 Guatoque;Sabado;5:00:00;23:00:00
+8 Guatoque;Festivo;5:30:00;22:00:00
+F19 Banderas;Habil;5:30:00;22:00:00
+F19 Banderas;Sabado;6:00:00;22:00:00
+F19 Banderas;Festivo;5:30:00;22:00:00
+C19 P. Suba;Habil;5:30:00;22:00:00
+C19 P. Suba;Sabado;6:00:00;22:00:00
+C19 P. Suba;Festivo;5:30:00;22:00:00
+H17 P. Usme;Habil;4:30:00;9:00:00
+H17 P. Usme;Sabado;5:00:00;20:00:00
+C17 P. Suba;Habil;5:00:00;9:00:00
+C17 P. Suba;Sabado;5:00:00;20:00:00
+B74 P. Norte;Habil;16:00:00;22:30:00
+B74 P. Norte;Sabado;7:00:00;9:00:00
+H27 P. Tunal;Habil;6:00:00;9:00:00
+B27 P. Norte;Habil;5:30:00;9:00:00
+H13 P. Tunal;Habil;5:30:00;22:00:00
+H13 P. Tunal;Sabado;6:30:00;22:00:00
+G52 Portal Sur;Habil;17:00:00;20:00:00
+A52 Flores;Habil;5:30:00;8:00:00
+2_3;Habil;4:30:00;0:30:00
+2_3;Sabado;5:00:00;0:30:00
+2_3;Festivo;5:30:00;23:30:00
+F32 P.AMERICAS;Habil;16:30:00;20:00:00
+E32 NQS-CL 75;Habil;5:00:00;8:30:00
+G43 - SAN MATEO;Habil;5:00:00;23:00:00
+G43 - SAN MATEO;Sabado;5:00:00;23:00:00
+K43 - P. ELDORADO;Habil;4:00:00;23:00:00
+K43 - P. ELDORADO;Sabado;4:30:00;23:00:00
+C30 PORTAL SUBA;Habil;5:00:00;9:00:00
+C30 PORTAL SUBA;Sabado;5:00:00;15:00:00
+G30 PORTAL SUR;Habil;5:00:00;9:00:00
+G30 PORTAL SUR;Sabado;5:00:00;15:00:00
+E44 - SIMON BOLIVAR;Habil;4:00:00;23:00:00
+E44 - SIMON BOLIVAR;Sabado;4:30:00;23:00:00
+B28 P. NORTE;Habil;4:00:00;9:00:00
+B28 P. NORTE;Sabado;4:30:00;9:00:00
+G12 P. SUR;Habil;5:00:00;23:00:00
+G12 P. SUR;Sabado;5:00:00;23:00:00
+G12 P. SUR;Festivo;5:30:00;22:00:00
+B12 P.NORTE;Habil;4:30:00;23:00:00
+B12 P.NORTE;Sabado;5:00:00;23:00:00
+B12 P.NORTE;Festivo;5:00:00;22:00:00
+4 - Portal Sur;Habil;4:30:00;23:00:00
+4 - Portal Sur;Sabado;5:00:00;23:00:00
+4 - Portal Sur;Festivo;5:30:00;22:35:00
+4 - Heroes;Habil;4:00:00;23:00:00
+4 - Heroes;Sabado;4:30:00;23:00:00
+4 - Heroes;Festivo;5:00:00;22:00:00
+7 Portal Suba;Habil;4:30:00;23:00:00
+7 Portal Suba;Sabado;5:00:00;23:00:00
+7 Portal Suba;Festivo;5:30:00;22:00:00
+7 Ricaurte;Habil;4:30:00;23:00:00
+7 Ricaurte;Sabado;5:00:00;23:00:00
+7 Ricaurte;Festivo;5:30:00;22:00:00
+K16 P. ELDORADO;Habil;5:30:00;22:30:00
+B16 TERMINAL;Habil;5:30:00;22:30:00
+G11 P. Sur;Habil;6:00:00;22:00:00
+G11 P. Sur;Sabado;6:30:00;22:00:00
+B11 Terminal;Habil;5:30:00;21:00:00
+B11 Terminal;Sabado;6:00:00;21:30:00
+G22 PORTAL 80 BI;Habil;5:00:00;23:00:00
+G22 PORTAL 80 BI;Sabado;5:00:00;23:00:00
+G22 PORTAL 80 BI;Festivo;5:30:00;22:00:00
+D22 PORTAL 80 BI;Habil;5:00:00;23:00:00
+D22 PORTAL 80 BI;Sabado;5:00:00;23:00:00
+D22 PORTAL 80 BI;Festivo;5:30:00;22:00:00
+5_1;Habil;4:30:00;0:20:00
+5_1;Sabado;5:00:00;0:20:00
+5_1;Festivo;5:30:00;23:20:00
+16_5;Habil;4:30:00;0:20:00
+16_5;Sabado;5:00:00;0:20:00
+16_5;Festivo;5:30:00;23:20:00
+11_10;Habil;4:30:00;0:30:00
+11_10;Sabado;5:00:00;0:30:00
+11_10;Festivo;5:30:00;23:30:00
+11_9;Habil;4:30:00;0:30:00
+11_9;Sabado;5:00:00;0:30:00
+11_9;Festivo;5:30:00;0:30:00
+11_8;Habil;4:30:00;8:30:00
+11_8;Sabado;5:30:00;8:30:00
+11_7;Habil;4:30:00;0:30:00
+11_7;Sabado;5:00:00;0:30:00
+11_7;Festivo;5:00:00;0:30:00
+11_6;Habil;4:30:00;0:30:00
+11_6;Sabado;5:00:00;0:30:00
+11_6;Festivo;5:00:00;0:30:00
+11_5;Habil;4:30:00;0:30:00
+11_5;Sabado;5:00:00;0:30:00
+11_5;Festivo;5:00:00;0:30:00
+11_4;Habil;4:30:00;0:30:00
+11_4;Sabado;5:00:00;0:30:00
+11_4;Festivo;5:00:00;0:30:00
+11_3;Habil;4:30:00;0:30:00
+11_3;Sabado;5:00:00;0:20:00
+11_3;Festivo;5:30:00;23:30:00
+11_2;Habil;4:30:00;8:30:00
+11_2;Sabado;6:00:00;8:30:00
+11_1;Habil;4:30:00;22:30:00
+L82 Portal 20 de Julio;Habil;6:00:00;22:00:00
+M82 Clinica el Bosque;Habil;4:30:00;23:00:00
+L82 Portal 20 de Julio;Sabado;6:00:00;22:00:00
+M82 Clinica el Bosque;Sabado;5:00:00;23:00:00
+L82 Portal 20 de Julio;Festivo;7:00:00;22:00:00
+M82 Clinica el Bosque;Habil;6:00:00;21:00:00
+1_1;Habil;4:30:00;0:30:00
+1_1;Sabado;5:00:00;0:30:00
+1_1;Festivo;5:30:00;23:30:00
+J73 UNIVERSIDADES;Habil;5:30:00;9:00:00
+H15 PORTAL TUNAL;Habil;5:00:00;23:00:00
+H15 PORTAL TUNAL;Sabado;5:00:00;23:00:00
+H15 PORTAL TUNAL;Festivo;5:30:00;22:00:00
+J24 UNIVERSIDADES;Habil;5:30:00;22:00:00
+J24 UNIVERSIDADES;Sabado;5:30:00;20:30:00
+5 P. Americas;Habil;4:30:00;23:30:00
+5 P. Americas;Sabado;5:00:00;23:30:00
+5 P. Americas;Festivo;5:30:00;22:35:00
+5 Calle 22;Habil;4:00:00;23:00:00
+5 Calle 22;Sabado;4:30:00;23:00:00
+5 Calle 22;Festivo;5:00:00;22:00:00
+3 Portal Usme;Habil;4:30:00;23:30:00
+3 Portal Usme;Sabado;5:00:00;23:30:00
+3 Portal Usme;Festivo;5:30:00;22:00:00
+3 Plaza de la Democracia;Habil;4:00:00;23:00:00
+3 Plaza de la Democracia;Sabado;5:00:00;23:00:00
+3 Plaza de la Democracia;Festivo;5:30:00;22:35:00
+2 P. 20 de Julio;Habil;4:30:00;23:00:00
+2 P. 20 de Julio;Sabado;5:00:00;23:00:00
+2 P. 20 de Julio;Festivo;5:30:00;22:00:00
+2 Museo Nacional;Habil;4:30:00;23:00:00
+2 Museo Nacional;Sabado;5:00:00;23:00:00
+2 Museo Nacional;Festivo;5:30:00;22:00:00
+1 P. Eldorado;Habil;4:30:00;23:00:00
+1 P. Eldorado;Sabado;5:00:00;23:00:00
+1 P. Eldorado;Festivo;5:30:00;22:00:00
+1 Universidades;Habil;4:30:00;23:00:00
+1 Universidades;Sabado;5:00:00;23:00:00
+1 Universidades;Festivo;5:30:00;22:00:00
+G45 PORTAL SUR;Habil;5:00:00;8:00:00
+G45 PORTAL SUR;Sabado;5:00:00;8:00:00
+G45 SAN MATEO;Habil;5:00:00;8:00:00
+G45 SAN MATEO;Sabado;5:00:00;8:00:00
+G47 P. SUR;Habil;4:30:00;23:00:00
+G47 P. SUR;Sabado;5:00:00;23:00:00
+G47 P. SUR;Festivo;5:30:00;22:00:00
+M47 M. NACIONAL;Habil;4:30:00;23:00:00
+M47 M. NACIONAL;Sabado;4:30:00;23:00:00
+M47 M. NACIONAL;Festivo;5:00:00;22:00:00
+F23 Americas;Habil;5:00:00;23:00:00
+F23 Americas;Sabado;5:00:00;23:00:00
+J23 Aguas;Habil;4:00:00;23:00:00
+J23 Aguas;Sabado;4:30:00;23:00:00
+16_6;Habil;4:30:00;0:20:00
+16_6;Sabado;5:00:00;0:20:00
+16_6;Festivo;5:30:00;23:20:00
+8_6;Habil;4:00:00;0:30:00
+8_6;Sabado;4:30:00;0:30:00
+8_6;Festivo;5:00:00;23:30:00
+M51 MUSEO NACIONAL;Habil;4:30:00;23:00:00
+M51 MUSEO NACIONAL;Sabado;4:30:00;23:00:00
+B71 P.NORTE;Habil;5:30:00;8:30:00
+B71 P.NORTE;Sabado;5:30:00;9:00:00
+3_8;Habil;4:00:00;0:30:00
+3_8;Sabado;5:00:00;0:30:00
+3_8;Festivo;5:30:00;23:30:00
+7_3;Habil;4:05:00;0:20:00
+7_3;Sabado;5:05:00;0:20:00
+7_3;Festivo;5:45:00;23:30:00
+10_4;Habil;4:00:00;0:30:00
+10_4;Sabado;4:30:00;0:30:00
+10_4;Festivo;5:00:00;23:30:00
+10_3;Habil;4:00:00;0:30:00
+10_3;Sabado;4:30:00;0:30:00
+10_3;Festivo;5:00:00;23:30:00
+M84 Museo Nacional;Habil;5:00:00;23:00:00
+M84 Museo Nacional;Sabado;5:00:00;23:00:00
+M84 Museo Nacional;Festivo;6:00:00;22:00:00
+C84 ETB Tibabuyes;Habil;5:00:00;23:00:00
+C84 ETB Tibabuyes;Sabado;5:00:00;23:00:00
+C84 ETB Tibabuyes;Festivo;6:00:00;22:00:00
+13_12;Habil;4:30:00;0:20:00
+13_12;Sabado;5:00:00;0:20:00
+13_12;Festivo;5:30:00;23:20:00
+G44 - SAN MATEO;Habil;5:00:00;23:00:00
+G44 - SAN MATEO;Sabado;5:00:00;23:00:00
+9_7;Habil;4:00:00;0:30:00
+9_7;Sabado;4:30:00;0:30:00
+9_7;Festivo;5:00:00;23:30:00
+9_10;Habil;4:00:00;0:30:00
+9_10;Sabado;4:30:00;0:30:00
+9_10;Festivo;5:00:00;23:30:00
+9_1;Habil;4:00:00;0:30:00
+9_1;Sabado;4:30:00;0:30:00
+9_1;Festivo;5:00:00;23:30:00
+M81 Museo Nacional;Habil;5:00:00;23:00:00
+M81 Museo Nacional;Sabado;5:30:00;22:30:00
+M81 Museo Nacional;Festivo;6:00:00;21:30:00
+D81 Puente de Guadua;Habil;5:00:00;23:00:00
+D81 Puente de Guadua;Sabado;5:30:00;22:30:00
+D81 Puente de Guadua;Festivo;6:00:00;21:30:00
+6_8;Habil;5:00:00;9:00:00
+6_8;Sabado;5:00:00;8:30:00
+6_12;Habil;4:00:00;0:30:00
+6_12;Sabado;5:00:00;0:30:00
+6_12;Festivo;5:30:00;23:30:00
+6_6;Habil;5:00:00;9:00:00
+6_5;Habil;4:00:00;0:30:00
+6_5;Sabado;5:00:00;0:30:00
+6_5;Festivo;5:30:00;23:30:00
+9_5;Habil;4:00:00;9:00:00
+9_5;Sabado;4:30:00;9:30:00
+9_4;Habil;4:00:00;0:30:00
+9_4;Sabado;4:30:00;0:30:00
+9_4;Festivo;5:00:00;23:30:00
+9_2;Habil;4:00:00;0:30:00
+9_2;Sabado;4:30:00;0:30:00
+9_2;Festivo;5:00:00;23:30:00
+6_1;Habil;4:00:00;0:30:00
+6_1;Sabado;5:00:00;0:30:00
+6_1;Festivo;5:30:00;23:30:00
+6_2;Habil;4:00:00;0:30:00
+6_2;Sabado;5:00:00;0:30:00
+6_2;Festivo;5:30:00;23:30:00
+7_2;Habil;4:05:00;0:20:00
+7_2;Sabado;5:05:00;0:20:00
+7_2;Festivo;5:45:00;23:30:00
+6_9;Habil;4:00:00;0:30:00
+6_9;Sabado;5:00:00;0:30:00
+6_9;Festivo;5:30:00;23:30:00
+6_4;Habil;4:00:00;0:30:00
+6_4;Sabado;5:00:00;0:30:00
+6_4;Festivo;5:30:00;23:30:00
+6_3;Habil;4:00:00;0:30:00
+6_3;Sabado;5:00:00;0:30:00
+6_3;Festivo;5:30:00;23:30:00
+6_7;Habil;4:00:00;0:30:00
+6_7;Sabado;5:00:00;0:30:00
+6_7;Festivo;5:30:00;23:30:00
+C15 PORTAL SUBA;Habil;5:00:00;23:00:00
+C15 PORTAL SUBA;Sabado;5:00:00;23:00:00
+C15 PORTAL SUBA;Festivo;5:30:00;22:00:00
+C50 P.SUBA;Habil;6:00:00;8:00:00
+K23 P.ELDORADO;Habil;5:30:00;22:00:00
+K23 P.ELDORADO;Sabado;5:30:00;22:00:00
+F51 P. AMERICAS;Habil;5:00:00;23:00:00
+F51 P. AMERICAS;Sabado;5:00:00;23:00:00
+3_5;Habil;4:00:00;0:30:00
+3_5;Sabado;5:00:00;0:30:00
+3_5;Festivo;5:30:00;23:30:00
+3_13;Habil;4:00:00;23:00:00
+3_13;Sabado;5:00:00;22:00:00
+3_13;Festivo;5:30:00;22:00:00
+K54 P. ELDORADO BIART;Habil;5:30:00;22:30:00
+K54 P. ELDORADO BIART;Sabado;5:30:00;22:30:00
+H54 P. USME BIART;Habil;5:30:00;22:30:00
+H54 P. USME BIART;Sabado;5:30:00;22:30:00
+K86 Aeropuerto Eldorado;Habil;5:30:00;23:00:00
+M86 Fundacion Santa Fe;Habil;4:30:00;22:00:00
+K86 Aeropuerto Eldorado;Sabado;6:00:00;23:00:00
+M86 Fundacion Santa Fe;Sabado;5:00:00;22:00:00
+K86 Aeropuerto Eldorado;Festivo;7:00:00;22:00:00
+M86 Fundacion Santa Fe;Festivo;6:00:00;21:00:00
+2_7;Habil;4:30:00;0:30:00
+2_7;Sabado;5:00:00;0:30:00
+2_7;Festivo;5:30:00;23:30:00
+13_9;Habil;4:30:00;0:20:00
+13_9;Sabado;5:00:00;0:20:00
+13_9;Festivo;5:30:00;23:20:00
+1_4;Habil;4:30:00;0:30:00
+1_4;Sabado;5:00:00;0:30:00
+1_4;Festivo;5:30:00;23:30:00
+16_10;Habil;4:30:00;0:20:00
+16_10;Sabado;5:00:00;0:20:00
+16_10;Festivo;5:30:00;23:20:00
+1_5;Habil;4:30:00;0:30:00
+1_5;Sabado;5:00:00;0:30:00
+1_5;Festivo;5:30:00;23:30:00
+4_3;Habil;4:00:00;0:20:00
+4_3;Sabado;5:00:00;0:20:00
+4_3;Festivo;5:30:00;23:20:00
+4_2;Habil;4:00:00;0:20:00
+4_2;Sabado;5:00:00;0:20:00
+4_2;Festivo;5:30:00;23:20:00
+4_1;Habil;4:00:00;0:20:00
+4_1;Sabado;5:00:00;0:20:00
+4_1;Festivo;5:30:00;23:20:00
+3_11;Habil;4:00:00;0:30:00
+3_11;Sabado;5:00:00;0:30:00
+3_11;Festivo;5:30:00;23:30:00
+3_10;Habil;4:00:00;0:20:00
+3_10;Sabado;5:00:00;0:30:00
+3_10;Festivo;5:30:00;23:30:00
+3_9;Habil;4:00:00;0:30:00
+3_9;Sabado;5:00:00;0:30:00
+3_9;Festivo;5:30:00;23:30:00
+3_7;Habil;4:00:00;8:30:00
+3_7;Sabado;5:00:00;8:30:00
+3_6;Habil;4:00:00;0:30:00
+3_6;Sabado;5:00:00;0:30:00
+3_6;Festivo;5:30:00;23:30:00
+3_3;Habil;4:00:00;0:30:00
+3_3;Sabado;5:00:00;0:30:00
+3_3;Festivo;5:30:00;23:30:00
+3_4;Habil;4:00:00;0:30:00
+3_4;Sabado;5:00:00;0:30:00
+3_4;Festivo;5:30:00;23:30:00
+3_2;Habil;4:00:00;0:30:00
+3_2;Sabado;5:00:00;0:30:00
+3_2;Festivo;5:30:00;23:30:00
+3_1;Habil;5:30:00;8:00:00
+16_9;Habil;4:30:00;0:20:00
+16_9;Sabado;5:00:00;0:20:00
+16_9;Festivo;5:30:00;23:20:00
+16_13;Habil;4:30:00;0:20:00
+16_13;Sabado;5:00:00;0:20:00
+16_13;Festivo;5:30:00;23:20:00
+16_8;Habil;4:30:00;0:20:00
+16_8;Sabado;5:00:00;0:20:00
+16_8;Festivo;5:30:00;23:20:00
+9_11;Habil;4:00:00;0:30:00
+9_11;Sabado;4:30:00;0:30:00
+9_11;Festivo;5:00:00;23:30:00
+16_2;Habil;4:30:00;0:20:00
+16_2;Sabado;5:00:00;0:20:00
+16_2;Festivo;5:30:00;23:20:00
+13_6;Habil;4:30:00;0:20:00
+13_6;Sabado;5:00:00;0:20:00
+13_6;Festivo;5:30:00;23:20:00
+1_3;Habil;4:30:00;0:30:00
+1_3;Sabado;5:00:00;0:30:00
+1_3;Festivo;5:30:00;23:30:00
+1_7;Habil;4:30:00;0:30:00
+1_7;Sabado;5:00:00;0:30:00
+1_7;Festivo;5:30:00;23:30:00
+1_10;Habil;4:30:00;0:30:00
+1_10;Sabado;5:00:00;0:30:00
+1_10;Festivo;5:30:00;23:30:00
+5_4;Habil;4:30:00;0:20:00
+5_4;Sabado;5:00:00;0:20:00
+5_4;Festivo;5:30:00;23:20:00
+5_3;Habil;4:30:00;0:20:00
+5_3;Sabado;5:00:00;0:20:00
+5_3;Festivo;5:30:00;23:20:00
+1_2;Habil;4:30:00;0:30:00
+1_2;Sabado;5:00:00;0:30:00
+1_2;Festivo;5:30:00;23:30:00
+1_6;Habil;4:30:00;0:30:00
+1_6;Sabado;5:00:00;0:30:00
+1_6;Festivo;5:30:00;23:30:00
+1_8;Habil;6:00:00;9:00:00
+5_2;Habil;4:30:00;0:20:00
+5_2;Sabado;5:00:00;0:20:00
+5_2;Festivo;5:30:00;23:20:00
+7_1;Habil;4:05:00;0:20:00
+7_1;Sabado;5:05:00;0:20:00
+7_1;Festivo;5:45:00;23:30:00
+12_1;Habil;4:10:00;0:20:00
+12_1;Sabado;4:35:00;0:20:00
+12_1;Festivo;5:05:00;23:20:00
+10_8;Habil;4:00:00;23:00:00
+10_8;Sabado;5:00:00;18:00:00
+10_6;Habil;4:00:00;0:30:00
+10_6;Sabado;4:30:00;0:30:00
+10_6;Festivo;5:00:00;23:30:00
+10_5;Habil;4:00:00;22:30:00
+10_5;Sabado;4:30:00;22:30:00
+10_5;Festivo;5:00:00;22:00:00
+10_2;Habil;4:00:00;0:30:00
+10_2;Sabado;4:30:00;0:30:00
+10_2;Festivo;5:00:00;23:30:00
+10_1;Habil;4:00:00;8:30:00
+10_1;Sabado;4:30:00;8:00:00
+1_9;Habil;4:30:00;0:30:00
+1_9;Sabado;5:00:00;0:30:00
+1_9;Festivo;5:30:00;23:30:00
+2_11;Habil;5:30:00;8:30:00
+2_8;Habil;5:00:00;8:30:00
+2_10;Habil;4:30:00;0:30:00
+2_10;Sabado;5:00:00;0:30:00
+2_10;Festivo;5:30:00;23:30:00
+2_4;Habil;4:30:00;0:30:00
+2_4;Sabado;5:00:00;0:30:00
+2_4;Festivo;5:30:00;23:30:00
+2_1;Habil;4:30:00;0:30:00
+2_1;Sabado;5:00:00;0:30:00
+2_1;Festivo;5:30:00;23:30:00
+2_5;Habil;4:30:00;0:30:00
+2_5;Sabado;5:00:00;0:30:00
+2_5;Festivo;5:30:00;23:30:00
+2_2;Habil;4:30:00;0:30:00
+2_2;Sabado;5:00:00;0:30:00
+2_2;Festivo;5:30:00;23:30:00
+9_3;Habil;4:00:00;0:30:00
+9_3;Sabado;4:30:00;0:30:00
+9_3;Festivo;5:00:00;23:30:00
+16_14;Habil;4:30:00;0:20:00
+16_14;Sabado;5:00:00;0:20:00
+16_14;Festivo;5:30:00;23:20:00
+13_7;Habil;4:30:00;0:20:00
+13_7;Sabado;5:00:00;0:20:00
+13_7;Festivo;5:30:00;23:20:00
+13_8;Habil;4:30:00;0:20:00
+13_8;Sabado;5:00:00;0:20:00
+13_8;Festivo;5:30:00;23:20:00
+14_2;Habil;4:30:00;0:20:00
+14_2;Sabado;5:00:00;0:20:00
+14_2;Festivo;5:20:00;23:20:00
+9_8;Habil;4:00:00;0:30:00
+9_8;Sabado;4:30:00;0:30:00
+9_8;Festivo;5:00:00;23:30:00
+8_4;Habil;4:00:00;0:30:00
+8_4;Sabado;4:30:00;0:30:00
+8_4;Festivo;5:00:00;23:30:00
+13_10;Habil;4:30:00;0:20:00
+13_10;Sabado;5:00:00;0:20:00
+13_10;Festivo;5:30:00;23:20:00
+B56 HEROES;Habil;6:00:00;8:00:00
+B52 P.NORTE;Habil;5:30:00;8:30:00
+8_5;Habil;4:00:00;0:30:00
+8_5;Sabado;4:30:00;0:30:00
+8_5;Festivo;5:00:00;23:30:00
+8_3;Habil;4:00:00;0:30:00
+8_3;Sabado;4:30:00;0:30:00
+8_3;Festivo;5:00:00;23:30:00
+TC19;Habil;4:00:00;0:30:00
+TC19;Sabado;5:00:00;0:30:00
+TC19;Festivo;5:30:00;23:20:00
+9_9;Habil;4:00:00;0:30:00
+9_9;Sabado;4:30:00;0:30:00
+9_9;Festivo;5:00:00;23:30:00
+9_6;Habil;4:00:00;8:30:00
+8_2;Habil;4:00:00;0:30:00
+8_2;Sabado;4:30:00;0:30:00
+8_2;Festivo;5:00:00;23:30:00
+8_1;Habil;4:00:00;0:30:00
+8_1;Sabado;4:30:00;0:30:00
+8_1;Festivo;5:00:00;23:30:00
+K10 P. ELDORADO;Habil;4:30:00;23:00:00
+K10 P. ELDORADO;Sabado;5:00:00;23:00:00
+K10 P. ELDORADO;Festivo;5:30:00;22:00:00
+L10 P. 20 DE JULIO;Habil;5:00:00;23:00:00
+L10 P. 20 DE JULIO;Sabado;5:00:00;23:00:00
+L10 P. 20 DE JULIO;Festivo;5:30:00;22:00:00
+C73 P.SUBA;Habil;16:00:00;22:30:00
+13_3;Habil;4:30:00;0:20:00
+13_3;Sabado;5:00:00;0:20:00
+13_3;Festivo;5:30:00;23:30:00
+16_4;Habil;4:30:00;0:20:00
+16_4;Sabado;5:00:00;0:20:00
+16_4;Festivo;5:30:00;23:20:00
+16_1;Habil;4:30:00;0:20:00
+16_1;Sabado;5:00:00;0:20:00
+16_1;Festivo;5:30:00;23:20:00
+16_3;Habil;4:30:00;0:20:00
+16_3;Sabado;5:00:00;0:20:00
+16_3;Festivo;5:30:00;23:20:00

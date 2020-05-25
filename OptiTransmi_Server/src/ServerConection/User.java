@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import optitransmi_server.Singleton;
 
 /**
- * Esta clase alamacena la información del usuario conectado. Almacenando la
+ * Esta clase almacena la información del usuario conectado. Almacenando la
  * información de su socket y su nombre de usuario con el cuál está almacenado
  * en la tabla hash
  * 

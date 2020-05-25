@@ -1,8 +1,14 @@
 package optitransmi_client;
 
 import Information.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Juan Diego Preciado
@@ -15,10 +21,21 @@ public class Client {
     
     static Singleton singleton;
     static Scanner lector;
+    static FileWriter fw;
+    static PrintWriter pw;
     
     static {
         lector = new Scanner(System.in);
+        try {
+            fw= new FileWriter("Archivos/Usuarios.opti",true);
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pw= new PrintWriter(fw);
     }
+    
+        
+    
     
     public static void terminarPrueba(){
         System.out.println("Finalizando prueba...");
@@ -57,11 +74,16 @@ public class Client {
             singleton.AddInToWriteQueue(new SingIn(correo, contrasenna));
             singleton.getClient().send();
             singleton.getClient().read();
+            System.out.println("Desea guardar el usuario en el dispositivo: (S/N)");
+            if(lector.next().equals("S")){
+                pw.println(correo + ";" + contrasenna);
+            }
             System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
         }
     }
+    
     
     public static void main(String[] args) {
         System.out.println("Prueba de conexion");
@@ -90,7 +112,7 @@ public class Client {
             
             switch(option){
                 case 0:
-                    terminarPrueba();
+                    //terminarPrueba();
                     break;
                 case 1:
                     singIn();
@@ -103,7 +125,13 @@ public class Client {
             }
             
         } while(option != 0);
+         pw.close();
+        try {
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
         singleton.getClient().disconnect();
-        System.out.println("Prueba realizada");
+            System.out.println("Prueba realizada");
     }
 }

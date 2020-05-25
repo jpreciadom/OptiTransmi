@@ -1,0 +1,150 @@
+Estacion;Direccion;Zona;Vagones
+Terminal;Autopista Norte - CL 192;B;1
+Calle 187;Autopista Norte - CL 187;B;1
+Portal del Norte;Autopista Norte - CL 172A;B;0
+Tober¡n;Autopista Norte - CL 165;B;3
+Estaci¢n Calle 161;Autopista Norte - CL 161;B;2
+Mazur‚n;Autopista Norte - CL 151;B;3
+Calle 146;Autopista Norte - CL 147;B;3
+Calle 142;Autopista Norte - CL 143;B;2
+Alcal ;Autopista Norte - CL 134;B;3
+Prado;Autopista Norte - CL 128B;B;3
+Calle 127;Autopista Norte - CL 124;B;2
+Pepe Sierra;Autopista Norte - CL 114A;B;2
+Calle 106;Autopista Norte - CL 104A;B;2
+Calle 100;Autopista Norte - CL 97;B;3
+Virrey;Autopista Norte - CL 89;B;3
+Calle 85;Autopista Norte - CL 83A;B;3
+H‚roes;Autopista Norte - CL 81;B;3
+Calle 76;AV. Caracas - CL 76;A;3
+Calle 72;AV. Caracas - CL 72;A;3
+Flores;AV. Caracas - CL 69;A;2
+Calle 63;AV. Caracas - CL 63;A;3
+Calle 57;AV. Caracas - CL 57;A;3
+Marly;AV. Caracas - CL 51;A;3
+Calle 45;AV. Caracas - CL 45;A;3
+AV. 39;AV. Caracas - CL 39;A;2
+Calle 34;AV. Caracas - CL 33A;A;3
+Calle 26;AV. Caracas - CL 28;A;3
+Calle 22;AV. Caracas - CL 22;A;3
+Calle 19;AV. Caracas - CL 19;A;3
+AV. Jim‚nez (AV. Caracas);AV. Caracas - CL 11;A;2
+Tercer Milenio;AV. Caracas - CL 6;A;3
+Tygua - San Jos‚;AC 6 - KR 18;E;2
+Guatoque - Veraguas;AC 6 - KR 27;E;2
+Portal Eldorado;AV. Eldorado - KR 91;K;0
+Modelia;AV. Eldorado - KR 82;K;2
+Normand¡a;AV. Eldorado - KR 74;K;2
+AV. Rojas;AV. Eldorado - KR 69D;K;2
+El Tiempo - Maloka;AV. Eldorado - KR 69;K;2
+Salitre - El Greco;AV. Eldorado - KR 66;K;2
+CAN;AV. Eldorado - KR 59;K;2
+Gobernaci¢n;AV. Eldorado - KR 54;K;2
+Quinta Paredes;AV. Eldorado - KR 45;K;2
+Recinto Ferial;AV. Eldorado - KR 40;K;2
+Ciudad Universitaria;AV. Eldorado - KR 33A;K;2
+Concejo de Bogot ;AV. Eldorado - KR 28;K;2
+Centro Memoria;AV. Eldorado - KR 19B;K;2
+Universidades;KR 3 - CL 22;K;2
+Las Aguas;KR 3 - AC 19;J;1
+Portal 20 de Julio;KR 5A - CL 30D Sur;L;0
+Country Sur;AK 10 - CL 27 Sur;L;2
+AV. 1ø Mayo;AK 10 - CL 17 Sur;L;3
+Ciudad Jard¡n - UAN;AK 10 - CL 11 Sur;L;2
+Policarpa;AK 10 - CL 2 Sur;L;1
+Estaci¢n San Bernardo;AK 10 - CL 1;L;2
+Bicentenario;AK 10 - CL 6;L;3
+San Victorino;AK 10 - CL 11;L;3
+Las Nieves;AK 10 - AC 19;L;2
+San Diego;AK 10 - CL 23;L;2
+Museo Nacional;KR 7 - CL 29;M;2
+Portal de Usme;AV. Caracas - CL 65 Sur;H;0
+Molinos;CL 50A Sur - KR 7;H;2
+Consuelo;CL 51 Sur - KR 11;H;2
+Socorro;AK 15 - CL 51 SUR;H;2
+Santa Luc¡a;AV. Caracas - CL 46 Sur;H;2
+Calle 40 Sur;AV. Caracas - CL 40 Sur;H;3
+Quiroga;AV. Caracas - CL 33 Sur;H;2
+Olaya;AV. Caracas - CL 27 Sur;H;2
+Restrepo;AV. Caracas - CL 21 Sur;H;2
+Fucha;AV. Caracas - CL 17A Sur;H;2
+Nari¤o;AV. Caracas - CL 10 Sur;H;2
+Hort£a;AV. Caracas - CL 1 Bis Sur;H;2
+Hospital;AV. Caracas - CL 4;H;2
+Portal del Sur;Autopista Sur - KR 73;G;0
+Perdomo;Autopista Sur - KR 72 Sur;G;2
+Madelena;Autopista Sur - KR 65;G;2
+Sevillana;Autopista Sur - KRA 61;G;2
+Venecia;Autopista Sur - KR 54A;G;2
+Alquer¡a;Autopista Sur - KR 52A;G;2
+General Santander;Autopista Sur - KR 50A Bis;G;2
+NQS - CL 38A S.;Autopista Sur - CL 38 Sur;G;2
+NQS - CL 30 S.;Autopista Sur - CL 30 Sur;G;2
+SENA;Autopista Sur - CL 17A Sur;G;2
+Santa Isabel;AV. NQS - CL 1G;G;2
+Comuneros;AV. NQS - CL 5;G;2
+Ricaurte (NQS);AV. NQS - CL 10;E;3
+Paloquemao;AV. NQS - CL 18A;E;2
+CAD;AV. NQS - CL 22C;E;2
+AV. El Dorado;AV. NQS - CL 40A;E;1
+U. Nacional;AV. NQS - CL 47;E;3
+Camp¡n - Universidad Antonio Nari¤o;AV. NQS - CL 53 Bis;E;2
+Movistar Arena;AV. NQS - CL 63;E;2
+Sim¢n Bol¡var;AV. NQS - CL 63G;E;2
+AV. Chile;AV. NQS - CL 71;E;0
+NQS - Calle 75;AV. NQS - CL 75;E;2
+Escuela Militar;AC 80 - KR 51;D;2
+Polo;AC 80 - KR 27;D;1
+Portal Am‚ricas;AV. Villavicencio - KR 86;F;0
+Patio Bonito;AV. Ciudad de Cali - 40 SUR;F;2
+Biblioteca Tintal;AV. Ciudad de Cali - 33 SUR;F;2
+Transversal 86;AV. Am‚rcias - KR 80C;F;2
+Banderas;AV. Am‚ricas - KR 78G;F;0
+Mandalay;AV. Am‚ricas - KR 73;F;2
+Av Am‚ricas -Av. Boyac ;AV. Am‚ricas - KR 71C;F;2
+Marsella;AV. Am‚ricas - KR 69C;F;3
+Pradera;AV. Am‚ricas - KR 63;F;2
+Distrito Grafiti;AV. Am‚ricas - KR 53;F;2
+Puente Aranda;CL 13 - KR 47;F;2
+Carrera 43;CL 13 - KR 43;F;2
+Zona Industrial;CL 13 - KR 38;F;2
+CDS - Carrera 32;CL 13 - KR 32;F;2
+Ricaurte (CL 13);CL 13 - KR 27;F;0
+San Facon - KR. 22;CL 13 - KR 22;F;2
+De La Sabana;CL 13 - KR 16;F;2
+AV. Jim‚nez (CL 13);CL 13 - KR 13;F;0
+Carrera 47;AC 80 - KR 57;D;1
+Carrera 53;AC 80 - KR 64;D;1
+Avenida 68;AC 80 - KR 68G;D;1
+Ferias;AC 80 - KR69T;D;1
+Boyac ;AC 80 - KR 70F;D;1
+Minuto de Dios;AC 80 - KR 73A;D;1
+Granja - Carrera 77;AC 80 - KR 77;D;3
+Avenida Cali;AC 80 - KR 86;D;1
+Carrera 90;AC 80 - KR 90;D;1
+Quirigua;AC 80 - KR 94;D;3
+Portal 80;AC 80 - KR 96;D;0
+San Mart¡n;AV. SUBA - CL 86A;C;2
+Rionegro;AV SUBA - CL 90;C;2
+Suba - CL 95;AV. SUBA - CL 95;C;2
+Suba - CL 100;AV. SUBA - CL 100;C;2
+Puentelargo;AV. SUBA - CL 106;C;2
+Av. Suba Calle 116;AV. SUBA - CL 116;C;2
+Humedal C¢rdoba;AV. SUBA - CL 120;C;2
+Niza - Calle 127;AV. SUBA - CL 127D;C;2
+Suba - AV. Boyac ;AV. SUBA - AV. BOYACA;C;2
+Gratamira;AV. SUBA - CL 132A;C;2
+21  ngeles;AV. SUBA - KR 83;C;2
+Suba - TV. 91;AV. SUBA - KR 91D;C;2
+La Campi¤a;AV. SUBA - KR 99A;C;2
+Portal Suba;AV. Suba - AV. Ciudad de Cali;C;0
+La Castellana ;AV. NQS - CL 86 ;E;2
+Portal del Tunal ;AV. Boyac  - AV. Villavicencio ;H;0
+San Mateo ;KR 4 - CL 30 Soacha ;G;3
+Terreros ;KR 7 - CL 33 Soacha ;G;3
+Le¢n XIII ;TV 7 - CL 47 Soacha ;G;2
+La Despensa ;TV 7 - CL 55 Soacha ;G;2
+Bosa ;Autopista Sur- 65A Sur;G;2
+Museo del Oro ;AC 13 - KR 7 ;J;1
+Parque ;KR 19C - CL 56 Sur ;H;1
+Biblioteca ;KR 19C - CL 51 Sur ;H;1

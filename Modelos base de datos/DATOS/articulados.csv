@@ -1,0 +1,1001 @@
+Direccion;Codigo_ruta;Dia;Estacion_inicio;Estacion_final;para_en_el_vagon
+Autopista Norte - CL 192;16_7;Habil;1;0;2
+Autopista Norte - CL 187;16_7;Sabado;0;0;2
+Autopista Norte - CL 172A;16_7;Festivo;1;0;3
+Autopista Norte - CL 165;M83 Museo Nacional;Habil;0;0;3
+Autopista Norte - CL 161;M83 Museo Nacional;Sabado;1;1;2
+Autopista Norte - CL 151;M83 Museo Nacional;Festivo;1;1;3
+Autopista Norte - CL 147;H83 Usme Porvenir II;Habil;0;1;3
+Autopista Norte - CL 143;H83 Usme Porvenir II;Sabado;0;0;3
+Autopista Norte - CL 134;H83 Usme Porvenir II;Festivo;0;1;2
+Autopista Norte - CL 128B;6 Portal 80;Habil;0;0;3
+Autopista Norte - CL 124;6 Portal 80;Festivo;1;1;1
+Autopista Norte - CL 114A;J70 Aguas;Habil;0;1;2
+Autopista Norte - CL 104A;H75 P.Usme;Habil;1;0;2
+Autopista Norte - CL 97;H75 P.Usme;Sabado;1;1;1
+Autopista Norte - CL 89;H75 P.Usme;Festivo;1;1;1
+Autopista Norte - CL 83A;H73 P. Tunal;Habil;0;1;1
+Autopista Norte - CL 81;B72  Toberin;Habil;0;1;1
+AV. Caracas - CL 76;B72  Toberin;Sabado;1;1;3
+AV. Caracas - CL 72;H72 P. Usme;Habil;1;0;3
+AV. Caracas - CL 69;H72 P. Usme;Sabado;0;1;3
+AV. Caracas - CL 63;J74 Aguas;Habil;0;1;1
+AV. Caracas - CL 57;J74 Aguas;Sabado;1;0;2
+AV. Caracas - CL 51;A74 Calle 72;Habil;0;1;3
+AV. Caracas - CL 45;F14 P. Americas;Habil;1;1;1
+AV. Caracas - CL 39;F14 P. Americas;Sabado;1;0;2
+AV. Caracas - CL 33A;F14 P. Americas;Festivo;1;1;3
+AV. Caracas - CL 28;B14 P. Norte;Habil;1;0;3
+AV. Caracas - CL 22;B14 P. Norte;Sabado;0;1;3
+AV. Caracas - CL 19;B14 P. Norte;Festivo;1;1;2
+AV. Caracas - CL 11;F28 P. AMERICAS;Habil;0;1;2
+AV. Caracas - CL 6;F28 P. AMERICAS;Sabado;0;0;2
+AC 6 - KR 18;D51 P. 80;Habil;0;0;3
+AC 6 - KR 27;H21 Portal Tunal;Habil;1;0;1
+AV. Eldorado - KR 91;H21 Portal Tunal;Sabado;1;1;2
+AV. Eldorado - KR 82;D21 Portal 80;Habil;0;1;3
+AV. Eldorado - KR 74;D21 Portal 80;Sabado;1;0;2
+AV. Eldorado - KR 69D;D10 Portal 80;Habil;1;0;1
+AV. Eldorado - KR 69;D10 Portal 80;Sabado;1;1;2
+AV. Eldorado - KR 66;D10 Portal 80;Festivo;0;0;3
+AV. Eldorado - KR 59;B10 Portal Norte;Habil;0;1;3
+AV. Eldorado - KR 54;B10 Portal Norte;Sabado;0;1;3
+AV. Eldorado - KR 45;B10 Portal Norte;Festivo;0;1;3
+AV. Eldorado - KR 40;B55 HEROES;Habil;1;0;1
+AV. Eldorado - KR 33A;H20 PORTAL USME;Habil;0;1;2
+AV. Eldorado - KR 28;H20 PORTAL USME;Sabado;1;1;1
+AV. Eldorado - KR 19B;D20 PORTAL 80;Habil;1;0;3
+KR 3 - CL 22;D20 PORTAL 80;Sabado;1;0;3
+KR 3 - AC 19;B50 P. NORTE;Habil;0;0;3
+KR 5A - CL 30D Sur;B23 ALCALA;Habil;1;1;1
+AK 10 - CL 27 Sur;B23 ALCALA;Sabado;1;0;3
+AK 10 - CL 17 Sur;B13 P. Norte;Habil;1;1;2
+AK 10 - CL 11 Sur;B13 P. Norte;Sabado;1;1;2
+AK 10 - CL 2 Sur;8 Terminal;Habil;0;0;1
+AK 10 - CL 1;8 Terminal;Sabado;1;0;2
+AK 10 - CL 6;8 Terminal;Festivo;1;0;3
+AK 10 - CL 11;6_5;Habil;0;0;1
+AK 10 - AC 19;6_5;Sabado;1;1;3
+AK 10 - CL 23;G42 - San Mateo;Festivo;0;1;3
+KR 7 - CL 29;K42 - Corferias;Festivo;1;0;1
+AV. Caracas - CL 65 Sur;6 Universidades;Habil;1;1;3
+CL 50A Sur - KR 7;6 Universidades;Sabado;0;1;3
+CL 51 Sur - KR 11;6 Universidades;Festivo;1;0;3
+AK 15 - CL 51 SUR;H51 P. Usme;Habil;1;1;2
+AV. Caracas - CL 46 Sur;B75 P. Norte ;Habil;0;0;1
+AV. Caracas - CL 40 Sur;B75 P. Norte ;Sabado;1;0;2
+AV. Caracas - CL 33 Sur;B75 P. Norte ;Festivo;0;1;3
+AV. Caracas - CL 27 Sur;D24 P.80;Habil;0;1;1
+AV. Caracas - CL 21 Sur;D24 P.80;Sabado;1;0;1
+AV. Caracas - CL 17A Sur;C29 PORTAL SUBA ;Habil;0;1;1
+AV. Caracas - CL 10 Sur;F29 PORTAL AMERICAS;Habil;0;0;2
+AV. Caracas - CL 1 Bis Sur;L18 P. 20 de Julio;Habil;1;0;1
+AV. Caracas - CL 4;L18 P. 20 de Julio;Sabado;0;0;2
+Autopista Sur - KR 73;B18 Terminal;Habil;1;1;1
+Autopista Sur - KR 72 Sur;B18 Terminal;Sabado;1;0;3
+Autopista Sur - KR 65;D50 P. 80;Habil;1;1;1
+Autopista Sur - KRA 61;F62 Americas;Habil;1;1;3
+Autopista Sur - KR 54A;8 Guatoque;Habil;0;0;3
+Autopista Sur - KR 52A;8 Guatoque;Sabado;0;0;3
+Autopista Sur - KR 50A Bis;8 Guatoque;Festivo;0;1;2
+Autopista Sur - CL 38 Sur;F19 Banderas;Habil;0;1;3
+Autopista Sur - CL 30 Sur;F19 Banderas;Sabado;1;0;2
+Autopista Sur - CL 17A Sur;F19 Banderas;Festivo;0;0;1
+AV. NQS - CL 1G;C19 P. Suba;Habil;1;0;1
+AV. NQS - CL 5;C19 P. Suba;Sabado;1;0;2
+AV. NQS - CL 10;C19 P. Suba;Festivo;0;0;2
+AV. NQS - CL 18A;H17 P. Usme;Habil;1;0;2
+AV. NQS - CL 22C;H17 P. Usme;Sabado;0;0;3
+AV. NQS - CL 40A;C17 P. Suba;Habil;1;0;2
+AV. NQS - CL 47;C17 P. Suba;Sabado;0;0;2
+AV. NQS - CL 53 Bis;B74 P. Norte;Habil;0;0;3
+AV. NQS - CL 63;B74 P. Norte;Sabado;1;0;3
+AV. NQS - CL 63G;H27 P. Tunal;Habil;0;1;1
+AV. NQS - CL 71;B27 P. Norte;Habil;1;0;3
+AV. NQS - CL 75;H13 P. Tunal;Habil;1;0;3
+AC 80 - KR 51;H13 P. Tunal;Sabado;0;0;2
+AC 80 - KR 27;G52 Portal Sur;Habil;1;1;3
+AV. Villavicencio - KR 86;A52 Flores;Habil;1;0;2
+AV. Ciudad de Cali - 40 SUR;2_3;Habil;1;1;1
+AV. Ciudad de Cali - 33 SUR;2_3;Sabado;1;0;3
+AV. Am‚rcias - KR 80C;2_3;Festivo;1;1;2
+AV. Am‚ricas - KR 78G;F32 P.AMERICAS;Habil;0;0;3
+AV. Am‚ricas - KR 73;E32 NQS-CL 75;Habil;0;0;1
+AV. Am‚ricas - KR 71C;G43 - SAN MATEO;Habil;1;0;3
+AV. Am‚ricas - KR 69C;G43 - SAN MATEO;Sabado;1;0;1
+AV. Am‚ricas - KR 63;K43 - P. ELDORADO;Habil;1;1;3
+AV. Am‚ricas - KR 53;K43 - P. ELDORADO;Sabado;1;0;1
+CL 13 - KR 47;C30 PORTAL SUBA;Habil;0;1;1
+CL 13 - KR 43;C30 PORTAL SUBA;Sabado;1;1;1
+CL 13 - KR 38;G30 PORTAL SUR;Habil;1;0;2
+CL 13 - KR 32;G30 PORTAL SUR;Sabado;1;1;3
+CL 13 - KR 27;E44 - SIMON BOLIVAR;Habil;1;0;3
+CL 13 - KR 22;E44 - SIMON BOLIVAR;Sabado;1;1;3
+CL 13 - KR 16;B28 P. NORTE;Habil;0;1;2
+CL 13 - KR 13;B28 P. NORTE;Sabado;1;1;2
+AC 80 - KR 57;G12 P. SUR;Habil;0;1;1
+AC 80 - KR 64;G12 P. SUR;Sabado;0;0;2
+AC 80 - KR 68G;G12 P. SUR;Festivo;0;1;3
+AC 80 - KR69T;B12 P.NORTE;Habil;0;1;2
+AC 80 - KR 70F;B12 P.NORTE;Sabado;0;1;2
+AC 80 - KR 73A;B12 P.NORTE;Festivo;1;0;3
+AC 80 - KR 77;4 - Portal Sur;Habil;0;1;1
+AC 80 - KR 86;4 - Portal Sur;Sabado;0;0;1
+AC 80 - KR 90;4 - Portal Sur;Festivo;0;1;2
+AC 80 - KR 94;4 - Heroes;Habil;1;0;1
+AC 80 - KR 96;4 - Heroes;Sabado;1;0;1
+AV. SUBA - CL 86A;4 - Heroes;Festivo;1;1;1
+AV SUBA - CL 90;7 Portal Suba;Habil;0;0;1
+AV. SUBA - CL 95;7 Portal Suba;Sabado;1;0;3
+AV. SUBA - CL 100;7 Portal Suba;Festivo;0;0;1
+AV. SUBA - CL 106;7 Ricaurte;Habil;1;0;1
+AV. SUBA - CL 116;7 Ricaurte;Sabado;1;0;2
+AV. SUBA - CL 120;7 Ricaurte;Festivo;1;1;2
+AV. SUBA - CL 127D;K16 P. ELDORADO;Habil;1;0;1
+AV. SUBA - AV. BOYACA;B16 TERMINAL;Habil;1;1;3
+AV. SUBA - CL 132A;G11 P. Sur;Habil;0;1;1
+AV. SUBA - KR 83;G11 P. Sur;Sabado;0;0;3
+AV. SUBA - KR 91D;B11 Terminal;Habil;1;0;2
+AV. SUBA - KR 99A;B11 Terminal;Sabado;1;1;1
+AV. Suba - AV. Ciudad de Cali;G22 PORTAL 80 BI;Habil;0;1;1
+AV. NQS - CL 86 ;G22 PORTAL 80 BI;Sabado;1;1;1
+AV. Boyac  - AV. Villavicencio ;G22 PORTAL 80 BI;Festivo;0;1;2
+KR 4 - CL 30 Soacha ;D22 PORTAL 80 BI;Habil;1;1;1
+KR 7 - CL 33 Soacha ;D22 PORTAL 80 BI;Sabado;0;1;2
+TV 7 - CL 47 Soacha ;D22 PORTAL 80 BI;Festivo;1;0;3
+TV 7 - CL 55 Soacha ;5_1;Habil;0;1;2
+Autopista Sur- 65A Sur;5_1;Sabado;0;0;2
+AC 13 - KR 7 ;5_1;Festivo;0;1;1
+KR 19C - CL 56 Sur ;16_5;Habil;1;0;2
+KR 19C - CL 51 Sur ;16_5;Sabado;0;1;3
+Autopista Norte - CL 192;16_5;Festivo;0;0;2
+Autopista Norte - CL 187;11_10;Habil;0;1;2
+Autopista Norte - CL 172A;11_10;Sabado;1;1;2
+Autopista Norte - CL 165;11_10;Festivo;0;1;3
+Autopista Norte - CL 161;11_9;Habil;1;0;3
+Autopista Norte - CL 151;11_9;Sabado;0;0;3
+Autopista Norte - CL 147;11_9;Festivo;1;0;2
+Autopista Norte - CL 143;11_8;Habil;1;1;2
+Autopista Norte - CL 134;11_8;Sabado;1;1;2
+Autopista Norte - CL 128B;11_7;Habil;0;1;3
+Autopista Norte - CL 124;11_7;Sabado;0;0;1
+Autopista Norte - CL 114A;11_7;Festivo;0;1;1
+Autopista Norte - CL 104A;11_6;Habil;1;1;3
+Autopista Norte - CL 97;11_6;Sabado;1;0;3
+Autopista Norte - CL 89;11_6;Festivo;0;0;3
+Autopista Norte - CL 83A;11_5;Habil;1;0;2
+Autopista Norte - CL 81;11_5;Sabado;1;0;1
+AV. Caracas - CL 76;11_5;Festivo;0;1;2
+AV. Caracas - CL 72;11_4;Habil;1;0;1
+AV. Caracas - CL 69;11_4;Sabado;1;0;2
+AV. Caracas - CL 63;11_4;Festivo;1;0;3
+AV. Caracas - CL 57;11_3;Habil;0;0;3
+AV. Caracas - CL 51;11_3;Sabado;0;0;1
+AV. Caracas - CL 45;11_3;Festivo;1;1;3
+AV. Caracas - CL 39;11_2;Habil;0;1;1
+AV. Caracas - CL 33A;11_2;Sabado;1;1;1
+AV. Caracas - CL 28;11_1;Habil;0;0;1
+AV. Caracas - CL 22;L82 Portal 20 de Julio;Habil;0;0;1
+AV. Caracas - CL 19;M82 Clinica el Bosque;Habil;1;0;2
+AV. Caracas - CL 11;L82 Portal 20 de Julio;Sabado;1;1;2
+AV. Caracas - CL 6;M82 Clinica el Bosque;Sabado;0;0;2
+AC 6 - KR 18;L82 Portal 20 de Julio;Festivo;1;1;1
+AC 6 - KR 27;M82 Clinica el Bosque;Habil;0;1;3
+AV. Eldorado - KR 91;1_1;Habil;0;1;3
+AV. Eldorado - KR 82;1_1;Sabado;0;0;3
+AV. Eldorado - KR 74;1_1;Festivo;1;1;1
+AV. Eldorado - KR 69D;J73 UNIVERSIDADES;Habil;1;0;1
+AV. Eldorado - KR 69;H15 PORTAL TUNAL;Habil;0;1;1
+AV. Eldorado - KR 66;H15 PORTAL TUNAL;Sabado;1;0;3
+AV. Eldorado - KR 59;H15 PORTAL TUNAL;Festivo;0;1;1
+AV. Eldorado - KR 54;J24 UNIVERSIDADES;Habil;1;0;2
+AV. Eldorado - KR 45;J24 UNIVERSIDADES;Sabado;0;1;2
+AV. Eldorado - KR 40;5 P. Americas;Habil;0;1;3
+AV. Eldorado - KR 33A;5 P. Americas;Sabado;0;1;2
+AV. Eldorado - KR 28;5 P. Americas;Festivo;1;1;3
+AV. Eldorado - KR 19B;5 Calle 22;Habil;1;1;1
+KR 3 - CL 22;5 Calle 22;Sabado;1;1;3
+KR 3 - AC 19;5 Calle 22;Festivo;0;0;3
+KR 5A - CL 30D Sur;3 Portal Usme;Habil;0;0;2
+AK 10 - CL 27 Sur;3 Portal Usme;Sabado;1;0;3
+AK 10 - CL 17 Sur;3 Portal Usme;Festivo;1;0;2
+AK 10 - CL 11 Sur;3 Plaza de la Democracia;Habil;0;0;2
+AK 10 - CL 2 Sur;3 Plaza de la Democracia;Sabado;1;1;2
+AK 10 - CL 1;3 Plaza de la Democracia;Festivo;1;0;1
+AK 10 - CL 6;2 P. 20 de Julio;Habil;1;1;3
+AK 10 - CL 11;2 P. 20 de Julio;Sabado;1;1;2
+AK 10 - AC 19;2 P. 20 de Julio;Festivo;1;1;2
+AK 10 - CL 23;2 Museo Nacional;Habil;1;0;3
+KR 7 - CL 29;2 Museo Nacional;Sabado;0;1;3
+AV. Caracas - CL 65 Sur;2 Museo Nacional;Festivo;0;0;1
+CL 50A Sur - KR 7;1 P. Eldorado;Habil;1;0;3
+CL 51 Sur - KR 11;1 P. Eldorado;Sabado;0;1;3
+AK 15 - CL 51 SUR;1 P. Eldorado;Festivo;1;0;3
+AV. Caracas - CL 46 Sur;1 Universidades;Habil;1;0;1
+AV. Caracas - CL 40 Sur;1 Universidades;Sabado;1;0;3
+AV. Caracas - CL 33 Sur;1 Universidades;Festivo;1;1;3
+AV. Caracas - CL 27 Sur;G45 PORTAL SUR;Habil;1;1;3
+AV. Caracas - CL 21 Sur;G45 PORTAL SUR;Sabado;0;0;2
+AV. Caracas - CL 17A Sur;G45 SAN MATEO;Habil;0;1;1
+AV. Caracas - CL 10 Sur;G45 SAN MATEO;Sabado;1;0;1
+AV. Caracas - CL 1 Bis Sur;G47 P. SUR;Habil;1;1;2
+AV. Caracas - CL 4;G47 P. SUR;Sabado;0;1;2
+Autopista Sur - KR 73;G47 P. SUR;Festivo;0;1;2
+Autopista Sur - KR 72 Sur;M47 M. NACIONAL;Habil;0;1;1
+Autopista Sur - KR 65;M47 M. NACIONAL;Sabado;1;1;3
+Autopista Sur - KRA 61;M47 M. NACIONAL;Festivo;1;1;3
+Autopista Sur - KR 54A;F23 Americas;Habil;1;0;2
+Autopista Sur - KR 52A;F23 Americas;Sabado;1;1;2
+Autopista Sur - KR 50A Bis;J23 Aguas;Habil;0;1;2
+Autopista Sur - CL 38 Sur;J23 Aguas;Sabado;0;0;2
+Autopista Sur - CL 30 Sur;16_6;Habil;0;1;3
+Autopista Sur - CL 17A Sur;16_6;Sabado;0;1;1
+AV. NQS - CL 1G;16_6;Festivo;1;1;1
+AV. NQS - CL 5;8_6;Habil;0;1;2
+AV. NQS - CL 10;8_6;Sabado;0;1;2
+AV. NQS - CL 18A;8_6;Festivo;1;0;3
+AV. NQS - CL 22C;M51 MUSEO NACIONAL;Habil;1;1;3
+AV. NQS - CL 40A;M51 MUSEO NACIONAL;Sabado;1;0;2
+AV. NQS - CL 47;B71 P.NORTE;Habil;0;0;2
+AV. NQS - CL 53 Bis;B71 P.NORTE;Sabado;1;1;2
+AV. NQS - CL 63;3_8;Habil;1;1;3
+AV. NQS - CL 63G;3_8;Sabado;1;0;2
+AV. NQS - CL 71;3_8;Festivo;1;0;2
+AV. NQS - CL 75;7_3;Habil;0;0;2
+AC 80 - KR 51;7_3;Sabado;0;0;3
+AC 80 - KR 27;7_3;Festivo;0;0;1
+AV. Villavicencio - KR 86;10_4;Habil;0;1;3
+AV. Ciudad de Cali - 40 SUR;10_4;Sabado;0;0;1
+AV. Ciudad de Cali - 33 SUR;10_4;Festivo;1;1;1
+AV. Am‚rcias - KR 80C;10_3;Habil;0;1;1
+AV. Am‚ricas - KR 78G;10_3;Sabado;0;0;1
+AV. Am‚ricas - KR 73;10_3;Festivo;0;0;3
+AV. Am‚ricas - KR 71C;M84 Museo Nacional;Habil;0;0;3
+AV. Am‚ricas - KR 69C;M84 Museo Nacional;Sabado;0;0;3
+AV. Am‚ricas - KR 63;M84 Museo Nacional;Festivo;1;1;2
+AV. Am‚ricas - KR 53;C84 ETB Tibabuyes;Habil;0;1;2
+CL 13 - KR 47;C84 ETB Tibabuyes;Sabado;1;0;2
+CL 13 - KR 43;C84 ETB Tibabuyes;Festivo;0;0;1
+CL 13 - KR 38;13_12;Habil;1;1;2
+CL 13 - KR 32;13_12;Sabado;1;0;3
+CL 13 - KR 27;13_12;Festivo;1;1;3
+CL 13 - KR 22;G44 - SAN MATEO;Habil;0;1;3
+CL 13 - KR 16;G44 - SAN MATEO;Sabado;1;0;2
+CL 13 - KR 13;9_7;Habil;0;1;1
+AC 80 - KR 57;9_7;Sabado;0;0;2
+AC 80 - KR 64;9_7;Festivo;1;1;1
+AC 80 - KR 68G;9_10;Habil;1;1;1
+AC 80 - KR69T;9_10;Sabado;1;1;2
+AC 80 - KR 70F;9_10;Festivo;0;1;2
+AC 80 - KR 73A;9_1;Habil;1;0;1
+AC 80 - KR 77;9_1;Sabado;0;0;3
+AC 80 - KR 86;9_1;Festivo;1;1;1
+AC 80 - KR 90;M81 Museo Nacional;Habil;0;0;1
+AC 80 - KR 94;M81 Museo Nacional;Sabado;0;0;2
+AC 80 - KR 96;M81 Museo Nacional;Festivo;0;0;1
+AV. SUBA - CL 86A;D81 Puente de Guadua;Habil;1;1;1
+AV SUBA - CL 90;D81 Puente de Guadua;Sabado;0;0;3
+AV. SUBA - CL 95;D81 Puente de Guadua;Festivo;1;0;3
+AV. SUBA - CL 100;6_8;Habil;1;1;1
+AV. SUBA - CL 106;6_8;Sabado;1;0;3
+AV. SUBA - CL 116;6_12;Habil;1;1;1
+AV. SUBA - CL 120;6_12;Sabado;0;1;3
+AV. SUBA - CL 127D;6_12;Festivo;0;0;2
+AV. SUBA - AV. BOYACA;6_6;Habil;0;1;3
+AV. SUBA - CL 132A;6_5;Habil;1;0;2
+AV. SUBA - KR 83;6_5;Sabado;1;0;1
+AV. SUBA - KR 91D;6_5;Festivo;0;1;1
+AV. SUBA - KR 99A;9_5;Habil;1;1;1
+AV. Suba - AV. Ciudad de Cali;9_5;Sabado;0;0;3
+AV. NQS - CL 86 ;9_4;Habil;1;1;2
+AV. Boyac  - AV. Villavicencio ;9_4;Sabado;1;0;3
+KR 4 - CL 30 Soacha ;9_4;Festivo;0;1;2
+KR 7 - CL 33 Soacha ;9_2;Habil;1;0;2
+TV 7 - CL 47 Soacha ;9_2;Sabado;0;0;2
+TV 7 - CL 55 Soacha ;9_2;Festivo;0;0;1
+Autopista Sur- 65A Sur;6_1;Habil;1;0;2
+AC 13 - KR 7 ;6_1;Sabado;1;0;3
+KR 19C - CL 56 Sur ;6_1;Festivo;1;1;3
+KR 19C - CL 51 Sur ;6_2;Habil;1;1;1
+Autopista Norte - CL 192;6_2;Sabado;1;0;2
+Autopista Norte - CL 187;6_2;Festivo;0;0;3
+Autopista Norte - CL 172A;7_2;Habil;1;1;1
+Autopista Norte - CL 165;7_2;Sabado;1;1;2
+Autopista Norte - CL 161;7_2;Festivo;1;1;2
+Autopista Norte - CL 151;6_9;Habil;0;0;3
+Autopista Norte - CL 147;6_9;Sabado;0;0;1
+Autopista Norte - CL 143;6_9;Festivo;1;0;2
+Autopista Norte - CL 134;6_4;Habil;1;1;2
+Autopista Norte - CL 128B;6_4;Sabado;1;0;3
+Autopista Norte - CL 124;6_4;Festivo;1;0;3
+Autopista Norte - CL 114A;6_3;Habil;1;0;2
+Autopista Norte - CL 104A;6_3;Sabado;1;0;3
+Autopista Norte - CL 97;6_3;Festivo;0;1;3
+Autopista Norte - CL 89;6_7;Habil;0;0;3
+Autopista Norte - CL 83A;6_7;Sabado;0;0;2
+Autopista Norte - CL 81;6_7;Festivo;0;0;1
+AV. Caracas - CL 76;C15 PORTAL SUBA;Habil;0;0;1
+AV. Caracas - CL 72;C15 PORTAL SUBA;Sabado;0;1;2
+AV. Caracas - CL 69;C15 PORTAL SUBA;Festivo;1;0;2
+AV. Caracas - CL 63;C50 P.SUBA;Habil;0;0;2
+AV. Caracas - CL 57;K23 P.ELDORADO;Habil;1;0;1
+AV. Caracas - CL 51;K23 P.ELDORADO;Sabado;0;0;3
+AV. Caracas - CL 45;F51 P. AMERICAS;Habil;1;0;1
+AV. Caracas - CL 39;F51 P. AMERICAS;Sabado;0;1;1
+AV. Caracas - CL 33A;3_5;Habil;1;1;3
+AV. Caracas - CL 28;3_5;Sabado;0;1;1
+AV. Caracas - CL 22;3_5;Festivo;1;0;1
+AV. Caracas - CL 19;3_13;Habil;1;0;2
+AV. Caracas - CL 11;3_13;Sabado;0;0;1
+AV. Caracas - CL 6;3_13;Festivo;1;1;2
+AC 6 - KR 18;K54 P. ELDORADO BIART;Habil;1;0;1
+AC 6 - KR 27;K54 P. ELDORADO BIART;Sabado;1;0;3
+AV. Eldorado - KR 91;H54 P. USME BIART;Habil;0;1;3
+AV. Eldorado - KR 82;H54 P. USME BIART;Sabado;1;0;3
+AV. Eldorado - KR 74;K86 Aeropuerto Eldorado;Habil;1;1;2
+AV. Eldorado - KR 69D;M86 Fundacion Santa Fe;Habil;1;1;3
+AV. Eldorado - KR 69;K86 Aeropuerto Eldorado;Sabado;0;0;3
+AV. Eldorado - KR 66;M86 Fundacion Santa Fe;Sabado;1;1;1
+AV. Eldorado - KR 59;K86 Aeropuerto Eldorado;Festivo;0;0;2
+AV. Eldorado - KR 54;M86 Fundacion Santa Fe;Festivo;0;1;1
+AV. Eldorado - KR 45;2_7;Habil;0;1;1
+AV. Eldorado - KR 40;2_7;Sabado;1;1;2
+AV. Eldorado - KR 33A;2_7;Festivo;0;1;1
+AV. Eldorado - KR 28;13_9;Habil;0;1;3
+AV. Eldorado - KR 19B;13_9;Sabado;0;1;3
+KR 3 - CL 22;13_9;Festivo;1;0;2
+KR 3 - AC 19;1_4;Habil;1;0;1
+KR 5A - CL 30D Sur;1_4;Sabado;0;1;3
+AK 10 - CL 27 Sur;1_4;Festivo;0;0;1
+AK 10 - CL 17 Sur;16_10;Habil;0;0;1
+AK 10 - CL 11 Sur;16_10;Sabado;1;1;1
+AK 10 - CL 2 Sur;16_10;Festivo;0;1;3
+AK 10 - CL 1;1_5;Habil;0;0;2
+AK 10 - CL 6;1_5;Sabado;0;1;3
+AK 10 - CL 11;1_5;Festivo;1;0;3
+AK 10 - AC 19;4_3;Habil;0;0;3
+AK 10 - CL 23;4_3;Sabado;0;0;2
+KR 7 - CL 29;4_3;Festivo;1;0;2
+AV. Caracas - CL 65 Sur;4_2;Habil;1;1;3
+CL 50A Sur - KR 7;4_2;Sabado;0;1;2
+CL 51 Sur - KR 11;4_2;Festivo;1;0;2
+AK 15 - CL 51 SUR;4_1;Habil;1;1;2
+AV. Caracas - CL 46 Sur;4_1;Sabado;0;0;3
+AV. Caracas - CL 40 Sur;4_1;Festivo;0;0;3
+AV. Caracas - CL 33 Sur;3_11;Habil;1;0;2
+AV. Caracas - CL 27 Sur;3_11;Sabado;0;1;1
+AV. Caracas - CL 21 Sur;3_11;Festivo;1;1;1
+AV. Caracas - CL 17A Sur;3_10;Habil;1;0;1
+AV. Caracas - CL 10 Sur;3_10;Sabado;0;1;3
+AV. Caracas - CL 1 Bis Sur;3_10;Festivo;1;0;3
+AV. Caracas - CL 4;3_9;Habil;0;1;3
+Autopista Sur - KR 73;3_9;Sabado;0;0;3
+Autopista Sur - KR 72 Sur;3_9;Festivo;1;0;1
+Autopista Sur - KR 65;3_7;Habil;0;1;3
+Autopista Sur - KRA 61;3_7;Sabado;0;0;1
+Autopista Sur - KR 54A;3_6;Habil;0;1;3
+Autopista Sur - KR 52A;3_6;Sabado;0;0;2
+Autopista Sur - KR 50A Bis;3_6;Festivo;0;1;3
+Autopista Sur - CL 38 Sur;3_3;Habil;1;1;3
+Autopista Sur - CL 30 Sur;3_3;Sabado;0;0;2
+Autopista Sur - CL 17A Sur;3_3;Festivo;0;1;1
+AV. NQS - CL 1G;3_4;Habil;1;0;1
+AV. NQS - CL 5;3_4;Sabado;0;1;1
+AV. NQS - CL 10;3_4;Festivo;0;1;1
+AV. NQS - CL 18A;3_2;Habil;0;1;3
+AV. NQS - CL 22C;3_2;Sabado;1;1;3
+AV. NQS - CL 40A;3_2;Festivo;1;0;1
+AV. NQS - CL 47;3_1;Habil;1;1;3
+AV. NQS - CL 53 Bis;16_9;Habil;1;0;1
+AV. NQS - CL 63;16_9;Sabado;1;0;2
+AV. NQS - CL 63G;16_9;Festivo;1;0;2
+AV. NQS - CL 71;16_13;Habil;1;1;1
+AV. NQS - CL 75;16_13;Sabado;0;1;3
+AC 80 - KR 51;16_13;Festivo;0;1;2
+AC 80 - KR 27;16_8;Habil;1;1;2
+AV. Villavicencio - KR 86;16_8;Sabado;0;0;1
+AV. Ciudad de Cali - 40 SUR;16_8;Festivo;0;1;1
+AV. Ciudad de Cali - 33 SUR;9_11;Habil;0;1;2
+AV. Am‚rcias - KR 80C;9_11;Sabado;1;1;1
+AV. Am‚ricas - KR 78G;9_11;Festivo;1;1;1
+AV. Am‚ricas - KR 73;16_2;Habil;0;0;1
+AV. Am‚ricas - KR 71C;16_2;Sabado;0;0;2
+AV. Am‚ricas - KR 69C;16_2;Festivo;0;0;3
+AV. Am‚ricas - KR 63;13_6;Habil;1;1;1
+AV. Am‚ricas - KR 53;13_6;Sabado;0;0;2
+CL 13 - KR 47;13_6;Festivo;1;0;2
+CL 13 - KR 43;1_3;Habil;1;1;1
+CL 13 - KR 38;1_3;Sabado;0;0;3
+CL 13 - KR 32;1_3;Festivo;1;0;3
+CL 13 - KR 27;1_7;Habil;1;0;2
+CL 13 - KR 22;1_7;Sabado;0;0;1
+CL 13 - KR 16;1_7;Festivo;1;1;2
+CL 13 - KR 13;1_10;Habil;0;0;1
+AC 80 - KR 57;1_10;Sabado;0;0;2
+AC 80 - KR 64;1_10;Festivo;0;1;3
+AC 80 - KR 68G;5_4;Habil;0;0;2
+AC 80 - KR69T;5_4;Sabado;1;1;1
+AC 80 - KR 70F;5_4;Festivo;1;1;2
+AC 80 - KR 73A;5_3;Habil;1;1;1
+AC 80 - KR 77;5_3;Sabado;0;1;3
+AC 80 - KR 86;5_3;Festivo;0;0;2
+AC 80 - KR 90;1_2;Habil;1;1;2
+AC 80 - KR 94;1_2;Sabado;1;1;1
+AC 80 - KR 96;1_2;Festivo;0;1;1
+AV. SUBA - CL 86A;1_6;Habil;1;0;1
+AV SUBA - CL 90;1_6;Sabado;0;0;2
+AV. SUBA - CL 95;1_6;Festivo;0;1;3
+AV. SUBA - CL 100;1_8;Habil;1;0;1
+AV. SUBA - CL 106;5_2;Habil;0;0;1
+AV. SUBA - CL 116;5_2;Sabado;0;1;2
+AV. SUBA - CL 120;5_2;Festivo;0;1;1
+AV. SUBA - CL 127D;7_1;Habil;0;1;2
+AV. SUBA - AV. BOYACA;7_1;Sabado;1;0;3
+AV. SUBA - CL 132A;7_1;Festivo;1;1;3
+AV. SUBA - KR 83;12_1;Habil;1;0;3
+AV. SUBA - KR 91D;12_1;Sabado;0;1;2
+AV. SUBA - KR 99A;12_1;Festivo;0;1;2
+AV. Suba - AV. Ciudad de Cali;10_8;Habil;1;0;3
+AV. NQS - CL 86 ;10_8;Sabado;1;1;2
+AV. Boyac  - AV. Villavicencio ;10_6;Habil;0;0;1
+KR 4 - CL 30 Soacha ;10_6;Sabado;0;1;2
+KR 7 - CL 33 Soacha ;10_6;Festivo;1;1;2
+TV 7 - CL 47 Soacha ;10_5;Habil;1;1;3
+TV 7 - CL 55 Soacha ;10_5;Sabado;1;0;3
+Autopista Sur- 65A Sur;10_5;Festivo;1;0;2
+AC 13 - KR 7 ;10_2;Habil;0;0;3
+KR 19C - CL 56 Sur ;10_2;Sabado;0;0;3
+KR 19C - CL 51 Sur ;10_2;Festivo;0;1;3
+Autopista Norte - CL 192;10_1;Habil;1;0;3
+Autopista Norte - CL 187;10_1;Sabado;0;0;1
+Autopista Norte - CL 172A;1_9;Habil;0;1;2
+Autopista Norte - CL 165;1_9;Sabado;1;1;1
+Autopista Norte - CL 161;1_9;Festivo;1;1;2
+Autopista Norte - CL 151;2_11;Habil;1;1;1
+Autopista Norte - CL 147;2_8;Habil;1;0;3
+Autopista Norte - CL 143;2_10;Habil;0;1;1
+Autopista Norte - CL 134;2_10;Sabado;0;0;3
+Autopista Norte - CL 128B;2_10;Festivo;0;0;2
+Autopista Norte - CL 124;2_4;Habil;1;1;2
+Autopista Norte - CL 114A;2_4;Sabado;0;0;1
+Autopista Norte - CL 104A;2_4;Festivo;1;1;3
+Autopista Norte - CL 97;2_1;Habil;1;1;3
+Autopista Norte - CL 89;2_1;Sabado;1;0;3
+Autopista Norte - CL 83A;2_1;Festivo;1;0;3
+Autopista Norte - CL 81;2_5;Habil;1;0;3
+AV. Caracas - CL 76;2_5;Sabado;0;0;3
+AV. Caracas - CL 72;2_5;Festivo;1;0;1
+AV. Caracas - CL 69;2_2;Habil;1;1;3
+AV. Caracas - CL 63;2_2;Sabado;0;0;3
+AV. Caracas - CL 57;2_2;Festivo;0;1;1
+AV. Caracas - CL 51;9_3;Habil;0;1;2
+AV. Caracas - CL 45;9_3;Sabado;1;1;3
+AV. Caracas - CL 39;9_3;Festivo;1;1;2
+AV. Caracas - CL 33A;16_14;Habil;1;1;3
+AV. Caracas - CL 28;16_14;Sabado;0;0;3
+AV. Caracas - CL 22;16_14;Festivo;1;0;2
+AV. Caracas - CL 19;13_7;Habil;0;0;1
+AV. Caracas - CL 11;13_7;Sabado;1;1;3
+AV. Caracas - CL 6;13_7;Festivo;1;0;3
+AC 6 - KR 18;13_8;Habil;0;0;1
+AC 6 - KR 27;13_8;Sabado;0;0;3
+AV. Eldorado - KR 91;13_8;Festivo;0;0;3
+AV. Eldorado - KR 82;14_2;Habil;1;1;2
+AV. Eldorado - KR 74;14_2;Sabado;1;1;3
+AV. Eldorado - KR 69D;14_2;Festivo;1;1;2
+AV. Eldorado - KR 69;9_8;Habil;1;1;2
+AV. Eldorado - KR 66;9_8;Sabado;1;0;1
+AV. Eldorado - KR 59;9_8;Festivo;0;1;1
+AV. Eldorado - KR 54;8_4;Habil;1;1;2
+AV. Eldorado - KR 45;8_4;Sabado;1;0;3
+AV. Eldorado - KR 40;8_4;Festivo;1;0;2
+AV. Eldorado - KR 33A;13_10;Habil;0;1;1
+AV. Eldorado - KR 28;13_10;Sabado;0;1;2
+AV. Eldorado - KR 19B;13_10;Festivo;1;0;2
+KR 3 - CL 22;B56 HEROES;Habil;1;0;1
+KR 3 - AC 19;B52 P.NORTE;Habil;1;1;3
+KR 5A - CL 30D Sur;8_5;Habil;0;0;2
+AK 10 - CL 27 Sur;8_5;Sabado;0;0;2
+AK 10 - CL 17 Sur;8_5;Festivo;1;0;2
+AK 10 - CL 11 Sur;8_3;Habil;0;0;1
+AK 10 - CL 2 Sur;8_3;Sabado;0;1;1
+AK 10 - CL 1;8_3;Festivo;1;1;2
+AK 10 - CL 6;TC19;Habil;0;1;3
+AK 10 - CL 11;TC19;Sabado;0;0;2
+AK 10 - AC 19;TC19;Festivo;0;1;2
+AK 10 - CL 23;9_9;Habil;1;1;1
+KR 7 - CL 29;9_9;Sabado;1;0;3
+AV. Caracas - CL 65 Sur;9_9;Festivo;0;0;1
+CL 50A Sur - KR 7;9_6;Habil;0;0;1
+CL 51 Sur - KR 11;8_2;Habil;1;1;2
+AK 15 - CL 51 SUR;8_2;Sabado;1;1;3
+AV. Caracas - CL 46 Sur;8_2;Festivo;0;0;1
+AV. Caracas - CL 40 Sur;8_1;Habil;1;1;1
+AV. Caracas - CL 33 Sur;8_1;Sabado;1;0;1
+AV. Caracas - CL 27 Sur;8_1;Festivo;0;0;1
+AV. Caracas - CL 21 Sur;K10 P. ELDORADO;Habil;1;1;1
+AV. Caracas - CL 17A Sur;K10 P. ELDORADO;Sabado;1;0;1
+AV. Caracas - CL 10 Sur;K10 P. ELDORADO;Festivo;1;1;2
+AV. Caracas - CL 1 Bis Sur;L10 P. 20 DE JULIO;Habil;1;0;2
+AV. Caracas - CL 4;L10 P. 20 DE JULIO;Sabado;1;1;1
+Autopista Sur - KR 73;L10 P. 20 DE JULIO;Festivo;0;0;1
+Autopista Sur - KR 72 Sur;C73 P.SUBA;Habil;0;0;3
+Autopista Sur - KR 65;13_3;Habil;0;0;2
+Autopista Sur - KRA 61;13_3;Sabado;1;1;1
+Autopista Sur - KR 54A;13_3;Festivo;1;0;1
+Autopista Sur - KR 52A;16_4;Habil;1;0;2
+Autopista Sur - KR 50A Bis;16_4;Sabado;1;0;3
+Autopista Sur - CL 38 Sur;16_4;Festivo;0;1;2
+Autopista Sur - CL 30 Sur;16_1;Habil;1;1;1
+Autopista Sur - CL 17A Sur;16_1;Sabado;1;1;1
+AV. NQS - CL 1G;16_1;Festivo;0;1;3
+AV. NQS - CL 5;16_3;Habil;0;0;1
+AV. NQS - CL 10;16_3;Sabado;1;1;1
+AV. NQS - CL 18A;16_3;Festivo;1;0;1
+AV. NQS - CL 22C;16_7;Habil;1;0;2
+AV. NQS - CL 40A;16_7;Sabado;1;1;2
+AV. NQS - CL 47;16_7;Festivo;0;0;2
+AV. NQS - CL 53 Bis;M83 Museo Nacional;Habil;1;1;3
+AV. NQS - CL 63;M83 Museo Nacional;Sabado;1;1;1
+AV. NQS - CL 63G;M83 Museo Nacional;Festivo;1;1;1
+AV. NQS - CL 71;H83 Usme Porvenir II;Habil;1;0;1
+AV. NQS - CL 75;H83 Usme Porvenir II;Sabado;0;1;3
+AC 80 - KR 51;H83 Usme Porvenir II;Festivo;0;1;3
+AC 80 - KR 27;6 Portal 80;Habil;0;1;3
+AV. Villavicencio - KR 86;6 Portal 80;Festivo;1;0;2
+AV. Ciudad de Cali - 40 SUR;J70 Aguas;Habil;0;0;2
+AV. Ciudad de Cali - 33 SUR;H75 P.Usme;Habil;0;1;2
+AV. Am‚rcias - KR 80C;H75 P.Usme;Sabado;1;1;1
+AV. Am‚ricas - KR 78G;H75 P.Usme;Festivo;0;0;2
+AV. Am‚ricas - KR 73;H73 P. Tunal;Habil;0;0;2
+AV. Am‚ricas - KR 71C;B72  Toberin;Habil;0;1;3
+AV. Am‚ricas - KR 69C;B72  Toberin;Sabado;0;0;1
+AV. Am‚ricas - KR 63;H72 P. Usme;Habil;1;1;2
+AV. Am‚ricas - KR 53;H72 P. Usme;Sabado;0;1;1
+CL 13 - KR 47;J74 Aguas;Habil;1;1;1
+CL 13 - KR 43;J74 Aguas;Sabado;0;0;1
+CL 13 - KR 38;A74 Calle 72;Habil;1;1;3
+CL 13 - KR 32;F14 P. Americas;Habil;0;0;3
+CL 13 - KR 27;F14 P. Americas;Sabado;1;1;2
+CL 13 - KR 22;F14 P. Americas;Festivo;1;0;3
+CL 13 - KR 16;B14 P. Norte;Habil;0;1;1
+CL 13 - KR 13;B14 P. Norte;Sabado;1;1;1
+AC 80 - KR 57;B14 P. Norte;Festivo;0;0;3
+AC 80 - KR 64;F28 P. AMERICAS;Habil;0;1;1
+AC 80 - KR 68G;F28 P. AMERICAS;Sabado;1;1;3
+AC 80 - KR69T;D51 P. 80;Habil;0;1;3
+AC 80 - KR 70F;H21 Portal Tunal;Habil;1;0;2
+AC 80 - KR 73A;H21 Portal Tunal;Sabado;0;1;1
+AC 80 - KR 77;D21 Portal 80;Habil;1;1;1
+AC 80 - KR 86;D21 Portal 80;Sabado;1;1;1
+AC 80 - KR 90;D10 Portal 80;Habil;0;1;3
+AC 80 - KR 94;D10 Portal 80;Sabado;1;1;1
+AC 80 - KR 96;D10 Portal 80;Festivo;1;1;3
+AV. SUBA - CL 86A;B10 Portal Norte;Habil;0;0;3
+AV SUBA - CL 90;B10 Portal Norte;Sabado;0;1;2
+AV. SUBA - CL 95;B10 Portal Norte;Festivo;1;0;1
+AV. SUBA - CL 100;B55 HEROES;Habil;0;0;1
+AV. SUBA - CL 106;H20 PORTAL USME;Habil;1;0;1
+AV. SUBA - CL 116;H20 PORTAL USME;Sabado;1;1;3
+AV. SUBA - CL 120;D20 PORTAL 80;Habil;0;0;3
+AV. SUBA - CL 127D;D20 PORTAL 80;Sabado;0;1;3
+AV. SUBA - AV. BOYACA;B50 P. NORTE;Habil;0;0;1
+AV. SUBA - CL 132A;B23 ALCALA;Habil;0;1;3
+AV. SUBA - KR 83;B23 ALCALA;Sabado;0;0;2
+AV. SUBA - KR 91D;B13 P. Norte;Habil;0;0;2
+AV. SUBA - KR 99A;B13 P. Norte;Sabado;0;1;3
+AV. Suba - AV. Ciudad de Cali;8 Terminal;Habil;1;0;3
+AV. NQS - CL 86 ;8 Terminal;Sabado;0;0;1
+AV. Boyac  - AV. Villavicencio ;8 Terminal;Festivo;1;0;2
+KR 4 - CL 30 Soacha ;6_5;Habil;0;1;1
+KR 7 - CL 33 Soacha ;6_5;Sabado;0;1;3
+TV 7 - CL 47 Soacha ;G42 - San Mateo;Festivo;1;1;3
+TV 7 - CL 55 Soacha ;K42 - Corferias;Festivo;0;0;3
+Autopista Sur- 65A Sur;6 Universidades;Habil;0;1;1
+AC 13 - KR 7 ;6 Universidades;Sabado;0;0;1
+KR 19C - CL 56 Sur ;6 Universidades;Festivo;1;1;1
+KR 19C - CL 51 Sur ;H51 P. Usme;Habil;0;1;1
+Autopista Norte - CL 192;B75 P. Norte ;Habil;0;1;3
+Autopista Norte - CL 187;B75 P. Norte ;Sabado;0;1;3
+Autopista Norte - CL 172A;B75 P. Norte ;Festivo;1;1;3
+Autopista Norte - CL 165;D24 P.80;Habil;1;0;2
+Autopista Norte - CL 161;D24 P.80;Sabado;0;0;3
+Autopista Norte - CL 151;C29 PORTAL SUBA ;Habil;1;1;3
+Autopista Norte - CL 147;F29 PORTAL AMERICAS;Habil;0;0;1
+Autopista Norte - CL 143;L18 P. 20 de Julio;Habil;0;0;2
+Autopista Norte - CL 134;L18 P. 20 de Julio;Sabado;1;1;3
+Autopista Norte - CL 128B;B18 Terminal;Habil;0;1;1
+Autopista Norte - CL 124;B18 Terminal;Sabado;1;1;2
+Autopista Norte - CL 114A;D50 P. 80;Habil;0;0;1
+Autopista Norte - CL 104A;F62 Americas;Habil;0;1;3
+Autopista Norte - CL 97;8 Guatoque;Habil;1;0;3
+Autopista Norte - CL 89;8 Guatoque;Sabado;0;0;3
+Autopista Norte - CL 83A;8 Guatoque;Festivo;1;0;2
+Autopista Norte - CL 81;F19 Banderas;Habil;0;0;3
+AV. Caracas - CL 76;F19 Banderas;Sabado;0;1;1
+AV. Caracas - CL 72;F19 Banderas;Festivo;1;0;2
+AV. Caracas - CL 69;C19 P. Suba;Habil;0;1;3
+AV. Caracas - CL 63;C19 P. Suba;Sabado;1;0;3
+AV. Caracas - CL 57;C19 P. Suba;Festivo;1;1;3
+AV. Caracas - CL 51;H17 P. Usme;Habil;0;1;1
+AV. Caracas - CL 45;H17 P. Usme;Sabado;0;0;1
+AV. Caracas - CL 39;C17 P. Suba;Habil;1;0;1
+AV. Caracas - CL 33A;C17 P. Suba;Sabado;1;1;3
+AV. Caracas - CL 28;B74 P. Norte;Habil;1;0;1
+AV. Caracas - CL 22;B74 P. Norte;Sabado;0;1;2
+AV. Caracas - CL 19;H27 P. Tunal;Habil;1;0;3
+AV. Caracas - CL 11;B27 P. Norte;Habil;0;1;1
+AV. Caracas - CL 6;H13 P. Tunal;Habil;0;0;1
+AC 6 - KR 18;H13 P. Tunal;Sabado;1;0;3
+AC 6 - KR 27;G52 Portal Sur;Habil;1;0;1
+AV. Eldorado - KR 91;A52 Flores;Habil;1;0;2
+AV. Eldorado - KR 82;2_3;Habil;1;1;1
+AV. Eldorado - KR 74;2_3;Sabado;0;0;2
+AV. Eldorado - KR 69D;2_3;Festivo;0;0;1
+AV. Eldorado - KR 69;F32 P.AMERICAS;Habil;0;1;3
+AV. Eldorado - KR 66;E32 NQS-CL 75;Habil;0;0;1
+AV. Eldorado - KR 59;G43 - SAN MATEO;Habil;1;0;2
+AV. Eldorado - KR 54;G43 - SAN MATEO;Sabado;0;0;2
+AV. Eldorado - KR 45;K43 - P. ELDORADO;Habil;1;0;2
+AV. Eldorado - KR 40;K43 - P. ELDORADO;Sabado;1;1;1
+AV. Eldorado - KR 33A;C30 PORTAL SUBA;Habil;1;0;3
+AV. Eldorado - KR 28;C30 PORTAL SUBA;Sabado;0;1;1
+AV. Eldorado - KR 19B;G30 PORTAL SUR;Habil;0;0;2
+KR 3 - CL 22;G30 PORTAL SUR;Sabado;0;1;1
+KR 3 - AC 19;E44 - SIMON BOLIVAR;Habil;0;1;3
+KR 5A - CL 30D Sur;E44 - SIMON BOLIVAR;Sabado;1;1;1
+AK 10 - CL 27 Sur;B28 P. NORTE;Habil;0;0;1
+AK 10 - CL 17 Sur;B28 P. NORTE;Sabado;1;0;1
+AK 10 - CL 11 Sur;G12 P. SUR;Habil;0;0;2
+AK 10 - CL 2 Sur;G12 P. SUR;Sabado;1;0;2
+AK 10 - CL 1;G12 P. SUR;Festivo;1;0;1
+AK 10 - CL 6;B12 P.NORTE;Habil;0;0;3
+AK 10 - CL 11;B12 P.NORTE;Sabado;0;0;2
+AK 10 - AC 19;B12 P.NORTE;Festivo;1;1;2
+AK 10 - CL 23;4 - Portal Sur;Habil;0;0;1
+KR 7 - CL 29;4 - Portal Sur;Sabado;1;1;2
+AV. Caracas - CL 65 Sur;4 - Portal Sur;Festivo;1;0;1
+CL 50A Sur - KR 7;4 - Heroes;Habil;1;1;3
+CL 51 Sur - KR 11;4 - Heroes;Sabado;0;1;3
+AK 15 - CL 51 SUR;4 - Heroes;Festivo;1;1;2
+AV. Caracas - CL 46 Sur;7 Portal Suba;Habil;0;0;3
+AV. Caracas - CL 40 Sur;7 Portal Suba;Sabado;0;1;3
+AV. Caracas - CL 33 Sur;7 Portal Suba;Festivo;1;0;3
+AV. Caracas - CL 27 Sur;7 Ricaurte;Habil;1;0;1
+AV. Caracas - CL 21 Sur;7 Ricaurte;Sabado;1;0;3
+AV. Caracas - CL 17A Sur;7 Ricaurte;Festivo;0;0;2
+AV. Caracas - CL 10 Sur;K16 P. ELDORADO;Habil;1;0;3
+AV. Caracas - CL 1 Bis Sur;B16 TERMINAL;Habil;0;1;3
+AV. Caracas - CL 4;G11 P. Sur;Habil;0;0;1
+Autopista Sur - KR 73;G11 P. Sur;Sabado;0;1;2
+Autopista Sur - KR 72 Sur;B11 Terminal;Habil;1;1;3
+Autopista Sur - KR 65;B11 Terminal;Sabado;0;0;3
+Autopista Sur - KRA 61;G22 PORTAL 80 BI;Habil;1;0;3
+Autopista Sur - KR 54A;G22 PORTAL 80 BI;Sabado;0;0;1
+Autopista Sur - KR 52A;G22 PORTAL 80 BI;Festivo;0;1;1
+Autopista Sur - KR 50A Bis;D22 PORTAL 80 BI;Habil;1;0;1
+Autopista Sur - CL 38 Sur;D22 PORTAL 80 BI;Sabado;0;1;2
+Autopista Sur - CL 30 Sur;D22 PORTAL 80 BI;Festivo;0;1;3
+Autopista Sur - CL 17A Sur;5_1;Habil;0;1;2
+AV. NQS - CL 1G;5_1;Sabado;1;1;3
+AV. NQS - CL 5;5_1;Festivo;1;0;1
+AV. NQS - CL 10;16_5;Habil;0;1;3
+AV. NQS - CL 18A;16_5;Sabado;0;1;1
+AV. NQS - CL 22C;16_5;Festivo;1;0;3
+AV. NQS - CL 40A;11_10;Habil;1;1;3
+AV. NQS - CL 47;11_10;Sabado;0;1;1
+AV. NQS - CL 53 Bis;11_10;Festivo;0;1;2
+AV. NQS - CL 63;11_9;Habil;0;1;1
+AV. NQS - CL 63G;11_9;Sabado;1;0;1
+AV. NQS - CL 71;11_9;Festivo;0;0;2
+AV. NQS - CL 75;11_8;Habil;0;1;2
+AC 80 - KR 51;11_8;Sabado;1;1;3
+AC 80 - KR 27;11_7;Habil;1;0;2
+AV. Villavicencio - KR 86;11_7;Sabado;1;0;2
+AV. Ciudad de Cali - 40 SUR;11_7;Festivo;1;0;2
+AV. Ciudad de Cali - 33 SUR;11_6;Habil;0;0;2
+AV. Am‚rcias - KR 80C;11_6;Sabado;1;1;1
+AV. Am‚ricas - KR 78G;11_6;Festivo;0;1;3
+AV. Am‚ricas - KR 73;11_5;Habil;0;1;1
+AV. Am‚ricas - KR 71C;11_5;Sabado;0;1;1
+AV. Am‚ricas - KR 69C;11_5;Festivo;1;0;2
+AV. Am‚ricas - KR 63;11_4;Habil;1;0;1
+AV. Am‚ricas - KR 53;11_4;Sabado;1;1;3
+CL 13 - KR 47;11_4;Festivo;1;0;3
+CL 13 - KR 43;11_3;Habil;1;1;1
+CL 13 - KR 38;11_3;Sabado;1;0;2
+CL 13 - KR 32;11_3;Festivo;0;0;3
+CL 13 - KR 27;11_2;Habil;0;1;2
+CL 13 - KR 22;11_2;Sabado;0;1;3
+CL 13 - KR 16;11_1;Habil;0;0;1
+CL 13 - KR 13;L82 Portal 20 de Julio;Habil;0;0;1
+AC 80 - KR 57;M82 Clinica el Bosque;Habil;0;0;1
+AC 80 - KR 64;L82 Portal 20 de Julio;Sabado;1;0;2
+AC 80 - KR 68G;M82 Clinica el Bosque;Sabado;1;0;1
+AC 80 - KR69T;L82 Portal 20 de Julio;Festivo;1;0;3
+AC 80 - KR 70F;M82 Clinica el Bosque;Habil;1;1;2
+AC 80 - KR 73A;1_1;Habil;1;1;3
+AC 80 - KR 77;1_1;Sabado;1;1;2
+AC 80 - KR 86;1_1;Festivo;0;1;2
+AC 80 - KR 90;J73 UNIVERSIDADES;Habil;1;1;3
+AC 80 - KR 94;H15 PORTAL TUNAL;Habil;0;0;2
+AC 80 - KR 96;H15 PORTAL TUNAL;Sabado;1;0;3
+AV. SUBA - CL 86A;H15 PORTAL TUNAL;Festivo;1;0;1
+AV SUBA - CL 90;J24 UNIVERSIDADES;Habil;0;0;3
+AV. SUBA - CL 95;J24 UNIVERSIDADES;Sabado;0;1;1
+AV. SUBA - CL 100;5 P. Americas;Habil;0;0;2
+AV. SUBA - CL 106;5 P. Americas;Sabado;1;0;2
+AV. SUBA - CL 116;5 P. Americas;Festivo;0;1;2
+AV. SUBA - CL 120;5 Calle 22;Habil;0;0;1
+AV. SUBA - CL 127D;5 Calle 22;Sabado;1;0;1
+AV. SUBA - AV. BOYACA;5 Calle 22;Festivo;0;0;1
+AV. SUBA - CL 132A;3 Portal Usme;Habil;0;1;1
+AV. SUBA - KR 83;3 Portal Usme;Sabado;1;0;2
+AV. SUBA - KR 91D;3 Portal Usme;Festivo;1;1;1
+AV. SUBA - KR 99A;3 Plaza de la Democracia;Habil;0;1;3
+AV. Suba - AV. Ciudad de Cali;3 Plaza de la Democracia;Sabado;0;1;1
+AV. NQS - CL 86 ;3 Plaza de la Democracia;Festivo;1;0;2
+AV. Boyac  - AV. Villavicencio ;2 P. 20 de Julio;Habil;0;0;2
+KR 4 - CL 30 Soacha ;2 P. 20 de Julio;Sabado;1;1;3
+KR 7 - CL 33 Soacha ;2 P. 20 de Julio;Festivo;1;1;3
+TV 7 - CL 47 Soacha ;2 Museo Nacional;Habil;0;0;1
+TV 7 - CL 55 Soacha ;2 Museo Nacional;Sabado;0;0;1
+Autopista Sur- 65A Sur;2 Museo Nacional;Festivo;1;0;2
+AC 13 - KR 7 ;1 P. Eldorado;Habil;1;1;1
+KR 19C - CL 56 Sur ;1 P. Eldorado;Sabado;0;0;3
+KR 19C - CL 51 Sur ;1 P. Eldorado;Festivo;0;0;3
+Autopista Norte - CL 192;1 Universidades;Habil;0;0;3
+Autopista Norte - CL 187;1 Universidades;Sabado;1;1;3
+Autopista Norte - CL 172A;1 Universidades;Festivo;0;0;3
+Autopista Norte - CL 165;G45 PORTAL SUR;Habil;1;1;3
+Autopista Norte - CL 161;G45 PORTAL SUR;Sabado;0;1;3
+Autopista Norte - CL 151;G45 SAN MATEO;Habil;0;1;2
+Autopista Norte - CL 147;G45 SAN MATEO;Sabado;1;1;3
+Autopista Norte - CL 143;G47 P. SUR;Habil;0;1;3
+Autopista Norte - CL 134;G47 P. SUR;Sabado;0;1;3
+Autopista Norte - CL 128B;G47 P. SUR;Festivo;0;0;1
+Autopista Norte - CL 124;M47 M. NACIONAL;Habil;1;0;2
+Autopista Norte - CL 114A;M47 M. NACIONAL;Sabado;0;0;1
+Autopista Norte - CL 104A;M47 M. NACIONAL;Festivo;1;1;1
+Autopista Norte - CL 97;F23 Americas;Habil;0;0;1
+Autopista Norte - CL 89;F23 Americas;Sabado;0;1;1
+Autopista Norte - CL 83A;J23 Aguas;Habil;0;1;3
+Autopista Norte - CL 81;J23 Aguas;Sabado;0;1;1
+AV. Caracas - CL 76;16_6;Habil;0;0;2
+AV. Caracas - CL 72;16_6;Sabado;1;0;1
+AV. Caracas - CL 69;16_6;Festivo;0;0;2
+AV. Caracas - CL 63;8_6;Habil;0;0;2
+AV. Caracas - CL 57;8_6;Sabado;1;1;3
+AV. Caracas - CL 51;8_6;Festivo;1;1;1
+AV. Caracas - CL 45;M51 MUSEO NACIONAL;Habil;0;0;2
+AV. Caracas - CL 39;M51 MUSEO NACIONAL;Sabado;1;1;2
+AV. Caracas - CL 33A;B71 P.NORTE;Habil;1;0;3
+AV. Caracas - CL 28;B71 P.NORTE;Sabado;1;0;2
+AV. Caracas - CL 22;3_8;Habil;1;0;2
+AV. Caracas - CL 19;3_8;Sabado;1;1;2
+AV. Caracas - CL 11;3_8;Festivo;0;1;2
+AV. Caracas - CL 6;7_3;Habil;1;1;2
+AC 6 - KR 18;7_3;Sabado;0;1;2
+AC 6 - KR 27;7_3;Festivo;1;0;2
+AV. Eldorado - KR 91;10_4;Habil;0;1;2
+AV. Eldorado - KR 82;10_4;Sabado;1;1;2
+AV. Eldorado - KR 74;10_4;Festivo;1;1;3
+AV. Eldorado - KR 69D;10_3;Habil;0;0;2
+AV. Eldorado - KR 69;10_3;Sabado;0;0;2
+AV. Eldorado - KR 66;10_3;Festivo;0;1;3
+AV. Eldorado - KR 59;M84 Museo Nacional;Habil;1;0;3
+AV. Eldorado - KR 54;M84 Museo Nacional;Sabado;0;0;3
+AV. Eldorado - KR 45;M84 Museo Nacional;Festivo;1;1;2
+AV. Eldorado - KR 40;C84 ETB Tibabuyes;Habil;0;1;2
+AV. Eldorado - KR 33A;C84 ETB Tibabuyes;Sabado;0;0;1
+AV. Eldorado - KR 28;C84 ETB Tibabuyes;Festivo;0;1;1
+AV. Eldorado - KR 19B;13_12;Habil;0;1;1
+KR 3 - CL 22;13_12;Sabado;0;0;2
+KR 3 - AC 19;13_12;Festivo;1;0;3
+KR 5A - CL 30D Sur;G44 - SAN MATEO;Habil;1;1;2
+AK 10 - CL 27 Sur;G44 - SAN MATEO;Sabado;0;0;3
+AK 10 - CL 17 Sur;9_7;Habil;0;0;3
+AK 10 - CL 11 Sur;9_7;Sabado;1;0;2
+AK 10 - CL 2 Sur;9_7;Festivo;0;0;2
+AK 10 - CL 1;9_10;Habil;0;0;3
+AK 10 - CL 6;9_10;Sabado;1;0;3
+AK 10 - CL 11;9_10;Festivo;0;1;1
+AK 10 - AC 19;9_1;Habil;1;0;2
+AK 10 - CL 23;9_1;Sabado;0;0;3
+KR 7 - CL 29;9_1;Festivo;0;0;1
+AV. Caracas - CL 65 Sur;M81 Museo Nacional;Habil;1;1;3
+CL 50A Sur - KR 7;M81 Museo Nacional;Sabado;0;0;1
+CL 51 Sur - KR 11;M81 Museo Nacional;Festivo;1;0;2
+AK 15 - CL 51 SUR;D81 Puente de Guadua;Habil;0;0;3
+AV. Caracas - CL 46 Sur;D81 Puente de Guadua;Sabado;0;1;2
+AV. Caracas - CL 40 Sur;D81 Puente de Guadua;Festivo;0;1;3
+AV. Caracas - CL 33 Sur;6_8;Habil;1;1;2
+AV. Caracas - CL 27 Sur;6_8;Sabado;0;0;1
+AV. Caracas - CL 21 Sur;6_12;Habil;1;1;2
+AV. Caracas - CL 17A Sur;6_12;Sabado;0;1;1
+AV. Caracas - CL 10 Sur;6_12;Festivo;1;0;1
+AV. Caracas - CL 1 Bis Sur;6_6;Habil;0;1;2
+AV. Caracas - CL 4;6_5;Habil;1;0;1
+Autopista Sur - KR 73;6_5;Sabado;0;0;1
+Autopista Sur - KR 72 Sur;6_5;Festivo;0;1;3
+Autopista Sur - KR 65;9_5;Habil;0;0;2
+Autopista Sur - KRA 61;9_5;Sabado;0;0;2
+Autopista Sur - KR 54A;9_4;Habil;0;1;1
+Autopista Sur - KR 52A;9_4;Sabado;1;0;1
+Autopista Sur - KR 50A Bis;9_4;Festivo;1;1;1
+Autopista Sur - CL 38 Sur;9_2;Habil;1;0;2
+Autopista Sur - CL 30 Sur;9_2;Sabado;1;1;2
+Autopista Sur - CL 17A Sur;9_2;Festivo;1;0;3
+AV. NQS - CL 1G;6_1;Habil;0;1;2
+AV. NQS - CL 5;6_1;Sabado;1;1;3
+AV. NQS - CL 10;6_1;Festivo;1;0;3
+AV. NQS - CL 18A;6_2;Habil;0;0;1
+AV. NQS - CL 22C;6_2;Sabado;1;0;3
+AV. NQS - CL 40A;6_2;Festivo;0;0;1
+AV. NQS - CL 47;7_2;Habil;1;1;2
+AV. NQS - CL 53 Bis;7_2;Sabado;0;1;2
+AV. NQS - CL 63;7_2;Festivo;1;1;2
+AV. NQS - CL 63G;6_9;Habil;1;1;3
+AV. NQS - CL 71;6_9;Sabado;0;1;2
+AV. NQS - CL 75;6_9;Festivo;1;0;3
+AC 80 - KR 51;6_4;Habil;1;0;3
+AC 80 - KR 27;6_4;Sabado;0;1;2
+AV. Villavicencio - KR 86;6_4;Festivo;0;0;2
+AV. Ciudad de Cali - 40 SUR;6_3;Habil;1;1;1
+AV. Ciudad de Cali - 33 SUR;6_3;Sabado;0;1;3
+AV. Am‚rcias - KR 80C;6_3;Festivo;0;1;3
+AV. Am‚ricas - KR 78G;6_7;Habil;1;0;3
+AV. Am‚ricas - KR 73;6_7;Sabado;1;0;2
+AV. Am‚ricas - KR 71C;6_7;Festivo;0;1;1
+AV. Am‚ricas - KR 69C;C15 PORTAL SUBA;Habil;0;1;3
+AV. Am‚ricas - KR 63;C15 PORTAL SUBA;Sabado;0;0;3
+AV. Am‚ricas - KR 53;C15 PORTAL SUBA;Festivo;1;1;3
+CL 13 - KR 47;C50 P.SUBA;Habil;0;0;1
+CL 13 - KR 43;K23 P.ELDORADO;Habil;1;0;1
+CL 13 - KR 38;K23 P.ELDORADO;Sabado;1;0;1
+CL 13 - KR 32;F51 P. AMERICAS;Habil;1;1;3
+CL 13 - KR 27;F51 P. AMERICAS;Sabado;1;1;2
+CL 13 - KR 22;3_5;Habil;0;1;1
+CL 13 - KR 16;3_5;Sabado;0;0;1
+CL 13 - KR 13;3_5;Festivo;0;0;3
+AC 80 - KR 57;3_13;Habil;1;0;1
+AC 80 - KR 64;3_13;Sabado;0;0;3
+AC 80 - KR 68G;3_13;Festivo;1;0;1
+AC 80 - KR69T;K54 P. ELDORADO BIART;Habil;0;0;3
+AC 80 - KR 70F;K54 P. ELDORADO BIART;Sabado;0;1;2
+AC 80 - KR 73A;H54 P. USME BIART;Habil;0;1;2
+AC 80 - KR 77;H54 P. USME BIART;Sabado;0;0;1
+AC 80 - KR 86;K86 Aeropuerto Eldorado;Habil;0;1;1
+AC 80 - KR 90;M86 Fundacion Santa Fe;Habil;1;1;3
+AC 80 - KR 94;K86 Aeropuerto Eldorado;Sabado;0;0;2
+AC 80 - KR 96;M86 Fundacion Santa Fe;Sabado;1;1;1
+AV. SUBA - CL 86A;K86 Aeropuerto Eldorado;Festivo;0;0;2
+AV SUBA - CL 90;M86 Fundacion Santa Fe;Festivo;0;1;2
+AV. SUBA - CL 95;2_7;Habil;0;1;2
+AV. SUBA - CL 100;2_7;Sabado;1;1;3
+AV. SUBA - CL 106;2_7;Festivo;1;1;2
+AV. SUBA - CL 116;13_9;Habil;1;1;3
+AV. SUBA - CL 120;13_9;Sabado;1;1;1
+AV. SUBA - CL 127D;13_9;Festivo;1;0;2
+AV. SUBA - AV. BOYACA;1_4;Habil;1;0;2
+AV. SUBA - CL 132A;1_4;Sabado;1;0;3
+AV. SUBA - KR 83;1_4;Festivo;1;0;3
+AV. SUBA - KR 91D;16_10;Habil;1;0;3
+AV. SUBA - KR 99A;16_10;Sabado;0;0;2
+AV. Suba - AV. Ciudad de Cali;16_10;Festivo;1;1;2
+AV. NQS - CL 86 ;1_5;Habil;0;1;2
+AV. Boyac  - AV. Villavicencio ;1_5;Sabado;1;1;1
+KR 4 - CL 30 Soacha ;1_5;Festivo;1;0;3
+KR 7 - CL 33 Soacha ;4_3;Habil;0;0;1
+TV 7 - CL 47 Soacha ;4_3;Sabado;1;1;3
+TV 7 - CL 55 Soacha ;4_3;Festivo;0;1;1
+Autopista Sur- 65A Sur;4_2;Habil;0;0;3
+AC 13 - KR 7 ;4_2;Sabado;0;1;3
+KR 19C - CL 56 Sur ;4_2;Festivo;0;1;1
+KR 19C - CL 51 Sur ;4_1;Habil;0;0;1
+Autopista Norte - CL 192;4_1;Sabado;0;1;3
+Autopista Norte - CL 187;4_1;Festivo;0;0;1
+Autopista Norte - CL 172A;3_11;Habil;0;0;2
+Autopista Norte - CL 165;3_11;Sabado;1;1;2
+Autopista Norte - CL 161;3_11;Festivo;1;0;3
+Autopista Norte - CL 151;3_10;Habil;0;1;2
+Autopista Norte - CL 147;3_10;Sabado;1;0;1
+Autopista Norte - CL 143;3_10;Festivo;1;1;2
+Autopista Norte - CL 134;3_9;Habil;0;0;3
+Autopista Norte - CL 128B;3_9;Sabado;0;1;3
+Autopista Norte - CL 124;3_9;Festivo;0;0;3
+Autopista Norte - CL 114A;3_7;Habil;0;0;1
+Autopista Norte - CL 104A;3_7;Sabado;1;0;3
+Autopista Norte - CL 97;3_6;Habil;1;1;3
+Autopista Norte - CL 89;3_6;Sabado;1;0;3
+Autopista Norte - CL 83A;3_6;Festivo;0;1;3
+Autopista Norte - CL 81;3_3;Habil;0;1;1
+AV. Caracas - CL 76;3_3;Sabado;1;0;1
+AV. Caracas - CL 72;3_3;Festivo;0;0;2
+AV. Caracas - CL 69;3_4;Habil;1;1;1
+AV. Caracas - CL 63;3_4;Sabado;0;0;2
+AV. Caracas - CL 57;3_4;Festivo;1;0;1
+AV. Caracas - CL 51;3_2;Habil;0;0;1
+AV. Caracas - CL 45;3_2;Sabado;0;0;3
+AV. Caracas - CL 39;3_2;Festivo;1;1;2
+AV. Caracas - CL 33A;3_1;Habil;0;0;3
+AV. Caracas - CL 28;16_9;Habil;0;1;2
+AV. Caracas - CL 22;16_9;Sabado;1;0;3
+AV. Caracas - CL 19;16_9;Festivo;1;0;2
+AV. Caracas - CL 11;16_13;Habil;0;0;3
+AV. Caracas - CL 6;16_13;Sabado;1;1;3
+AC 6 - KR 18;16_13;Festivo;1;0;3
+AC 6 - KR 27;16_8;Habil;0;0;2
+AV. Eldorado - KR 91;16_8;Sabado;1;1;2
+AV. Eldorado - KR 82;16_8;Festivo;1;1;2
+AV. Eldorado - KR 74;9_11;Habil;1;1;2
+AV. Eldorado - KR 69D;9_11;Sabado;1;0;1
+AV. Eldorado - KR 69;9_11;Festivo;0;0;1
+AV. Eldorado - KR 66;16_2;Habil;1;0;2
+AV. Eldorado - KR 59;16_2;Sabado;0;1;2
+AV. Eldorado - KR 54;16_2;Festivo;1;1;1
+AV. Eldorado - KR 45;13_6;Habil;0;0;3
+AV. Eldorado - KR 40;13_6;Sabado;1;1;3
+AV. Eldorado - KR 33A;13_6;Festivo;1;1;3
+AV. Eldorado - KR 28;1_3;Habil;0;0;2
+AV. Eldorado - KR 19B;1_3;Sabado;1;1;2
+KR 3 - CL 22;1_3;Festivo;0;1;2
+KR 3 - AC 19;1_7;Habil;0;1;2
+KR 5A - CL 30D Sur;1_7;Sabado;1;1;2
+AK 10 - CL 27 Sur;1_7;Festivo;1;1;2
+AK 10 - CL 17 Sur;1_10;Habil;0;1;1
+AK 10 - CL 11 Sur;1_10;Sabado;1;1;1
+AK 10 - CL 2 Sur;1_10;Festivo;0;1;3
+AK 10 - CL 1;5_4;Habil;0;0;3
+AK 10 - CL 6;5_4;Sabado;0;1;2
+AK 10 - CL 11;5_4;Festivo;0;0;3
+AK 10 - AC 19;5_3;Habil;1;0;2
+AK 10 - CL 23;5_3;Sabado;1;1;2
+KR 7 - CL 29;5_3;Festivo;0;1;3
+AV. Caracas - CL 65 Sur;1_2;Habil;0;1;3
+CL 50A Sur - KR 7;1_2;Sabado;1;1;2
+CL 51 Sur - KR 11;1_2;Festivo;0;1;1
+AK 15 - CL 51 SUR;1_6;Habil;0;0;3
+AV. Caracas - CL 46 Sur;1_6;Sabado;1;0;2
+AV. Caracas - CL 40 Sur;1_6;Festivo;0;1;3
+AV. Caracas - CL 33 Sur;1_8;Habil;0;0;1
+AV. Caracas - CL 27 Sur;5_2;Habil;1;0;2
+AV. Caracas - CL 21 Sur;5_2;Sabado;1;0;1
+AV. Caracas - CL 17A Sur;5_2;Festivo;0;1;2
+AV. Caracas - CL 10 Sur;7_1;Habil;0;0;1
+AV. Caracas - CL 1 Bis Sur;7_1;Sabado;0;0;1
+AV. Caracas - CL 4;7_1;Festivo;1;1;1
+Autopista Sur - KR 73;12_1;Habil;0;0;2
+Autopista Sur - KR 72 Sur;12_1;Sabado;1;0;3
+Autopista Sur - KR 65;12_1;Festivo;0;1;3
+Autopista Sur - KRA 61;10_8;Habil;1;1;1
+Autopista Sur - KR 54A;10_8;Sabado;0;1;3
+Autopista Sur - KR 52A;10_6;Habil;0;0;1
+Autopista Sur - KR 50A Bis;10_6;Sabado;0;1;1
+Autopista Sur - CL 38 Sur;10_6;Festivo;1;1;3
+Autopista Sur - CL 30 Sur;10_5;Habil;1;1;2
+Autopista Sur - CL 17A Sur;10_5;Sabado;1;0;2
+AV. NQS - CL 1G;10_5;Festivo;1;0;3
+AV. NQS - CL 5;10_2;Habil;0;1;2
+AV. NQS - CL 10;10_2;Sabado;1;0;2
+AV. NQS - CL 18A;10_2;Festivo;0;0;1
+AV. NQS - CL 22C;10_1;Habil;0;1;2
+AV. NQS - CL 40A;10_1;Sabado;1;1;2
+AV. NQS - CL 47;1_9;Habil;1;0;1
+AV. NQS - CL 53 Bis;1_9;Sabado;0;0;1
+AV. NQS - CL 63;1_9;Festivo;1;0;1
+AV. NQS - CL 63G;2_11;Habil;1;1;3
+AV. NQS - CL 71;2_8;Habil;0;0;3
+AV. NQS - CL 75;2_10;Habil;1;0;2
+AC 80 - KR 51;2_10;Sabado;1;1;3
+AC 80 - KR 27;2_10;Festivo;1;0;2
+AV. Villavicencio - KR 86;2_4;Habil;0;1;2
+AV. Ciudad de Cali - 40 SUR;2_4;Sabado;1;1;1
+AV. Ciudad de Cali - 33 SUR;2_4;Festivo;0;0;3
+AV. Am‚rcias - KR 80C;2_1;Habil;1;0;2
+AV. Am‚ricas - KR 78G;2_1;Sabado;0;0;2
+AV. Am‚ricas - KR 73;2_1;Festivo;1;0;3
+AV. Am‚ricas - KR 71C;2_5;Habil;0;0;1
+AV. Am‚ricas - KR 69C;2_5;Sabado;0;0;2
+AV. Am‚ricas - KR 63;2_5;Festivo;1;1;2
+AV. Am‚ricas - KR 53;2_2;Habil;1;0;3
