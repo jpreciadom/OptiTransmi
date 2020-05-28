@@ -5,6 +5,8 @@
  */
 package Information;
 
+import Base.BasePackage;
+
 /**
  *
  * @author Juan Diego
@@ -14,8 +16,7 @@ public class Test extends BasePackage{
     private String message;
     
     public Test(int p, String message){
-        super();
-        priority = p;
+        super(p, -1);
         this.message = message;
     }
     

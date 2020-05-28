@@ -1,5 +1,6 @@
 package optitransmi_client;
 
+import Login.*;
 import Information.*;
 import java.io.File;
 import java.io.FileWriter;
@@ -53,7 +54,8 @@ public class Client {
             contrasenna = lector.next();
             System.out.print("Nombre: ");
             nombre = lector.next();
-            singleton.AddInToWriteQueue(new SingUp(correo, contrasenna, nombre, 1));
+            int id = singleton.getCurrentIdRequest();
+            singleton.AddInToWriteQueue(new SingUp(id, correo, contrasenna, nombre, 1));
             singleton.getClient().send();
             singleton.getClient().read();
             System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
@@ -71,7 +73,8 @@ public class Client {
             correo = lector.next();
             System.out.print("Contraseña: ");
             contrasenna = lector.next();
-            singleton.AddInToWriteQueue(new SingIn(correo, contrasenna));
+            int id = singleton.getCurrentIdRequest();
+            singleton.AddInToWriteQueue(new SingIn(id, correo, contrasenna));
             singleton.getClient().send();
             singleton.getClient().read();
             System.out.println("Desea guardar el usuario en el dispositivo: (S/N)");
@@ -84,6 +87,8 @@ public class Client {
         }
     }
     
+    public static void BuscarRutas(){
+    }
     
     public static void main(String[] args) {
         System.out.println("Prueba de conexion");
@@ -100,6 +105,7 @@ public class Client {
             System.out.println("Opciones:");
             System.out.println("1. Iniciar sesion.");
             System.out.println("2. Registrarse.");
+            System.out.println("3. Buscar rutas.");
             System.out.println("0. Terminar prueba");
             System.out.println("");
             
@@ -112,13 +118,16 @@ public class Client {
             
             switch(option){
                 case 0:
-                    //terminarPrueba();
+                    terminarPrueba();
                     break;
                 case 1:
                     singIn();
                     break;
                 case 2:
                     singUp();
+                    break;
+                case 3:
+                    BuscarRutas();
                     break;
                 default:
                     System.out.println("La opcion ingresada no es valida");

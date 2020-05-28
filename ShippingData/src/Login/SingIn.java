@@ -3,25 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Information;
+package Login;
+
+import Base.BasePackage;
 
 /**
  *
  * @author Juan Diego
  */
-public class SingUp extends BasePackage {
+public class SingIn extends BasePackage {
+    
     private final String mail;
     private final String password;
-    private final String name;
-    private final int userType;
 
-    public SingUp(String mail, String password, String name, int userType) {
-        super();
-        this.priority = 1;
+    public SingIn(int idRequest, String mail, String password) {
+        super(1, idRequest);
         this.mail = mail;
         this.password = password;
-        this.name = name;
-        this.userType = userType;
     }
 
     public String getMail() {
@@ -30,13 +28,5 @@ public class SingUp extends BasePackage {
 
     public String getPassword() {
         return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getUserType() {
-        return userType;
     }
 }

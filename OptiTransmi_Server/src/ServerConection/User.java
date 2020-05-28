@@ -10,7 +10,9 @@ import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.util.PriorityQueue;
+import Base.BasePackage;
 import Information.*;
+import Login.*;
 import java.sql.ResultSet;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
@@ -192,12 +194,13 @@ public class User extends Thread {
             } 
             
             Singleton singleton = Singleton.getSingleton();
+            int idRequest = readedObject.getIdRequest();
             
             if(readedObject instanceof SingIn) {
                 SingIn singIn = (SingIn)readedObject;
                 
                 if(Singleton.getSingleton().getActiveUsers().exist(singIn.getMail())){
-                    AddInToWriteQueue(new Answer(false, "Ya tiene una sesión activa"));
+                    AddInToWriteQueue(new Answer(idRequest, false, "Ya tiene una sesión activa"));
                 } else {
                     String query = "select ValidateLogin('"
                             + singIn.getMail() + "', '"
@@ -211,11 +214,11 @@ public class User extends Thread {
                         }
                         Answer answer;
                         if(userExist){
-                            answer = new Answer(true, "Ingreso exitoso");
+                            answer = new Answer(idRequest, true, "Ingreso exitoso");
                             Singleton.getSingleton().getActiveUsers().update(this.userName, singIn.getMail());
                             this.userName = singIn.getMail();
                         } else {
-                            answer = new Answer(false, "Datos de inicio de sesión no válidos");
+                            answer = new Answer(idRequest, false, "Datos de inicio de sesión no válidos");
                         }
                         AddInToWriteQueue(answer);
                     } catch(Exception e){
@@ -246,9 +249,9 @@ public class User extends Thread {
                             + singUp.getName() + "', "
                             + singUp.getUserType() + ")";
                     singleton.getConexion().executeSQL(SQL);
-                    AddInToWriteQueue(new Answer(true));
+                    AddInToWriteQueue(new Answer(idRequest, true));
                 } else {
-                    AddInToWriteQueue(new Answer(false, "El correo ya esta en uso"));
+                    AddInToWriteQueue(new Answer(idRequest, false, "El correo ya esta en uso"));
                 }
             } else {
                 System.out.println(readedObject.getPriority());

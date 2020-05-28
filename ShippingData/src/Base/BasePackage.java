@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Information;
+package Base;
 
 import java.io.Serializable;
 
@@ -13,14 +13,21 @@ import java.io.Serializable;
  */
 public abstract class BasePackage implements Serializable, Comparable<BasePackage> {
     
-    protected int priority;
+    protected final int priority;
+    protected int idRequest;
     
-    public BasePackage(){
+    public BasePackage(int priority, int idRequest){
         super();
+        this.priority = priority;
+        this.idRequest = idRequest;
     }
     
     public int getPriority(){
         return priority;
+    }
+    
+    public int getIdRequest(){
+        return idRequest;
     }
 
     @Override

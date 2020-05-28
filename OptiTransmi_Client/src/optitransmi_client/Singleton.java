@@ -7,7 +7,7 @@ package optitransmi_client;
 
 import Connection.Model;
 import java.util.PriorityQueue;
-import Information.BasePackage;
+import Base.BasePackage;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -15,6 +15,8 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author Juan Diego
  */
 public class Singleton {
+    
+    private int currentIdRequest;
     
     private final Model client;
     private final ReentrantLock mutexToWrite;
@@ -25,6 +27,7 @@ public class Singleton {
     private static Singleton singleton;
     
     public Singleton(){
+        currentIdRequest = 0;
         client = new Model(7777);
         mutexToWrite = new ReentrantLock();
         toWrite = new PriorityQueue<>();
@@ -41,6 +44,12 @@ public class Singleton {
     
     public Model getClient(){
         return client;
+    }
+    
+    public int getCurrentIdRequest(){
+        int reg = currentIdRequest;
+        currentIdRequest++;
+        return reg;
     }
     
     public boolean AddInToWriteQueue(BasePackage toAdd){
