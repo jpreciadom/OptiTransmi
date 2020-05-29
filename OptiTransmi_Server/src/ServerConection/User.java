@@ -312,6 +312,7 @@ public class User extends Thread {
             ResultSet result = singleton.getConexion().executeQuery(query);
 
             try{
+                AddInToWriteQueue(new StationListAnswer(idRequest, null, null, -1));
                 while(result.next()){
                     String name = result.getString(1);
                     String direction = result.getString(2);
@@ -320,8 +321,6 @@ public class User extends Thread {
                 }
             } catch(SQLException ex){
 
-            } finally {
-                AddInToWriteQueue(new StationListAnswer(idRequest, null, null, -1));
             }
         }
     }
