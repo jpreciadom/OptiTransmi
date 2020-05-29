@@ -47,6 +47,7 @@ public class User extends Thread {
     public User(Socket client, String userName){
         this.clientSocket = client;
         this.userName = userName;
+        userType = UserType.unlogged;
         try{
             output = new ObjectOutputStream(client.getOutputStream());
             input = new ObjectInputStream(client.getInputStream());
@@ -245,6 +246,7 @@ public class User extends Thread {
                         answer = new Answer(idRequest, true, "Ingreso exitoso");
                         Singleton.getSingleton().getActiveUsers().update(this.userName, singIn.getMail());
                         this.userName = singIn.getMail();
+                        this.userType = UserType.logged;
                     } else {
                         answer = new Answer(idRequest, false, "Datos de inicio de sesión no válidos");
                     }
@@ -277,6 +279,8 @@ public class User extends Thread {
                         + singUp.getUserType() + ")";
                 singleton.getConexion().executeSQL(SQL);
                 AddInToWriteQueue(new Answer(idRequest, true));
+                Singleton.getSingleton().getActiveUsers().update(this.userName, singUp.getMail());
+                this.userType = UserType.logged;
             } else {
                 AddInToWriteQueue(new Answer(idRequest, false, "El correo ya esta en uso"));
             }
