@@ -22,7 +22,7 @@ import optitransmi_server.Singleton;
 
 enum UserType {
     unlogged, logged, administrator
-};
+}
 
 /**
  * Esta clase almacena la información del usuario conectado. Almacenando la
@@ -33,7 +33,7 @@ enum UserType {
  */
 public class User extends Thread {
     protected String userName;
-    protected UserType userType;
+    public UserType userType;
     protected final Socket clientSocket;
     protected ObjectOutputStream output;
     protected ObjectInputStream input;
@@ -178,6 +178,7 @@ public class User extends Thread {
     
     @Override
     public void run(){
+        userType = UserType.logged;
         new Thread(){
             @Override
             public void run(){
@@ -201,6 +202,15 @@ public class User extends Thread {
                 continue;
             } 
             
+            if(userType == UserType.unlogged){
+                UnLoggedUser(readedObject);
+            }else if(userType == UserType.logged){
+                LoggedUser(readedObject);
+            }else if(userType == UserType.administrator){
+                
+            }
+            
+            /*
             switch(userType){
                 case unlogged:
                     UnLoggedUser(readedObject);
@@ -211,7 +221,7 @@ public class User extends Thread {
                 case administrator:
                     break;
             }
-            
+            */
             sinc.release();
         }
     }
@@ -305,7 +315,7 @@ public class User extends Thread {
                 while(result.next()){
                     String name = result.getString(1);
                     String direction = result.getString(2);
-                    int wagons = result.getInt(4);
+                    int wagons = result.getInt(3);
                     AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, wagons));
                 }
             } catch(SQLException ex){
