@@ -2,8 +2,7 @@ package optitransmi_client;
 
 import Login.*;
 import Information.*;
-import Request.StateListRequest;
-import Request.StationListAnswer;
+import Request.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -94,7 +93,7 @@ public class Client {
         String subname = lector.next();
         int id = singleton.getCurrentIdRequest();
         
-        singleton.AddInToWriteQueue(new StateListRequest(id, subname));
+        singleton.AddInToWriteQueue(new StationListRequest(id, subname));
         singleton.getClient().send();
         
         boolean finish = false;

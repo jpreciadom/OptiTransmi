@@ -31,7 +31,7 @@ enum UserType {
  * 
  * @author Juan Diego
  */
-public class UnLoggedUser extends Thread {
+public class User extends Thread {
     protected String userName;
     protected UserType userType;
     protected final Socket clientSocket;
@@ -44,7 +44,7 @@ public class UnLoggedUser extends Thread {
     
     protected static Semaphore sinc;
     
-    public UnLoggedUser(Socket client, String userName){
+    public User(Socket client, String userName){
         this.clientSocket = client;
         this.userName = userName;
         try{
@@ -288,8 +288,8 @@ public class UnLoggedUser extends Thread {
     private void LoggedUser(BasePackage readedObject){
         Singleton singleton = Singleton.getSingleton();
         int idRequest = readedObject.getIdRequest();
-        if(readedObject instanceof StateListRequest){
-            StateListRequest slr = (StateListRequest)readedObject;
+        if(readedObject instanceof StationListRequest){
+            StationListRequest slr = (StationListRequest)readedObject;
 
             String query = "SELECT NOMBRE_ESTACION, DIRECCION, VAGONES " +
                            "FROM estacion " +

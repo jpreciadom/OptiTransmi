@@ -51,7 +51,7 @@ public class ServerConection extends Thread {
             
             //Intenta aceptar la solicitud de conexión entrante
             try{
-                UnLoggedUser clientAccepted = new UnLoggedUser(server.accept(), nextUserName);
+                User clientAccepted = new User(server.accept(), nextUserName);
                 Singleton.getSingleton().getActiveUsers().put(nextUserName, clientAccepted);                                //Añade el socketl del cliente aceptado a la list
                 System.out.println("Cliente aceptado " + nextUserName);
             } catch(IOException ioe){
