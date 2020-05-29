@@ -5,6 +5,8 @@
  */
 package Information;
 
+import Base.BasePackage;
+
 /**
  *
  * @author Juan Diego
@@ -14,15 +16,13 @@ public class Answer extends BasePackage {
     protected boolean answer;
     protected String message;
     
-    public Answer(boolean answer){
-        super();
-        this.priority = 0;
+    public Answer(int idRequest, boolean answer){
+        super(0, idRequest);
         this.answer = answer;
     }
     
-    public Answer(boolean answer, String message){
-        super();
-        this.priority = 0;
+    public Answer(int idRequest, boolean answer, String message){
+        super(0, idRequest);
         this.answer = answer;
         this.message = message;
     }

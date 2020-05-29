@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     19/05/2020 11:48:33                          */
+/* Created on:     14/05/2020 21:17:45                          */
 /*==============================================================*/
 
 
@@ -29,12 +29,7 @@ create table ARTICULADO
    FECHA_ADQUISICION    date not null,
    BIARTICULADO         bool not null,
    CAPACIDAD            int not null,
-<<<<<<< HEAD
    CODIGO_RUTA          varchar(10),
-=======
-   CODIGO_RUTA          varchar(40),
->>>>>>> 5d62d9a1ab3a7d3523ccdb989d8ba9a084c33218
-   DIA                  varchar(10),
    primary key (PLACA)
 );
 
@@ -79,16 +74,11 @@ create table NOTICIA
 create table PASA_POR
 (
    DIRECCION            varchar(50) not null,
-<<<<<<< HEAD
    CODIGO_RUTA          varchar(10) not null,
-=======
-   CODIGO_RUTA          varchar(40) not null,
->>>>>>> 5d62d9a1ab3a7d3523ccdb989d8ba9a084c33218
-   DIA                  varchar(10) not null,
    ESTACION_INICIO      bool not null,
    ESTACION_FINAL       bool not null,
    PARA_EN_EL_VAGON     int,
-   primary key (DIRECCION, CODIGO_RUTA, DIA)
+   primary key (DIRECCION, CODIGO_RUTA)
 );
 
 /*==============================================================*/
@@ -96,11 +86,9 @@ create table PASA_POR
 /*==============================================================*/
 create table RUTA
 (
-   CODIGO_RUTA          varchar(40) not null,
-   DIA                  varchar(10) not null,
-   INICIO               time not null,
-   FIN                  time not null,
-   primary key (CODIGO_RUTA, DIA)
+   CODIGO_RUTA          varchar(10) not null,
+   HORARIO              varchar(30) not null,
+   primary key (CODIGO_RUTA)
 );
 
 /*==============================================================*/
@@ -109,10 +97,9 @@ create table RUTA
 create table RUTAS_BUSCADAS
 (
    CODIGO_RUTA          varchar(10) not null,
-   DIA                  varchar(10) not null,
    CORREO               varchar(100) not null,
    FECHA_BUSQUEDA       datetime not null,
-   primary key (CODIGO_RUTA, DIA, CORREO)
+   primary key (CODIGO_RUTA, CORREO)
 );
 
 /*==============================================================*/
@@ -127,8 +114,8 @@ create table USUARIO
    primary key (CORREO)
 );
 
-alter table ARTICULADO add constraint FK_RUTA_ACTUAL foreign key (CODIGO_RUTA, DIA)
-      references RUTA (CODIGO_RUTA, DIA) on delete restrict on update restrict;
+alter table ARTICULADO add constraint FK_RUTA_ACTUAL foreign key (CODIGO_RUTA)
+      references RUTA (CODIGO_RUTA) on delete restrict on update restrict;
 
 alter table FOTO_ESTACION add constraint FK_FOTOS foreign key (DIRECCION)
       references ESTACION (DIRECCION) on delete restrict on update restrict;
@@ -139,11 +126,11 @@ alter table NOTICIA add constraint FK_PUBLICO foreign key (CORREO)
 alter table PASA_POR add constraint FK_PASA_POR foreign key (DIRECCION)
       references ESTACION (DIRECCION) on delete restrict on update restrict;
 
-alter table PASA_POR add constraint FK_PASA_POR2 foreign key (CODIGO_RUTA, DIA)
-      references RUTA (CODIGO_RUTA, DIA) on delete restrict on update restrict;
+alter table PASA_POR add constraint FK_PASA_POR2 foreign key (CODIGO_RUTA)
+      references RUTA (CODIGO_RUTA) on delete restrict on update restrict;
 
-alter table RUTAS_BUSCADAS add constraint FK_RUTAS_BUSCADAS foreign key (CODIGO_RUTA, DIA)
-      references RUTA (CODIGO_RUTA, DIA) on delete restrict on update restrict;
+alter table RUTAS_BUSCADAS add constraint FK_RUTAS_BUSCADAS foreign key (CODIGO_RUTA)
+      references RUTA (CODIGO_RUTA) on delete restrict on update restrict;
 
 alter table RUTAS_BUSCADAS add constraint FK_RUTAS_BUSCADAS2 foreign key (CORREO)
       references USUARIO (CORREO) on delete restrict on update restrict;

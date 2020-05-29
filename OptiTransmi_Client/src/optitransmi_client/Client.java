@@ -1,8 +1,15 @@
 package optitransmi_client;
 
+import Login.*;
 import Information.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Juan Diego Preciado
@@ -15,10 +22,21 @@ public class Client {
     
     static Singleton singleton;
     static Scanner lector;
+    static FileWriter fw;
+    static PrintWriter pw;
     
     static {
         lector = new Scanner(System.in);
+        try {
+            fw= new FileWriter("Archivos/Usuarios.opti",true);
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pw= new PrintWriter(fw);
     }
+    
+        
+    
     
     public static void terminarPrueba(){
         System.out.println("Finalizando prueba...");
@@ -36,7 +54,8 @@ public class Client {
             contrasenna = lector.next();
             System.out.print("Nombre: ");
             nombre = lector.next();
-            singleton.AddInToWriteQueue(new SingUp(correo, contrasenna, nombre, 1));
+            int id = singleton.getCurrentIdRequest();
+            singleton.AddInToWriteQueue(new SingUp(id, correo, contrasenna, nombre, 1));
             singleton.getClient().send();
             singleton.getClient().read();
             System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
@@ -54,13 +73,21 @@ public class Client {
             correo = lector.next();
             System.out.print("Contraseña: ");
             contrasenna = lector.next();
-            singleton.AddInToWriteQueue(new SingIn(correo, contrasenna));
+            int id = singleton.getCurrentIdRequest();
+            singleton.AddInToWriteQueue(new SingIn(id, correo, contrasenna));
             singleton.getClient().send();
             singleton.getClient().read();
+            System.out.println("Desea guardar el usuario en el dispositivo: (S/N)");
+            if(lector.next().equals("S")){
+                pw.println(correo + ";" + contrasenna);
+            }
             System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
         }
+    }
+    
+    public static void BuscarRutas(){
     }
     
     public static void main(String[] args) {
@@ -78,6 +105,7 @@ public class Client {
             System.out.println("Opciones:");
             System.out.println("1. Iniciar sesion.");
             System.out.println("2. Registrarse.");
+            System.out.println("3. Buscar rutas.");
             System.out.println("0. Terminar prueba");
             System.out.println("");
             
@@ -98,12 +126,21 @@ public class Client {
                 case 2:
                     singUp();
                     break;
+                case 3:
+                    BuscarRutas();
+                    break;
                 default:
                     System.out.println("La opcion ingresada no es valida");
             }
             
         } while(option != 0);
+         pw.close();
+        try {
+            fw.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
         singleton.getClient().disconnect();
-        System.out.println("Prueba realizada");
+            System.out.println("Prueba realizada");
     }
 }

@@ -9,7 +9,7 @@ import java.net.Socket;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
-import Information.BasePackage;
+import Base.BasePackage;
 import optitransmi_client.Singleton;
 
 /**
