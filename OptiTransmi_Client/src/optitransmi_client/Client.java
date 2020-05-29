@@ -126,7 +126,7 @@ public class Client {
             System.out.println("Opciones:");
             System.out.println("1. Iniciar sesion.");
             System.out.println("2. Registrarse.");
-            System.out.println("3. Buscar rutas.");
+            System.out.println("3. Buscar estaciones.");
             System.out.println("0. Terminar prueba");
             System.out.println("");
             

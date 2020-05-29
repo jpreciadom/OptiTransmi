@@ -178,7 +178,6 @@ public class User extends Thread {
     
     @Override
     public void run(){
-        userType = UserType.logged;
         new Thread(){
             @Override
             public void run(){
@@ -202,26 +201,14 @@ public class User extends Thread {
                 continue;
             } 
             
-            if(userType == UserType.unlogged){
+            //if(userType == UserType.unlogged){
                 UnLoggedUser(readedObject);
-            }else if(userType == UserType.logged){
+            //}else if(userType == UserType.logged){
                 LoggedUser(readedObject);
-            }else if(userType == UserType.administrator){
+            //}else if(userType == UserType.administrator){
                 
-            }
+            //}
             
-            /*
-            switch(userType){
-                case unlogged:
-                    UnLoggedUser(readedObject);
-                    break;
-                case logged:
-                    LoggedUser(readedObject);
-                    break;
-                case administrator:
-                    break;
-            }
-            */
             sinc.release();
         }
     }
@@ -319,9 +306,7 @@ public class User extends Thread {
                     int wagons = result.getInt(3);
                     AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, wagons));
                 }
-            } catch(SQLException ex){
-
-            }
+            } catch(SQLException ex){ }
         }
     }
 }

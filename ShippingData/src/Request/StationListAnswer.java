@@ -17,7 +17,7 @@ public class StationListAnswer extends BasePackage {
     private final int wagons;
     
     public StationListAnswer(int idRequest, String name, String direction, int wagons){
-        super(1, idRequest);
+        super(name == null ? 2 : 1, idRequest);
         this.name = name;
         this.direction = direction;
         this.wagons = wagons;
