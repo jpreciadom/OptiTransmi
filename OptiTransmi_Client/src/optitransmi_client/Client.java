@@ -2,6 +2,8 @@ package optitransmi_client;
 
 import Login.*;
 import Information.*;
+import Request.StateListRequest;
+import Request.StationListAnswer;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -87,7 +89,27 @@ public class Client {
         }
     }
     
-    public static void BuscarRutas(){
+    public static void BuscarEstaciones(){
+        System.out.println("Ingrese el nombre de la estacion");
+        String subname = lector.next();
+        int id = singleton.getCurrentIdRequest();
+        
+        singleton.AddInToWriteQueue(new StateListRequest(id, subname));
+        singleton.getClient().send();
+        
+        boolean finish = false;
+        while(!finish){
+            singleton.getClient().read();
+            StationListAnswer sla = (StationListAnswer)singleton.ReadFromToReadQueue();
+            if(sla.getName() == null){
+                finish = true;
+            } else {
+                System.out.println("Nombre: " + sla.getName());
+                System.out.println("Direccion: " + sla.getDirection());
+                System.out.println("Vagones " + sla.getWagons());
+                System.out.println("-----------------------------------------");
+            }
+        }
     }
     
     public static void main(String[] args) {
@@ -127,7 +149,7 @@ public class Client {
                     singUp();
                     break;
                 case 3:
-                    BuscarRutas();
+                    BuscarEstaciones();
                     break;
                 default:
                     System.out.println("La opcion ingresada no es valida");

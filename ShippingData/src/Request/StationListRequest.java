@@ -11,11 +11,11 @@ import Base.BasePackage;
  *
  * @author Juan Diego
  */
-public class RouteListRequest extends BasePackage {
+public class StationListRequest extends BasePackage {
     
     private final String subName;
     
-    public RouteListRequest(int idRequest, String subName){
+    public StationListRequest(int idRequest, String subName){
         super(2, idRequest);
         this.subName = subName;
     }

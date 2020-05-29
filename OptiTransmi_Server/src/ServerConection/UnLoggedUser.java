@@ -13,10 +13,16 @@ import java.util.PriorityQueue;
 import Base.BasePackage;
 import Information.*;
 import Login.*;
+import Request.*;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
 import optitransmi_server.Singleton;
+
+enum UserType {
+    unlogged, logged, administrator
+};
 
 /**
  * Esta clase almacena la información del usuario conectado. Almacenando la
@@ -25,19 +31,20 @@ import optitransmi_server.Singleton;
  * 
  * @author Juan Diego
  */
-public class User extends Thread {
-    private String userName;
-    private final Socket clientSocket;
-    private ObjectOutputStream output;
-    private ObjectInputStream input;
-    private final ReentrantLock mutexToWrite;
-    private final PriorityQueue<BasePackage> toWrite;
-    private final ReentrantLock mutexToRead;
-    private final PriorityQueue<BasePackage> toRead;
+public class UnLoggedUser extends Thread {
+    protected String userName;
+    protected UserType userType;
+    protected final Socket clientSocket;
+    protected ObjectOutputStream output;
+    protected ObjectInputStream input;
+    protected final ReentrantLock mutexToWrite;
+    protected final PriorityQueue<BasePackage> toWrite;
+    protected final ReentrantLock mutexToRead;
+    protected final PriorityQueue<BasePackage> toRead;
     
-    private static Semaphore sinc;
+    protected static Semaphore sinc;
     
-    public User(Socket client, String userName){
+    public UnLoggedUser(Socket client, String userName){
         this.clientSocket = client;
         this.userName = userName;
         try{
@@ -114,7 +121,7 @@ public class User extends Thread {
         return toReturn;
     }
     
-    private void disconnect(){
+    protected void disconnect(){
         Singleton singleton = Singleton.getSingleton();
         singleton.getActiveUsers().remove(this.userName);
         try {
@@ -129,7 +136,7 @@ public class User extends Thread {
      * que esten disponibles y los guarda en la cola de objetos leidos.
      * @return falso si ocurre alguna excepcion y verdadero en otro caso
      */
-    private boolean read(){
+    protected boolean read(){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         try{
             BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
@@ -148,7 +155,7 @@ public class User extends Thread {
      * vuelve a poner el objeto en la cola.
      * @return falso si ocurre alguna excepcion y verdadero en otro caso
      */
-    private boolean send(){
+    protected boolean send(){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         BasePackage toSend = ReadInToWriteQueue();                              //Saca el objeto a enviar de la cola de envios
         if(toSend != null){
@@ -193,77 +200,115 @@ public class User extends Thread {
                 continue;
             } 
             
-            Singleton singleton = Singleton.getSingleton();
-            int idRequest = readedObject.getIdRequest();
-            
-            if(readedObject instanceof SingIn) {
-                SingIn singIn = (SingIn)readedObject;
-                
-                if(Singleton.getSingleton().getActiveUsers().exist(singIn.getMail())){
-                    AddInToWriteQueue(new Answer(idRequest, false, "Ya tiene una sesión activa"));
-                } else {
-                    String query = "select ValidateLogin('"
-                            + singIn.getMail() + "', '"
-                            + singIn.getPassword() + "')";
-                    ResultSet result = singleton.getConexion().executeQuery(query);
-
-                    try {
-                        boolean userExist = false;
-                        if(result.next()){
-                            userExist = result.getInt(1) == 1;
-                        }
-                        Answer answer;
-                        if(userExist){
-                            answer = new Answer(idRequest, true, "Ingreso exitoso");
-                            Singleton.getSingleton().getActiveUsers().update(this.userName, singIn.getMail());
-                            this.userName = singIn.getMail();
-                        } else {
-                            answer = new Answer(idRequest, false, "Datos de inicio de sesión no válidos");
-                        }
-                        AddInToWriteQueue(answer);
-                    } catch(Exception e){
-                        System.out.println(e.getMessage());
-                        continue;
-                    }
-                }
-            } else if (readedObject instanceof SingUp) {
-                SingUp singUp = (SingUp)readedObject;
-                
-                boolean UserAlreadyExist = false;
-                String SQL = "SELECT COUNT(*) FROM USUARIO WHERE correo = '"
-                        + singUp.getMail() + "'";
-                
-                ResultSet result = singleton.getConexion().executeQuery(SQL);
-                try {
-                    if(result.next()){
-                        UserAlreadyExist = result.getInt(1) == 1;
-                    }
-                } catch(Exception e){
-                    System.out.println(e.getMessage());
-                }
-                
-                if(!UserAlreadyExist){
-                    SQL = "INSERT INTO USUARIO VALUES('"
-                            + singUp.getMail() + "', '"
-                            + singUp.getPassword() + "', '"
-                            + singUp.getName() + "', "
-                            + singUp.getUserType() + ")";
-                    singleton.getConexion().executeSQL(SQL);
-                    AddInToWriteQueue(new Answer(idRequest, true));
-                } else {
-                    AddInToWriteQueue(new Answer(idRequest, false, "El correo ya esta en uso"));
-                }
-            } else {
-                System.out.println(readedObject.getPriority());
+            switch(userType){
+                case unlogged:
+                    UnLoggedUser(readedObject);
+                    break;
+                case logged:
+                    LoggedUser(readedObject);
+                    break;
+                case administrator:
+                    break;
             }
             
             sinc.release();
         }
     }
     
-    private void TryToRead(){
+    protected void TryToRead(){
         while(isConnected()){
             boolean readAnswer = read();
+        }
+    }
+    
+    private void UnLoggedUser(BasePackage readedObject){
+        Singleton singleton = Singleton.getSingleton();
+        int idRequest = readedObject.getIdRequest();
+        if(readedObject instanceof SingIn) {
+            SingIn singIn = (SingIn)readedObject;
+
+            if(Singleton.getSingleton().getActiveUsers().exist(singIn.getMail())){
+                AddInToWriteQueue(new Answer(idRequest, false, "Ya tiene una sesión activa"));
+            } else {
+                String query = "select ValidateLogin('"
+                        + singIn.getMail() + "', '"
+                        + singIn.getPassword() + "')";
+                ResultSet result = singleton.getConexion().executeQuery(query);
+
+                try {
+                    boolean userExist = false;
+                    if(result.next()){
+                        userExist = result.getInt(1) == 1;
+                    }
+                    Answer answer;
+                    if(userExist){
+                        answer = new Answer(idRequest, true, "Ingreso exitoso");
+                        Singleton.getSingleton().getActiveUsers().update(this.userName, singIn.getMail());
+                        this.userName = singIn.getMail();
+                    } else {
+                        answer = new Answer(idRequest, false, "Datos de inicio de sesión no válidos");
+                    }
+                    AddInToWriteQueue(answer);
+                } catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }
+        } else if (readedObject instanceof SingUp) {
+            SingUp singUp = (SingUp)readedObject;
+
+            boolean UserAlreadyExist = false;
+            String SQL = "SELECT COUNT(*) FROM USUARIO WHERE correo = '"
+                    + singUp.getMail() + "'";
+
+            ResultSet result = singleton.getConexion().executeQuery(SQL);
+            try {
+                if(result.next()){
+                    UserAlreadyExist = result.getInt(1) == 1;
+                }
+            } catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+
+            if(!UserAlreadyExist){
+                SQL = "INSERT INTO USUARIO VALUES('"
+                        + singUp.getMail() + "', '"
+                        + singUp.getPassword() + "', '"
+                        + singUp.getName() + "', "
+                        + singUp.getUserType() + ")";
+                singleton.getConexion().executeSQL(SQL);
+                AddInToWriteQueue(new Answer(idRequest, true));
+            } else {
+                AddInToWriteQueue(new Answer(idRequest, false, "El correo ya esta en uso"));
+            }
+        } else {
+            System.out.println(readedObject.getPriority());
+        }
+    }
+    
+    private void LoggedUser(BasePackage readedObject){
+        Singleton singleton = Singleton.getSingleton();
+        int idRequest = readedObject.getIdRequest();
+        if(readedObject instanceof StateListRequest){
+            StateListRequest slr = (StateListRequest)readedObject;
+
+            String query = "SELECT NOMBRE_ESTACION, DIRECCION, VAGONES " +
+                           "FROM estacion " +
+                           "WHERE LOWER(NOMBRE_ESTACION) LIKE '%" + slr.getSubName().toLowerCase() + "%'";
+
+            ResultSet result = singleton.getConexion().executeQuery(query);
+
+            try{
+                while(result.next()){
+                    String name = result.getString(1);
+                    String direction = result.getString(2);
+                    int wagons = result.getInt(4);
+                    AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, wagons));
+                }
+            } catch(SQLException ex){
+
+            } finally {
+                AddInToWriteQueue(new StationListAnswer(idRequest, null, null, -1));
+            }
         }
     }
 }
