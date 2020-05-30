@@ -14,6 +14,7 @@ import Base.BasePackage;
 import Information.*;
 import Login.*;
 import Request.*;
+import UserDataConfig.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.Semaphore;
@@ -172,7 +173,7 @@ public class User extends Thread {
         }
         
         if(!answer)                                                             //Si no se pudo hacer el envio
-            AddInToWriteQueue(toSend);                                          //Vuelve a poner el objeo a enviar en la cola
+            AddInToWriteQueue(toSend);                                          //Vuelve a poner el objeto a enviar en la cola
         return answer;                                                          //Devuelve la respuesta
     }
     
@@ -281,7 +282,7 @@ public class User extends Thread {
             } else {
                 AddInToWriteQueue(new Answer(idRequest, false, "El correo ya esta en uso"));
             }
-        } else {
+        }else {
             System.out.println(readedObject.getPriority());
         }
     }
@@ -307,6 +308,18 @@ public class User extends Thread {
                     AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, wagons));
                 }
             } catch(SQLException ex){ }
+        }else if(readedObject instanceof ChangePassword){
+            ChangePassword cp = (ChangePassword)readedObject;
+            
+            String query = "UPDATE usuario " +
+                           "SET CONTRASENNA = '" + cp.getNewPassword() +"' "+
+                           "WHERE CORREO= '" + this.userName + "'";
+            
+            singleton.getConexion().executeSQL(query);
+            Answer answer;
+            answer = new Answer(idRequest, true, "Ingreso exitoso");
+            AddInToWriteQueue(answer);
+            System.out.println("Cambio de contraseña exitoso");
         }
     }
 }

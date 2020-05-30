@@ -104,7 +104,7 @@ public class Model extends Thread {
         if(toSend != null){
             try{
                 output.writeObject(toSend);                                     //Intenta hacer el envío, si puede
-                System.out.println("Obeto enviado");
+                System.out.println("Objeto enviado");
                 answer = true;                                                  //Marca como verdadero el estado del envio si se pudo hacer
             } catch(IOException ex){
                 disconnect();

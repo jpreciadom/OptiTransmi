@@ -25,7 +25,7 @@ public class Singleton {
         conexion = new Conexion();                          //Se establece conexion con la base de datos
         server = new ServerConection(7777);                 //Se inicia el socket con el puerto 7777
         activeUsers = new SynchronizedHashMap();            //Se inicializa las tabla hash
-        server.start();                                     //Se inicia el hilo
+        server.start();                                     //Se inicia el hilo del metodo run de serverConecction
     }
     
     public static Singleton getSingleton(){

@@ -3,6 +3,7 @@ package optitransmi_client;
 import Login.*;
 import Information.*;
 import Request.*;
+import UserDataConfig.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -42,6 +43,106 @@ public class Client {
     public static void terminarPrueba(){
         System.out.println("Finalizando prueba...");
         singleton.getClient().disconnect();
+    }
+    
+    public static void userSingIn(){
+        int optionS;
+        do {
+            optionS = 0;
+            
+            System.out.println("Opciones:");
+            System.out.println("1. Buscar estaciones.");
+            System.out.println("2. Modificar datos de usuario.");
+            System.out.println("0. Terminar prueba");
+            System.out.println("");
+            
+            try {
+                optionS = lector.nextInt();
+            } catch(InputMismatchException ex){
+                System.out.println("La opcion ingresada no es valida");
+                continue;
+            }
+            
+            switch(optionS){
+                case 0:
+                    terminarPrueba();
+                    break;
+                case 1:
+                    BuscarEstaciones();
+                    break;
+                case 2:
+                    modifyUserData();
+                    break;
+                 /*
+                case 3:
+                    BuscarEstaciones();
+                    break;
+                */
+                default:
+                    System.out.println("La opcion ingresada no es valida");
+            }
+            
+        } while(optionS != 0);
+    }
+    
+    public static void modifyUserData(){
+        int optionM;
+            System.out.println("Modificacion de datos de usuario");
+            
+            try{
+                
+                optionM = 0;
+            
+            System.out.println("Opciones:");
+            System.out.println("1. Modificar nombre");
+            System.out.println("2. Modificar contraseña");
+            System.out.println("");
+            
+                try {
+                    optionM = lector.nextInt();
+                } catch(InputMismatchException ex){
+                    System.out.println("La opcion ingresada no es valida");
+
+                }
+
+                switch(optionM){
+                    case 1:
+                        BuscarEstaciones();
+                        break;
+                    case 2:
+                        changePassword();
+                        break;
+                     /*
+                    case 3:
+                        BuscarEstaciones();
+                        break;
+                    */
+                    default:
+                        System.out.println("La opcion ingresada no es valida");
+                }
+                
+                
+            }catch (InputMismatchException ex){
+                System.out.println("Tipo de dato no valido, regresando al menú");
+            }
+    }
+    
+    public static void changePassword(){
+         String contrasenna, newContrasenna;
+         System.out.println("Modificar contraseña");
+         try{
+            System.out.print("ingrese su contraseña actual: ");
+            contrasenna = lector.next();
+            System.out.print("Ingrese su nueva contraseña: ");
+            newContrasenna = lector.next();
+            int id = singleton.getCurrentIdRequest();
+            singleton.AddInToWriteQueue(new ChangePassword(id, contrasenna, newContrasenna));
+            singleton.getClient().send();
+            singleton.getClient().read();
+            System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
+        } catch(InputMismatchException ex){
+            System.out.println("Tipo de dato no valido, regresando al menú");
+        }
     }
     
     public static void singUp(){
@@ -126,7 +227,7 @@ public class Client {
             System.out.println("Opciones:");
             System.out.println("1. Iniciar sesion.");
             System.out.println("2. Registrarse.");
-            System.out.println("3. Buscar estaciones.");
+            //System.out.println("3. Buscar estaciones.");
             System.out.println("0. Terminar prueba");
             System.out.println("");
             
@@ -147,14 +248,21 @@ public class Client {
                 case 2:
                     singUp();
                     break;
+                 /*
                 case 3:
                     BuscarEstaciones();
                     break;
+                */
                 default:
                     System.out.println("La opcion ingresada no es valida");
             }
             
-        } while(option != 0);
+        } while(option != 0 && option != 1);
+        
+        if(option == 1 ){
+            userSingIn();
+        }
+        
          pw.close();
         try {
             fw.close();
