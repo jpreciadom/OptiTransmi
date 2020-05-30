@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Singleton {
     
     private int currentIdRequest;
-    
+    private double[] rates;     //tarifas: 1. Troncal, 2.Zonal
     private final Model client;
     private final ReentrantLock mutexToWrite;
     private final PriorityQueue<BasePackage> toWrite;
@@ -27,12 +27,15 @@ public class Singleton {
     private static Singleton singleton;
     
     public Singleton(){
+        rates= new double[2];
         currentIdRequest = 0;
         client = new Model(7777);
         mutexToWrite = new ReentrantLock();
         toWrite = new PriorityQueue<>();
         mutexToRead = new ReentrantLock();
         toRead = new PriorityQueue<>();
+        rates[0]=2500;
+        rates[1]=2300;
     }
     
     public static Singleton getSingleton(){
@@ -94,5 +97,9 @@ public class Singleton {
             mutexToRead.unlock();
         }
         return toReturn;
+    }
+    
+    public double[] getRates(){
+        return rates;
     }
 }

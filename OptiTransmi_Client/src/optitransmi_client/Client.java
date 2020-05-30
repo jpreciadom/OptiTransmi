@@ -3,11 +3,15 @@ package optitransmi_client;
 import Login.*;
 import Information.*;
 import Request.*;
-import UserDataConfig.*;
+import UserDataConfig.ChangePassword;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.RandomAccessFile;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -17,26 +21,43 @@ import java.util.logging.Logger;
  * @author Juan Diego Preciado
  * @author Juan Pablo Carmona
  * @autor Juan Camilo Acosta
- * @author Heidy Johana Alayon
  */
 
 public class Client {
     
     static Singleton singleton;
+    static File file;
     static Scanner lector;
     static FileWriter fw;
-    static PrintWriter pw;
+    static BufferedWriter bw;
+    static RandomAccessFile raf;
+    static String correoGuardado;
+    static String contrasennaGuardado;
+    
     
     static {
-        lector = new Scanner(System.in);
+        file=new File("Archivos/Usuarios.opti");
         try {
-            fw= new FileWriter("Archivos/Usuarios.opti",true);
+            raf= new RandomAccessFile(file,"rw");
+            correoGuardado=raf.readLine();
+            contrasennaGuardado=raf.readLine();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
-        pw= new PrintWriter(fw);
+   
+        lector = new Scanner(System.in);
+        try {
+            fw= new FileWriter("Archivos/Historial.opti",true);
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bw= new BufferedWriter(fw);
+        
+        
     }
-    
         
     
     
@@ -166,27 +187,54 @@ public class Client {
         }
     }
     
-    public static void singIn(){
+    public static void singIn() throws IOException{
         String correo, contrasenna;
+        boolean infoExist=false;
         System.out.println("Inicio de sesion");
         
         try{
-            System.out.print("Correo: ");
-            correo = lector.next();
-            System.out.print("Contraseña: ");
-            contrasenna = lector.next();
-            int id = singleton.getCurrentIdRequest();
-            singleton.AddInToWriteQueue(new SingIn(id, correo, contrasenna));
-            singleton.getClient().send();
-            singleton.getClient().read();
-            System.out.println("Desea guardar el usuario en el dispositivo: (S/N)");
-            if(lector.next().equals("S")){
-                pw.println(correo + ";" + contrasenna);
+            if(correoGuardado!=null){
+                infoExist= true;
+                System.out.println(correoGuardado);
+                System.out.println(contrasennaGuardado);
+                int id = singleton.getCurrentIdRequest();
+                singleton.AddInToWriteQueue(new SingIn(id, correoGuardado, contrasennaGuardado));
+                singleton.getClient().send();
+                singleton.getClient().read();
+                //System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
+            }else{
+                System.out.print("Correo: ");
+                correo = lector.next();
+                System.out.print("Contraseña: ");
+                contrasenna = lector.next();
+                int id = singleton.getCurrentIdRequest();
+                singleton.AddInToWriteQueue(new SingIn(id, correo, contrasenna));
+                singleton.getClient().send();
+                singleton.getClient().read();
+                System.out.println("Desea guardar el usuario en el dispositivo: (S/cualquier simbolo)");
+                String confirmacion=lector.next();
+                if(confirmacion.equals("S")|| confirmacion.equals("s")){
+                    if(infoExist){
+                        System.out.println("Ya existe un usuario registrado en este dispositivo, desea guardar uno nuevo (S/cualquier simbolo)");
+                        String guardar=lector.next();
+                        if(guardar.equals("S")||guardar.equals("s")){
+                            raf.seek(0);
+                            raf.writeChars(correo+"\n");
+                            raf.writeChars(contrasenna+"\n");
+                        }
+                    }else{
+                        raf.seek(0);
+                        raf.writeChars(correo+"\n");
+                        raf.writeChars(contrasenna+"\n");
+                    }
+                    System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
+                }
             }
-            System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
+            
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
         }
+        raf.close();
     }
     
     public static void BuscarEstaciones(){
@@ -212,7 +260,34 @@ public class Client {
         }
     }
     
-    public static void main(String[] args) {
+    public static void registrarAccion(int opcion) throws IOException{     //opciones: 1. Registro, 2. Inicio de sesion,3. Busqueda estaciones
+        Date fecha= new Date();
+        switch(opcion){
+            case 1:
+                bw.write("Registro a Optitransmi");
+                bw.newLine();
+                bw.write("fecha: "+ fecha.toString()+"\n");
+                break;
+            case 2:
+                bw.write("Inicio de sesion a Optitransmi");
+                bw.newLine();
+                bw.write("fecha: "+ fecha.toString()+"\n");
+                break;
+            case 3:
+                bw.write("Busqueda de estaciones");
+                bw.newLine();
+                bw.write("fecha: "+ fecha.toString()+"\n");
+                break;
+            default:
+                System.out.println("Caso invalido, registro a historial fallido");
+        }
+        
+    }
+    
+    
+    
+    
+    public static void main(String[] args) throws IOException {
         System.out.println("Prueba de conexion");
         singleton = Singleton.getSingleton();
         singleton.getClient().connect();
@@ -228,7 +303,8 @@ public class Client {
             System.out.println("1. Iniciar sesion.");
             System.out.println("2. Registrarse.");
             //System.out.println("3. Buscar estaciones.");
-            System.out.println("0. Terminar prueba");
+            System.out.println("4. Mostrar tarifas.");
+            System.out.println("0. Terminar prueba.");
             System.out.println("");
             
             try {
@@ -244,15 +320,22 @@ public class Client {
                     break;
                 case 1:
                     singIn();
+                    registrarAccion(2);
                     break;
                 case 2:
                     singUp();
+                    registrarAccion(1);
                     break;
                  /*
                 case 3:
                     BuscarEstaciones();
+                    registrarAccion(3);
                     break;
                 */
+                case 4:
+                    System.out.println("Tarifa troncal: "+singleton.getRates()[0]);
+                    System.out.println("Tarifa zonal: "+singleton.getRates()[1]);
+                    break;
                 default:
                     System.out.println("La opcion ingresada no es valida");
             }
@@ -263,7 +346,7 @@ public class Client {
             userSingIn();
         }
         
-         pw.close();
+        bw.close();
         try {
             fw.close();
         } catch (IOException ex) {
