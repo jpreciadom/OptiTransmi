@@ -311,15 +311,34 @@ public class User extends Thread {
         }else if(readedObject instanceof ChangePassword){
             ChangePassword cp = (ChangePassword)readedObject;
             
-            String query = "UPDATE usuario " +
+            String query1 = "select ValidateLogin('"
+                        + this.userName + "', '"
+                        + cp.getCurrentPassword() + "')";
+                ResultSet result = singleton.getConexion().executeQuery(query1);
+                
+                try {
+                    boolean contrasennaCorrecta = false;
+                    if(result.next()){
+                        contrasennaCorrecta = result.getInt(1) == 1;
+                    }
+                    Answer answer;
+                    if(contrasennaCorrecta == true){
+                        String query = "UPDATE usuario " +
                            "SET CONTRASENNA = '" + cp.getNewPassword() +"' "+
                            "WHERE CORREO= '" + this.userName + "'";
-            
-            singleton.getConexion().executeSQL(query);
-            Answer answer;
-            answer = new Answer(idRequest, true, "Ingreso exitoso");
-            AddInToWriteQueue(answer);
-            System.out.println("Cambio de contraseña exitoso");
+                        
+                            singleton.getConexion().executeSQL(query);
+                            
+                            answer = new Answer(idRequest, true, "Cambio de contraseña exitoso");
+                            AddInToWriteQueue(answer);
+                    } else {
+                        answer = new Answer(idRequest, false, "Contraseña incorrecta");
+                    }
+                    AddInToWriteQueue(answer);
+                } catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
+         
         }
     }
 }
