@@ -3,7 +3,7 @@ package optitransmi_client;
 import Login.*;
 import Information.*;
 import Request.*;
-import UserDataConfig.ChangePassword;
+import UserDataConfig.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -88,9 +88,6 @@ public class Client {
                 case 2:
                     modifyUserData();
                     break;
-                case 3:
-                    BuscarEstaciones();
-                    break;
                 default:
                     System.out.println("La opcion ingresada no es valida");
             }
@@ -120,16 +117,11 @@ public class Client {
 
                 switch(optionM){
                     case 1:
-                        BuscarEstaciones();
+                        changeName();
                         break;
                     case 2:
                         changePassword();
                         break;
-                     /*
-                    case 3:
-                        BuscarEstaciones();
-                        break;
-                    */
                     default:
                         System.out.println("La opcion ingresada no es valida");
                 }
@@ -138,6 +130,24 @@ public class Client {
             }catch (InputMismatchException ex){
                 System.out.println("Tipo de dato no valido, regresando al menú");
             }
+    }
+    
+    public static void changeName(){
+        String contrasenna, newName;
+         System.out.println("Modificar nombre de usuario");
+         try{
+            System.out.print("ingrese su contraseña actual: ");
+            contrasenna = lector.next();
+            System.out.print("Ingrese su nuevo nombre de usuario: ");
+            newName = lector.next();
+            int id = singleton.getCurrentIdRequest();
+            singleton.AddInToWriteQueue(new ChangeUserName(id, contrasenna, newName));
+            singleton.getClient().send();
+            singleton.getClient().read();
+            System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
+        } catch(InputMismatchException ex){
+            System.out.println("Tipo de dato no valido, regresando al menú");
+        }
     }
     
     public static void changePassword(){

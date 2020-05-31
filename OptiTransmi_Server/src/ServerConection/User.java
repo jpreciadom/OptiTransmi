@@ -330,7 +330,6 @@ public class User extends Thread {
                             singleton.getConexion().executeSQL(query);
                             
                             answer = new Answer(idRequest, true, "Cambio de contraseña exitoso");
-                            AddInToWriteQueue(answer);
                     } else {
                         answer = new Answer(idRequest, false, "Contraseña incorrecta");
                     }
@@ -339,6 +338,36 @@ public class User extends Thread {
                     System.out.println(e.getMessage());
                 }
          
+        }else if(readedObject instanceof ChangeUserName){
+            ChangeUserName cus = (ChangeUserName)readedObject;
+            
+            String query1 = "select ValidateLogin('"
+                        + this.userName + "', '"
+                        + cus.getCurrentPassword() + "')";
+                ResultSet result = singleton.getConexion().executeQuery(query1);
+                
+                try {
+                    boolean contrasennaCorrecta = false;
+                    if(result.next()){
+                        contrasennaCorrecta = result.getInt(1) == 1;
+                    }
+                    Answer answer;
+                    if(contrasennaCorrecta == true){
+                        String query = "UPDATE usuario " +
+                           "SET NOMBRE_USUARIO = '" + cus.getNewUserName() +"' "+
+                           "WHERE CORREO= '" + this.userName + "'";
+                        
+                            singleton.getConexion().executeSQL(query);
+                            
+                            answer = new Answer(idRequest, true, "Cambio de nombre de usuario exitoso");
+                            AddInToWriteQueue(answer);
+                    } else {
+                        answer = new Answer(idRequest, false, "Contraseña incorrecta");
+                    }
+                    AddInToWriteQueue(answer);
+                } catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
         }
     }
 }
