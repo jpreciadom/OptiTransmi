@@ -84,7 +84,6 @@ public class Model extends Thread {
             BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
             Singleton.getSingleton().AddInToReadQueue(readed);                  //Lo agrega a la cola de objetos leidos
             answer = true;                                                      //Marca la respuesta como verdadero
-            System.out.println("Objeto recibido");
         } catch(Exception ex){
             disconnect();                                                       //Imprime el mensaje de error
             answer = false;                                                     //Marca la respuesta como false
@@ -104,7 +103,6 @@ public class Model extends Thread {
         if(toSend != null){
             try{
                 output.writeObject(toSend);                                     //Intenta hacer el envío, si puede
-                System.out.println("Objeto enviado");
                 answer = true;                                                  //Marca como verdadero el estado del envio si se pudo hacer
             } catch(IOException ex){
                 disconnect();

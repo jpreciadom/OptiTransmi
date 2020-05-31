@@ -4,7 +4,6 @@ import Login.*;
 import Information.*;
 import Request.*;
 import UserDataConfig.ChangePassword;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,7 +33,6 @@ public class Client {
     static String correoGuardado;
     static String contrasennaGuardado;
     
-    
     static {
         file=new File("Archivos/Usuarios.opti");
         try {
@@ -55,11 +53,7 @@ public class Client {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
         }
         bw= new BufferedWriter(fw);
-        
-        
     }
-        
-    
     
     public static void terminarPrueba(){
         System.out.println("Finalizando prueba...");
@@ -94,11 +88,9 @@ public class Client {
                 case 2:
                     modifyUserData();
                     break;
-                 /*
                 case 3:
                     BuscarEstaciones();
                     break;
-                */
                 default:
                     System.out.println("La opcion ingresada no es valida");
             }
@@ -166,75 +158,31 @@ public class Client {
         }
     }
     
-    public static void singUp(){
-        String correo, contrasenna, nombre;
-        System.out.println("Registro...");
-        
-        try{
-            System.out.print("Correo: ");
-            correo = lector.next();
-            System.out.print("Contraseña: ");
-            contrasenna = lector.next();
-            System.out.print("Nombre: ");
-            nombre = lector.next();
-            int id = singleton.getCurrentIdRequest();
-            singleton.AddInToWriteQueue(new SingUp(id, correo, contrasenna, nombre, 1));
-            singleton.getClient().send();
-            singleton.getClient().read();
-            System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
-        } catch(InputMismatchException ex){
-            System.out.println("Tipo de dato no valido, regresando al menú");
-        }
+    public static void GuardarCredenciales(String correo, String contrasenna) throws IOException {
+        raf.seek(0);
+        raf.writeChars(correo+"\n");
+        raf.writeChars(contrasenna+"\n");
     }
     
-    public static void singIn() throws IOException{
-        String correo, contrasenna;
-        boolean infoExist=false;
-        System.out.println("Inicio de sesion");
-        
-        try{
-            if(correoGuardado!=null){
-                infoExist= true;
-                System.out.println(correoGuardado);
-                System.out.println(contrasennaGuardado);
-                int id = singleton.getCurrentIdRequest();
-                singleton.AddInToWriteQueue(new SingIn(id, correoGuardado, contrasennaGuardado));
-                singleton.getClient().send();
-                singleton.getClient().read();
-                //System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
-            }else{
-                System.out.print("Correo: ");
-                correo = lector.next();
-                System.out.print("Contraseña: ");
-                contrasenna = lector.next();
-                int id = singleton.getCurrentIdRequest();
-                singleton.AddInToWriteQueue(new SingIn(id, correo, contrasenna));
-                singleton.getClient().send();
-                singleton.getClient().read();
-                System.out.println("Desea guardar el usuario en el dispositivo: (S/cualquier simbolo)");
-                String confirmacion=lector.next();
-                if(confirmacion.equals("S")|| confirmacion.equals("s")){
-                    if(infoExist){
-                        System.out.println("Ya existe un usuario registrado en este dispositivo, desea guardar uno nuevo (S/cualquier simbolo)");
-                        String guardar=lector.next();
-                        if(guardar.equals("S")||guardar.equals("s")){
-                            raf.seek(0);
-                            raf.writeChars(correo+"\n");
-                            raf.writeChars(contrasenna+"\n");
-                        }
-                    }else{
-                        raf.seek(0);
-                        raf.writeChars(correo+"\n");
-                        raf.writeChars(contrasenna+"\n");
-                    }
-                    System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
-                }
-            }
-            
-        } catch(InputMismatchException ex){
-            System.out.println("Tipo de dato no valido, regresando al menú");
-        }
+    public static int singUp(String correo, String contrasenna, String nombre){
+        int id = singleton.getCurrentIdRequest();
+        singleton.AddInToWriteQueue(new SingUp(id, correo, contrasenna, nombre, 1));
+        singleton.getClient().send();
+        singleton.getClient().read();
+        Answer a = (Answer)(singleton.ReadFromToReadQueue());
+        System.out.println(a.getMessage());
+        return a.getAnswer() ? 1 : 0;
+    }
+    
+    public static int singIn(String correo, String contrasenna) throws IOException{
+        int id = singleton.getCurrentIdRequest();
+        singleton.AddInToWriteQueue(new SingIn(id, correo, contrasenna));
+        singleton.getClient().send();
+        singleton.getClient().read();
+        Answer a = (Answer)(singleton.ReadFromToReadQueue());
+        System.out.println(a.getMessage());
         raf.close();
+        return a.getAnswer() ? 1 : 0;
     }
     
     public static void BuscarEstaciones(){
@@ -284,9 +232,6 @@ public class Client {
         
     }
     
-    
-    
-    
     public static void main(String[] args) throws IOException {
         System.out.println("Prueba de conexion");
         singleton = Singleton.getSingleton();
@@ -302,7 +247,7 @@ public class Client {
             System.out.println("Opciones:");
             System.out.println("1. Iniciar sesion.");
             System.out.println("2. Registrarse.");
-            //System.out.println("3. Buscar estaciones.");
+            System.out.println("3. Buscar estaciones.");
             System.out.println("4. Mostrar tarifas.");
             System.out.println("0. Terminar prueba.");
             System.out.println("");
@@ -319,19 +264,60 @@ public class Client {
                     terminarPrueba();
                     break;
                 case 1:
-                    singIn();
+                    String correo = null, contrasenna = null;
+                    System.out.println("Inicio de sesion\n");
+                    if (contrasennaGuardado!=null){
+                        System.out.println("¿Desea ingresar con el usuario ingresado en el dispositivo? S/N");
+                        String r = lector.next();
+                        if(r.equals("S") || r.equals("s")){
+                            correo = correoGuardado;
+                            contrasenna = contrasennaGuardado;
+                        }
+                    }
+                    
+                    if(correo == null){
+                        System.out.print("Correo: ");
+                        correo = lector.next();
+                        System.out.print("Contraseña: ");
+                        contrasenna = lector.next();
+                    }
+                    
+                    int r = singIn(correo, contrasenna);
+                    if (r == 1){
+                        System.out.println("Desea guardar el usuario en el dispositivo: (S/cualquier simbolo)");
+                        String confirmacion=lector.next();
+                        if(confirmacion.equals("S")|| confirmacion.equals("s")){
+                            GuardarCredenciales(correo, contrasenna);
+                        }
+                        option = 0;
+                    }
                     registrarAccion(2);
                     break;
                 case 2:
-                    singUp();
+                    String correoU = null, contrasennaU = null, nombreU = null;
+                    System.out.println("Registro...");
+                    System.out.print("Correo: ");
+                    correoU = lector.next();
+                    System.out.print("Contraseña: ");
+                    contrasennaU = lector.next();
+                    System.out.print("Nombre: ");
+                    nombreU = lector.next();
+                    
+                    int rU = singUp(correoU, contrasennaU, nombreU);
+                    if (rU == 1){
+                        System.out.println("Desea guardar el usuario en el dispositivo: (S/cualquier simbolo)");
+                        String confirmacion=lector.next();
+                        if(confirmacion.equals("S")|| confirmacion.equals("s")){
+                            GuardarCredenciales(correoU, contrasennaU);
+                        }
+                        option = 0;
+                    }
                     registrarAccion(1);
                     break;
-                 /*
                 case 3:
                     BuscarEstaciones();
                     registrarAccion(3);
                     break;
-                */
                 case 4:
                     System.out.println("Tarifa troncal: "+singleton.getRates()[0]);
                     System.out.println("Tarifa zonal: "+singleton.getRates()[1]);
@@ -340,11 +326,9 @@ public class Client {
                     System.out.println("La opcion ingresada no es valida");
             }
             
-        } while(option != 0 && option != 1);
+        } while(option != 0);
         
-        if(option == 1 ){
-            userSingIn();
-        }
+        userSingIn();
         
         bw.close();
         try {
