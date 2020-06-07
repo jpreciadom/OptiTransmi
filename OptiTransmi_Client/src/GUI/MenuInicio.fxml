@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.awt.event.ActionEvent?>
+<?import javafx.scene.control.Button?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
+   <children>
+      <JFXButton id="inicioSesion" fx:id="inicioSesion" layoutX="243.0" layoutY="176.0" onMouseClicked="#passInicio" style="-fx-background-color: #ff0000;" text="Iniciar Sesion" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="185.0" layoutY="34.0" text="Bienvenido a OptiTransmi">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="78.0" fitWidth="78.0" layoutX="293.0" layoutY="78.0">
+         <image>
+            <Image url="@images/OptiTransmi_logo.PNG" />
+         </image>
+      </ImageView>
+      <JFXButton id="registro" fx:id="registro" layoutX="242.0" layoutY="244.0" onMouseClicked="#passRegistro" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Registrarme" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton id="salir" fx:id="salir" layoutX="242.0" layoutY="314.0" onMouseClicked="#salirApp" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Salir" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
