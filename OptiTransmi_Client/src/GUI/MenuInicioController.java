@@ -6,12 +6,12 @@
 package GUI;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +24,8 @@ import java.util.ResourceBundle;
  * @author ADMIN
  */
 public class MenuInicioController implements Initializable {
+    @FXML
+    private AnchorPane inicioWindow;
 
     @FXML
     private JFXButton inicioSesion;
@@ -32,48 +34,89 @@ public class MenuInicioController implements Initializable {
     private JFXButton salir;
 
     @FXML
+    private AnchorPane registroWindow;
+
+    @FXML
+    private RadioButton recordarUsuarioButton;
+
+    @FXML
+    private JFXTextField contrasenna;
+
+    @FXML
+    private JFXButton atrasButton;
+
+    @FXML
+    private JFXTextField nombre;
+
+    @FXML
     private JFXButton registro;
 
-    
+    @FXML
+    private JFXTextField password;
+
+    @FXML
+    private JFXButton iniciarSesionButton;
+
+    @FXML
+    private AnchorPane inicioSesionWindow;
+
+    @FXML
+    private JFXTextField correo;
+
+    @FXML
+    private RadioButton inicioAdmin;
+
+    @FXML
+    private AnchorPane panel;
+
+    @FXML
+    private JFXTextField email;
+
+    @FXML
+    private JFXButton btnRegistro;
+
+    @FXML
+    private JFXButton atrasRegistroButton;
+
+
     public void passInicio(MouseEvent event) throws IOException {
-        FXMLLoader loader= new FXMLLoader(getClass().getResource("InicioSesion.fxml"));
-        Parent root= loader.load();
-        InicioSesionController controller= loader.getController();
+        inicioWindow.setVisible(false);
+        inicioSesionWindow.setVisible(true);
 
-        Scene scene= new Scene(root);
-        Stage stage= new Stage();
-
-        stage.setScene(scene);
-        stage.show();
-
-
-        Stage myStage= (Stage)this.inicioSesion.getScene().getWindow();
-        myStage.close();
     }
 
     public void passRegistro(MouseEvent event) throws IOException {
-        FXMLLoader loader2= new FXMLLoader(getClass().getResource("Registro.fxml"));
-        Parent root2= loader2.load();
-        RegistroController controller= loader2.getController();
-
-        Scene scene= new Scene(root2);
-        Stage stage= new Stage();
-
-        stage.setScene(scene);
-        stage.show();
-
-
-        Stage myStage= (Stage)this.registro.getScene().getWindow();
-        myStage.close();
+        inicioWindow.setVisible(false);
+        registroWindow.setVisible(true);
     }
 
     public void salirApp(MouseEvent event) {
-        Stage myStage= (Stage)this.salir.getScene().getWindow();
+        Stage myStage= (Stage)this.panel.getScene().getWindow();
         myStage.close();
     }
 
 
-    
+    public void beginSession(javafx.scene.input.MouseEvent mouseEvent) {
+    }
+
+    public void rememberUser(javafx.scene.input.MouseEvent mouseEvent) {
+    }
+
+    public void back(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        inicioSesionWindow.setVisible(false);
+        inicioWindow.setVisible(true);
+
+
+    }
+
+
+    public void registrarUsuario(MouseEvent mouseEvent) {
+    }
+
+    public void regresar(MouseEvent mouseEvent) throws IOException {
+        registroWindow.setVisible(false);
+        inicioWindow.setVisible(true);
+    }
     /**
      * Initializes the controller class.
      */
