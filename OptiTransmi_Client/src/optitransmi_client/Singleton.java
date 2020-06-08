@@ -5,7 +5,7 @@
  */
 package optitransmi_client;
 
-import Connection.Model;
+import Connection.ConnectionModel;
 import java.util.PriorityQueue;
 import Base.BasePackage;
 import java.util.concurrent.locks.ReentrantLock;
@@ -18,7 +18,7 @@ public class Singleton {
     
     private int currentIdRequest;
     private double[] rates;     //tarifas: 1. Troncal, 2.Zonal
-    private final Model client;
+    private final ConnectionModel client;
     private final ReentrantLock mutexToWrite;
     private final PriorityQueue<BasePackage> toWrite;
     private final ReentrantLock mutexToRead;
@@ -29,7 +29,7 @@ public class Singleton {
     public Singleton(){
         rates= new double[2];
         currentIdRequest = 0;
-        client = new Model(7777);
+        client = new ConnectionModel(7777);
         mutexToWrite = new ReentrantLock();
         toWrite = new PriorityQueue<>();
         mutexToRead = new ReentrantLock();
@@ -45,7 +45,7 @@ public class Singleton {
         return singleton;
     }
     
-    public Model getClient(){
+    public ConnectionModel getClient(){
         return client;
     }
     

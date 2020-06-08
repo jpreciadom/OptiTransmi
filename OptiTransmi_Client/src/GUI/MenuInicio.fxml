@@ -59,7 +59,7 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="correo" focusColor="RED" layoutX="154.0" layoutY="170.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu correo">
+            <JFXTextField fx:id="correoRegistro" focusColor="RED" layoutX="154.0" layoutY="170.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu correo">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -123,7 +123,7 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </Label>
-            <JFXTextField id="nombre" fx:id="nombre" focusColor="RED" layoutX="139.0" layoutY="165.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu nombre">
+            <JFXTextField id="nombre" fx:id="nombreRegistro" focusColor="RED" layoutX="139.0" layoutY="165.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu nombre">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
@@ -133,7 +133,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="contrasenna" fx:id="contrasenna" focusColor="RED" layoutX="139.0" layoutY="255.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu contraseña">
+            <JFXTextField id="contrasenna" fx:id="contrasennaRegistro" focusColor="RED" layoutX="139.0" layoutY="255.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu contraseña">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>

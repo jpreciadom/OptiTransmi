@@ -17,7 +17,7 @@ import optitransmi_client.Singleton;
  * @author Juan Diego
  */
 
-public class Model extends Thread {
+public class ConnectionModel {
     
     private boolean connected;
     private final int port;
@@ -25,7 +25,7 @@ public class Model extends Thread {
     private ObjectOutputStream output;
     private ObjectInputStream input;
     
-    public Model(int port){
+    public ConnectionModel(int port){
         this.port = port;
     };
     
@@ -78,17 +78,14 @@ public class Model extends Thread {
      * que esten disponibles y los guarda en la cola de objetos leidos.
      * @return falso si ocurre alguna excepcion y verdadero en otro caso
      */
-    public boolean read(){
-        boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
+    public synchronized BasePackage read(){
+        BasePackage readed = null;                                              //Indica si se pudo enviar o no el mensaje
         try{
-            BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
-            Singleton.getSingleton().AddInToReadQueue(readed);                  //Lo agrega a la cola de objetos leidos
-            answer = true;                                                      //Marca la respuesta como verdadero
+            readed = (BasePackage)input.readObject();                           //Lee el objeto
         } catch(Exception ex){
-            disconnect();                                                       //Imprime el mensaje de error
-            answer = false;                                                     //Marca la respuesta como false
+
         }
-        return answer;                                                          //Devuelve la respuesta
+        return readed;                                                          //Devuelve la respuesta
     }
     
     /**
@@ -97,9 +94,8 @@ public class Model extends Thread {
      * vuelve a poner el objeto en la cola.
      * @return falso si ocurre alguna excepcion y verdadero en otro caso
      */
-    public boolean send(){
+    public synchronized boolean send(BasePackage toSend){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
-        BasePackage toSend = Singleton.getSingleton().ReadInToWriteQueue();     //Saca el objeto a enviar de la cola de envios
         if(toSend != null){
             try{
                 output.writeObject(toSend);                                     //Intenta hacer el envío, si puede
@@ -115,32 +111,5 @@ public class Model extends Thread {
         if(!answer)                                                             //Si no se pudo hacer el envio
             Singleton.getSingleton().AddInToWriteQueue(toSend);                 //Vuelve a poner el objeo a enviar en la cola
         return answer;                                                          //Devuelve la respuesta
-    }
-    
-    public void StartThreads(){
-        new Thread(){
-            @Override
-            public void run(){
-                TryToRead();
-            }
-        }.start();
-        start();
-    }
-    
-    /**
-     * Sincronización de datos. Se encarga llamar constantemente a la funcion de
-     * envío y de lectura de datos
-     */
-    @Override
-    public void run(){
-        while(isConnected()){
-            boolean writeAnswer = send();
-        }
-    }
-    
-    private void TryToRead(){
-        while(isConnected()){
-            boolean readAnswer = read();
-        }
     }
 }

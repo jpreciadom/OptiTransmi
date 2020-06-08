@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import Information.Answer;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import optitransmi_client.LoginModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,13 +43,13 @@ public class MenuInicioController implements Initializable {
     private RadioButton recordarUsuarioButton;
 
     @FXML
-    private JFXTextField contrasenna;
+    private JFXTextField contrasennaRegistro;
 
     @FXML
     private JFXButton atrasButton;
 
     @FXML
-    private JFXTextField nombre;
+    private JFXTextField nombreRegistro;
 
     @FXML
     private JFXButton registro;
@@ -61,7 +64,7 @@ public class MenuInicioController implements Initializable {
     private AnchorPane inicioSesionWindow;
 
     @FXML
-    private JFXTextField correo;
+    private JFXTextField correoRegistro;
 
     @FXML
     private RadioButton inicioAdmin;
@@ -78,6 +81,7 @@ public class MenuInicioController implements Initializable {
     @FXML
     private JFXButton atrasRegistroButton;
 
+    private LoginModel model;
 
     public void passInicio(MouseEvent event) throws IOException {
         inicioWindow.setVisible(false);
@@ -97,20 +101,54 @@ public class MenuInicioController implements Initializable {
 
 
     public void beginSession(javafx.scene.input.MouseEvent mouseEvent) {
+        String mail = null, password = null;
+        boolean rememberUSer = false;
+
+        //Mirar si el archivo contiene algo
+        //Si tiene algo usar esa inforamción
+
+        //En otro caso
+            mail = correoRegistro.getText();
+            correoRegistro.clear();
+            password = this.password.getText();
+            this.password.clear();
+            rememberUSer = recordarUsuarioButton.isSelected();
+
+        Answer login = model.singIn(mail, password, rememberUSer);
+        if(login != null && login.getAnswer()){
+            System.out.println("Inicio de sesion exitoso!");
+            //Cambiamos a la siguiente ventana
+        } else {
+            if(login == null){
+                System.out.println("Tiempo de espera excedido");
+            } else {
+                System.out.println("Datos de ingreso errados");
+            }
+        }
     }
 
     public void rememberUser(javafx.scene.input.MouseEvent mouseEvent) {
+
     }
 
     public void back(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         inicioSesionWindow.setVisible(false);
         inicioWindow.setVisible(true);
-
-
     }
 
 
     public void registrarUsuario(MouseEvent mouseEvent) {
+        String name = null, password = null, mail = null;
+        name = nombreRegistro.getText();
+        password = contrasennaRegistro.getText();
+        mail = correoRegistro.getText();
+
+        nombreRegistro.clear();
+        contrasennaRegistro.clear();
+        correoRegistro.clear();
+
+        Answer login = model.singUp(mail, password, name, false);
+        System.out.println(login);
     }
 
     public void regresar(MouseEvent mouseEvent) throws IOException {
@@ -124,7 +162,7 @@ public class MenuInicioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        model = new LoginModel();
     }
 
 

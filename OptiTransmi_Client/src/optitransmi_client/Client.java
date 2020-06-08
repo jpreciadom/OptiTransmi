@@ -142,8 +142,8 @@ public class Client {
             newName = lector.next();
             int id = singleton.getCurrentIdRequest();
             singleton.AddInToWriteQueue(new ChangeUserName(id, contrasenna, newName));
-            singleton.getClient().send();
-            singleton.getClient().read();
+            //singleton.getClient().send();
+            //singleton.getClient().read();
             System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
@@ -160,8 +160,8 @@ public class Client {
             newContrasenna = lector.next();
             int id = singleton.getCurrentIdRequest();
             singleton.AddInToWriteQueue(new ChangePassword(id, contrasenna, newContrasenna));
-            singleton.getClient().send();
-            singleton.getClient().read();
+            //singleton.getClient().send();
+            //singleton.getClient().read();
             System.out.println(((Answer)(singleton.ReadFromToReadQueue())).getMessage());
         } catch(InputMismatchException ex){
             System.out.println("Tipo de dato no valido, regresando al menú");
@@ -177,8 +177,8 @@ public class Client {
     public static int singUp(String correo, String contrasenna, String nombre){
         int id = singleton.getCurrentIdRequest();
         singleton.AddInToWriteQueue(new SingUp(id, correo, contrasenna, nombre, 1));
-        singleton.getClient().send();
-        singleton.getClient().read();
+        //singleton.getClient().send();
+        //singleton.getClient().read();
         Answer a = (Answer)(singleton.ReadFromToReadQueue());
         System.out.println(a.getMessage());
         return a.getAnswer() ? 1 : 0;
@@ -187,8 +187,8 @@ public class Client {
     public static int singIn(String correo, String contrasenna) throws IOException{
         int id = singleton.getCurrentIdRequest();
         singleton.AddInToWriteQueue(new SingIn(id, correo, contrasenna));
-        singleton.getClient().send();
-        singleton.getClient().read();
+        //singleton.getClient().send();
+        //singleton.getClient().read();
         Answer a = (Answer)(singleton.ReadFromToReadQueue());
         System.out.println(a.getMessage());
         raf.close();
@@ -201,7 +201,7 @@ public class Client {
         int id = singleton.getCurrentIdRequest();
         
         singleton.AddInToWriteQueue(new StationListRequest(id, subname));
-        singleton.getClient().send();
+        //singleton.getClient().send();
         
         boolean finish = false;
         while(!finish){
@@ -242,7 +242,7 @@ public class Client {
         
     }
     
-    public static void main(String[] args) throws IOException {
+    public static void Main() throws IOException {
         System.out.println("Prueba de conexion");
         singleton = Singleton.getSingleton();
         singleton.getClient().connect();
