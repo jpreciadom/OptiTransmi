@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/OptiTransmi_Client/lib/jfoenix-8.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OptiTransmi_Client/lib/junit-4.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OptiTransmi_Client/lib/ShippingData.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

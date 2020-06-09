@@ -73,9 +73,7 @@ public class LoginModel extends Thread {
             readed = singleton.ReadFromToReadQueue();
             TiempoFinal = System.currentTimeMillis();
         }
-        if(t.isAlive()){
-            t.destroy();
-        }
+        t = null;
 
         return readed;
     }

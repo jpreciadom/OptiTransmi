@@ -64,7 +64,7 @@ public class MenuInicioController implements Initializable {
     private AnchorPane inicioSesionWindow;
 
     @FXML
-    private JFXTextField correoRegistro;
+    private JFXTextField emailRegistro;
 
     @FXML
     private RadioButton inicioAdmin;
@@ -73,7 +73,7 @@ public class MenuInicioController implements Initializable {
     private AnchorPane panel;
 
     @FXML
-    private JFXTextField email;
+    private JFXTextField mail;
 
     @FXML
     private JFXButton btnRegistro;
@@ -108,8 +108,8 @@ public class MenuInicioController implements Initializable {
         //Si tiene algo usar esa inforamción
 
         //En otro caso
-            mail = correoRegistro.getText();
-            correoRegistro.clear();
+            mail = this.mail.getText();
+            this.mail.clear();
             password = this.password.getText();
             this.password.clear();
             rememberUSer = recordarUsuarioButton.isSelected();
@@ -139,13 +139,13 @@ public class MenuInicioController implements Initializable {
 
     public void registrarUsuario(MouseEvent mouseEvent) {
         String name = null, password = null, mail = null;
-        name = nombreRegistro.getText();
-        password = contrasennaRegistro.getText();
-        mail = correoRegistro.getText();
+        name = nombreRegistro.getText().trim();
+        password = contrasennaRegistro.getText().trim();
+        mail = emailRegistro.getText().trim();
 
         nombreRegistro.clear();
         contrasennaRegistro.clear();
-        correoRegistro.clear();
+        emailRegistro.clear();
 
         Answer login = model.singUp(mail, password, name, false);
         System.out.println(login);
@@ -163,6 +163,7 @@ public class MenuInicioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         model = new LoginModel();
+        model.start();
     }
 
 
