@@ -8,9 +8,11 @@ package GUI;
 import Information.Answer;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -28,10 +30,16 @@ import java.util.ResourceBundle;
  */
 public class MenuInicioController implements Initializable {
     @FXML
-    private AnchorPane inicioWindow;
+    private JFXButton inicioSesion;
 
     @FXML
-    private JFXButton inicioSesion;
+    private JFXTextField contrasennaRegistro;
+
+    @FXML
+    private JFXTextField nombreEstacionSolicitud;
+
+    @FXML
+    private JFXTextField mail;
 
     @FXML
     private JFXButton salir;
@@ -40,46 +48,130 @@ public class MenuInicioController implements Initializable {
     private AnchorPane registroWindow;
 
     @FXML
-    private RadioButton recordarUsuarioButton;
-
-    @FXML
-    private JFXTextField contrasennaRegistro;
+    private AnchorPane planearRutaWindow;
 
     @FXML
     private JFXButton atrasButton;
 
     @FXML
-    private JFXTextField nombreRegistro;
+    private JFXButton backFromEstacionToMenuPrincipalButton;
 
     @FXML
-    private JFXButton registro;
+    private JFXTextArea ResultadosBuscarEstacion;
+
+    @FXML
+    private JFXButton backFromRutaToMenuPrincipalButton;
 
     @FXML
     private JFXTextField password;
 
     @FXML
-    private JFXButton iniciarSesionButton;
+    private JFXTextArea respuestaSolicitud;
 
     @FXML
-    private AnchorPane inicioSesionWindow;
+    private JFXButton planearRutaButton;
 
     @FXML
-    private JFXTextField emailRegistro;
+    private JFXButton crearSolicitudButton;
 
     @FXML
-    private RadioButton inicioAdmin;
+    private JFXTextArea resultadosBuscarRuta;
 
     @FXML
     private AnchorPane panel;
 
     @FXML
-    private JFXTextField mail;
+    private JFXTextField nombreEstacion;
+
+    @FXML
+    private JFXButton buscarRutaButton;
+
+    @FXML
+    private JFXTextField emailRegistro;
 
     @FXML
     private JFXButton btnRegistro;
 
     @FXML
+    private JFXButton cerrarSesion;
+
+    @FXML
+    private AnchorPane buscarRutaWindow;
+
+    @FXML
+    private AnchorPane inicioWindow;
+
+    @FXML
+    private JFXButton passToPlanearRutaWindowButton;
+
+    @FXML
+    private JFXButton passToBuscarRutaWindowButton;
+
+    @FXML
+    private JFXTextField nombreRuta;
+
+    @FXML
+    private JFXTextField rutaInicio;
+
+    @FXML
+    private JFXButton backFromPlanearToMenuPrincipalButton;
+
+    @FXML
+    private RadioButton recordarUsuarioButton;
+
+    @FXML
+    private JFXTextArea resultadosPlanearRuta;
+
+    @FXML
+    private JFXButton passToBuscarEstacionWindowButton;
+
+    @FXML
+    private AnchorPane menuPrincipal;
+
+    @FXML
+    private JFXTextField nombreRegistro;
+
+    @FXML
+    private AnchorPane solicitarArticuladoWindow;
+
+    @FXML
+    private AnchorPane buscarEstacionWindow;
+
+    @FXML
+    private JFXButton registro;
+
+    @FXML
+    private JFXTextField rutaDestino;
+
+    @FXML
+    private JFXTextField nombreRutaSolicitud;
+
+    @FXML
+    private JFXButton iniciarSesionButton;
+
+    @FXML
+    private JFXButton backFromSolicitudToMenuPrincipalButton;
+
+    @FXML
+    private Label labelCorreo;
+
+    @FXML
+    private AnchorPane inicioSesionWindow;
+
+    @FXML
+    private RadioButton inicioAdmin;
+
+    @FXML
+    private JFXButton buscarEstacionButton;
+
+    @FXML
+    private JFXButton passToSolicitarArticuladoWindowButton;
+
+    @FXML
     private JFXButton atrasRegistroButton;
+
+    @FXML
+    private Label labelNombre;
 
     private LoginModel model;
 
@@ -118,6 +210,8 @@ public class MenuInicioController implements Initializable {
         if(login != null && login.getAnswer()){
             System.out.println("Inicio de sesion exitoso!");
             //Cambiamos a la siguiente ventana
+            /*inicioSesionWindow.setVisible(false);
+            menuPrincipal.setVisible(true);*/
         } else {
             if(login == null){
                 System.out.println("Tiempo de espera excedido");
@@ -125,6 +219,7 @@ public class MenuInicioController implements Initializable {
                 System.out.println("Datos de ingreso errados");
             }
         }
+
     }
 
     public void rememberUser(javafx.scene.input.MouseEvent mouseEvent) {
@@ -155,6 +250,75 @@ public class MenuInicioController implements Initializable {
         registroWindow.setVisible(false);
         inicioWindow.setVisible(true);
     }
+
+    public void passToBuscarEstacionWindow(MouseEvent mouseEvent) {//Metodode boton buscarEstacionButton
+        menuPrincipal.setVisible(false);
+        buscarEstacionWindow.setVisible(true);
+    }
+
+    public void passToBuscarRutaWindow(MouseEvent mouseEvent) { //Metodo de boton buscarRutaButton
+        menuPrincipal.setVisible(false);
+        buscarRutaWindow.setVisible(true);
+
+    }
+
+
+    public void passToPlanearRutaWindow(MouseEvent mouseEvent) {//Metodo de planearRutaButton, pasa a planearRutaWindow
+        menuPrincipal.setVisible(false);
+        planearRutaWindow.setVisible(true);
+    }
+
+    public void passToSolicitarArticuladoWindow(MouseEvent mouseEvent) {//Metodo de solicitarArticuladoButton, pasa a solicitarArticuladoWindow
+        solicitarArticuladoWindow.setVisible(true);
+        menuPrincipal.setVisible(false);
+    }
+
+
+    public void backToBeginSession(MouseEvent mouseEvent) {
+        menuPrincipal.setVisible(false);
+        inicioSesionWindow.setVisible(true);
+    }
+
+    public void buscarEstacion(MouseEvent mouseEvent) {//Evento a boton BuscarEstacionButton, busca estaciones
+    }                                                  //y muestra en textArea resultadosBuscarEstacion
+
+
+    public void backFromEstacionToMenuPrincipal(MouseEvent mouseEvent) {//volver de buscarEstacionWindow a menuPrincipal
+        buscarEstacionWindow.setVisible(false);
+        menuPrincipal.setVisible(true);
+        ResultadosBuscarEstacion.setText("");
+    }
+
+    public void buscarRuta(MouseEvent mouseEvent) {//Metodo del boton buscarRutabutton, busca las rutas
+    }                                              //y las muestra en textArea resultadosBuscarRuta
+
+    public void backFromRutaToMenuPrincipal(MouseEvent mouseEvent) {
+        resultadosBuscarRuta.setText("");
+        buscarRutaWindow.setVisible(false);
+        menuPrincipal.setVisible(true);
+    }
+
+
+    public void planearRuta(MouseEvent mouseEvent) { //Metodo del boton planearRutaButton, muestra resultados de mejores rutas
+    }                                                // en el textArea resultadosPlanearRuta
+
+
+    public void backFromPlanearToMenuPrincipal(MouseEvent mouseEvent) {
+        planearRutaWindow.setVisible(false);
+        menuPrincipal.setVisible(true);
+        resultadosPlanearRuta.setText("");
+    }
+
+
+    public void crearSolicitud(MouseEvent mouseEvent) {
+    }
+
+    public void backFromSolicitudToMenuPrincipal(MouseEvent mouseEvent) {//pasar de CrearSolicitudWindow a menuPrincipal
+        solicitarArticuladoWindow.setVisible(false);
+        respuestaSolicitud.setText("");
+        menuPrincipal.setVisible(true);
+    }
+
     /**
      * Initializes the controller class.
      */
@@ -165,7 +329,6 @@ public class MenuInicioController implements Initializable {
         model = new LoginModel();
         model.start();
     }
-
 
 
 }
