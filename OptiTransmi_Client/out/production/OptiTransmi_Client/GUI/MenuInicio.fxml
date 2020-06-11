@@ -234,12 +234,31 @@
                   </JFXTextArea>
                </content>
             </ScrollPane>
-            <JFXButton id="backFromEstacionToMenuPrincipalButton" fx:id="backFromEstacionToMenuPrincipalButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backFromEstacionToMenuPrincipal" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+            <JFXButton id="backFromEstacionToMenuPrincipalButton" fx:id="backFromEstacionToMenuPrincipalButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backFromEstacionToMenuPrincipal" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="buscarEstacionButton" fx:id="buscarEstacionButton" layoutX="498.0" layoutY="69.0" onMouseClicked="#buscarEstacion" prefHeight="35.0" prefWidth="101.0" style="-fx-background-color: #ff0000;" text="Buscar" textFill="WHITE">
+            <JFXButton id="buscarEstacionButton" fx:id="buscarEstacionButton" layoutX="486.0" layoutY="69.0" onMouseClicked="#buscarEstacion" prefHeight="35.0" prefWidth="113.0" style="-fx-background-color: #ff0000;" text="Buscar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToVerMapaWindowButton" fx:id="passToVerMapaWindowButton" layoutX="486.0" layoutY="361.0" onMouseClicked="#passToVerMapaWindow" style="-fx-background-color: #ff0000;" text="Ver mapa" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="verMapaWindow" fx:id="verMapaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <ImageView fitHeight="344.0" fitWidth="620.0" layoutX="15.0" layoutY="14.0">
+               <image>
+                  <Image url="@images/mapa_estaciones.jpg" />
+               </image>
+            </ImageView>
+            <JFXButton id="backFromVerToMenuPrincipalButton" fx:id="backFromVerToMenuPrincipalButton" layoutX="275.0" layoutY="367.0" onMouseClicked="#backFromVerToMenuPrincipal" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>

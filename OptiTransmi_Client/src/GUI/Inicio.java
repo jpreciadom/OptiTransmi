@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -23,6 +24,8 @@ public class Inicio extends Application{
         Parent root= FXMLLoader.load(getClass().getResource("MenuInicio.fxml"));
         Scene scene= new Scene(root);
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(new Image("file: images/OptiTransmi_logo.png "));//colocar icono, pendiente
+        primaryStage.setTitle("OptiTransmi");
         primaryStage.show();
     }
     
