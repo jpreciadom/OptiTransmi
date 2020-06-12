@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import optitransmi_client.LoginModel;
+import optitransmi_client.MainModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -182,13 +183,10 @@ public class MenuInicioController implements Initializable {
     @FXML
     private RadioButton inicioAdmin;//radioButton para iniciar como administrador
 
-
-    private LoginModel model;
-
     public void passInicio(MouseEvent event) throws IOException {
         inicioWindow.setVisible(false);
         inicioSesionWindow.setVisible(true);
-
+        beginSession(null);
     }
 
     public void passRegistro(MouseEvent event) throws IOException {
@@ -201,36 +199,38 @@ public class MenuInicioController implements Initializable {
         myStage.close();
     }
 
-
     public void beginSession(javafx.scene.input.MouseEvent mouseEvent) {//iniciar sesion
         String mail = null, password = null;
         boolean rememberUSer = false;
-
-        //Mirar si el archivo contiene algo
-        //Si tiene algo usar esa inforamción
-
+        
+        mail = loginModel.readSaveUser();
+        if(mail != null){
+            String []s = mail.split(" ");
+            mail = s[0];
+            password = s[1];
+        } else {
         //En otro caso
             mail = this.mail.getText();
             this.mail.clear();
             password = this.password.getText();
             this.password.clear();
             rememberUSer = recordarUsuarioButton.isSelected();
-
-        Answer login = model.singIn(mail, password, rememberUSer);
-        if(login != null && login.getAnswer()){
-            System.out.println("Inicio de sesion exitoso!");
-            /* inicioSesionWindow.setVisible(false);
-             menuPrincipal.setVisible(true);*/
-            //Cambiamos a la siguiente ventana
-
-        } else {
-            if(login == null){
-                System.out.println("Tiempo de espera excedido");
-            } else {
-                System.out.println("Datos de ingreso errados");
-            }
         }
 
+        if(mail.length() > 0){
+            Answer login = loginModel.singIn(mail, password, rememberUSer);
+            if(login != null && login.getAnswer()){
+                loginModel.EndModel();
+                inicioSesionWindow.setVisible(false);
+                menuPrincipal.setVisible(true);
+            } else {
+                if(login == null){
+                    System.out.println("Tiempo de espera excedido");
+                } else {
+                    System.out.println("Datos de ingreso errados");
+                }
+            }
+        }
     }
 
     public void rememberUser(javafx.scene.input.MouseEvent mouseEvent) {//recordar usuario
@@ -242,7 +242,6 @@ public class MenuInicioController implements Initializable {
         inicioWindow.setVisible(true);
     }
 
-
     public void registrarUsuario(MouseEvent mouseEvent) {
         String name = null, password = null, mail = null;
         name = nombreRegistro.getText().trim();
@@ -253,8 +252,18 @@ public class MenuInicioController implements Initializable {
         contrasennaRegistro.clear();
         emailRegistro.clear();
 
-        Answer login = model.singUp(mail, password, name, false);
-        System.out.println(login);
+        Answer login = loginModel.singUp(mail, password, name, false);
+        if(login != null){
+            if(login.getAnswer()){
+                loginModel.EndModel();
+                registroWindow.setVisible(false);
+                menuPrincipal.setVisible(true);
+            } else {
+                System.out.println(login.getMessage());
+            }
+        } else {
+            System.out.println("Timeout");
+        }
     }
 
     public void regresar(MouseEvent mouseEvent) throws IOException {
@@ -270,9 +279,7 @@ public class MenuInicioController implements Initializable {
     public void passToBuscarRutaWindow(MouseEvent mouseEvent) { //Metodo de boton buscarRutaButton
         menuPrincipal.setVisible(false);
         buscarRutaWindow.setVisible(true);
-
     }
-
 
     public void passToPlanearRutaWindow(MouseEvent mouseEvent) {//Metodo de planearRutaButton, pasa a planearRutaWindow
         menuPrincipal.setVisible(false);
@@ -284,15 +291,14 @@ public class MenuInicioController implements Initializable {
         menuPrincipal.setVisible(false);
     }
 
-
     public void backToBeginSession(MouseEvent mouseEvent) {
         menuPrincipal.setVisible(false);
         inicioSesionWindow.setVisible(true);
     }
 
     public void buscarEstacion(MouseEvent mouseEvent) {//Evento a boton BuscarEstacionButton, busca estaciones
+        
     }                                                  //y muestra en textArea resultadosBuscarEstacion
-
 
     public void backFromEstacionToMenuPrincipal(MouseEvent mouseEvent) {//volver de buscarEstacionWindow a menuPrincipal
         buscarEstacionWindow.setVisible(false);
@@ -301,6 +307,7 @@ public class MenuInicioController implements Initializable {
     }
 
     public void buscarRuta(MouseEvent mouseEvent) {//Metodo del boton buscarRutabutton, busca las rutas
+        
     }                                              //y las muestra en textArea resultadosBuscarRuta
 
     public void backFromRutaToMenuPrincipal(MouseEvent mouseEvent) {
@@ -311,6 +318,7 @@ public class MenuInicioController implements Initializable {
 
 
     public void planearRuta(MouseEvent mouseEvent) { //Metodo del boton planearRutaButton, muestra resultados de mejores rutas
+        
     }                                                // en el textArea resultadosPlanearRuta
 
 
@@ -322,6 +330,7 @@ public class MenuInicioController implements Initializable {
 
 
     public void crearSolicitud(MouseEvent mouseEvent) {
+        
     }
 
     public void backFromSolicitudToMenuPrincipal(MouseEvent mouseEvent) {//pasar de CrearSolicitudWindow a menuPrincipal
@@ -338,7 +347,6 @@ public class MenuInicioController implements Initializable {
     public void backFromVerToMenuPrincipal(MouseEvent mouseEvent) {//regresa a buscarEstacionWindow
         verMapaWindow.setVisible(false);
         buscarEstacionWindow.setVisible(true);
-
     }
 
     /**
@@ -348,10 +356,10 @@ public class MenuInicioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        model = new LoginModel();
-        model.start();
+        loginModel = new LoginModel();
+        //loginModel.start();
     }
-
-
-
+    
+    private LoginModel loginModel;
+    private MainModel mainModel;
 }
