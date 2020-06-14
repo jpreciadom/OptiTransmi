@@ -5,7 +5,10 @@
  */
 package GUI;
 
+import Base.BasePackage;
+import DataStructures.SynchronizedLinkedList;
 import Information.Answer;
+import Request.*;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
@@ -17,11 +20,11 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import optitransmi_client.LoginModel;
-import optitransmi_client.MainModel;
+import optitransmi_client.Model;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 /**
@@ -196,6 +199,7 @@ public class MenuInicioController implements Initializable {
 
     public void salirApp(MouseEvent event) {//salir de la aplicacion
         Stage myStage= (Stage)this.panel.getScene().getWindow();
+        model.EndModel();
         myStage.close();
     }
 
@@ -203,7 +207,7 @@ public class MenuInicioController implements Initializable {
         String mail = null, password = null;
         boolean rememberUSer = false;
         
-        mail = loginModel.readSaveUser();
+        mail = model.readSaveUser();
         if(mail != null){
             String []s = mail.split(" ");
             mail = s[0];
@@ -218,9 +222,9 @@ public class MenuInicioController implements Initializable {
         }
 
         if(mail.length() > 0){
-            Answer login = loginModel.singIn(mail, password, rememberUSer);
+            Answer login = model.singIn(mail, password, rememberUSer);
             if(login != null && login.getAnswer()){
-                loginModel.EndModel();
+                model.setLogged(true);
                 inicioSesionWindow.setVisible(false);
                 menuPrincipal.setVisible(true);
             } else {
@@ -252,10 +256,10 @@ public class MenuInicioController implements Initializable {
         contrasennaRegistro.clear();
         emailRegistro.clear();
 
-        Answer login = loginModel.singUp(mail, password, name, false);
+        Answer login = model.singUp(mail, password, name, false);
         if(login != null){
             if(login.getAnswer()){
-                loginModel.EndModel();
+                model.setLogged(true);
                 registroWindow.setVisible(false);
                 menuPrincipal.setVisible(true);
             } else {
@@ -294,10 +298,32 @@ public class MenuInicioController implements Initializable {
     public void backToBeginSession(MouseEvent mouseEvent) {
         menuPrincipal.setVisible(false);
         inicioSesionWindow.setVisible(true);
+        model.setLogged(false);
     }
 
     public void buscarEstacion(MouseEvent mouseEvent) {//Evento a boton BuscarEstacionButton, busca estaciones
+        String estacion = nombreEstacion.getText();
+        nombreEstacion.clear();
         
+        StationListRequest slr = new StationListRequest(model.getCurrentIdRequest(), estacion);
+        model.createRequest(slr);
+        
+        boolean requestEnd = false;
+        while(!requestEnd && buscarEstacionWindow.isVisible()){
+            SynchronizedLinkedList rr = (SynchronizedLinkedList)model.getRequest().get(slr.getIdRequest());
+            if(rr != null && !rr.isEmpty()){
+                StationListAnswer sla = (StationListAnswer)rr.removeFirst();
+                if(sla != null){
+                    if(sla.getName() == null){
+                        requestEnd = true;
+                    } else {
+                        
+                    }
+                }
+            }
+        }
+        
+        model.RequestFulfilled(slr);
     }                                                  //y muestra en textArea resultadosBuscarEstacion
 
     public void backFromEstacionToMenuPrincipal(MouseEvent mouseEvent) {//volver de buscarEstacionWindow a menuPrincipal
@@ -356,10 +382,9 @@ public class MenuInicioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loginModel = new LoginModel();
-        //loginModel.start();
+        model = new Model(this);
+        model.start();
     }
     
-    private LoginModel loginModel;
-    private MainModel mainModel;
+    private Model model;
 }

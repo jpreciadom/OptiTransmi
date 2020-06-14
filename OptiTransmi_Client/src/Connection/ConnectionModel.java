@@ -10,7 +10,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 import Base.BasePackage;
-import optitransmi_client.Singleton;
 
 /**
  *
@@ -107,9 +106,6 @@ public class ConnectionModel {
         } else {
             answer = true;
         }
-        
-        if(!answer)                                                             //Si no se pudo hacer el envio
-            Singleton.getSingleton().AddInToWriteQueue(toSend);                 //Vuelve a poner el objeo a enviar en la cola
         return answer;                                                          //Devuelve la respuesta
     }
 }

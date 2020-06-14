@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author Juan Diego
  */
 public class SynchronizedHashMap<K, T> {
-    public HashMap<K, T> hashMap;
+    private HashMap<K, T> hashMap;
     private final ReentrantLock hashMutex;
     
     public SynchronizedHashMap(){
@@ -82,7 +82,18 @@ public class SynchronizedHashMap<K, T> {
             }
         } finally {
             hashMutex.unlock();
-            return answer;
         }
+        return answer;
+    }
+    
+    public T get(int index){
+        T element = null;
+        try{
+            hashMutex.lock();
+            element = hashMap.get(index);
+        } finally {
+            hashMutex.unlock();
+        }
+        return element;
     }
 }
