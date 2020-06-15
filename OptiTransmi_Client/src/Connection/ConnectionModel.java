@@ -54,7 +54,7 @@ public class ConnectionModel {
             disconnect();
         }
         try {
-            socket = new Socket("25.18.189.67", port);                        //Se conecta con el servidor
+            socket = new Socket("25.18.189.67", port);                          //Se conecta con el servidor
             output = new ObjectOutputStream(socket.getOutputStream());          //Obtiene el stream de salida
             input = new ObjectInputStream(socket.getInputStream());             //Obtiene el stream de entrada
             connected = true;
@@ -80,7 +80,11 @@ public class ConnectionModel {
     public synchronized BasePackage read(){
         BasePackage readed = null;                                              //Indica si se pudo enviar o no el mensaje
         try{
-            readed = (BasePackage)input.readObject();                           //Lee el objeto
+            if(input.available() > 0){
+                byte []enBuf = new byte[4];
+                input.read(enBuf);
+                readed = (BasePackage)input.readObject();                       //Lee el objeto
+            }
         } catch(Exception ex){
 
         }
@@ -96,7 +100,9 @@ public class ConnectionModel {
     public synchronized boolean send(BasePackage toSend){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         if(toSend != null){
+            byte []enBuf = new byte[4];
             try{
+                output.write(enBuf);
                 output.writeObject(toSend);                                     //Intenta hacer el envío, si puede
                 answer = true;                                                  //Marca como verdadero el estado del envio si se pudo hacer
             } catch(IOException ex){

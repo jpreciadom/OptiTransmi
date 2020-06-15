@@ -10,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.concurrent.locks.ReentrantLock;
 import Request.*;
@@ -26,7 +25,6 @@ public class Model extends Thread {
     private final PriorityQueue<BasePackage> toWrite;
     private final ReentrantLock mutexToRead;
     private final PriorityQueue<BasePackage> toRead;
-    private Thread ReadingThread;
 
     //Model objects
     private boolean RunningThread;
@@ -71,17 +69,37 @@ public class Model extends Thread {
             if(!isConnected){
                 client.connect();
             } else if(Logged){
-                BasePackage bp = ReadInToWriteQueue();
-                if(!client.send(bp)){
-                    AddInToWriteQueue(bp);
-                }
+                DataControl();
                 
-                bp = ReadFromToReadQueue();
-                if(bp != null){
-                    
+                BasePackage readed = ReadFromToReadQueue();
+                
+                if(readed != null){
+                    if(readed instanceof StationListAnswer){
+                        StationListAnswer sla = (StationListAnswer)readed;
+                        SynchronizedLinkedList<BasePackage> request = this.request.get(readed.getIdRequest());
+                        if(request != null){
+                            if(controler.buscarEstacionWindow.isVisible() && sla.getName() != null){
+                                String toAppend = 
+                                        "Nombre: " + sla.getName() + "\n" +
+                                        "Direccion: " + sla.getName() + "\n" +
+                                        "Vagones: " + sla.getWagons() + "\n\n";
+                               controler.ResultadosBuscarEstacion.appendText(toAppend);
+                            } else {
+                                RequestFulfilled(readed);
+                            }
+                        }
+                    }
                 }
             }
         }
+    }
+    
+    private void DataControl(){
+        BasePackage bp = ReadInToWriteQueue();
+        if(!client.send(bp)){
+            AddInToWriteQueue(bp);
+        }
+        AddInToReadQueue(client.read());
     }
     
     public boolean isLogged(){
@@ -90,29 +108,8 @@ public class Model extends Thread {
     
     public void setLogged(boolean Logged){
         this.Logged = Logged;
-        if(Logged && ReadingThread == null){
-            ReadingThread = new Thread(){
-                @Override
-                public void run(){
-                    TryToRead();
-                }
-            };
-            ReadingThread.start();
-        }
     }
     
-    private void TryToRead(){
-        System.out.println("Usuario loggeado, leyendo mensajes en paralelo");
-        while(RunningThread && Logged){
-            BasePackage readed = ReadWithTime(5000);
-            if(readed != null){
-                AddInToReadQueue(readed);
-            }
-        }
-        System.out.println("Ya nosta leyendo");
-        ReadingThread = null;
-    }
-
     public void EndModel() {
         RunningThread = false;
     }
@@ -131,11 +128,13 @@ public class Model extends Thread {
     
     public boolean AddInToWriteQueue(BasePackage toAdd){
         boolean added = false;
-        try{
-            mutexToWrite.lock();
-            added = toWrite.add(toAdd);
-        } finally {
-            mutexToWrite.unlock();
+        if(toAdd != null){
+            try{
+                mutexToWrite.lock();
+                added = toWrite.add(toAdd);
+            } finally {
+                mutexToWrite.unlock();
+            }
         }
         return added;
     }
@@ -153,11 +152,13 @@ public class Model extends Thread {
     
     public boolean AddInToReadQueue(BasePackage toAdd){
         boolean added = false;
-        try{
-            mutexToRead.lock();
-            added = toRead.add(toAdd);
-        } finally {
-            mutexToRead.unlock();
+        if(toAdd != null) {
+            try{
+                mutexToRead.lock();
+                added = toRead.add(toAdd);
+            } finally {
+                mutexToRead.unlock();
+            }
         }
         return added;
     }
@@ -176,6 +177,15 @@ public class Model extends Thread {
     //SOCKET OPERATIONS - END
     
     //MODEL LOGIN OPERATIONS - START
+    
+    public void DeleteUserFile(){
+        try {
+            File f = new File("Archivos/Usuarios.opti");
+            f.delete();
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
     
     public String readSaveUser(){
         String readed = new String();

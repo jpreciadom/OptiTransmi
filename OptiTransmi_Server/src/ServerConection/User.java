@@ -141,8 +141,12 @@ public class User extends Thread {
     protected boolean read(){
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         try{
-            BasePackage readed = (BasePackage)input.readObject();               //Lee el objeto
-            AddInToReadQueue(readed);                                           //Lo agrega a la cola de objetos leidos
+            if(input.available() > 0){
+                byte []enBuf = new byte[4];
+                input.read(enBuf);
+                BasePackage readed = (BasePackage)input.readObject();           //Lee el objeto
+                AddInToReadQueue(readed);                                       //Lo agrega a la cola de objetos leidos
+            }
             answer = true;                                                      //Marca la respuesta como verdadero
         } catch(Exception ex){
             disconnect();                                                       //Desconecta el socket
@@ -161,12 +165,14 @@ public class User extends Thread {
         boolean answer;                                                         //Indica si se pudo enviar o no el mensaje
         BasePackage toSend = ReadInToWriteQueue();                              //Saca el objeto a enviar de la cola de envios
         if(toSend != null){
+            byte []enBuf = new byte[4];
             try{
-                output.writeObject(toSend);                                         //Intenta hacer el envío, si puede
-                answer = true;                                                      //Marca como verdadero el estado del envio si se pudo hacer
+                output.write(enBuf);
+                output.writeObject(toSend);                                     //Intenta hacer el envío, si puede
+                answer = true;                                                  //Marca como verdadero el estado del envio si se pudo hacer
             } catch(IOException ex){
-                disconnect();                                                       //Imprime el mensaje del error que ocurrió y
-                answer = false;                                                     //Marca como false el estado del envio
+                disconnect();                                                   //Imprime el mensaje del error que ocurrió y
+                answer = false;                                                 //Marca como false el estado del envio
             }
         } else {
             answer = true;

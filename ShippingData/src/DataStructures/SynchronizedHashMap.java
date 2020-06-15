@@ -11,9 +11,11 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  *
  * @author Juan Diego
+ * @param <K> Key of the map
+ * @param <T> Element in the map
  */
 public class SynchronizedHashMap<K, T> {
-    private HashMap<K, T> hashMap;
+    private final HashMap<K, T> hashMap;
     private final ReentrantLock hashMutex;
     
     public SynchronizedHashMap(){
@@ -32,8 +34,8 @@ public class SynchronizedHashMap<K, T> {
             size = hashMap.size();
         } finally {
             hashMutex.unlock();
-            return size;
         }
+        return size;
     }
     
     public boolean put(K key, T element){
@@ -44,8 +46,8 @@ public class SynchronizedHashMap<K, T> {
             answer = true;
         } finally {
             hashMutex.unlock();
-            return answer;
         }
+        return answer;
     }
     
     public boolean remove(K key){
@@ -56,8 +58,8 @@ public class SynchronizedHashMap<K, T> {
             answer = true;
         } finally {
             hashMutex.unlock();
-            return answer;
         }
+        return answer;
     }
     
     public boolean exist(K key){
@@ -67,8 +69,8 @@ public class SynchronizedHashMap<K, T> {
             answer = hashMap.containsKey(key);
         } finally {
             hashMutex.unlock();
-            return answer;
         }
+        return answer;
     }
     
     public boolean update(K key, K newKey){
@@ -86,11 +88,11 @@ public class SynchronizedHashMap<K, T> {
         return answer;
     }
     
-    public T get(int index){
+    public T get(K key){
         T element = null;
         try{
             hashMutex.lock();
-            element = hashMap.get(index);
+            element = hashMap.get(key);
         } finally {
             hashMutex.unlock();
         }
