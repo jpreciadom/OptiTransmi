@@ -34,6 +34,8 @@ public class Model extends Thread {
     private SynchronizedHashMap<Integer, SynchronizedLinkedList<BasePackage>> request;
 
     public Model(MenuInicioController controler){
+        this.setPriority(MAX_PRIORITY);
+        
         //GUI
         this.controler = controler;
         
@@ -65,6 +67,12 @@ public class Model extends Thread {
                 System.out.println("Conectado al servidor");
             }
             wasConnected = isConnected;
+            
+            try {
+                sleep(50);
+            } catch(InterruptedException ie){
+                System.out.println(ie.getMessage());
+            }
 
             if(!isConnected){
                 client.connect();
@@ -81,7 +89,7 @@ public class Model extends Thread {
                             if(controler.buscarEstacionWindow.isVisible() && sla.getName() != null){
                                 String toAppend = 
                                         "Nombre: " + sla.getName() + "\n" +
-                                        "Direccion: " + sla.getName() + "\n" +
+                                        "Direccion: " + sla.getDirection()+ "\n" +
                                         "Vagones: " + sla.getWagons() + "\n\n";
                                controler.ResultadosBuscarEstacion.appendText(toAppend);
                             } else {
@@ -92,6 +100,7 @@ public class Model extends Thread {
                 }
             }
         }
+        System.out.println("Fin del hilo care....");
     }
     
     private void DataControl(){
@@ -245,9 +254,14 @@ public class Model extends Thread {
         Thread t = new Thread(){
             @Override
             public void run(){
-                AddInToReadQueue(client.read());
+                BasePackage bp = null;
+                while(bp == null){
+                    bp = client.read();
+                }
+                AddInToReadQueue(bp);
             }
         };
+        t.setPriority(MAX_PRIORITY);
         t.start();
 
         long TiempoInicio, TiempoFinal;
@@ -289,6 +303,7 @@ public class Model extends Thread {
     
     public void createRequest(BasePackage bp){
         request.put(bp.getIdRequest(), new SynchronizedLinkedList<BasePackage>());
+        AddInToWriteQueue(bp);
     }
     
     public void RequestFulfilled(BasePackage bp){

@@ -5,8 +5,6 @@
  */
 package GUI;
 
-import Base.BasePackage;
-import DataStructures.SynchronizedLinkedList;
 import Information.Answer;
 import Request.*;
 
