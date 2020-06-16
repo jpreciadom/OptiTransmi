@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
+<AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
    <children>
       <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0">
          <children>
@@ -73,11 +71,6 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </Label>
-            <JFXTextField id="password" fx:id="password" focusColor="RED" layoutX="154.0" layoutY="224.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu contraseña">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </JFXTextField>
             <JFXButton id="iniciarSesionButton" fx:id="iniciarSesionButton" layoutX="426.0" layoutY="266.0" onMouseClicked="#beginSession" style="-fx-background-color: #ff0000;" text="Ingresar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
@@ -98,6 +91,12 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </RadioButton>
+            <JFXPasswordField fx:id="password" focusColor="RED" layoutX="154.0" layoutY="225.0" prefHeight="25.0" prefWidth="350.0" promptText="Ingresa tu contraseña">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <Label fx:id="IngresarError" layoutX="154.0" layoutY="258.0" prefHeight="17.0" prefWidth="228.0" text="usuario o contraseña incorrectos" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane id="registroWindow" fx:id="registroWindow" prefHeight="410.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" visible="false">
@@ -282,20 +281,12 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <ScrollPane layoutX="25.0" layoutY="101.0" prefHeight="220.0" prefWidth="600.0">
-               <content>
-                  <JFXTextArea id="resultadosBuscarRuta" fx:id="resultadosBuscarRuta" prefHeight="210.0" prefWidth="593.0">
-                     <font>
-                        <Font name="Century Gothic" size="14.0" />
-                     </font>
-                  </JFXTextArea>
-               </content>
-            </ScrollPane>
             <JFXButton id="backFromRutaToMenuPrincipalButton" fx:id="backFromRutaToMenuPrincipalButton" layoutX="14.0" layoutY="347.0" onMouseClicked="#backFromRutaToMenuPrincipal" prefHeight="35.0" prefWidth="102.0" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
+            <JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" />
          </children>
       </AnchorPane>
       <AnchorPane id="planearRutaWindow" fx:id="planearRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
