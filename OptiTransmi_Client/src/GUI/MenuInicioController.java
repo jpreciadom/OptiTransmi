@@ -38,112 +38,116 @@ import java.util.ResourceBundle;
  * @author ADMIN
  */
 public class MenuInicioController implements Initializable {
-    
+    @FXML private AnchorPane panel;//Ventana base
+
+    //Ventana de menu de inicio
+    @FXML private AnchorPane inicioWindow;//ventana menuInicio
     @FXML private JFXButton inicioSesion; //boton de inicio de sesion menu de inicio
-
-    @FXML private JFXTextField mail; //campo correo ventana inicio de sesion
-
+    @FXML private JFXButton registro;//boton de registro en menu de inicio
     @FXML private JFXButton salir;//boton salir menu de inicio
 
+    //Ventana inicio de sesion
+    @FXML private AnchorPane inicioSesionWindow;//ventana inicio de sesion
+    @FXML private JFXTextField mail; //campo correo ventana inicio de sesion
+    @FXML private JFXPasswordField password;//contraseña en menu de inicio de sesion
+    @FXML private RadioButton recordarUsuarioButton;//radioButton de recordar usuario
+    @FXML private RadioButton inicioAdmin;//radioButton para iniciar como administrador
+    @FXML private JFXButton iniciarSesionButton;//boton de iniciar sesion en inicioSesionWindow
+    @FXML private JFXButton atrasButton;
+
+
+    //Ventana de registro
+    @FXML private AnchorPane registroWindow;//ventana registro
+    @FXML private JFXTextField nombreRegistro;//campo nombre en el menu de registro
+    @FXML private JFXTextField emailRegistro;//correo en ventana de registro
+    @FXML private JFXTextField contrasennaRegistro;//campo contraseña en el registro
+    @FXML private JFXButton btnRegistro;//boton de registrarse
+    @FXML private JFXButton atrasRegistroButton;
+
+
+    //Ventana menu principal
+    @FXML private AnchorPane menuPrincipal;//menu principal
+    @FXML private Label labelNombre;//nombre de la persona que inicio sesion para colocar en el menu principal
+    @FXML private Label labelCorreo;//correo de la persona que ingreso para mostrarlo en menuPrincipal
+    @FXML private JFXButton passToBuscarEstacionWindowButton;
+    @FXML private JFXButton passToBuscarRutaWindowButton;
+    @FXML private JFXButton passToPlanearRutaWindowButton;
+    @FXML private JFXButton passToSolicitarArticuladoWindowButton;
+    @FXML private JFXButton cerrarSesion;
+
+
+    //Ventana buscar estacion
+    @FXML public AnchorPane buscarEstacionWindow;//ventana buscar estacion
+    @FXML private JFXTextField nombreEstacion;//nombre de la estacion en buscarEstacionWindow
+    @FXML private JFXButton buscarEstacionButton;//boton buscar estacion en buscarEstacionWindow
+    @FXML public JFXTextArea ResultadosBuscarEstacion;//text area para mostrar reultados de buscar estacion
+    @FXML private JFXButton passToVerMapaWindowButton;
     @FXML private JFXButton backFromEstacionToMenuPrincipalButton;//boton regresar de buscarEstacionWindow
 
-    @FXML private JFXButton backFromRutaToMenuPrincipalButton;//boton regresar de buscarRutaWindow
 
-    @FXML private JFXPasswordField password;//contraseña en menu de inicio de sesion
+    //Ventana ver mapa de estaciones
+    @FXML private AnchorPane verMapaWindow;//ventana ver mapa
+    @FXML private JFXButton backFromVerToMenuPrincipalButton;
+
+
+    //Ventana buscar ruta
+    @FXML private AnchorPane buscarRutaWindow;//ventana buscar ruta
+    @FXML private JFXTextField nombreRuta;//nombre de la ruta en buscarRutaWindow
+    @FXML private JFXButton buscarRutaButton;//boton buscar ruta
+    @FXML private JFXButton backFromRutaToMenuPrincipalButton;//boton regresar de buscarRutaWindow
+    @FXML private JFXTreeTableView<Ruta> listaRutasBuscadas;
+    @FXML private JFXTextArea resultadosBuscarRuta;//text area para mostrar resultados de buscar ruta
+
+
+
+    //Ventana de planear ruta
+    @FXML private AnchorPane planearRutaWindow;//ventana planear ruta
+    @FXML private JFXTextField rutaInicio;//ruta de inicio en planear ruta
+    @FXML private JFXTextField rutaDestino;//ruta de destino en planearRuta
+    @FXML private JFXButton planearRutaButton;//boton de planear ruta en planearRutaWindow
+    @FXML private JFXButton backFromPlanearToMenuPrincipalButton;
+    @FXML private JFXTextArea resultadosPlanearRuta;//text area para colocar resultados de planear ruta
+
+
+
+    //Ventana de solicitar articulado
+    @FXML private AnchorPane solicitarArticuladoWindow;//ventana de solicitar articulado
+    @FXML private JFXTextField nombreEstacionSolicitud;//nombre de la estacion en planear solicitud
+    @FXML private JFXTextField nombreRutaSolicitud;//nombre de ruta e solicitarArticulado
+    @FXML private JFXButton crearSolicitudButton;//boton de crearSolicitud en crearSolicitudWindow
+    @FXML private JFXTextArea respuestaSolicitud;//text area para mostrar procesamiento de solicitud
+    @FXML private JFXButton backFromSolicitudToMenuPrincipalButton;
+
+
+    //Ventana menu principal de administrador
+    @FXML private JFXButton passToAjustarEstacionesWindowButton;
+    @FXML private JFXButton passToAjustarRutasWindowButton;
+    @FXML private AnchorPane menuPrincipalAdmin;
+    @FXML private Label labelCorreoAdmin;
+    @FXML private JFXButton backToInicioSesionFromMenuAdminButton;
+    @FXML private Label labelNombreAdmin;
+
+
+    //Ventana de ajustes de estaciones
+    @FXML private AnchorPane ajustesEstacionesWindow;
+    @FXML private JFXButton passToModificarEstacionWindowButton;
+    @FXML private JFXButton passToAgregarEstacionWindowButton;
+    @FXML private JFXButton backToMenAdminFromEstacionesWindowButton;
+    @FXML private JFXButton passToEliminarEstacionWindowButton;
+
+
+    //Ventana de ajustes de rutas
+    @FXML private AnchorPane ajustesRutaWindow;
+    @FXML private JFXButton passToModifcarWindowButton;
+    @FXML private JFXButton passToAgregarRutaWindowButton;
+    @FXML private JFXButton passToEliminarRutaWindowButton;
+    @FXML private JFXButton backToMenAdminFromAjustesRutaButton;
+
+
 
     @FXML public Label IngresarError;
 
-    @FXML private JFXButton crearSolicitudButton;//boton de crearSolicitud en crearSolicitudWindow
 
-    @FXML private JFXButton passToPlanearRutaWindowButton;
-
-    @FXML private JFXButton passToBuscarRutaWindowButton;
-
-    @FXML private JFXTreeTableView<Ruta> listaRutasBuscadas;
-
-    @FXML private JFXTextField nombreRuta;//nombre de la ruta en buscarRutaWindow
-
-    @FXML private JFXTextArea resultadosPlanearRuta;//text area para colocar resultados de planear ruta
-
-    @FXML private AnchorPane menuPrincipal;//menu principal
-
-    @FXML private JFXTextField nombreRegistro;//campo nombre en el menu de registro
-
-    @FXML private AnchorPane solicitarArticuladoWindow;//ventana de solicitar articulado
-
-    @FXML public AnchorPane buscarEstacionWindow;//ventana buscar estacion
-
-    @FXML private JFXTextField rutaDestino;//ruta de destino en planearRuta
-
-    @FXML private JFXButton buscarEstacionButton;//boton buscar estacion en buscarEstacionWindow
-
-    @FXML private JFXButton passToSolicitarArticuladoWindowButton;
-
-    @FXML private JFXButton atrasRegistroButton;
-
-    @FXML private Label labelNombre;//nombre de la persona que inicio sesion para colocar en el menu principal
-
-    @FXML private JFXTextField contrasennaRegistro;//campo contraseña en el registro
-
-    @FXML private JFXTextField nombreEstacionSolicitud;//nombre de la estacion en planear solicitud
-
-    @FXML private AnchorPane registroWindow;//ventana registro
-
-    @FXML private AnchorPane planearRutaWindow;//ventana planear ruta
-
-    @FXML private JFXButton atrasButton;
-
-    @FXML private AnchorPane verMapaWindow;//ventana ver mapa
-
-    @FXML public JFXTextArea ResultadosBuscarEstacion;//text area para mostrar reultados de buscar estacion
-
-    @FXML private JFXTextArea respuestaSolicitud;//text area para mostrar procesamiento de solicitud
-
-    @FXML private JFXButton planearRutaButton;//boton de planear ruta en planearRutaWindow
-
-    //@FXML private JFXTextArea resultadosBuscarRuta;//text area para mostrar resultados de buscar ruta
-
-    @FXML private AnchorPane panel;
-
-    @FXML private JFXTextField nombreEstacion;//nombre de la estacion en buscarEstacionWindow
-
-    @FXML private JFXButton buscarRutaButton;//boton buscar ruta
-
-    @FXML private JFXTextField emailRegistro;//correo en ventana de registro
-
-    @FXML private JFXButton btnRegistro;//boton de registrarse
-
-    @FXML private JFXButton cerrarSesion;
-
-    @FXML private AnchorPane buscarRutaWindow;//ventana buscar ruta
-
-    @FXML private AnchorPane inicioWindow;//ventana menuInicio
-
-    @FXML private JFXTextField rutaInicio;//ruta de inicio en planear ruta
-
-    @FXML private JFXButton backFromPlanearToMenuPrincipalButton;
-
-    @FXML private RadioButton recordarUsuarioButton;//radioButton de recordar usuario
-
-    @FXML private JFXButton passToBuscarEstacionWindowButton;
-
-    @FXML private JFXButton passToVerMapaWindowButton;
-
-    @FXML private JFXButton backFromVerToMenuPrincipalButton;
-
-    @FXML private JFXButton registro;//boton de registro en menu de inicio
-
-    @FXML private JFXTextField nombreRutaSolicitud;//nombre de ruta e solicitarArticulado
-
-    @FXML private JFXButton iniciarSesionButton;//boton de iniciar sesion en inicioSesionWindow
-
-    @FXML private JFXButton backFromSolicitudToMenuPrincipalButton;
-
-    @FXML private Label labelCorreo;//correo de la persona que ingreso para mostrarlo en menuPrincipal
-
-    @FXML private AnchorPane inicioSesionWindow;//ventana inicio de sesion
-
-    @FXML private RadioButton inicioAdmin;//radioButton para iniciar como administrador
 
     public void passInicio(MouseEvent event) throws IOException {
         inicioWindow.setVisible(false);
@@ -247,11 +251,56 @@ public class MenuInicioController implements Initializable {
         menuPrincipal.setVisible(false);
         buscarRutaWindow.setVisible(true);
     }
+    public void passToAjustarEstacionesWindow(MouseEvent mouseEvent) {
+        menuPrincipalAdmin.setVisible(false);
+        ajustesEstacionesWindow.setVisible(true);
+    }
+
+    public void passToAjustarRutasWindow(MouseEvent mouseEvent) {
+        menuPrincipalAdmin.setVisible(false);
+        ajustesRutaWindow.setVisible(true);
+    }
+
+    public void backToInicioSesionFromMenuAdmin(MouseEvent mouseEvent) {
+        menuPrincipalAdmin.setVisible(false);
+        inicioSesionWindow.setVisible(true);
+    }
 
     public void buscarRuta(MouseEvent mouseEvent) {//Metodo del boton buscarRutabutton, busca las rutas
         CrearListaRutas();
         listaRutasBuscadas.setDisable(false);
     }                                              //y las muestra en textArea resultadosBuscarRuta
+
+    public void passToAgregarEstacionWindow(MouseEvent mouseEvent) {
+    }
+
+    public void passToModificarEstacionWindow(MouseEvent mouseEvent) {
+    }
+
+    public void backToMenAdminFromEstacionesWindow(MouseEvent mouseEvent) {
+        ajustesEstacionesWindow.setVisible(false);
+        menuPrincipalAdmin.setVisible(true);
+    }
+
+    public void passToEliminarEstacionWindow(MouseEvent mouseEvent) {
+    }
+
+    public void passToModifcarWindow(MouseEvent mouseEvent) {
+    }
+
+    public void passToEliminarRutaWindow(MouseEvent mouseEvent) {
+    }
+
+    public void backToMenAdminFromAjustesRuta(MouseEvent mouseEvent) {
+        ajustesRutaWindow.setVisible(false);
+        menuPrincipalAdmin.setVisible(true);
+
+
+    }
+
+    public void passToAgregarRutaWindow(MouseEvent mouseEvent) {
+    }
+
 
     class Ruta extends RecursiveTreeObject<Ruta>{
         StringProperty CodigoRuta;
