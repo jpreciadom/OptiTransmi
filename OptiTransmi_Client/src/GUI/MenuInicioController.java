@@ -145,6 +145,40 @@ public class MenuInicioController implements Initializable {
 
 
 
+    //Ventana Agregar Nueva estacion
+    @FXML private AnchorPane agregarEstaicionWindow;
+    @FXML private JFXTextField nombreNuevaEstacion;
+    @FXML private JFXTextField direccionNuevaEstacion;
+    @FXML private JFXTextField zonaNuevaEstacion;
+    @FXML private JFXTextField numVagonesNuevaEstacion;
+    @FXML private JFXButton backToMenAdminFromNuevaEstacionButton;
+
+
+
+    //Ventana de modificar estacion
+    @FXML private AnchorPane modificarEstacionWindow;
+    @FXML private JFXTextField nombreEstacionBusquedaModificacion;
+    @FXML private JFXTextField nombreEstacionAModificar;
+    @FXML private JFXTextField direccionEstacionABuscar;
+    @FXML private JFXTextField zonaEstacionABuscar;
+    @FXML private JFXTextField numVagonesEstacionABuscar;
+    @FXML private JFXButton guardarCambiosEstacionButton;
+    @FXML private JFXButton backToMenAdminFromModifcarEstacionButton;
+
+
+    //Ventana de eliminar estacion
+    @FXML private AnchorPane EliminarEstacionWindow;
+    @FXML private JFXButton busquedaEstacionAEliminarButton;//nombre que se va a buscar
+    @FXML private JFXTextField nombreBusquedaestacionEliminacion;//resultado de la busqueda
+    @FXML private JFXButton eliminarEstacionButton;
+    @FXML private JFXButton backToMenAdminFromEliminarEstacionButton;
+
+
+
+
+
+
+
     @FXML public Label IngresarError;
 
 
@@ -167,7 +201,7 @@ public class MenuInicioController implements Initializable {
     }
 
     public void beginSession(javafx.scene.input.MouseEvent mouseEvent) {//iniciar sesion
-        String mail = null, password = null;
+        /*String mail = null, password = null;
         boolean rememberUSer = false;
         
         mail = model.readSaveUser();
@@ -201,6 +235,10 @@ public class MenuInicioController implements Initializable {
                     IngresarError.setVisible(true);
                 }
             }
+        }*/
+        if(inicioAdmin.isSelected()){
+            inicioSesionWindow.setVisible(false);
+            menuPrincipalAdmin.setVisible(true);
         }
     }
 
@@ -272,9 +310,13 @@ public class MenuInicioController implements Initializable {
     }                                              //y las muestra en textArea resultadosBuscarRuta
 
     public void passToAgregarEstacionWindow(MouseEvent mouseEvent) {
+        ajustesEstacionesWindow.setVisible(false);
+        agregarEstaicionWindow.setVisible(true);
     }
 
     public void passToModificarEstacionWindow(MouseEvent mouseEvent) {
+        ajustesEstacionesWindow.setVisible(false);
+        modificarEstacionWindow.setVisible(true);
     }
 
     public void backToMenAdminFromEstacionesWindow(MouseEvent mouseEvent) {
@@ -283,6 +325,8 @@ public class MenuInicioController implements Initializable {
     }
 
     public void passToEliminarEstacionWindow(MouseEvent mouseEvent) {
+        ajustesEstacionesWindow.setVisible(false);
+        EliminarEstacionWindow.setVisible(true);
     }
 
     public void passToModifcarWindow(MouseEvent mouseEvent) {
@@ -299,6 +343,36 @@ public class MenuInicioController implements Initializable {
     }
 
     public void passToAgregarRutaWindow(MouseEvent mouseEvent) {
+    }
+
+    public void agregarNuevaEstacion(MouseEvent mouseEvent) {
+    }
+
+    public void backToMenAdminFromNuevaEstacionButton(MouseEvent mouseEvent) {
+        agregarEstaicionWindow.setVisible(false);
+        menuPrincipalAdmin.setVisible(true);
+    }
+
+    public void guardarCambiosEstacion(MouseEvent mouseEvent) {//Guarda los cambios de la estacion a modificar
+    }
+
+    public void backToMenAdminFromModifcarEstacion(MouseEvent mouseEvent) {
+        modificarEstacionWindow.setVisible(false);
+        menuPrincipalAdmin.setVisible(true);
+    }
+
+    public void buscarEstacionModificacion(MouseEvent mouseEvent) {//Busca la estacion a modifcar
+    }
+
+    public void busquedaEstacionAEliminar(MouseEvent mouseEvent) {//Busca la estacion a eliminar
+    }
+
+    public void eliminarEstacion(MouseEvent mouseEvent) {//elimina la estacion
+    }
+
+    public void backToMenAdminFromEliminarEstacion(MouseEvent mouseEvent) {
+        EliminarEstacionWindow.setVisible(false);
+        menuPrincipalAdmin.setVisible(true);
     }
 
 
