@@ -174,6 +174,39 @@ public class MenuInicioController implements Initializable {
     @FXML private JFXButton backToMenAdminFromEliminarEstacionButton;
 
 
+    //Ventana de agregar ruta
+    @FXML private AnchorPane agregarRutaWindow;
+    @FXML private JFXTextField nombreRutaAAgregar;
+    @FXML private JFXTextField diaRutaAAgregar;
+    @FXML private JFXTextField horaInicioRutaAAgregar;
+    @FXML private JFXTextField horaFinRutaAAgregar;
+    @FXML private JFXButton backToAjustesRutasFromAgregarRutaButton;
+    @FXML private JFXButton agregarRutaButton;
+
+
+
+    //Ventana de modificar ruta
+    @FXML private AnchorPane modificarRutaWindow;
+    @FXML private JFXTextField codigoRutaABuscar;
+    @FXML private JFXTextField diaRutaABuscar;
+    @FXML private JFXButton buscarRutaAModificarButton;
+    @FXML private JFXTextField horaInicioRutaBuscada;
+    @FXML private JFXTextField horaFinRutaBuscada;
+    @FXML private JFXButton guardarCambiosRutaButton;
+    @FXML private JFXButton backToAjustesRutaFromModificarRutaButton;
+
+
+
+    //Ventana de eliminar ruta
+    @FXML private AnchorPane eliminarRutaWindow;
+    @FXML private JFXTextField codigoRutaAEliminar;
+    @FXML private JFXTextField diaRutaAEliminar;
+    @FXML private JFXButton buscarRutaAEliminarButton;
+    @FXML private Label horaInicioRutaAEliminar;
+    @FXML private Label horaFinRutaAEliminar;
+    @FXML private JFXButton eliminarRutaButton;
+    @FXML private JFXButton backToAjustesRutasFromEliminarRutaButton;
+
 
 
 
@@ -330,9 +363,13 @@ public class MenuInicioController implements Initializable {
     }
 
     public void passToModifcarWindow(MouseEvent mouseEvent) {
+        ajustesRutaWindow.setVisible(false);
+        modificarRutaWindow.setVisible(true);
     }
 
     public void passToEliminarRutaWindow(MouseEvent mouseEvent) {
+        ajustesRutaWindow.setVisible(false);
+        eliminarRutaWindow.setVisible(true);
     }
 
     public void backToMenAdminFromAjustesRuta(MouseEvent mouseEvent) {
@@ -343,6 +380,8 @@ public class MenuInicioController implements Initializable {
     }
 
     public void passToAgregarRutaWindow(MouseEvent mouseEvent) {
+        ajustesRutaWindow.setVisible(false);
+        agregarRutaWindow.setVisible(true);
     }
 
     public void agregarNuevaEstacion(MouseEvent mouseEvent) {
@@ -373,6 +412,37 @@ public class MenuInicioController implements Initializable {
     public void backToMenAdminFromEliminarEstacion(MouseEvent mouseEvent) {
         EliminarEstacionWindow.setVisible(false);
         menuPrincipalAdmin.setVisible(true);
+    }
+
+    public void agregarRuta(MouseEvent mouseEvent) {//Agregar la ruta en la venta agregarRutaWindow
+    }
+
+    public void backToAjustesRutasFromAgregarRuta(MouseEvent mouseEvent) {
+        agregarRutaWindow.setVisible(false);
+        ajustesRutaWindow.setVisible(true);
+    }
+
+    public void buscarRutaAModificar(MouseEvent mouseEvent) {//Busca la ruta a la cual se le va a modificar la informacion
+    }
+
+    public void guardarCambiosRuta(MouseEvent mouseEvent) {//guarda los cambios de la ruta ajustada
+    }
+
+    public void backToAjustesRutaFromModificarRuta(MouseEvent mouseEvent) {
+        modificarRutaWindow.setVisible(false);
+        ajustesRutaWindow.setVisible(true);
+
+    }
+
+    public void buscarRutaAEliminar(MouseEvent mouseEvent) {//Busca la ruta para eliminar la ruta, en eliminarRutaWindow
+    }
+
+    public void eliminarRuta(MouseEvent mouseEvent) {//elimina la ruta en eliminarRutaWindow
+    }
+
+    public void backToAjustesRutasFromEliminarRuta(MouseEvent mouseEvent) {
+        eliminarRutaWindow.setVisible(false);
+        ajustesRutaWindow.setVisible(true);
     }
 
 
