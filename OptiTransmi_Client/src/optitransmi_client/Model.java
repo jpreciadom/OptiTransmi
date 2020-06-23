@@ -31,7 +31,7 @@ public class Model extends Thread {
     private boolean Logged;
     
     //Request control
-    private SynchronizedHashMap<Integer, SynchronizedLinkedList<BasePackage>> request;
+    private SynchronizedHashMap<Integer, BasePackage> request;
 
     public Model(MenuInicioController controler){
         this.setPriority(MAX_PRIORITY);
@@ -86,7 +86,7 @@ public class Model extends Thread {
                 if(readed != null){
                     if(readed instanceof StationListAnswer){
                         StationListAnswer sla = (StationListAnswer)readed;
-                        SynchronizedLinkedList<BasePackage> request = this.request.get(readed.getIdRequest());
+                        BasePackage request = this.request.get(readed.getIdRequest());
                         if(request != null){
                             if(controler.buscarEstacionWindow.isVisible() && sla.getName() != null){
                                 String toAppend = 
@@ -317,7 +317,7 @@ public class Model extends Thread {
     }
     
     public void createRequest(BasePackage bp){
-        request.put(bp.getIdRequest(), new SynchronizedLinkedList<BasePackage>());
+        request.put(bp.getIdRequest(), bp);
         AddInToWriteQueue(bp);
     }
     

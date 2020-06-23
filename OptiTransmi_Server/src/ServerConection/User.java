@@ -35,6 +35,7 @@ enum UserType {
 public class User extends Thread {
     protected String userName;
     public UserType userType;
+    protected long lastRequest;
     protected final Socket clientSocket;
     protected ObjectOutputStream output;
     protected ObjectInputStream input;
@@ -201,25 +202,30 @@ public class User extends Thread {
             
             boolean sendAnswer = send();
             
-            BasePackage readedObject = ReadFromToReadQueue();
-            
-            if(readedObject == null){
-                sinc.release();
-                continue;
-            } 
-            
-            //if(userType == UserType.unlogged){
-                UnLoggedUser(readedObject);
-            //}else if(userType == UserType.logged){
-                LoggedUser(readedObject);
-            //}
-            
-            //if(userType == UserType.administrator){
-                Admin(readedObject);
-            //}
-            
+            if((System.currentTimeMillis() - lastRequest) > 6e5){  //Si lleva inactiva más de 10 minutos
+                disconnect();
+            } else {
+                BasePackage readedObject = ReadFromToReadQueue();
+
+                if(readedObject == null){
+                    sinc.release();
+                    continue;
+                } 
+
+                lastRequest = System.currentTimeMillis();
+                //if(userType == UserType.unlogged){
+                    UnLoggedUser(readedObject);
+                //}else if(userType == UserType.logged){
+                    LoggedUser(readedObject);
+                //}
+
+                //if(userType == UserType.administrator){
+                    Admin(readedObject);
+                //}
+            }
             sinc.release();
         }
+        Singleton.getSingleton().getActiveUsers().remove(this.userName);
     }
     
     protected void TryToRead(){
@@ -249,12 +255,13 @@ public class User extends Thread {
                     }
                     Answer answer;
                     if(userExist){
-                        answer = new Answer(idRequest, true, "Ingreso exitoso");
                         query =  "SELECT NOMBRE_USUARIO FROM USUARIO WHERE CORREO = '" + singIn.getMail() + "'";
                         result = singleton.getConexion().executeQuery(query);
+                        String name = null;
                         try {
-                            answer = new Answer(idRequest, true, result.getString(1));
+                            name = result.getString(1);
                         } catch (Exception se){ }
+                        answer = new Answer(idRequest, true, name);
                         Singleton.getSingleton().getActiveUsers().updateKey(this.userName, singIn.getMail());
                         this.userName = singIn.getMail();
                         this.userType = UserType.logged;

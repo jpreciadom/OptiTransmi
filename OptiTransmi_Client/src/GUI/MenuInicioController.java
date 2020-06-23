@@ -262,10 +262,11 @@ public class MenuInicioController implements Initializable {
                     IngresarError.setVisible(false);
                 }
             } else {
+                IngresarError.setVisible(true);
                 if(login == null){
-                    System.out.println("Tiempo de espera excedido");
+                    IngresarError.setText("Tiempo de espera excedido");
                 } else {
-                    IngresarError.setVisible(true);
+                    IngresarError.setText(login.getMessage());
                 }
             }
         }
