@@ -63,8 +63,10 @@ public class Model extends Thread {
             boolean isConnected = client.isConnected();
             if(wasConnected && !isConnected){
                 System.out.println("Usted esta actualmente desconectado");
+                blockControls();
             } else if(!wasConnected && isConnected) {
                 System.out.println("Conectado al servidor");
+                enableControls();
             }
             wasConnected = isConnected;
             
@@ -100,7 +102,20 @@ public class Model extends Thread {
                 }
             }
         }
-        System.out.println("Fin del hilo care....");
+    }
+    
+    private void blockControls(){
+        if(controler.inicioWindow.isVisible()){
+            controler.inicioSesion.setDisable(true);
+            controler.registro.setDisable(true);
+        }
+    }
+    
+    private void enableControls(){
+        if(controler.inicioWindow.isVisible()){
+            controler.inicioSesion.setDisable(false);
+            controler.registro.setDisable(false);
+        }
     }
     
     private void DataControl(){

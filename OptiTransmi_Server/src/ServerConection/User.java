@@ -212,8 +212,10 @@ public class User extends Thread {
                 UnLoggedUser(readedObject);
             //}else if(userType == UserType.logged){
                 LoggedUser(readedObject);
-            //}else if(userType == UserType.administrator){
-                
+            //}
+            
+            //if(userType == UserType.administrator){
+                Admin(readedObject);
             //}
             
             sinc.release();
@@ -232,7 +234,7 @@ public class User extends Thread {
         if(readedObject instanceof SingIn) {
             SingIn singIn = (SingIn)readedObject;
 
-            if(Singleton.getSingleton().getActiveUsers().exist(singIn.getMail())){
+            if(Singleton.getSingleton().getActiveUsers().containsKey(singIn.getMail())){
                 AddInToWriteQueue(new Answer(idRequest, false, "Ya tiene una sesión activa"));
             } else {
                 String query = "select ValidateLogin('"
@@ -248,7 +250,12 @@ public class User extends Thread {
                     Answer answer;
                     if(userExist){
                         answer = new Answer(idRequest, true, "Ingreso exitoso");
-                        Singleton.getSingleton().getActiveUsers().update(this.userName, singIn.getMail());
+                        query =  "SELECT NOMBRE_USUARIO FROM USUARIO WHERE CORREO = '" + singIn.getMail() + "'";
+                        result = singleton.getConexion().executeQuery(query);
+                        try {
+                            answer = new Answer(idRequest, true, result.getString(1));
+                        } catch (Exception se){ }
+                        Singleton.getSingleton().getActiveUsers().updateKey(this.userName, singIn.getMail());
                         this.userName = singIn.getMail();
                         this.userType = UserType.logged;
                     } else {
@@ -283,7 +290,7 @@ public class User extends Thread {
                         + singUp.getUserType() + ")";
                 singleton.getConexion().executeSQL(SQL);
                 AddInToWriteQueue(new Answer(idRequest, true));
-                Singleton.getSingleton().getActiveUsers().update(this.userName, singUp.getMail());
+                Singleton.getSingleton().getActiveUsers().updateKey(this.userName, singUp.getMail());
                 this.userType = UserType.logged;
             } else {
                 AddInToWriteQueue(new Answer(idRequest, false, "El correo ya esta en uso"));
@@ -374,6 +381,21 @@ public class User extends Thread {
                 } catch(Exception e){
                     System.out.println(e.getMessage());
                 }
+        }
+    }
+    
+    private void Admin(BasePackage readedObject){
+        Singleton singleton = Singleton.getSingleton();
+        if(readedObject instanceof UpdateNews){
+            String query = "UPDATE FROM NOTICIA VALUES(" + ((UpdateNews) readedObject).getIdToUpdate() +
+                    ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
+                    "', " + ((News) readedObject).getTitle() + "')";
+            singleton.getConexion().executeSQL(query);
+        } else if(readedObject instanceof News){
+            String query = "INSERT INTO NOTICIA VALUES(" + readedObject.getIdRequest() +
+                    ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
+                    "', " + ((News) readedObject).getTitle() + "')";
+            singleton.getConexion().executeSQL(query);
         }
     }
 }

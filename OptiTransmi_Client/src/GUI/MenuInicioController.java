@@ -41,9 +41,9 @@ public class MenuInicioController implements Initializable {
     @FXML private AnchorPane panel;//Ventana base
 
     //Ventana de menu de inicio
-    @FXML private AnchorPane inicioWindow;//ventana menuInicio
-    @FXML private JFXButton inicioSesion; //boton de inicio de sesion menu de inicio
-    @FXML private JFXButton registro;//boton de registro en menu de inicio
+    @FXML public AnchorPane inicioWindow;//ventana menuInicio
+    @FXML public JFXButton inicioSesion; //boton de inicio de sesion menu de inicio
+    @FXML public JFXButton registro;//boton de registro en menu de inicio
     @FXML private JFXButton salir;//boton salir menu de inicio
 
     //Ventana inicio de sesion
@@ -234,7 +234,7 @@ public class MenuInicioController implements Initializable {
     }
 
     public void beginSession(javafx.scene.input.MouseEvent mouseEvent) {//iniciar sesion
-        /*String mail = null, password = null;
+        String mail = null, password = null;
         boolean rememberUSer = false;
         
         mail = model.readSaveUser();
@@ -243,7 +243,6 @@ public class MenuInicioController implements Initializable {
             mail = s[0];
             password = s[1];
         } else {
-        //En otro caso
             mail = this.mail.getText();
             this.mail.clear();
             password = this.password.getText();
@@ -257,6 +256,8 @@ public class MenuInicioController implements Initializable {
                 model.setLogged(true);
                 inicioSesionWindow.setVisible(false);
                 menuPrincipal.setVisible(true);
+                labelNombre.setText(login.getMessage());
+                labelCorreo.setText(mail);
                 if(IngresarError.isVisible() == true){
                     IngresarError.setVisible(false);
                 }
@@ -264,14 +265,9 @@ public class MenuInicioController implements Initializable {
                 if(login == null){
                     System.out.println("Tiempo de espera excedido");
                 } else {
-                    //System.out.println("Datos de ingreso errados");
                     IngresarError.setVisible(true);
                 }
             }
-        }*/
-        if(inicioAdmin.isSelected()){
-            inicioSesionWindow.setVisible(false);
-            menuPrincipalAdmin.setVisible(true);
         }
     }
 

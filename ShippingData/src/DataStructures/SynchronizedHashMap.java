@@ -14,72 +14,65 @@ import java.util.concurrent.locks.ReentrantLock;
  * @param <K> Key of the map
  * @param <T> Element in the map
  */
-public class SynchronizedHashMap<K, T> {
-    private final HashMap<K, T> hashMap;
+public class SynchronizedHashMap<K, T> extends HashMap<K, T> {
     private final ReentrantLock hashMutex;
     
     public SynchronizedHashMap(){
-        hashMap = new HashMap<>();
+        super();
         hashMutex = new ReentrantLock();
-    }
-    
-    public boolean isEmpty(){
-        return getSize() == 0;
     }
     
     public int getSize(){
         int size = -1;
         try{
             hashMutex.lock();
-            size = hashMap.size();
+            size = super.size();
         } finally {
             hashMutex.unlock();
         }
         return size;
     }
     
-    public boolean put(K key, T element){
+    public T put(K key, T element){
+        T elementInserted = null;
+        try{
+            hashMutex.lock();
+            elementInserted = super.put(key, element);
+        } finally {
+            hashMutex.unlock();
+        }
+        return elementInserted;
+    }
+    
+    public T remove(Object key){
+        T removed = null;
+        try{
+            hashMutex.lock();
+            removed = super.remove(key);
+        } finally {
+            hashMutex.unlock();
+        }
+        return removed;
+    }
+    
+    public boolean containsKey(Object key){
         boolean answer = false;
         try{
             hashMutex.lock();
-            hashMap.put(key, element);
-            answer = true;
+            answer = super.containsKey(key);
         } finally {
             hashMutex.unlock();
         }
         return answer;
     }
     
-    public boolean remove(K key){
+    public boolean updateKey(K key, K newKey){
         boolean answer = false;
         try{
             hashMutex.lock();
-            hashMap.remove(key);
-            answer = true;
-        } finally {
-            hashMutex.unlock();
-        }
-        return answer;
-    }
-    
-    public boolean exist(K key){
-        boolean answer = false;
-        try{
-            hashMutex.lock();
-            answer = hashMap.containsKey(key);
-        } finally {
-            hashMutex.unlock();
-        }
-        return answer;
-    }
-    
-    public boolean update(K key, K newKey){
-        boolean answer = false;
-        try{
-            hashMutex.lock();
-            if(hashMap.containsKey(key)){
-                T object = hashMap.remove(key);
-                hashMap.put(newKey, object);
+            if(containsKey(key)){
+                T object = remove(key);
+                put(newKey, object);
                 answer = true;
             }
         } finally {
@@ -88,11 +81,11 @@ public class SynchronizedHashMap<K, T> {
         return answer;
     }
     
-    public T get(K key){
+    public T get(Object key){
         T element = null;
         try{
             hashMutex.lock();
-            element = hashMap.get(key);
+            element = super.get(key);
         } finally {
             hashMutex.unlock();
         }
