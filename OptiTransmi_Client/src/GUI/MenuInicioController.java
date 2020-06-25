@@ -10,6 +10,7 @@ import Request.*;
 
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableValue;
@@ -29,6 +30,7 @@ import optitransmi_client.Model;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 
@@ -91,12 +93,12 @@ public class MenuInicioController implements Initializable {
 
 
     //Ventana buscar ruta
-    @FXML private AnchorPane buscarRutaWindow;//ventana buscar ruta
+    @FXML public AnchorPane buscarRutaWindow;//ventana buscar ruta
     @FXML private JFXTextField nombreRuta;//nombre de la ruta en buscarRutaWindow
     @FXML private JFXButton buscarRutaButton;//boton buscar ruta
     @FXML private JFXButton backFromRutaToMenuPrincipalButton;//boton regresar de buscarRutaWindow
-    @FXML private JFXTreeTableView<Ruta> listaRutasBuscadas;
-    @FXML private JFXTextArea resultadosBuscarRuta;//text area para mostrar resultados de buscar ruta
+    @FXML public JFXTreeTableView<Ruta> resultadosBuscarRuta;
+    //@FXML private JFXTextArea resultadosBuscarRuta;//text area para mostrar resultados de buscar ruta
 
 
 
@@ -335,8 +337,12 @@ public class MenuInicioController implements Initializable {
     }
 
     public void buscarRuta(MouseEvent mouseEvent) {//Metodo del boton buscarRutabutton, busca las rutas
-        CrearListaRutas();
-        listaRutasBuscadas.setDisable(false);
+        String ruta = nombreRuta.getText();
+        nombreRuta.clear();
+        RutaListRequest rlr = new RutaListRequest(model.getCurrentIdRequest(), ruta);
+        model.createRequest(rlr);
+
+        resultadosBuscarRuta.setDisable(false);
     }                                              //y las muestra en textArea resultadosBuscarRuta
 
     public void passToAgregarEstacionWindow(MouseEvent mouseEvent) {
@@ -457,54 +463,66 @@ public class MenuInicioController implements Initializable {
         }
     }
 
-    public void CrearListaRutas(){
+        public void CrearListaRutas (ArrayList < String > valores) {
 
-        JFXTreeTableColumn<Ruta, String> codRu = new JFXTreeTableColumn<>("Codigo ruta");
-        codRu.setPrefWidth(100);
-        codRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
-                return param.getValue().getValue().CodigoRuta;
+            JFXTreeTableColumn<Ruta, String> codRu = new JFXTreeTableColumn<>("Codigo ruta");
+            codRu.setPrefWidth(150);
+            codRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
+                @Override
+                public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
+                    return param.getValue().getValue().CodigoRuta;
+                }
+            });
+
+            JFXTreeTableColumn<Ruta, String> diaRu = new JFXTreeTableColumn<>("Dia");
+            diaRu.setPrefWidth(150);
+            diaRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
+                @Override
+                public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
+                    return param.getValue().getValue().Dia;
+                }
+            });
+
+            JFXTreeTableColumn<Ruta, String> inicioRu = new JFXTreeTableColumn<>("Hora de inicio");
+            inicioRu.setPrefWidth(150);
+            inicioRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
+                @Override
+                public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
+                    return param.getValue().getValue().Inicio;
+                }
+            });
+
+            JFXTreeTableColumn<Ruta, String> finRu = new JFXTreeTableColumn<>("Hora de Fin");
+            finRu.setPrefWidth(150);
+            finRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
+                @Override
+                public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
+                    return param.getValue().getValue().Fin;
+                }
+            });
+
+            ObservableList<Ruta> rutas = FXCollections.observableArrayList();
+
+            //System.out.println("prueba aqui"+valores.get(0));
+            for (int i = 0; i < valores.size(); i = i + 4) {
+                rutas.add(new Ruta(valores.get(i), valores.get(i + 1), valores.get(i + 2), valores.get(i + 3)));
             }
-        });
 
-        JFXTreeTableColumn<Ruta, String> diaRu = new JFXTreeTableColumn<>("Dia");
-        diaRu.setPrefWidth(100);
-        diaRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
-                return param.getValue().getValue().Dia;
-            }
-        });
-
-        JFXTreeTableColumn<Ruta, String> inicioRu = new JFXTreeTableColumn<>("Hora de inicio");
-        inicioRu.setPrefWidth(100);
-        inicioRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
-                return param.getValue().getValue().Inicio;
-            }
-        });
-
-        JFXTreeTableColumn<Ruta, String> finRu = new JFXTreeTableColumn<>("Codigo ruta");
-        finRu.setPrefWidth(100);
-        finRu.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Ruta, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Ruta, String> param) {
-                return param.getValue().getValue().Fin;
-            }
-        });
-
-        ObservableList<Ruta> rutas = FXCollections.observableArrayList();
-
-        rutas.add(new Ruta("B28","Sabado","4:30","9:00"));
-
-        final TreeItem<Ruta> root = new RecursiveTreeItem<Ruta>(rutas, RecursiveTreeObject::getChildren);
-        listaRutasBuscadas.getColumns().setAll(codRu,diaRu,inicioRu,finRu);
-        listaRutasBuscadas.setRoot(root);
-        listaRutasBuscadas.setShowRoot(false);
+            Platform.runLater(() -> {
+                final TreeItem<Ruta> root = new RecursiveTreeItem<Ruta>(rutas, RecursiveTreeObject::getChildren);
+                resultadosBuscarRuta.getColumns().setAll(codRu, diaRu, inicioRu, finRu);
+                resultadosBuscarRuta.setRoot(root);
+                resultadosBuscarRuta.setShowRoot(false);
+            });
+        }
 
 
+    public void backFromRutaToMenuPrincipal(MouseEvent mouseEvent) {
+        //BuscarRuta.setText("");
+        buscarRutaWindow.setVisible(false);
+        menuPrincipal.setVisible(true);
+        resultadosBuscarRuta.setDisable(true);
+        resultadosBuscarRuta.setRoot(null);
     }
 
     public void passToPlanearRutaWindow(MouseEvent mouseEvent) {//Metodo de planearRutaButton, pasa a planearRutaWindow
@@ -536,13 +554,6 @@ public class MenuInicioController implements Initializable {
         menuPrincipal.setVisible(true);
         ResultadosBuscarEstacion.setText("");
     }
-
-    public void backFromRutaToMenuPrincipal(MouseEvent mouseEvent) {
-        //BuscarRuta.setText("");
-        buscarRutaWindow.setVisible(false);
-        menuPrincipal.setVisible(true);
-    }
-
 
     public void planearRuta(MouseEvent mouseEvent) { //Metodo del boton planearRutaButton, muestra resultados de mejores rutas
         

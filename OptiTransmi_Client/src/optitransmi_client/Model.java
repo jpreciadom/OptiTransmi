@@ -98,6 +98,16 @@ public class Model extends Thread {
                                 RequestFulfilled(readed);
                             }
                         }
+                    }else if(readed instanceof RutaListAnswer){
+                        RutaListAnswer rla = (RutaListAnswer)readed;
+                        BasePackage request = this.request.get(readed.getIdRequest());
+                        if(request != null){
+                            if(controler.buscarRutaWindow.isVisible()){
+                                controler.CrearListaRutas(rla.getValores());
+                            } else {
+                                RequestFulfilled(readed);
+                            }
+                        }
                     }
                 }
             }

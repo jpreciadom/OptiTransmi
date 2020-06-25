@@ -9,6 +9,7 @@ import java.net.Socket;
 import java.io.ObjectOutputStream;
 import java.io.ObjectInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 import Base.BasePackage;
 import Information.*;
@@ -201,10 +202,7 @@ public class User extends Thread {
             }
             
             boolean sendAnswer = send();
-            
-            if((System.currentTimeMillis() - lastRequest) > 6e5){  //Si lleva inactiva más de 10 minutos
-                disconnect();
-            } else {
+
                 BasePackage readedObject = ReadFromToReadQueue();
 
                 if(readedObject == null){
@@ -222,7 +220,7 @@ public class User extends Thread {
                 //if(userType == UserType.administrator){
                     Admin(readedObject);
                 //}
-            }
+
             sinc.release();
         }
         Singleton.getSingleton().getActiveUsers().remove(this.userName);
@@ -327,6 +325,32 @@ public class User extends Thread {
                     int wagons = result.getInt(3);
                     AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, wagons));
                 }
+            } catch(SQLException ex){ }
+        }else if(readedObject instanceof RutaListRequest){
+           RutaListRequest rlr = (RutaListRequest)readedObject;
+
+           String query = "SELECT CODIGO_RUTA, DIA, INICIO, FIN " +
+                   "FROM ruta " +
+                   "WHERE LOWER(CODIGO_RUTA) LIKE '%" + rlr.getSubName().toLowerCase() + "%'";
+
+            ResultSet result = singleton.getConexion().executeQuery(query);
+
+            try{
+                //AddInToWriteQueue(new RutaListAnswer(idRequest, null));
+                ArrayList<String> valores = new ArrayList<String>();
+                while(result.next()){
+                    String codigo = result.getString(1);
+                    String dia = result.getString(2);
+                    String inicio = result.getString(3);
+                    String fin = result.getString(4);
+                    valores.add(codigo);
+                    valores.add(dia);
+                    valores.add(inicio);
+                    valores.add(fin);
+                    //System.out.println(codigo);
+                    //System.out.println("aqui"+valores.get(0));
+                }
+                AddInToWriteQueue(new RutaListAnswer(idRequest, valores));
             } catch(SQLException ex){ }
         }else if(readedObject instanceof ChangePassword){
             ChangePassword cp = (ChangePassword)readedObject;

@@ -2,33 +2,17 @@ package Request;
 
 import Base.BasePackage;
 
+import java.util.ArrayList;
+
 public class RutaListAnswer extends BasePackage {
-    private final String codigo;
-    private final String dia;
-    private final String inicio;
-    private final String fin;
+    private final ArrayList<String> valores;
 
-    public RutaListAnswer(int idRequest, String codigo, String dia, String inicio, String fin){
-        super(codigo == null ? 2 : 1, idRequest);
-        this.codigo = codigo;
-        this.dia = dia;
-        this.inicio = inicio;
-        this.fin = fin;
+    public RutaListAnswer(int idRequest, ArrayList<String> valores){
+        super(2, idRequest);
+        this.valores = valores;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public String getDia() {
-        return dia;
-    }
-
-    public String getInicio() {
-        return inicio;
-    }
-
-    public String getFin() {
-        return fin;
+    public ArrayList<String> getValores(){
+        return valores;
     }
 }

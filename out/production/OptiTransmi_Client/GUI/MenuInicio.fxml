@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
    <children>
-      <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0" visible="false">
+      <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0">
          <children>
             <JFXButton id="salir" fx:id="salir" layoutX="244.0" layoutY="304.0" onMouseClicked="#salirApp" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Salir" textFill="WHITE">
                <font>
@@ -264,7 +264,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane id="buscarRutaWindow" fx:id="buscarRutaWindow" prefHeight="410.0" prefWidth="649.0">
+      <AnchorPane id="buscarRutaWindow" fx:id="buscarRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
             <Label layoutX="14.0" layoutY="25.0" text="Ingrese el nombre de la ruta:">
                <font>
@@ -286,7 +286,8 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" />
+            <JFXTreeTableView fx:id="resultadosBuscarRuta" disable="true" layoutX="17.0" layoutY="102.0" prefHeight="235.0" prefWidth="610.0" />
+            <!-- <JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" /> -->
          </children>
       </AnchorPane>
       <AnchorPane id="planearRutaWindow" fx:id="planearRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
@@ -369,6 +370,432 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXTextArea>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="menuPrincipalAdmin" fx:id="menuPrincipalAdmin" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <ImageView fitHeight="137.0" fitWidth="132.0" layoutX="45.0" layoutY="31.0">
+               <image>
+                  <Image url="@images/iniciar-sesion.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="17.0" layoutY="188.0" text="Nombre:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="228.0" text="Correo:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label id="labelNombreAdmin" fx:id="labelNombreAdmin" layoutX="81.0" layoutY="188.0">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label id="labelCorreoAdmin" fx:id="labelCorreoAdmin" layoutX="77.0" layoutY="228.0">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton id="passToAjustarEstacionesWindowButton" fx:id="passToAjustarEstacionesWindowButton" layoutX="312.0" layoutY="86.0" onMouseClicked="#passToAjustarEstacionesWindow" style="-fx-background-color: #ff0000;" text="Estaciones" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToAjustarRutasWindowButton" fx:id="passToAjustarRutasWindowButton" layoutX="312.0" layoutY="174.0" onMouseClicked="#passToAjustarRutasWindow" prefHeight="47.0" prefWidth="155.0" style="-fx-background-color: #ff0000;" text="Rutas" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToInicioSesionFromMenuAdminButton" fx:id="backToInicioSesionFromMenuAdminButton" layoutX="17.0" layoutY="361.0" onMouseClicked="#backToInicioSesionFromMenuAdmin" prefHeight="31.0" prefWidth="120.0" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="ajustesEstacionesWindow" fx:id="ajustesEstacionesWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <JFXButton id="passToAgregarEstacionWindowButton" fx:id="passToAgregarEstacionWindowButton" layoutX="208.0" layoutY="78.0" onMouseClicked="#passToAgregarEstacionWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Agregar Estacion" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToModificarEstacionWindowButton" fx:id="passToModificarEstacionWindowButton" layoutX="208.0" layoutY="158.0" onMouseClicked="#passToModificarEstacionWindow" style="-fx-background-color: #ff0000;" text="Modifcar Estacion" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToEliminarEstacionWindowButton" fx:id="passToEliminarEstacionWindowButton" layoutX="208.0" layoutY="241.0" onMouseClicked="#passToEliminarEstacionWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Eliminar Estacion" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToMenAdminFromEstacionesWindowButton" fx:id="backToMenAdminFromEstacionesWindowButton" layoutX="14.0" layoutY="349.0" onMouseClicked="#backToMenAdminFromEstacionesWindow" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="agregarEstacionWindow" fx:id="agregarEstaicionWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="71.0" layoutY="63.0" text="Nombre:">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="71.0" layoutY="112.0" text="Direccion:">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="71.0" layoutY="160.0" text="Zona:">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="68.0" layoutY="212.0" text="Numero de vagones:">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton id="agregarNuevaEstacionButton" fx:id="agregarNuevaEstacionButton" layoutX="276.0" layoutY="280.0" onMouseClicked="#agregarNuevaEstacion" style="-fx-background-color: #ff0000;" text="Agregar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToMenAdminFromNuevaEstacionButton" fx:id="backToMenAdminFromNuevaEstacionButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToMenAdminFromNuevaEstacionButton" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField id="nombreNuevaEstacion" fx:id="nombreNuevaEstacion" focusColor="RED" layoutX="170.0" layoutY="57.0" prefHeight="25.0" prefWidth="450.0" promptText="Ingrese el nombre">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="direccionNuevaEstacion" fx:id="direccionNuevaEstacion" focusColor="RED" layoutX="170.0" layoutY="106.0" prefHeight="25.0" prefWidth="450.0" promptText="Ingrese la direccion">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="zonaNuevaEstacion" fx:id="zonaNuevaEstacion" focusColor="RED" layoutX="170.0" layoutY="154.0" prefHeight="25.0" prefWidth="450.0" promptText="Ingrese la zona">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="numVagonesNuevaEstacion" fx:id="numVagonesNuevaEstacion" focusColor="RED" layoutX="260.0" layoutY="206.0" prefHeight="35.0" prefWidth="360.0" promptText="Ingrese el numero de vagones">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="modificarEstacionWindow" fx:id="modificarEstacionWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="55.0" text="Ingrese el nombre de la estacion: ">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="140.0" text="Nombre:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="178.0" text="Direccion:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="221.0" text="Zona:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="267.0" text="Numero de vagones:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton id="guardarCambiosEstacionButton" fx:id="guardarCambiosEstacionButton" layoutX="235.0" layoutY="309.0" onMouseClicked="#guardarCambiosEstacion" style="-fx-background-color: #ff0000;" text="Guardar cambios" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToMenAdminFromModifcarEstacionButton" fx:id="backToMenAdminFromModifcarEstacionButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToMenAdminFromModifcarEstacion" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField id="nombreEstacionBusquedaModificacion" fx:id="nombreEstacionBusquedaModificacion" focusColor="RED" layoutX="246.0" layoutY="50.0" prefHeight="25.0" prefWidth="391.0" promptText="Ingrese el nombre de la estacion">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton id="buscarEstacionModificacionButton" fx:id="buscarEstacionModificacionButton" layoutX="553.0" layoutY="84.0" onMouseClicked="#buscarEstacionModificacion" style="-fx-background-color: #ff0000;" text="Buscar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField id="nombreEstacionAModificar" fx:id="nombreEstacionAModificar" focusColor="RED" layoutX="86.0" layoutY="135.0" prefHeight="28.0" prefWidth="550.0" promptText="Nombre de la estacion buscada">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="direccionEstacionABuscar" fx:id="direccionEstacionABuscar" focusColor="RED" layoutX="86.0" layoutY="173.0" prefHeight="28.0" prefWidth="550.0" promptText="Direccion de la estacion buscada">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="zonaEstacionABuscar" fx:id="zonaEstacionABuscar" focusColor="RED" layoutX="86.0" layoutY="216.0" prefHeight="28.0" prefWidth="550.0" promptText="Zona de la estacion buscada">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="numVagonesEstacionABuscar" fx:id="numVagonesEstacionABuscar" focusColor="RED" layoutX="167.0" layoutY="262.0" prefHeight="28.0" prefWidth="470.0" promptText="Numero de vagones de la estacion buscada">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="EliminarEstacionWindow" fx:id="EliminarEstacionWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="40.0" text="Ingrese el nombre de la estacion:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="135.0" text="Nombre de la estacion resultante:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField id="nombreBusquedaestacionEliminacion" fx:id="nombreBusquedaestacionEliminacion" layoutX="246.0" layoutY="35.0" prefHeight="25.0" prefWidth="400.0" promptText="Nombre de la estacion">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="nombreEstacionAEliminar" fx:id="nombreEstacionAEliminar" layoutX="246.0" layoutY="130.0" prefHeight="25.0" prefWidth="400.0" promptText="Resultado de la busqueda">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton id="busquedaEstacionAEliminarButton" fx:id="busquedaEstacionAEliminarButton" layoutX="560.0" layoutY="75.0" onMouseClicked="#busquedaEstacionAEliminar" style="-fx-background-color: #ff0000;" text="Buscar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="eliminarEstacionButton" fx:id="eliminarEstacionButton" layoutX="264.0" layoutY="224.0" onMouseClicked="#eliminarEstacion" style="-fx-background-color: #ff0000;" text="Eliminar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToMenAdminFromEliminarEstacionButton" fx:id="backToMenAdminFromEliminarEstacionButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToMenAdminFromEliminarEstacion" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="ajustesRutaWindow" fx:id="ajustesRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <JFXButton id="passToAgregarRutaWindowButton" fx:id="passToAgregarRutaWindowButton" layoutX="234.0" layoutY="83.0" onMouseClicked="#passToAgregarRutaWindow" prefHeight="47.0" prefWidth="196.0" style="-fx-background-color: #ff0000;" text="Agregar ruta" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToModifcarWindowButton" fx:id="passToModifcarWindowButton" layoutX="234.0" layoutY="158.0" onMouseClicked="#passToModifcarWindow" style="-fx-background-color: #ff0000;" text="Modificar ruta" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToEliminarRutaWindowButton" fx:id="passToEliminarRutaWindowButton" layoutX="234.0" layoutY="235.0" onMouseClicked="#passToEliminarRutaWindow" prefHeight="47.0" prefWidth="196.0" style="-fx-background-color: #ff0000;" text="Eliminar ruta" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToMenAdminFromAjustesRutaButton" fx:id="backToMenAdminFromAjustesRutaButton" layoutX="14.0" layoutY="349.0" onMouseClicked="#backToMenAdminFromAjustesRuta" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="agregarRutaWindow" fx:id="agregarRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="50.0" text="Ingrese el codigo de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="104.0" text="Ingrese el diia en el que labora:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="152.0" text="Ingrese la hora de inicio:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="205.0" text="Ingrese la hora de  finalizacion:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField id="nombreRutaAAgregar" fx:id="nombreRutaAAgregar" focusColor="RED" layoutX="214.0" layoutY="45.0" prefHeight="25.0" prefWidth="400.0" promptText="Ingrese el codigo">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="diaRutaAAgregar" fx:id="diaRutaAAgregar" focusColor="RED" layoutX="235.0" layoutY="99.0" prefHeight="28.0" prefWidth="382.0" promptText="Ingrese el dia">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="horaInicioRutaAAgregar" fx:id="horaInicioRutaAAgregar" focusColor="RED" layoutX="190.0" layoutY="147.0" prefHeight="28.0" prefWidth="426.0" promptText="Ingrese la hora de inicio">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="horaFinRutaAAgregar" fx:id="horaFinRutaAAgregar" focusColor="RED" layoutX="235.0" layoutY="200.0" prefHeight="28.0" prefWidth="382.0" promptText="Ingrese la hora de finalizacion">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton id="agregarRutaButton" fx:id="agregarRutaButton" layoutX="256.0" layoutY="261.0" onMouseClicked="#agregarRuta" style="-fx-background-color: #ff0000;" text="Agregar ruta" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToAjustesRutasFromAgregarRutaButton" fx:id="backToAjustesRutasFromAgregarRutaButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToAjustesRutasFromAgregarRuta" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="modificarRutaWindow" fx:id="modificarRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Ingrese el codigo de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="51.0" text="Ingrese el dia de laboracion de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField id="codigoRutaABuscar" fx:id="codigoRutaABuscar" focusColor="RED" layoutX="215.0" layoutY="9.0" prefHeight="28.0" prefWidth="420.0" promptText="Ingrese el codigo">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="diaRutaABuscar" fx:id="diaRutaABuscar" focusColor="RED" layoutX="288.0" layoutY="46.0" prefHeight="28.0" prefWidth="350.0" promptText="Ingrese el dia">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton id="buscarRutaAModificarButton" fx:id="buscarRutaAModificarButton" layoutX="553.0" layoutY="88.0" onMouseClicked="#buscarRutaAModificar" style="-fx-background-color: #ff0000;" text="Buscar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="14.0" layoutY="148.0" text="Hora de inicio de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="196.0" text="Hora de fin de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField id="horaInicioRutaBuscada" fx:id="horaInicioRutaBuscada" focusColor="RED" layoutX="191.0" layoutY="143.0" prefHeight="28.0" prefWidth="443.0" promptText="hora de incio de la ruta">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="horaFinRutaBuscada" fx:id="horaFinRutaBuscada" focusColor="RED" layoutX="169.0" layoutY="191.0" prefHeight="28.0" prefWidth="464.0" promptText="hora de fin de la ruta">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton id="guardarCambiosRutaButton" fx:id="guardarCambiosRutaButton" layoutX="235.0" layoutY="242.0" onMouseClicked="#guardarCambiosRuta" style="-fx-background-color: #ff0000;" text="Guardar cambios" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToAjustesRutaFromModificarRutaButton" fx:id="backToAjustesRutaFromModificarRutaButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToAjustesRutaFromModificarRuta" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="eliminarRutaWindow" fx:id="eliminarRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="26.0" text="Ingrese el codigo de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="68.0" text="Ingrese el dia de labor de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="166.0" text="Hora de inicio de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="222.0" text="Hora de fin de la ruta:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField id="codigoRutaAEliminar" fx:id="codigoRutaAEliminar" focusColor="RED" layoutX="215.0" layoutY="21.0" prefHeight="25.0" prefWidth="420.0" promptText="Ingrese el codigo">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="diaRutaAEliminar" fx:id="diaRutaAEliminar" focusColor="RED" layoutX="247.0" layoutY="63.0" prefHeight="28.0" prefWidth="391.0" promptText="Ingrese el dia">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <Label id="horaInicioRutaAEliminar" fx:id="horaInicioRutaAEliminar" layoutX="194.0" layoutY="166.0" text="...">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label id="horaFinRutaAEliminar" fx:id="horaFinRutaAEliminar" layoutX="176.0" layoutY="222.0" text="...">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton id="buscarRutaAEliminarButton" fx:id="buscarRutaAEliminarButton" layoutX="556.0" layoutY="107.0" onMouseClicked="#buscarRutaAEliminar" style="-fx-background-color: #ff0000;" text="Buscar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="eliminarRutaButton" fx:id="eliminarRutaButton" layoutX="284.0" layoutY="263.0" onMouseClicked="#eliminarRuta" style="-fx-background-color: #ff0000;" text="Eliminar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToAjustesRutasFromEliminarRutaButton" fx:id="backToAjustesRutasFromEliminarRutaButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToAjustesRutasFromEliminarRuta" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </children>
