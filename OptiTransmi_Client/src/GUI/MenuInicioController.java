@@ -18,10 +18,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -120,6 +117,12 @@ public class MenuInicioController implements Initializable {
     @FXML private JFXButton crearSolicitudButton;//boton de crearSolicitud en crearSolicitudWindow
     @FXML private JFXTextArea respuestaSolicitud;//text area para mostrar procesamiento de solicitud
     @FXML private JFXButton backFromSolicitudToMenuPrincipalButton;
+
+
+    //Ventana de estaciones
+    @FXML private AnchorPane noticiasWindow;
+    @FXML private ScrollPane noticiasPanel;//Panel donde se van a mostrar las noticias
+    @FXML private JFXButton backToMenuPrincipalFromNoticiasButton;
 
 
     //Ventana menu principal de administrador
@@ -448,6 +451,16 @@ public class MenuInicioController implements Initializable {
     public void backToAjustesRutasFromEliminarRuta(MouseEvent mouseEvent) {
         eliminarRutaWindow.setVisible(false);
         ajustesRutaWindow.setVisible(true);
+    }
+
+    public void backToMenuPrincipalFromNoticias(MouseEvent mouseEvent) {
+        noticiasWindow.setVisible(false);
+        menuPrincipal.setVisible(true);
+    }
+
+    public void passToNoticiasWindow(MouseEvent mouseEvent) {
+        menuPrincipal.setVisible(false);
+        noticiasWindow.setVisible(true);
     }
 
 

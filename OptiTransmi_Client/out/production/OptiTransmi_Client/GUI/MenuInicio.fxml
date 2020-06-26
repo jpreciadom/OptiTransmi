@@ -50,7 +50,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane id="inicioSesionWindow" fx:id="inicioSesionWindow" layoutX="-2.0" prefHeight="410.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" visible="false">
+      <AnchorPane id="inicioSesionWindow" fx:id="inicioSesionWindow" layoutX="-2.0" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
             <Label layoutX="211.0" layoutY="14.0" text="Inicio de Sesion">
                <font>
@@ -105,7 +105,7 @@
             <Label fx:id="IngresarError" layoutX="154.0" layoutY="258.0" prefHeight="17.0" prefWidth="228.0" text="usuario o contraseña incorrectos" textFill="RED" visible="false" />
          </children>
       </AnchorPane>
-      <AnchorPane id="registroWindow" fx:id="registroWindow" prefHeight="410.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" visible="false">
+      <AnchorPane id="registroWindow" fx:id="registroWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
             <Label layoutX="254.0" layoutY="14.0" text="Registro">
                <font>
@@ -161,6 +161,11 @@
       </AnchorPane>
       <AnchorPane id="menuPrincipal" fx:id="menuPrincipal" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
+            <JFXButton fx:id="botonRecargas" layoutX="363.0" layoutY="314.0" onMouseClicked="#passPuntosRecarga" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #ff0000;" text="Puntos de recarga" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
             <ImageView fitHeight="102.0" fitWidth="109.0" layoutX="405.0" layoutY="24.0">
                <image>
                   <Image url="@images/OptiTransmi_logo.PNG" />
@@ -191,27 +196,32 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <JFXButton id="passToBuscarEstacionWindowButton" fx:id="passToBuscarEstacionWindowButton" layoutX="365.0" layoutY="149.0" onMouseClicked="#passToBuscarEstacionWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Buscar estacion" textFill="WHITE">
+            <JFXButton id="passToBuscarEstacionWindowButton" fx:id="passToBuscarEstacionWindowButton" layoutX="366.0" layoutY="126.0" onMouseClicked="#passToBuscarEstacionWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Buscar estacion" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToBuscarRutaWindowButton" fx:id="passToBuscarRutaWindowButton" layoutX="364.0" layoutY="206.0" onMouseClicked="#passToBuscarRutaWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Buscar ruta" textFill="WHITE">
+            <JFXButton id="passToBuscarRutaWindowButton" fx:id="passToBuscarRutaWindowButton" layoutX="364.0" layoutY="175.0" onMouseClicked="#passToBuscarRutaWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Buscar ruta" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToPlanearRutaWindowButton" fx:id="passToPlanearRutaWindowButton" layoutX="365.0" layoutY="265.0" onMouseClicked="#passToPlanearRutaWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Planear ruta" textFill="WHITE">
+            <JFXButton id="passToPlanearRutaWindowButton" fx:id="passToPlanearRutaWindowButton" layoutX="364.0" layoutY="223.0" onMouseClicked="#passToPlanearRutaWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Planear ruta" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToSolicitarArticuladoWindowButton" fx:id="passToSolicitarArticuladoWindowButton" layoutX="365.0" layoutY="323.0" onMouseClicked="#passToSolicitarArticuladoWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Solicitar articulado" textFill="WHITE">
+            <JFXButton id="passToSolicitarArticuladoWindowButton" fx:id="passToSolicitarArticuladoWindowButton" layoutX="364.0" layoutY="270.0" onMouseClicked="#passToSolicitarArticuladoWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Solicitar articulado" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
             <JFXButton id="cerrarSesion" fx:id="cerrarSesion" layoutX="24.0" layoutY="323.0" onMouseClicked="#backToBeginSession" prefHeight="35.0" prefWidth="77.0" style="-fx-background-color: #ff0000;" text="Salir" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToNoticiasWindowButton" fx:id="passToNoticiasWindowButton" layoutX="364.0" layoutY="361.0" onMouseClicked="#passToNoticiasWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Noticias" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -292,6 +302,7 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
+           <!-- <JFXTreeTableView fx:id="resultadosBuscarRuta" disable="true" layoutX="17.0" layoutY="102.0" prefHeight="235.0" prefWidth="610.0" />c-->
             <!-- <JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" /> -->
          </children>
       </AnchorPane>
@@ -375,6 +386,20 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXTextArea>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="noticiasWindow" fx:id="noticiasWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <ScrollPane id="noticiasPanel" fx:id="noticiasPanel" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="620.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+            <JFXButton id="backToMenuPrincipalFromNoticiasButton" fx:id="backToMenuPrincipalFromNoticiasButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToMenuPrincipalFromNoticias" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane id="menuPrincipalAdmin" fx:id="menuPrincipalAdmin" prefHeight="410.0" prefWidth="649.0" visible="false">
