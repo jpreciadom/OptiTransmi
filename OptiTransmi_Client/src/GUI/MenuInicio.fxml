@@ -155,6 +155,11 @@
       </AnchorPane>
       <AnchorPane id="menuPrincipal" fx:id="menuPrincipal" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
+            <JFXButton fx:id="botonRecargas" layoutX="365.0" layoutY="365.0" onMouseClicked="#passPuntosRecarga" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #ff0000;" text="Puntos de recarga" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
             <ImageView fitHeight="102.0" fitWidth="109.0" layoutX="405.0" layoutY="24.0">
                <image>
                   <Image url="@images/OptiTransmi_logo.PNG" />

@@ -76,6 +76,7 @@ public class MenuInicioController implements Initializable {
     @FXML private JFXButton passToPlanearRutaWindowButton;
     @FXML private JFXButton passToSolicitarArticuladoWindowButton;
     @FXML private JFXButton cerrarSesion;
+    @FXML private JFXButton botonRecargas;
 
 
     //Ventana buscar estacion
@@ -213,10 +214,11 @@ public class MenuInicioController implements Initializable {
 
 
 
-
     @FXML public Label IngresarError;
 
-
+    public void passPuntosRecarga(MouseEvent event) throws IOException {
+        Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /K start https://www.tullaveplus.gov.co/web/guest/puntos-de-recarga");
+    }
 
     public void passInicio(MouseEvent event) throws IOException {
         inicioWindow.setVisible(false);

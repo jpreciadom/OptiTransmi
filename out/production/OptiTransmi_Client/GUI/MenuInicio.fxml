@@ -15,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
    <children>
-      <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0">
+      <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0" visible="false">
          <children>
             <JFXButton id="salir" fx:id="salir" layoutX="244.0" layoutY="304.0" onMouseClicked="#salirApp" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Salir" textFill="WHITE">
                <font>
@@ -153,8 +153,13 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane id="menuPrincipal" fx:id="menuPrincipal" prefHeight="410.0" prefWidth="649.0" visible="false">
+      <AnchorPane id="menuPrincipal" fx:id="menuPrincipal" prefHeight="410.0" prefWidth="649.0">
          <children>
+            <JFXButton fx:id="botonRecargas" layoutX="365.0" layoutY="365.0" onMouseClicked="#passPuntosRecarga" prefHeight="31.0" prefWidth="193.0" style="-fx-background-color: #ff0000;" text="Puntos de recarga" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
             <ImageView fitHeight="102.0" fitWidth="109.0" layoutX="405.0" layoutY="24.0">
                <image>
                   <Image url="@images/OptiTransmi_logo.PNG" />
