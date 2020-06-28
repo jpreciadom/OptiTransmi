@@ -226,6 +226,11 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
+            <JFXButton id="passToModificarInfoWindowButton" fx:id="passToModificarInfoWindowButton" layoutX="24.0" layoutY="253.0" onMouseClicked="#passToModificarInfoWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Modificar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane id="buscarEstacionWindow" fx:id="buscarEstacionWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
@@ -402,6 +407,50 @@
             </JFXButton>
          </children>
       </AnchorPane>
+      <AnchorPane id="configurarInfoWindow" fx:id="configurarInfoWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="50.0" layoutY="71.0" text="Nombre:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="129.0" text="Correo:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="187.0" text="Contrasena:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField id="nombreUsuarioConfig" fx:id="nombreUsuarioConfig" focusColor="RED" layoutX="122.0" layoutY="66.0" prefHeight="25.0" prefWidth="500.0" promptText="nombre resultado">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="correoUsuarioConfig" fx:id="correoUsuarioConfig" focusColor="RED" layoutX="122.0" layoutY="124.0" prefHeight="25.0" prefWidth="500.0" promptText="correo resultado">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField id="contrasenaResultadoConfig" fx:id="contrasenaResultadoConfig" focusColor="RED" layoutX="142.0" layoutY="182.0" prefHeight="28.0" prefWidth="483.0" promptText="contrasena resultado">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton id="guardarCambiosInfoButton" fx:id="guardarCambiosInfoButton" layoutX="235.0" layoutY="236.0" onMouseClicked="#guardarCambiosInfo" style="-fx-background-color: #ff0000;" text="Guardar cambios" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="backToMenuPrincipalFromModificarButton" fx:id="backToMenuPrincipalFromModificarButton" layoutX="21.0" layoutY="361.0" onMouseClicked="#backToMenuPrincipalFromModificar" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
       <AnchorPane id="menuPrincipalAdmin" fx:id="menuPrincipalAdmin" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
             <ImageView fitHeight="137.0" fitWidth="132.0" layoutX="45.0" layoutY="31.0">
@@ -429,12 +478,12 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <JFXButton id="passToAjustarEstacionesWindowButton" fx:id="passToAjustarEstacionesWindowButton" layoutX="312.0" layoutY="86.0" onMouseClicked="#passToAjustarEstacionesWindow" style="-fx-background-color: #ff0000;" text="Estaciones" textFill="WHITE">
+            <JFXButton id="passToAjustarEstacionesWindowButton" fx:id="passToAjustarEstacionesWindowButton" layoutX="312.0" layoutY="86.0" onMouseClicked="#passToAjustarEstacionesWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Estaciones" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToAjustarRutasWindowButton" fx:id="passToAjustarRutasWindowButton" layoutX="312.0" layoutY="174.0" onMouseClicked="#passToAjustarRutasWindow" prefHeight="47.0" prefWidth="155.0" style="-fx-background-color: #ff0000;" text="Rutas" textFill="WHITE">
+            <JFXButton id="passToAjustarRutasWindowButton" fx:id="passToAjustarRutasWindowButton" layoutX="312.0" layoutY="174.0" onMouseClicked="#passToAjustarRutasWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Rutas" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
@@ -442,6 +491,11 @@
             <JFXButton id="backToInicioSesionFromMenuAdminButton" fx:id="backToInicioSesionFromMenuAdminButton" layoutX="17.0" layoutY="361.0" onMouseClicked="#backToInicioSesionFromMenuAdmin" prefHeight="31.0" prefWidth="120.0" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="passToAgregarNoticiaWindowButton" fx:id="passToAgregarNoticiaWindowButton" layoutX="312.0" layoutY="264.0" onMouseClicked="#passToAgregarNoticiaWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Agregar Noticia" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
          </children>
@@ -822,6 +876,40 @@
                </font>
             </JFXButton>
             <JFXButton id="backToAjustesRutasFromEliminarRutaButton" fx:id="backToAjustesRutasFromEliminarRutaButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToAjustesRutasFromEliminarRuta" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="agregarNoticiaWindow" fx:id="agregarNoticiaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <Label layoutX="14.0" layoutY="30.0" text="Ingrese el titulo de la noticia:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="72.0" text="Ingrese el contenido de la noticia:">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Label>
+            <JFXTextField id="tituloNuevaNoticia" fx:id="tituloNuevaNoticia" focusColor="RED" layoutX="220.0" layoutY="25.0" prefHeight="25.0" prefWidth="400.0" promptText="Ingrese el titulo">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextArea id="contenidoNuevaNoticia" fx:id="contenidoNuevaNoticia" focusColor="RED" layoutX="22.0" layoutY="101.0" prefHeight="228.0" prefWidth="600.0" promptText="Ingrese el contenido">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </JFXTextArea>
+            <JFXButton id="backToMenAdminFromAgregarNoticiaButton" fx:id="backToMenAdminFromAgregarNoticiaButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToMenAdminFromAgregarNoticia" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton id="agregarNuevaNoticiaButton" fx:id="agregarNuevaNoticiaButton" layoutX="521.0" layoutY="361.0" onMouseClicked="#agregarNuevaNoticia" style="-fx-background-color: #ff0000;" text="Agregar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>

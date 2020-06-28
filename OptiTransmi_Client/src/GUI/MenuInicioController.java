@@ -72,6 +72,7 @@ public class MenuInicioController implements Initializable {
     @FXML private JFXButton passToBuscarRutaWindowButton;
     @FXML private JFXButton passToPlanearRutaWindowButton;
     @FXML private JFXButton passToSolicitarArticuladoWindowButton;
+    @FXML private JFXButton passToModificarInfoWindowButton;
     @FXML private JFXButton cerrarSesion;
     @FXML private JFXButton botonRecargas;
 
@@ -123,6 +124,17 @@ public class MenuInicioController implements Initializable {
     @FXML private AnchorPane noticiasWindow;
     @FXML private ScrollPane noticiasPanel;//Panel donde se van a mostrar las noticias
     @FXML private JFXButton backToMenuPrincipalFromNoticiasButton;
+
+
+    //Ventana de modificar informacion
+    @FXML private AnchorPane configurarInfoWindow;
+    @FXML private JFXTextField nombreUsuarioConfig;
+    @FXML private JFXTextField correoUsuarioConfig;
+    @FXML private JFXTextField contrasenaResultadoConfig;
+    @FXML private JFXButton guardarCambiosInfoButton;
+    @FXML private JFXButton backToMenuPrincipalFromModificarButton;
+
+
 
 
     //Ventana menu principal de administrador
@@ -214,7 +226,13 @@ public class MenuInicioController implements Initializable {
     @FXML private JFXButton backToAjustesRutasFromEliminarRutaButton;
 
 
-
+    //Ventana de agregar noticia
+    @FXML private AnchorPane agregarNoticiaWindow;
+    @FXML private JFXButton passToAgregarNoticiaWindowButton;
+    @FXML private JFXTextField tituloNuevaNoticia;
+    @FXML private JFXTextArea contenidoNuevaNoticia;
+    @FXML private JFXButton agregarNuevaNoticiaButton;
+    @FXML private JFXButton backToMenAdminFromAgregarNoticiaButton;
 
 
     @FXML public Label IngresarError;
@@ -461,6 +479,33 @@ public class MenuInicioController implements Initializable {
     public void passToNoticiasWindow(MouseEvent mouseEvent) {
         menuPrincipal.setVisible(false);
         noticiasWindow.setVisible(true);
+    }
+
+    public void passToAgregarNoticiaWindow(MouseEvent mouseEvent) {
+        menuPrincipalAdmin.setVisible(false);
+        agregarNoticiaWindow.setVisible(true);
+
+    }
+
+    public void backToMenAdminFromAgregarNoticia(MouseEvent mouseEvent) {
+        agregarNoticiaWindow.setVisible(false);
+        menuPrincipalAdmin.setVisible(true);
+    }
+
+    public void agregarNuevaNoticia(MouseEvent mouseEvent) {//Evento para agregar nueva noticia
+    }
+
+    public void passToModificarInfoWindow(MouseEvent mouseEvent) {
+        menuPrincipal.setVisible(false);
+        configurarInfoWindow.setVisible(true);
+    }
+
+    public void guardarCambiosInfo(MouseEvent mouseEvent) {//guarda loscambios de la informacion del usuario
+    }
+
+    public void backToMenuPrincipalFromModificar(MouseEvent mouseEvent) {
+        configurarInfoWindow.setVisible(false);
+        menuPrincipal.setVisible(true);
     }
 
 
