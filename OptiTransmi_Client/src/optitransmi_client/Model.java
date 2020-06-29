@@ -29,6 +29,7 @@ public class Model extends Thread {
     //Model objects
     private boolean RunningThread;
     private boolean Logged;
+    private boolean Admin;
     
     //Request control
     private SynchronizedHashMap<Integer, BasePackage> request;
@@ -50,6 +51,7 @@ public class Model extends Thread {
         //Model objets
         RunningThread = true;
         Logged = false;
+        Admin = false;
         
         //Request control
         request = new SynchronizedHashMap<>();
@@ -142,6 +144,10 @@ public class Model extends Thread {
     
     public void setLogged(boolean Logged){
         this.Logged = Logged;
+    }
+
+    public void setAdmin(boolean Admin){
+        this.Admin = Admin;
     }
     
     public void EndModel() {
@@ -244,11 +250,11 @@ public class Model extends Thread {
         return readed;
     }
 
-    public Answer singIn(String mail, String password, boolean rememberUser) {
-        Answer a;
+    public SingInAnswer singIn(String mail, String password, boolean rememberUser) {
+        SingInAnswer a;
         int id = getCurrentIdRequest();
         client.send(new SingIn(id, mail, password));
-        a = (Answer) ReadWithTime(5000);
+        a = (SingInAnswer) ReadWithTime(5000);
         if(rememberUser){
             try{
                 File f = new File("Archivos/Usuarios.opti");

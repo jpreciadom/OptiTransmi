@@ -5,12 +5,16 @@
  */
 package GUI;
 
+import Administrator.AddEstacion;
 import Information.Answer;
+import Login.SingInAnswer;
 import Request.*;
 
 import UserDataConfig.*;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
+import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -32,6 +36,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
@@ -291,15 +296,27 @@ public class MenuInicioController implements Initializable {
         }
 
         if(mail.length() > 0){
-            Answer login = model.singIn(mail, password, rememberUSer);
+            SingInAnswer login = model.singIn(mail, password, rememberUSer);
             if(login != null && login.getAnswer()){
-                model.setLogged(true);
-                inicioSesionWindow.setVisible(false);
-                menuPrincipal.setVisible(true);
-                labelNombre.setText(login.getMessage());
-                labelCorreo.setText(mail);
-                if(IngresarError.isVisible() == true){
-                    IngresarError.setVisible(false);
+                if(login.getUserType()==1){
+                    model.setLogged(true);
+                    inicioSesionWindow.setVisible(false);
+                    menuPrincipal.setVisible(true);
+                    labelNombre.setText(login.getMessage());
+                    labelCorreo.setText(mail);
+                    if(IngresarError.isVisible() == true){
+                        IngresarError.setVisible(false);
+                    }
+                }else if(login.getUserType()==0){
+                    model.setLogged(true);
+                    model.setAdmin(true);
+                    inicioSesionWindow.setVisible(false);
+                    menuPrincipalAdmin.setVisible(true);
+                    labelNombreAdmin.setText(login.getUserName());
+                    labelCorreoAdmin.setText(mail);
+                    if(IngresarError.isVisible() == true){
+                        IngresarError.setVisible(false);
+                    }
                 }
             } else {
                 IngresarError.setVisible(true);
@@ -426,6 +443,15 @@ public class MenuInicioController implements Initializable {
     }
 
     public void agregarNuevaEstacion(MouseEvent mouseEvent) throws AWTException {
+
+        String nombreEstacion = nombreNuevaEstacion.getText();
+        String direccion = direccionNuevaEstacion.getText();
+        String zona = zonaNuevaEstacion.getText();
+        int vagones = Integer.parseInt(numVagonesNuevaEstacion.getText());
+
+        AddEstacion ae = new AddEstacion(model.getCurrentIdRequest(), nombreEstacion,direccion,zona,vagones);
+        model.createRequest(ae);
+
         SystemTray tray= SystemTray.getSystemTray();
         Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
         TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");

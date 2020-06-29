@@ -13,13 +13,19 @@ import Information.Answer;
  */
 public class SingInAnswer extends Answer {
     private int userType;
+    private String userName;
 
-    public SingInAnswer(int idRequest, boolean answer, String message, int userType) {
-        super(idRequest, answer, message);
+    public SingInAnswer(int idRequest, boolean answer, String userName, int userType) {
+        super(idRequest, answer);
         this.userType = userType;
+        this.userName = userName;
     }
 
     public int getUserType() {
         return userType;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 }

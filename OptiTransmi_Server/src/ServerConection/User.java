@@ -11,6 +11,8 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+
+import Administrator.AddEstacion;
 import Base.BasePackage;
 import Information.*;
 import Login.*;
@@ -211,14 +213,13 @@ public class User extends Thread {
                 } 
 
                 lastRequest = System.currentTimeMillis();
-                if(userType == UserType.unlogged){
+                //if(userType == UserType.unlogged){
                     UnLoggedUser(readedObject);
-                }else if(userType == UserType.logged){
+                //}else if(userType == UserType.logged){
                     LoggedUser(readedObject);
-                }else if(userType == UserType.administrator){
-                    LoggedUser(readedObject);
+                //}else if(userType == UserType.administrator){
                     Admin(readedObject);
-                }
+                //}
 
             sinc.release();
         }
@@ -252,8 +253,13 @@ public class User extends Thread {
                         String contrasenna = result.getString(2);
                         int tipo = result.getInt(3);
                         if(contrasenna.equals(singIn.getPassword())){
-                            answer = new SingInAnswer(idRequest, true, userName, tipo);
-                            userType = tipo == 1 ? UserType.logged : UserType.administrator;
+                            answer = new SingInAnswer(idRequest, true, nombreUsuario, tipo);
+                            if(tipo == 1){
+                                userType = UserType.logged;
+                            }else{
+                                userType = UserType.administrator;
+                            }
+                            //userType = tipo == 1 ? UserType.logged : UserType.administrator;
                         } else {
                             answer = new Answer(idRequest, true, "Contraseña incorrecta");
                         }
@@ -490,6 +496,13 @@ public class User extends Thread {
             String query = "INSERT INTO NOTICIA VALUES(" + readedObject.getIdRequest() +
                     ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
                     "', " + ((News) readedObject).getTitle() + "')";
+            singleton.getConexion().executeSQL(query);
+        }else if(readedObject instanceof AddEstacion){
+            String query = "INSERT INTO ESTACION VALUES('"
+                    + ((AddEstacion) readedObject).getNombre() + "', '"
+                    + ((AddEstacion) readedObject).getDireccion() + "', '"
+                    + ((AddEstacion) readedObject).getZona() + "', "
+                    + ((AddEstacion) readedObject).getnVagones() + ")";
             singleton.getConexion().executeSQL(query);
         }
     }
