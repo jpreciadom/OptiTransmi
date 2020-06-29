@@ -23,12 +23,12 @@
    <children>
       <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0">
          <children>
-            <JFXButton id="salir" fx:id="salir" layoutX="244.0" layoutY="304.0" onMouseClicked="#salirApp" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Salir" textFill="WHITE">
+            <JFXButton id="salir" fx:id="salir" layoutX="244.0" layoutY="277.0" onMouseClicked="#salirApp" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Salir" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton id="registro" fx:id="registro" layoutX="244.0" layoutY="222.0" onMouseClicked="#passRegistro" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Registrarme" textFill="WHITE">
+            <JFXButton id="registro" fx:id="registro" layoutX="244.0" layoutY="211.0" onMouseClicked="#passRegistro" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Registrarme" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
@@ -48,6 +48,11 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </Label>
+            <JFXButton id="ayudaButton" fx:id="ayudaButton" layoutX="244.0" layoutY="339.0" onMouseClicked="#ayuda" prefHeight="47.0" prefWidth="180.0" style="-fx-background-color: #ff0000;" text="Ayuda" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <AnchorPane id="inicioSesionWindow" fx:id="inicioSesionWindow" layoutX="-2.0" prefHeight="410.0" prefWidth="649.0" visible="false">
@@ -498,8 +503,14 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
+            <JFXButton id="passToEstadisticasWindowButton" fx:id="passToEstadisticasWindowButton" layoutX="312.0" layoutY="349.0" onMouseClicked="#passToEstadisticasWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Estadisticas" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
+      <AnchorPane id="estadisticasWindow" fx:id="estadisticasWindow" prefHeight="410.0" prefWidth="649.0" />
       <AnchorPane id="ajustesEstacionesWindow" fx:id="ajustesEstacionesWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
             <JFXButton id="passToAgregarEstacionWindowButton" fx:id="passToAgregarEstacionWindowButton" layoutX="208.0" layoutY="78.0" onMouseClicked="#passToAgregarEstacionWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Agregar Estacion" textFill="WHITE">

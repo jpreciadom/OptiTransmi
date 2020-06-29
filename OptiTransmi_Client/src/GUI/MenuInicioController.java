@@ -19,17 +19,22 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import optitransmi_client.Model;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import java.io.IOException;
 
 /**
  * FXML Controller class
@@ -37,6 +42,9 @@ import java.util.ResourceBundle;
  * @author ADMIN
  */
 public class MenuInicioController implements Initializable {
+
+
+
     @FXML private AnchorPane panel;//Ventana base
 
     //Ventana de menu de inicio
@@ -140,6 +148,7 @@ public class MenuInicioController implements Initializable {
     //Ventana menu principal de administrador
     @FXML private JFXButton passToAjustarEstacionesWindowButton;
     @FXML private JFXButton passToAjustarRutasWindowButton;
+    @FXML private JFXButton passToEstadisticasWindowButton;
     @FXML private AnchorPane menuPrincipalAdmin;
     @FXML private Label labelCorreoAdmin;
     @FXML private JFXButton backToInicioSesionFromMenuAdminButton;
@@ -233,6 +242,10 @@ public class MenuInicioController implements Initializable {
     @FXML private JFXTextArea contenidoNuevaNoticia;
     @FXML private JFXButton agregarNuevaNoticiaButton;
     @FXML private JFXButton backToMenAdminFromAgregarNoticiaButton;
+
+    //Ventab¿na de estadisticas
+    @FXML private AnchorPane estadisticasWindow;
+
 
 
     @FXML public Label IngresarError;
@@ -410,7 +423,15 @@ public class MenuInicioController implements Initializable {
         agregarRutaWindow.setVisible(true);
     }
 
-    public void agregarNuevaEstacion(MouseEvent mouseEvent) {
+    public void agregarNuevaEstacion(MouseEvent mouseEvent) throws AWTException {
+        SystemTray tray= SystemTray.getSystemTray();
+        Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
+        TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
+        trayIcon.setImageAutoSize(true);
+        trayIcon.setToolTip("Notificacion OptiTransmi");
+        tray.add(trayIcon);
+
+        trayIcon.displayMessage("Nueva estacion agregada","Notificacion OptiTransmi", TrayIcon.MessageType.INFO);
     }
 
     public void backToMenAdminFromNuevaEstacionButton(MouseEvent mouseEvent) {
@@ -440,7 +461,15 @@ public class MenuInicioController implements Initializable {
         menuPrincipalAdmin.setVisible(true);
     }
 
-    public void agregarRuta(MouseEvent mouseEvent) {//Agregar la ruta en la venta agregarRutaWindow
+    public void agregarRuta(MouseEvent mouseEvent) throws AWTException {//Agregar la ruta en la venta agregarRutaWindow
+        SystemTray tray= SystemTray.getSystemTray();
+        Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
+        TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
+        trayIcon.setImageAutoSize(true);
+        trayIcon.setToolTip("Notificacion OptiTransmi");
+        tray.add(trayIcon);
+
+        trayIcon.displayMessage("Nueva ruta agregada","Notificacion OptiTransmi", TrayIcon.MessageType.INFO);
     }
 
     public void backToAjustesRutasFromAgregarRuta(MouseEvent mouseEvent) {
@@ -463,7 +492,15 @@ public class MenuInicioController implements Initializable {
     public void buscarRutaAEliminar(MouseEvent mouseEvent) {//Busca la ruta para eliminar la ruta, en eliminarRutaWindow
     }
 
-    public void eliminarRuta(MouseEvent mouseEvent) {//elimina la ruta en eliminarRutaWindow
+    public void eliminarRuta(MouseEvent mouseEvent) throws AWTException {//elimina la ruta en eliminarRutaWindow
+        SystemTray tray= SystemTray.getSystemTray();
+        Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
+        TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
+        trayIcon.setImageAutoSize(true);
+        trayIcon.setToolTip("Notificacion OptiTransmi");
+        tray.add(trayIcon);
+
+        trayIcon.displayMessage("Ruta eliminada","Notificacion OptiTransmi", TrayIcon.MessageType.INFO);
     }
 
     public void backToAjustesRutasFromEliminarRuta(MouseEvent mouseEvent) {
@@ -492,7 +529,15 @@ public class MenuInicioController implements Initializable {
         menuPrincipalAdmin.setVisible(true);
     }
 
-    public void agregarNuevaNoticia(MouseEvent mouseEvent) {//Evento para agregar nueva noticia
+    public void agregarNuevaNoticia(MouseEvent mouseEvent) throws AWTException {//Evento para agregar nueva noticia
+        SystemTray tray= SystemTray.getSystemTray();
+        Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
+        TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
+        trayIcon.setImageAutoSize(true);
+        trayIcon.setToolTip("Notificacion OptiTransmi");
+        tray.add(trayIcon);
+
+        trayIcon.displayMessage("Nueva noticia agregada","Notificacion OptiTransmi", TrayIcon.MessageType.INFO);
     }
 
     public void passToModificarInfoWindow(MouseEvent mouseEvent) {
@@ -500,12 +545,30 @@ public class MenuInicioController implements Initializable {
         configurarInfoWindow.setVisible(true);
     }
 
-    public void guardarCambiosInfo(MouseEvent mouseEvent) {//guarda loscambios de la informacion del usuario
+    public void guardarCambiosInfo(MouseEvent mouseEvent) throws AWTException {//guarda loscambios de la informacion del usuario
+        SystemTray tray= SystemTray.getSystemTray();
+        Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
+        TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
+        trayIcon.setImageAutoSize(true);
+        trayIcon.setToolTip("Notificacion OptiTransmi");
+        tray.add(trayIcon);
+
+        trayIcon.displayMessage("Informacion cambiada","Notificacion OptiTransmi", TrayIcon.MessageType.INFO);
     }
 
     public void backToMenuPrincipalFromModificar(MouseEvent mouseEvent) {
         configurarInfoWindow.setVisible(false);
         menuPrincipal.setVisible(true);
+    }
+
+    public void ayuda(MouseEvent mouseEvent) throws IOException {
+        File documento= new File("src/GUI/files/ManualdeusoOptiTransmi.pdf");
+        Desktop.getDesktop().open(documento);
+    }
+
+    public void passToEstadisticasWindow(MouseEvent mouseEvent) {
+        menuPrincipalAdmin.setVisible(false);
+        estadisticasWindow.setVisible(true);
     }
 
 
@@ -654,8 +717,8 @@ public class MenuInicioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        model = new Model(this);
-        model.start();
+        /*model = new Model(this);
+        model.start();*/
     }
     
     private Model model;
