@@ -412,6 +412,40 @@ public class User extends Thread {
                 } catch(Exception e){
                     System.out.println(e.getMessage());
                 }
+        }else if(readedObject instanceof ChangeUserInfo){
+            ChangeUserInfo cui = (ChangeUserInfo)readedObject;
+            Answer answer;
+            if(cui.getUserName() == "" && cui.getPassword()=="" && cui.getCorreo()==""){
+                answer = new Answer(idRequest, true, "No se cambio nada");
+                AddInToWriteQueue(answer);
+            }else if(cui.getUserName() == "" && cui.getPassword()==""){
+                String query = "UPDATE usuario " +
+                        "SET CORREO = '" + cui.getCorreo() +"' "+
+                        "WHERE CORREO= '" + this.userName + "'";
+
+                singleton.getConexion().executeSQL(query);
+
+                answer = new Answer(idRequest, true, "Cambio de correo exitoso");
+                AddInToWriteQueue(answer);
+            }else if(cui.getUserName() == "" && cui.getCorreo()==""){
+                String query = "UPDATE usuario " +
+                        "SET CONTRASENNA = '" + cui.getPassword() +"' "+
+                        "WHERE CORREO= '" + this.userName + "'";
+
+                singleton.getConexion().executeSQL(query);
+
+                answer = new Answer(idRequest, true, "Cambio de contraseña exitoso");
+                AddInToWriteQueue(answer);
+            }else if(cui.getCorreo() == "" && cui.getPassword()==""){
+                String query = "UPDATE usuario " +
+                        "SET NOMBRE_USUARIO  = '" + cui.getUserName() +"' "+
+                        "WHERE CORREO= '" + this.userName + "'";
+
+                singleton.getConexion().executeSQL(query);
+
+                answer = new Answer(idRequest, true, "Cambio de nombre de usuario exitoso");
+                AddInToWriteQueue(answer);
+            }
         }
     }
     

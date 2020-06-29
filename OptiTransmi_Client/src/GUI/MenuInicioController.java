@@ -8,6 +8,7 @@ package GUI;
 import Information.Answer;
 import Request.*;
 
+import UserDataConfig.ChangePassword;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.application.Platform;
@@ -249,6 +250,7 @@ public class MenuInicioController implements Initializable {
 
 
     @FXML public Label IngresarError;
+
 
     public void passPuntosRecarga(MouseEvent event) throws IOException {
         Runtime.getRuntime().exec("C:\\Windows\\System32\\cmd.exe /K start https://www.tullaveplus.gov.co/web/guest/puntos-de-recarga");
@@ -543,9 +545,17 @@ public class MenuInicioController implements Initializable {
     public void passToModificarInfoWindow(MouseEvent mouseEvent) {
         menuPrincipal.setVisible(false);
         configurarInfoWindow.setVisible(true);
+        //ChangePassword cp = new (model.getCurrentIdRequest(), ruta);
+        //model.createRequest(rlr);
     }
 
     public void guardarCambiosInfo(MouseEvent mouseEvent) throws AWTException {//guarda loscambios de la informacion del usuario
+        String prueba = nombreUsuarioConfig.getText();
+        if(prueba.equals("")){
+            System.out.println("funciono");
+        }else{
+            System.out.println("no funciono");
+        }
         SystemTray tray= SystemTray.getSystemTray();
         Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
         TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
@@ -713,13 +723,12 @@ public class MenuInicioController implements Initializable {
     /**
      * Initializes the controller class.
      */
-   
 
+    private Model model;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        /*model = new Model(this);
-        model.start();*/
+        model = new Model(this);
+        model.start();
     }
-    
-    private Model model;
+
 }
