@@ -415,10 +415,10 @@ public class User extends Thread {
         }else if(readedObject instanceof ChangeUserInfo){
             ChangeUserInfo cui = (ChangeUserInfo)readedObject;
             Answer answer;
-            if(cui.getUserName() == "" && cui.getPassword()=="" && cui.getCorreo()==""){
+            if(cui.getUserName().equals("") && cui.getPassword().equals("") && cui.getCorreo().equals("")){
                 answer = new Answer(idRequest, true, "No se cambio nada");
                 AddInToWriteQueue(answer);
-            }else if(cui.getUserName() == "" && cui.getPassword()==""){
+            }else if(cui.getUserName().equals("") && cui.getPassword().equals("")){
                 String query = "UPDATE usuario " +
                         "SET CORREO = '" + cui.getCorreo() +"' "+
                         "WHERE CORREO= '" + this.userName + "'";
@@ -427,7 +427,7 @@ public class User extends Thread {
 
                 answer = new Answer(idRequest, true, "Cambio de correo exitoso");
                 AddInToWriteQueue(answer);
-            }else if(cui.getUserName() == "" && cui.getCorreo()==""){
+            }else if(cui.getUserName().equals("") && cui.getCorreo().equals("")){
                 String query = "UPDATE usuario " +
                         "SET CONTRASENNA = '" + cui.getPassword() +"' "+
                         "WHERE CORREO= '" + this.userName + "'";
@@ -436,7 +436,7 @@ public class User extends Thread {
 
                 answer = new Answer(idRequest, true, "Cambio de contraseña exitoso");
                 AddInToWriteQueue(answer);
-            }else if(cui.getCorreo() == "" && cui.getPassword()==""){
+            }else if(cui.getCorreo().equals("") && cui.getPassword().equals("")){
                 String query = "UPDATE usuario " +
                         "SET NOMBRE_USUARIO  = '" + cui.getUserName() +"' "+
                         "WHERE CORREO= '" + this.userName + "'";
@@ -444,6 +444,42 @@ public class User extends Thread {
                 singleton.getConexion().executeSQL(query);
 
                 answer = new Answer(idRequest, true, "Cambio de nombre de usuario exitoso");
+                AddInToWriteQueue(answer);
+            }else if(cui.getCorreo().equals("")){
+                String query = "UPDATE usuario " +
+                        "SET NOMBRE_USUARIO  = '" + cui.getUserName() +"', CONTRASENNA = '" + cui.getPassword() +"' "+
+                        "WHERE CORREO= '" + this.userName + "'";
+
+                singleton.getConexion().executeSQL(query);
+
+                answer = new Answer(idRequest, true, "Cambio de nombre de usuario exitoso y contraseña exitoso");
+                AddInToWriteQueue(answer);
+            }else if(cui.getUserName().equals("")){
+                String query = "UPDATE usuario " +
+                        "SET CORREO  = '" + cui.getCorreo() +"', CONTRASENNA = '" + cui.getPassword() +"' "+
+                        "WHERE CORREO= '" + this.userName + "'";
+
+                singleton.getConexion().executeSQL(query);
+
+                answer = new Answer(idRequest, true, "Cambio de nombre de usuario exitoso y contraseña exitoso");
+                AddInToWriteQueue(answer);
+            }else if(cui.getPassword().equals("")){
+                String query = "UPDATE usuario " +
+                        "SET NOMBRE_USUARIO  = '" + cui.getUserName() +"', CORREO = '" + cui.getCorreo() +"' "+
+                        "WHERE CORREO= '" + this.userName + "'";
+
+                singleton.getConexion().executeSQL(query);
+
+                answer = new Answer(idRequest, true, "Cambio de nombre de usuario exitoso y contraseña exitoso");
+                AddInToWriteQueue(answer);
+            }else{
+                String query = "UPDATE usuario " +
+                        "SET NOMBRE_USUARIO  = '" + cui.getUserName() +"', CORREO = '" + cui.getCorreo() +"', CONTRASENNA = '" + cui.getPassword() +"' "+
+                        "WHERE CORREO= '" + this.userName + "'";
+
+                singleton.getConexion().executeSQL(query);
+
+                answer = new Answer(idRequest, true, "Cambio de nombre de usuario, correo y contraseña exitoso");
                 AddInToWriteQueue(answer);
             }
         }

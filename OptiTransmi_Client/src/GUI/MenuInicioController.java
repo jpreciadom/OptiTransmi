@@ -9,6 +9,7 @@ import Information.Answer;
 import Request.*;
 
 import UserDataConfig.ChangePassword;
+import UserDataConfig.ChangeUserInfo;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.application.Platform;
@@ -545,17 +546,19 @@ public class MenuInicioController implements Initializable {
     public void passToModificarInfoWindow(MouseEvent mouseEvent) {
         menuPrincipal.setVisible(false);
         configurarInfoWindow.setVisible(true);
-        //ChangePassword cp = new (model.getCurrentIdRequest(), ruta);
-        //model.createRequest(rlr);
     }
 
     public void guardarCambiosInfo(MouseEvent mouseEvent) throws AWTException {//guarda loscambios de la informacion del usuario
-        String prueba = nombreUsuarioConfig.getText();
-        if(prueba.equals("")){
-            System.out.println("funciono");
-        }else{
-            System.out.println("no funciono");
-        }
+        String nombreUsuario = nombreUsuarioConfig.getText();
+        String correo = correoUsuarioConfig.getText();
+        String contrasenna = contrasenaResultadoConfig.getText();
+        ChangeUserInfo cui = new ChangeUserInfo(model.getCurrentIdRequest(), nombreUsuario, correo, contrasenna);
+        model.createRequest(cui);
+
+        nombreUsuarioConfig.clear();
+        correoUsuarioConfig.clear();
+        contrasenaResultadoConfig.clear();
+
         SystemTray tray= SystemTray.getSystemTray();
         Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
         TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
@@ -572,7 +575,7 @@ public class MenuInicioController implements Initializable {
     }
 
     public void ayuda(MouseEvent mouseEvent) throws IOException {
-        File documento= new File("src/GUI/files/ManualdeusoOptiTransmi.pdf");
+        File documento= new File("OptiTransmi_Client/src/GUI/files/ManualdeusoOptiTransmi.pdf");
         Desktop.getDesktop().open(documento);
     }
 

@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
    <children>
       <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0">
@@ -305,8 +306,8 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-           <!-- <JFXTreeTableView fx:id="resultadosBuscarRuta" disable="true" layoutX="17.0" layoutY="102.0" prefHeight="235.0" prefWidth="610.0" />c-->
-            <!-- <JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" /> -->
+           <JFXTreeTableView fx:id="resultadosBuscarRuta" disable="true" layoutX="17.0" layoutY="102.0" prefHeight="235.0" prefWidth="610.0" />
+            <JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" />
          </children>
       </AnchorPane>
       <AnchorPane id="planearRutaWindow" fx:id="planearRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
