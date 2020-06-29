@@ -211,15 +211,14 @@ public class User extends Thread {
                 } 
 
                 lastRequest = System.currentTimeMillis();
-                //if(userType == UserType.unlogged){
+                if(userType == UserType.unlogged){
                     UnLoggedUser(readedObject);
-                //}else if(userType == UserType.logged){
+                }else if(userType == UserType.logged){
                     LoggedUser(readedObject);
-                //}
-
-                //if(userType == UserType.administrator){
+                }else if(userType == UserType.administrator){
+                    LoggedUser(readedObject);
                     Admin(readedObject);
-                //}
+                }
 
             sinc.release();
         }
@@ -241,30 +240,25 @@ public class User extends Thread {
             if(Singleton.getSingleton().getActiveUsers().containsKey(singIn.getMail())){
                 AddInToWriteQueue(new Answer(idRequest, false, "Ya tiene una sesión activa"));
             } else {
-                String query = "select ValidateLogin('"
-                        + singIn.getMail() + "', '"
-                        + singIn.getPassword() + "')";
+                String query = "SELECT NOMBRE_USUARIO, CONTRASENNA, TIPO_USUARIO "
+                        + "FROM USUARIO "
+                        + "WHERE CORREO = '" + singIn.getMail() + "'";
                 ResultSet result = singleton.getConexion().executeQuery(query);
 
                 try {
-                    boolean userExist = false;
-                    if(result.next()){
-                        userExist = result.getInt(1) == 1;
-                    }
                     Answer answer;
-                    if(userExist){
-                        query =  "SELECT NOMBRE_USUARIO FROM USUARIO WHERE CORREO = '" + singIn.getMail() + "'";
-                        result = singleton.getConexion().executeQuery(query);
-                        String name = null;
-                        try {
-                            name = result.getString(1);
-                        } catch (Exception se){ }
-                        answer = new Answer(idRequest, true, name);
-                        Singleton.getSingleton().getActiveUsers().updateKey(this.userName, singIn.getMail());
-                        this.userName = singIn.getMail();
-                        this.userType = UserType.logged;
+                    if(result.next()){
+                        String nombreUsuario = result.getString(1);
+                        String contrasenna = result.getString(2);
+                        int tipo = result.getInt(3);
+                        if(contrasenna.equals(singIn.getPassword())){
+                            answer = new SingInAnswer(idRequest, true, userName, tipo);
+                            userType = tipo == 1 ? UserType.logged : UserType.administrator;
+                        } else {
+                            answer = new Answer(idRequest, true, "Contraseña incorrecta");
+                        }
                     } else {
-                        answer = new Answer(idRequest, false, "Datos de inicio de sesión no válidos");
+                        answer = new Answer(idRequest, false, "Correo incorrecto");
                     }
                     AddInToWriteQueue(answer);
                 } catch(Exception e){

@@ -8,8 +8,7 @@ package GUI;
 import Information.Answer;
 import Request.*;
 
-import UserDataConfig.ChangePassword;
-import UserDataConfig.ChangeUserInfo;
+import UserDataConfig.*;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.application.Platform;
