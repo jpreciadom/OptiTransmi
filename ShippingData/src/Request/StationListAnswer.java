@@ -14,12 +14,14 @@ import Base.BasePackage;
 public class StationListAnswer extends BasePackage {
     private final String name;
     private final String direction;
+    private final String zona;
     private final int wagons;
     
-    public StationListAnswer(int idRequest, String name, String direction, int wagons){
+    public StationListAnswer(int idRequest, String name, String direction, String zona, int wagons){
         super(name == null ? 2 : 1, idRequest);
         this.name = name;
         this.direction = direction;
+        this.zona = zona;
         this.wagons = wagons;
     }
 
@@ -33,5 +35,9 @@ public class StationListAnswer extends BasePackage {
 
     public int getWagons() {
         return wagons;
+    }
+
+    public String getZona() {
+        return zona;
     }
 }

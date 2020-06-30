@@ -112,6 +112,27 @@ public class Model extends Thread {
                         }
                     }
                 }
+            }else if(Admin){
+                DataControl();
+                BasePackage readedA = ReadFromToReadQueue();
+                if(readedA != null){
+                    if(readedA instanceof StationListAnswer){
+                        StationListAnswer sla = (StationListAnswer)readedA;
+                        BasePackage request = this.request.get(readedA.getIdRequest());
+                        if(request != null){
+                            if(controler.modificarEstacionWindow.isVisible() && sla.getName() != null){
+
+                                controler.nombreEstacionAModificar.setText(sla.getName());
+                                controler.direccionEstacionABuscar.setText(sla.getDirection());
+                                controler.zonaEstacionABuscar.setText(sla.getZona());
+                                controler.numVagonesEstacionABuscar.setText(String.valueOf(sla.getWagons()));
+                                System.out.println(sla.getName());
+                            } else {
+                                RequestFulfilled(readedA);
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -6,6 +6,7 @@
 package GUI;
 
 import Administrator.AddEstacion;
+import Administrator.AddRuta;
 import Information.Answer;
 import Login.SingInAnswer;
 import Request.*;
@@ -189,12 +190,12 @@ public class MenuInicioController implements Initializable {
 
 
     //Ventana de modificar estacion
-    @FXML private AnchorPane modificarEstacionWindow;
+    @FXML public AnchorPane modificarEstacionWindow;
     @FXML private JFXTextField nombreEstacionBusquedaModificacion;
-    @FXML private JFXTextField nombreEstacionAModificar;
-    @FXML private JFXTextField direccionEstacionABuscar;
-    @FXML private JFXTextField zonaEstacionABuscar;
-    @FXML private JFXTextField numVagonesEstacionABuscar;
+    @FXML public JFXTextField nombreEstacionAModificar;
+    @FXML public JFXTextField direccionEstacionABuscar;
+    @FXML public JFXTextField zonaEstacionABuscar;
+    @FXML public JFXTextField numVagonesEstacionABuscar;
     @FXML private JFXButton guardarCambiosEstacionButton;
     @FXML private JFXButton backToMenAdminFromModifcarEstacionButton;
 
@@ -308,7 +309,6 @@ public class MenuInicioController implements Initializable {
                         IngresarError.setVisible(false);
                     }
                 }else if(login.getUserType()==0){
-                    model.setLogged(true);
                     model.setAdmin(true);
                     inicioSesionWindow.setVisible(false);
                     menuPrincipalAdmin.setVisible(true);
@@ -476,6 +476,9 @@ public class MenuInicioController implements Initializable {
     }
 
     public void buscarEstacionModificacion(MouseEvent mouseEvent) {//Busca la estacion a modifcar
+        String estacion = nombreEstacionBusquedaModificacion.getText();
+        StationListRequest slr = new StationListRequest(model.getCurrentIdRequest(),estacion);
+        model.createRequest(slr);
     }
 
     public void busquedaEstacionAEliminar(MouseEvent mouseEvent) {//Busca la estacion a eliminar
@@ -490,6 +493,15 @@ public class MenuInicioController implements Initializable {
     }
 
     public void agregarRuta(MouseEvent mouseEvent) throws AWTException {//Agregar la ruta en la venta agregarRutaWindow
+
+        String codigo = nombreRutaAAgregar.getText();
+        String dia = diaRutaAAgregar.getText();
+        String inicio = horaInicioRutaAAgregar.getText();
+        String fin = horaFinRutaAAgregar.getText();
+
+        AddRuta ar = new AddRuta(model.getCurrentIdRequest(),codigo, dia, inicio, fin);
+        model.createRequest(ar);
+
         SystemTray tray= SystemTray.getSystemTray();
         Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
         TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");

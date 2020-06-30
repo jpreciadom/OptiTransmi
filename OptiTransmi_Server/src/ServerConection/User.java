@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 import Administrator.AddEstacion;
+import Administrator.AddRuta;
 import Base.BasePackage;
 import Information.*;
 import Login.*;
@@ -318,12 +319,13 @@ public class User extends Thread {
             ResultSet result = singleton.getConexion().executeQuery(query);
 
             try{
-                AddInToWriteQueue(new StationListAnswer(idRequest, null, null, -1));
+                AddInToWriteQueue(new StationListAnswer(idRequest, null, null, null,-1));
                 while(result.next()){
                     String name = result.getString(1);
                     String direction = result.getString(2);
-                    int wagons = result.getInt(3);
-                    AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, wagons));
+                    String zona = result.getString(3);
+                    int wagons = result.getInt(4);
+                    AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, zona,wagons));
                 }
             } catch(SQLException ex){ }
         }else if(readedObject instanceof RutaListRequest){
@@ -487,6 +489,7 @@ public class User extends Thread {
     
     private void Admin(BasePackage readedObject){
         Singleton singleton = Singleton.getSingleton();
+        int idRequest = readedObject.getIdRequest();
         if(readedObject instanceof UpdateNews){
             String query = "UPDATE FROM NOTICIA VALUES(" + ((UpdateNews) readedObject).getIdToUpdate() +
                     ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
@@ -504,6 +507,32 @@ public class User extends Thread {
                     + ((AddEstacion) readedObject).getZona() + "', "
                     + ((AddEstacion) readedObject).getnVagones() + ")";
             singleton.getConexion().executeSQL(query);
+        }else if(readedObject instanceof AddRuta){
+            String query = "INSERT INTO RUTA VALUES('"
+                    + ((AddRuta) readedObject).getCodigo() + "', '"
+                    + ((AddRuta) readedObject).getDia() + "', '"
+                    + ((AddRuta) readedObject).getInicio() + "', "
+                    + ((AddRuta) readedObject).getFin() + ")";
+            singleton.getConexion().executeSQL(query);
+        }else if(readedObject instanceof StationListRequest){
+            StationListRequest slr = (StationListRequest)readedObject;
+
+            String query = "SELECT NOMBRE_ESTACION, DIRECCION, ZONA, VAGONES " +
+                    "FROM estacion " +
+                    "WHERE LOWER(NOMBRE_ESTACION) LIKE '%" + slr.getSubName().toLowerCase() + "%'";
+
+            ResultSet result = singleton.getConexion().executeQuery(query);
+
+            try{
+                AddInToWriteQueue(new StationListAnswer(idRequest, null, null, null,-1));
+                while(result.next()){
+                    String name = result.getString(1);
+                    String direction = result.getString(2);
+                    String zona = result.getString(3);
+                    int wagons = result.getInt(4);
+                    AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, zona,wagons));
+                }
+            } catch(SQLException ex){ }
         }
     }
 }
