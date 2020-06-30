@@ -43,6 +43,18 @@ public class SynchronizedLinkedList<T> {
         return size;
     }
     
+    public boolean AddFirst(T e){
+        boolean add = false;
+        try {
+            listMutex.lock();
+            linkedList.addFirst(e);
+            add = true;
+        } finally {
+            listMutex.unlock();
+        }
+        return add;
+    }
+    
     public boolean Add(T e){
         boolean add = false;
         try {
@@ -59,6 +71,17 @@ public class SynchronizedLinkedList<T> {
         try {
             listMutex.lock();
             element = linkedList.removeFirst();
+        } finally {
+            listMutex.unlock();
+        }
+        return element;
+    }
+    
+    public T removeLast(){
+        T element = null;
+        try {
+            listMutex.lock();
+            element = linkedList.removeLast();
         } finally {
             listMutex.unlock();
         }

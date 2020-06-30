@@ -25,6 +25,9 @@ public class Model extends Thread {
     private final PriorityQueue<BasePackage> toWrite;
     private final ReentrantLock mutexToRead;
     private final PriorityQueue<BasePackage> toRead;
+    
+    //News objects
+    private SynchronizedLinkedList<News> news;
 
     //Model objects
     private boolean RunningThread;
@@ -47,6 +50,9 @@ public class Model extends Thread {
         toWrite = new PriorityQueue<>();
         mutexToRead = new ReentrantLock();
         toRead = new PriorityQueue<>();
+        
+        //News objects
+        news = new SynchronizedLinkedList<>();
         
         //Model objets
         RunningThread = true;
@@ -80,45 +86,18 @@ public class Model extends Thread {
 
             if(!isConnected){
                 client.connect();
-            } else if(Logged){
+            } else if(Logged || Admin){
                 DataControl();
                 
                 BasePackage readed = ReadFromToReadQueue();
                 
-                if(readed != null){
+                if(readed == null)
+                    continue;
+                        
+                if(Admin){
                     if(readed instanceof StationListAnswer){
                         StationListAnswer sla = (StationListAnswer)readed;
                         BasePackage request = this.request.get(readed.getIdRequest());
-                        if(request != null){
-                            if(controler.buscarEstacionWindow.isVisible() && sla.getName() != null){
-                                String toAppend = 
-                                        "Nombre: " + sla.getName() + "\n" +
-                                        "Direccion: " + sla.getDirection()+ "\n" +
-                                        "Vagones: " + sla.getWagons() + "\n\n";
-                               controler.ResultadosBuscarEstacion.appendText(toAppend);
-                            } else {
-                                RequestFulfilled(readed);
-                            }
-                        }
-                    }else if(readed instanceof RutaListAnswer){
-                        RutaListAnswer rla = (RutaListAnswer)readed;
-                        BasePackage request = this.request.get(readed.getIdRequest());
-                        if(request != null){
-                            if(controler.buscarRutaWindow.isVisible()){
-                                controler.CrearListaRutas(rla.getValores());
-                            } else {
-                                RequestFulfilled(readed);
-                            }
-                        }
-                    }
-                }
-            }else if(Admin){
-                DataControl();
-                BasePackage readedA = ReadFromToReadQueue();
-                if(readedA != null){
-                    if(readedA instanceof StationListAnswer){
-                        StationListAnswer sla = (StationListAnswer)readedA;
-                        BasePackage request = this.request.get(readedA.getIdRequest());
                         if(request != null){
                             if(controler.modificarEstacionWindow.isVisible() && sla.getName() != null){
 
@@ -127,12 +106,12 @@ public class Model extends Thread {
                                 controler.zonaEstacionABuscar.setText(sla.getZona());
                                 controler.numVagonesEstacionABuscar.setText(String.valueOf(sla.getWagons()));
                             } else {
-                                RequestFulfilled(readedA);
+                                RequestFulfilled(readed);
                             }
                         }
-                    }else if(readedA instanceof RutaListAnswer){
-                        RutaListAnswer rla= (RutaListAnswer)readedA;
-                        BasePackage request= this.request.get(readedA.getIdRequest());
+                    }else if(readed instanceof RutaListAnswer){
+                        RutaListAnswer rla= (RutaListAnswer)readed;
+                        BasePackage request= this.request.get(readed.getIdRequest());
                         if(request!=null){
                             if(controler.modificarRutaWindow.isVisible() && rla.getValores().get(0) != null && rla.getValores().get(1) != null){
                                 controler.codigoRutaABuscar.setText(rla.getValores().get(0));
@@ -140,10 +119,40 @@ public class Model extends Thread {
                                 controler.horaInicioRutaBuscada.setText(rla.getValores().get(2));
                                 controler.horaFinRutaBuscada.setText(rla.getValores().get(3));
                             }else {
-                                RequestFulfilled(readedA);
+                                RequestFulfilled(readed);
                             }
                         }
+                    } else if(readed instanceof News){
+                        RequestFulfilled(readed);
                     }
+                }
+                
+                if(readed instanceof StationListAnswer){
+                    StationListAnswer sla = (StationListAnswer)readed;
+                    BasePackage request = this.request.get(readed.getIdRequest());
+                    if(request != null){
+                        if(controler.buscarEstacionWindow.isVisible() && sla.getName() != null){
+                            String toAppend = 
+                                    "Nombre: " + sla.getName() + "\n" +
+                                    "Direccion: " + sla.getDirection()+ "\n" +
+                                    "Vagones: " + sla.getWagons() + "\n\n";
+                           controler.ResultadosBuscarEstacion.appendText(toAppend);
+                        } else {
+                            RequestFulfilled(readed);
+                        }
+                    }
+                }else if(readed instanceof RutaListAnswer){
+                    RutaListAnswer rla = (RutaListAnswer)readed;
+                    BasePackage request = this.request.get(readed.getIdRequest());
+                    if(request != null){
+                        if(controler.buscarRutaWindow.isVisible()){
+                            controler.CrearListaRutas(rla.getValores());
+                        } else {
+                            RequestFulfilled(readed);
+                        }
+                    }
+                } else if(readed instanceof News){
+                    news.AddFirst((News)readed);
                 }
             }
         }

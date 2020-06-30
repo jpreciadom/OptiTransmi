@@ -6,7 +6,7 @@
 package GUI;
 
 import Administrator.*;
-import Information.Answer;
+import Information.*;
 import Login.SingInAnswer;
 import Request.*;
 
@@ -32,11 +32,8 @@ import optitransmi_client.Model;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.ResourceBundle;
 import java.io.IOException;
 
@@ -584,6 +581,7 @@ public class MenuInicioController implements Initializable {
     public void backToMenuPrincipalFromNoticias(MouseEvent mouseEvent) {
         noticiasWindow.setVisible(false);
         menuPrincipal.setVisible(true);
+        
     }
 
     public void passToNoticiasWindow(MouseEvent mouseEvent) {
@@ -603,6 +601,10 @@ public class MenuInicioController implements Initializable {
     }
 
     public void agregarNuevaNoticia(MouseEvent mouseEvent) throws AWTException {//Evento para agregar nueva noticia
+        model.createRequest(new News(tituloNuevaNoticia.getText(), contenidoNuevaNoticia.getText(), model.getCurrentIdRequest()));
+        tituloNuevaNoticia.clear();
+        contenidoNuevaNoticia.clear();
+        
         SystemTray tray= SystemTray.getSystemTray();
         Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
         TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
