@@ -649,32 +649,17 @@
       </AnchorPane>
       <AnchorPane id="EliminarEstacionWindow" fx:id="EliminarEstacionWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
-            <Label layoutX="14.0" layoutY="40.0" text="Ingrese el nombre de la estacion:">
+            <Label layoutX="14.0" layoutY="43.0" text="Ingrese el nombre de la estacion:">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="135.0" text="Nombre de la estacion resultante:">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </Label>
-            <JFXTextField id="nombreBusquedaestacionEliminacion" fx:id="nombreBusquedaestacionEliminacion" layoutX="246.0" layoutY="35.0" prefHeight="25.0" prefWidth="400.0" promptText="Nombre de la estacion">
+            <JFXTextField id="nombreEstacionAEliminar" fx:id="nombreEstacionAEliminar" layoutX="242.0" layoutY="38.0" prefHeight="25.0" prefWidth="400.0" promptText="nombre">
                <font>
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXTextField id="nombreEstacionAEliminar" fx:id="nombreEstacionAEliminar" layoutX="246.0" layoutY="130.0" prefHeight="25.0" prefWidth="400.0" promptText="Resultado de la busqueda">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXButton id="busquedaEstacionAEliminarButton" fx:id="busquedaEstacionAEliminarButton" layoutX="560.0" layoutY="75.0" onMouseClicked="#busquedaEstacionAEliminar" style="-fx-background-color: #ff0000;" text="Buscar" textFill="WHITE">
-               <font>
-                  <Font name="Century Gothic" size="18.0" />
-               </font>
-            </JFXButton>
-            <JFXButton id="eliminarEstacionButton" fx:id="eliminarEstacionButton" layoutX="264.0" layoutY="224.0" onMouseClicked="#eliminarEstacion" style="-fx-background-color: #ff0000;" text="Eliminar" textFill="WHITE">
+            <JFXButton id="eliminarEstacionButton" fx:id="eliminarEstacionButton" layoutX="255.0" layoutY="182.0" onMouseClicked="#eliminarEstacion" style="-fx-background-color: #ff0000;" text="Eliminar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>

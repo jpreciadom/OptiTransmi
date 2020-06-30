@@ -7,6 +7,8 @@ package GUI;
 
 import Administrator.AddEstacion;
 import Administrator.AddRuta;
+import Administrator.EliminarEstacion;
+import Administrator.ModificarEstacion;
 import Information.Answer;
 import Login.SingInAnswer;
 import Request.*;
@@ -202,8 +204,7 @@ public class MenuInicioController implements Initializable {
 
     //Ventana de eliminar estacion
     @FXML private AnchorPane EliminarEstacionWindow;
-    @FXML private JFXButton busquedaEstacionAEliminarButton;//nombre que se va a buscar
-    @FXML private JFXTextField nombreBusquedaestacionEliminacion;//resultado de la busqueda
+    @FXML private JFXTextField nombreEstacionAEliminar;//resultado de la busqueda
     @FXML private JFXButton eliminarEstacionButton;
     @FXML private JFXButton backToMenAdminFromEliminarEstacionButton;
 
@@ -468,6 +469,17 @@ public class MenuInicioController implements Initializable {
     }
 
     public void guardarCambiosEstacion(MouseEvent mouseEvent) {//Guarda los cambios de la estacion a modificar
+        String estacion = nombreEstacionAModificar.getText();
+        String direccion = direccionEstacionABuscar.getText();
+        String zona = zonaEstacionABuscar.getText();
+        int vagones = Integer.parseInt(numVagonesEstacionABuscar.getText());
+        ModificarEstacion me = new ModificarEstacion(model.getCurrentIdRequest(),estacion,direccion,zona,vagones);
+        model.createRequest(me);
+
+        nombreEstacionBusquedaModificacion.clear();
+        nombreEstacionAModificar.clear();
+        zonaEstacionABuscar.clear();
+        numVagonesEstacionABuscar.clear();
     }
 
     public void backToMenAdminFromModifcarEstacion(MouseEvent mouseEvent) {
@@ -485,6 +497,10 @@ public class MenuInicioController implements Initializable {
     }
 
     public void eliminarEstacion(MouseEvent mouseEvent) {//elimina la estacion
+        String estacion = nombreEstacionAEliminar.getText();
+        EliminarEstacion ee = new EliminarEstacion(model.getCurrentIdRequest(),estacion);
+        model.createRequest(ee);
+        nombreEstacionAEliminar.clear();
     }
 
     public void backToMenAdminFromEliminarEstacion(MouseEvent mouseEvent) {

@@ -14,6 +14,8 @@ import java.util.PriorityQueue;
 
 import Administrator.AddEstacion;
 import Administrator.AddRuta;
+import Administrator.EliminarEstacion;
+import Administrator.ModificarEstacion;
 import Base.BasePackage;
 import Information.*;
 import Login.*;
@@ -533,6 +535,15 @@ public class User extends Thread {
                     AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, zona,wagons));
                 }
             } catch(SQLException ex){ }
+        }else if(readedObject instanceof ModificarEstacion){
+            String query = "UPDATE ESTACION " +
+                    "SET NOMBRE_ESTACION  = '" + ((ModificarEstacion) readedObject).getNombre() +"', DIRECCION = '" + ((ModificarEstacion) readedObject).getDireccion() +"', ZONA = '" + ((ModificarEstacion) readedObject).getZona() +"', VAGONES = '"+ ((ModificarEstacion) readedObject).getnVagones() + "' "+
+                    "WHERE NOMBRE_ESTACION= '" + ((ModificarEstacion) readedObject).getNombre()+ "'";
+            singleton.getConexion().executeSQL(query);
+        }else if(readedObject instanceof EliminarEstacion){
+            String query = "DELETE FROM ESTACION " +
+                    "WHERE NOMBRE_ESTACION= '" + ((EliminarEstacion) readedObject).getNombre()+ "'";
+            singleton.getConexion().executeSQL(query);
         }
     }
 }

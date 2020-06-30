@@ -126,7 +126,6 @@ public class Model extends Thread {
                                 controler.direccionEstacionABuscar.setText(sla.getDirection());
                                 controler.zonaEstacionABuscar.setText(sla.getZona());
                                 controler.numVagonesEstacionABuscar.setText(String.valueOf(sla.getWagons()));
-                                System.out.println(sla.getName());
                             } else {
                                 RequestFulfilled(readedA);
                             }
