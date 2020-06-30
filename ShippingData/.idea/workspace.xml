@@ -20,17 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7d7ab73-0920-48ce-9119-a79b6eca392d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Administrator/EliminarRuta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Administrator/ModificarRuta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/lib/ShippingData.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/lib/ShippingData.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$Ruta.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController$Ruta.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/GUI/MenuInicioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/optitransmi_client/Model$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/optitransmi_client/Model$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/optitransmi_client/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/out/production/OptiTransmi_Client/optitransmi_client/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicio.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/src/optitransmi_client/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/src/optitransmi_client/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Server/lib/ShippingData.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Server/lib/ShippingData.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Server/src/ServerConection/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Server/src/ServerConection/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Request/RutaListAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/RutaListAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Request/RutaListRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/RutaListRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1591654031436</updated>
       <workItem from="1593491509207" duration="1200000" />
+      <workItem from="1593558194103" duration="645000" />
     </task>
     <servers />
   </component>
@@ -87,6 +89,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="65" key="#com.intellij.ide.util.MemberChooser" timestamp="1593491981896">

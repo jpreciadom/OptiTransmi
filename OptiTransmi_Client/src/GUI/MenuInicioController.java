@@ -251,6 +251,7 @@ public class MenuInicioController implements Initializable {
 
 
     @FXML public Label IngresarError;
+    public boolean ingresoPorAdmin=false;
 
 
     public void passPuntosRecarga(MouseEvent event) throws IOException {
@@ -322,6 +323,7 @@ public class MenuInicioController implements Initializable {
                 }
             }
         }
+
     }
 
     public void rememberUser(javafx.scene.input.MouseEvent mouseEvent) {//recordar usuario
@@ -581,8 +583,15 @@ public class MenuInicioController implements Initializable {
     }
 
     public void backToMenuPrincipalFromNoticias(MouseEvent mouseEvent) {
-        noticiasWindow.setVisible(false);
-        menuPrincipal.setVisible(true);
+        if(ingresoPorAdmin){
+            menuPrincipalAdmin.setVisible(true);
+            noticiasWindow.setVisible(false);
+        }else{
+            noticiasWindow.setVisible(false);
+            menuPrincipal.setVisible(true);
+        }
+        ingresoPorAdmin=false;
+
         areaNoticias.clear();
         
     }
@@ -663,6 +672,12 @@ public class MenuInicioController implements Initializable {
     public void passToEstadisticasWindow(MouseEvent mouseEvent) {
         menuPrincipalAdmin.setVisible(false);
         estadisticasWindow.setVisible(true);
+    }
+
+    public void passToNoticiasWindow2(MouseEvent mouseEvent) {
+        menuPrincipalAdmin.setVisible(false);
+        noticiasWindow.setVisible(true);
+        ingresoPorAdmin=true;
     }
 
 
