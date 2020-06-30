@@ -499,6 +499,7 @@ public class User extends Thread {
                     ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
                     "', " + ((News) readedObject).getTitle() + "')";
             singleton.getConexion().executeSQL(query);
+            Notificar((News)readedObject);
         }else if(readedObject instanceof AddEstacion){
             String query = "INSERT INTO ESTACION VALUES('"
                     + ((AddEstacion) readedObject).getNombre() + "', '"
@@ -506,6 +507,10 @@ public class User extends Thread {
                     + ((AddEstacion) readedObject).getZona() + "', "
                     + ((AddEstacion) readedObject).getnVagones() + ")";
             singleton.getConexion().executeSQL(query);
+            
+            Notificar(new News("Ha llegado una nueva estación!", "Se ha agregado una nueva estacion en " + ((AddEstacion) readedObject).getDireccion() +
+                            ", llamada " + ((AddEstacion) readedObject).getNombre() + " que contara con " + ((AddEstacion) readedObject).getnVagones() + " vagones. ¡Buen viaje!", 
+            idRequest));
         }else if(readedObject instanceof AddRuta){
             String query = "INSERT INTO RUTA VALUES('"
                     + ((AddRuta) readedObject).getCodigo() + "', '"
@@ -513,6 +518,13 @@ public class User extends Thread {
                     + ((AddRuta) readedObject).getInicio() + "', "
                     + ((AddRuta) readedObject).getFin() + ")";
             singleton.getConexion().executeSQL(query);
+            
+            Notificar(new News(
+                    "¡Nueva ruta!",
+                    "Se ha agregado una nueva ruta al sistema, la cual inicia su recorrido en la estacion " + ((AddRuta) readedObject).getInicio()
+                            + " y finaliza en la estacion " + ((AddRuta) readedObject).getFin()
+                            + ", va a operar en dia " + ((AddRuta) readedObject).getDia(),
+                    idRequest));
         }else if(readedObject instanceof StationListRequest){
             StationListRequest slr = (StationListRequest)readedObject;
 
@@ -572,5 +584,9 @@ public class User extends Thread {
                     "AND DIA=" + ((EliminarRuta)readedObject).getDia();
             singleton.getConexion().executeSQL(query);
         }
+    }
+    
+    private void Notificar(News news){
+        Singleton.getSingleton().getActiveUsers().forEach((k, v) -> ((User)(v)).AddInToWriteQueue(news));
     }
 }
