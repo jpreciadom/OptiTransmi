@@ -583,12 +583,19 @@ public class MenuInicioController implements Initializable {
     public void backToMenuPrincipalFromNoticias(MouseEvent mouseEvent) {
         noticiasWindow.setVisible(false);
         menuPrincipal.setVisible(true);
+        areaNoticias.clear();
         
     }
 
     public void passToNoticiasWindow(MouseEvent mouseEvent) {
         menuPrincipal.setVisible(false);
         noticiasWindow.setVisible(true);
+        while(!model.news.isEmpty()){
+            News news = model.news.removeFirst();
+            areaNoticias.appendText(news.getTitle());
+            areaNoticias.appendText(news.getContent());
+            areaNoticias.appendText("\n");
+        }
     }
 
     public void passToAgregarNoticiaWindow(MouseEvent mouseEvent) {

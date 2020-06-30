@@ -27,7 +27,7 @@ public class Model extends Thread {
     private final PriorityQueue<BasePackage> toRead;
     
     //News objects
-    private SynchronizedLinkedList<News> news;
+    public final SynchronizedLinkedList<News> news;
 
     //Model objects
     private boolean RunningThread;

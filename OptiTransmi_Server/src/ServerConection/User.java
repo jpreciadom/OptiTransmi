@@ -494,6 +494,8 @@ public class User extends Thread {
                     ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
                     "', " + ((News) readedObject).getTitle() + "')";
             singleton.getConexion().executeSQL(query);
+            Notificar((News)readedObject);
+
         } else if(readedObject instanceof News){
             String query = "INSERT INTO NOTICIA VALUES(" + readedObject.getIdRequest() +
                     ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
