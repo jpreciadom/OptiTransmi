@@ -307,8 +307,8 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-           <!-- <JFXTreeTableView fx:id="resultadosBuscarRuta" disable="true" layoutX="17.0" layoutY="102.0" prefHeight="235.0" prefWidth="610.0" /> -->
-            <!--<JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" />-->
+           <JFXTreeTableView fx:id="resultadosBuscarRuta" disable="true" layoutX="17.0" layoutY="102.0" prefHeight="235.0" prefWidth="610.0" />
+            <JFXTreeTableView fx:id="listaRutasBuscadas" disable="true" layoutX="17.0" layoutY="105.0" prefHeight="228.0" prefWidth="609.0" />
          </children>
       </AnchorPane>
       <AnchorPane id="planearRutaWindow" fx:id="planearRutaWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
