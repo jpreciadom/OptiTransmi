@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7d7ab73-0920-48ce-9119-a79b6eca392d" name="Default Changelist" comment="" />
+    <list default="true" id="d7d7ab73-0920-48ce-9119-a79b6eca392d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Administrator/EliminarRuta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Administrator/ModificarRuta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/lib/ShippingData.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/lib/ShippingData.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/src/optitransmi_client/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/src/optitransmi_client/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Server/lib/ShippingData.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Server/lib/ShippingData.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Server/src/ServerConection/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Server/src/ServerConection/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Request/RutaListAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/RutaListAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Request/RutaListRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Request/RutaListRequest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -19,6 +56,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
@@ -31,7 +70,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1591654031436</updated>
+      <workItem from="1593491509207" duration="1200000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="488" y="65" key="#com.intellij.ide.util.MemberChooser" timestamp="1593491981896">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="65" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1593491981896" />
   </component>
 </project>

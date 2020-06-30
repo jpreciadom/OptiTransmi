@@ -5,10 +5,7 @@
  */
 package GUI;
 
-import Administrator.AddEstacion;
-import Administrator.AddRuta;
-import Administrator.EliminarEstacion;
-import Administrator.ModificarEstacion;
+import Administrator.*;
 import Information.Answer;
 import Login.SingInAnswer;
 import Request.*;
@@ -16,8 +13,6 @@ import Request.*;
 import UserDataConfig.*;
 import com.jfoenix.controls.*;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
-import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
-import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -221,24 +216,24 @@ public class MenuInicioController implements Initializable {
 
 
     //Ventana de modificar ruta
-    @FXML private AnchorPane modificarRutaWindow;
-    @FXML private JFXTextField codigoRutaABuscar;
-    @FXML private JFXTextField diaRutaABuscar;
+    @FXML public AnchorPane modificarRutaWindow;
+    @FXML public JFXTextField codigoRutaABuscar;
+    @FXML public JFXTextField diaRutaABuscar;
     @FXML private JFXButton buscarRutaAModificarButton;
-    @FXML private JFXTextField horaInicioRutaBuscada;
-    @FXML private JFXTextField horaFinRutaBuscada;
+    @FXML public JFXTextField horaInicioRutaBuscada;
+    @FXML public JFXTextField horaFinRutaBuscada;
     @FXML private JFXButton guardarCambiosRutaButton;
     @FXML private JFXButton backToAjustesRutaFromModificarRutaButton;
 
 
 
     //Ventana de eliminar ruta
-    @FXML private AnchorPane eliminarRutaWindow;
-    @FXML private JFXTextField codigoRutaAEliminar;
-    @FXML private JFXTextField diaRutaAEliminar;
+    @FXML public AnchorPane eliminarRutaWindow;
+    @FXML public JFXTextField codigoRutaAEliminar;
+    @FXML public JFXTextField diaRutaAEliminar;
     @FXML private JFXButton buscarRutaAEliminarButton;
-    @FXML private Label horaInicioRutaAEliminar;
-    @FXML private Label horaFinRutaAEliminar;
+    @FXML public Label horaInicioRutaAEliminar;
+    @FXML public Label horaFinRutaAEliminar;
     @FXML private JFXButton eliminarRutaButton;
     @FXML private JFXButton backToAjustesRutasFromEliminarRutaButton;
 
@@ -395,7 +390,7 @@ public class MenuInicioController implements Initializable {
     public void buscarRuta(MouseEvent mouseEvent) {//Metodo del boton buscarRutabutton, busca las rutas
         String ruta = nombreRuta.getText();
         nombreRuta.clear();
-        RutaListRequest rlr = new RutaListRequest(model.getCurrentIdRequest(), ruta);
+        RutaListRequest rlr = new RutaListRequest(model.getCurrentIdRequest(), ruta,null);
         model.createRequest(rlr);
 
         resultadosBuscarRuta.setDisable(false);
@@ -496,7 +491,15 @@ public class MenuInicioController implements Initializable {
     public void busquedaEstacionAEliminar(MouseEvent mouseEvent) {//Busca la estacion a eliminar
     }
 
-    public void eliminarEstacion(MouseEvent mouseEvent) {//elimina la estacion
+    public void eliminarEstacion(MouseEvent mouseEvent) throws AWTException {//elimina la estacion
+        SystemTray tray= SystemTray.getSystemTray();
+        Image image= Toolkit.getDefaultToolkit().createImage("src/GUI/images/OptiTransmi_logo.PNG");
+        TrayIcon trayIcon= new TrayIcon(image, "OptiTransmi");
+        trayIcon.setImageAutoSize(true);
+        trayIcon.setToolTip("Notificacion OptiTransmi");
+        tray.add(trayIcon);
+
+        trayIcon.displayMessage("Estacion eliminada","Notificacion OptiTransmi", TrayIcon.MessageType.INFO);
         String estacion = nombreEstacionAEliminar.getText();
         EliminarEstacion ee = new EliminarEstacion(model.getCurrentIdRequest(),estacion);
         model.createRequest(ee);
@@ -534,9 +537,19 @@ public class MenuInicioController implements Initializable {
     }
 
     public void buscarRutaAModificar(MouseEvent mouseEvent) {//Busca la ruta a la cual se le va a modificar la informacion
+        String codigo_ruta= codigoRutaABuscar.getText();
+        String dia=diaRutaABuscar.getText();
+        RutaListRequest request= new RutaListRequest(model.getCurrentIdRequest(), codigo_ruta, dia);
+        model.createRequest(request);
     }
 
     public void guardarCambiosRuta(MouseEvent mouseEvent) {//guarda los cambios de la ruta ajustada
+        String codigo_ruta= codigoRutaABuscar.getText();
+        String dia=diaRutaABuscar.getText();
+        String inicio= horaInicioRutaBuscada.getText();
+        String fin= horaFinRutaBuscada.getText();
+        ModificarRuta mdr= new ModificarRuta(model.getCurrentIdRequest(),codigo_ruta,dia,inicio,fin);
+        model.createRequest(mdr);
     }
 
     public void backToAjustesRutaFromModificarRuta(MouseEvent mouseEvent) {
@@ -557,6 +570,10 @@ public class MenuInicioController implements Initializable {
         tray.add(trayIcon);
 
         trayIcon.displayMessage("Ruta eliminada","Notificacion OptiTransmi", TrayIcon.MessageType.INFO);
+        String codigo_ruta= codigoRutaAEliminar.getText();
+        String dia=diaRutaAEliminar.getText();
+        EliminarRuta elr=  new EliminarRuta(model.getCurrentIdRequest(), codigo_ruta, dia);
+        model.createRequest(elr);
     }
 
     public void backToAjustesRutasFromEliminarRuta(MouseEvent mouseEvent) {

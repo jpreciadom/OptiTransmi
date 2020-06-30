@@ -15,4 +15,5 @@ public class RutaListAnswer extends BasePackage {
     public ArrayList<String> getValores(){
         return valores;
     }
+
 }

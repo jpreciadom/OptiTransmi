@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d8d14907-f5b6-41f8-a300-51d3f6da2f2b" name="Default Changelist" comment="" />
+    <list default="true" id="d8d14907-f5b6-41f8-a300-51d3f6da2f2b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ShippingData/src/Administrator/EliminarRuta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ShippingData/src/Administrator/ModificarRuta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/lib/ShippingData.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/lib/ShippingData.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/src/GUI/MenuInicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OptiTransmi_Client/src/optitransmi_client/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/../OptiTransmi_Client/src/optitransmi_client/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ShippingData.jar" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ShippingData.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ServerConection/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ServerConection/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShippingData/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ShippingData/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShippingData/src/Request/RutaListAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShippingData/src/Request/RutaListAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShippingData/src/Request/RutaListRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShippingData/src/Request/RutaListRequest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +31,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
@@ -31,7 +45,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1591654029709</updated>
+      <workItem from="1593491713847" duration="2235000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
 </project>

@@ -12,10 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
-import Administrator.AddEstacion;
-import Administrator.AddRuta;
-import Administrator.EliminarEstacion;
-import Administrator.ModificarEstacion;
+import Administrator.*;
 import Base.BasePackage;
 import Information.*;
 import Login.*;
@@ -544,6 +541,38 @@ public class User extends Thread {
             String query = "DELETE FROM ESTACION " +
                     "WHERE NOMBRE_ESTACION= '" + ((EliminarEstacion) readedObject).getNombre()+ "'";
             singleton.getConexion().executeSQL(query);
+        }else if(readedObject instanceof RutaListRequest){
+            RutaListRequest rlr = (RutaListRequest)readedObject;
+
+            String query = "SELECT CODIGO_RUTA, DIA, INICIO, FIN " +
+                    "FROM ruta " +
+                    "WHERE LOWER(CODIGO_RUTA) LIKE '%" + rlr.getSubName().toLowerCase() + "%'"+
+                    "AND DIA='" + rlr.getDay() + "'";
+            ResultSet result = singleton.getConexion().executeQuery(query);
+            try{
+                ArrayList<String> valores = new ArrayList<String>();
+                String codigo = result.getString(1);
+                String dia = result.getString(2);
+                String inicio = result.getString(3);
+                String fin = result.getString(4);
+                valores.add(codigo);
+                valores.add(dia);
+                valores.add(inicio);
+                valores.add(fin);
+                AddInToWriteQueue(new RutaListAnswer(idRequest, valores));
+            } catch(SQLException ex){ }
+        }else if(readedObject instanceof ModificarRuta){
+            String query="UPDATE RUTA"+
+                    "SET CODIGO_RUTA='" + ((ModificarRuta)readedObject).getCodigo_ruta() + "', DIA='" + ((ModificarRuta)readedObject).getDia() + "', INICIO='" + ((ModificarRuta)readedObject).getInicio() + "', FIN='" + ((ModificarRuta)readedObject).getFin() +"'";
+            singleton.getConexion().executeQuery(query);
+
+        }else if(readedObject instanceof  EliminarRuta){
+            RutaListRequest rlr = (RutaListRequest)readedObject;
+
+            String query = "DELETE FROM RUTA" +
+                    "CODIGO_RUTA=" + ((EliminarRuta)readedObject).getCodigo_ruta() +
+                    "AND DIA=" + ((EliminarRuta)readedObject).getDia();
+            ResultSet result = singleton.getConexion().executeQuery(query);
         }
     }
 }

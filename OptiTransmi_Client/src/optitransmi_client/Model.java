@@ -130,6 +130,19 @@ public class Model extends Thread {
                                 RequestFulfilled(readedA);
                             }
                         }
+                    }else if(readedA instanceof RutaListAnswer){
+                        RutaListAnswer rla= (RutaListAnswer)readedA;
+                        BasePackage request= this.request.get(readedA.getIdRequest());
+                        if(request!=null){
+                            if(controler.modificarRutaWindow.isVisible() && rla.getValores().get(0) != null && rla.getValores().get(1) != null){
+                                controler.codigoRutaABuscar.setText(rla.getValores().get(0));
+                                controler.diaRutaABuscar.setText(rla.getValores().get(1));
+                                controler.horaInicioRutaBuscada.setText(rla.getValores().get(2));
+                                controler.horaFinRutaBuscada.setText(rla.getValores().get(3));
+                            }else {
+                                RequestFulfilled(readedA);
+                            }
+                        }
                     }
                 }
             }
