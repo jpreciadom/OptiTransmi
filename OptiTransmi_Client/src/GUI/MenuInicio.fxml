@@ -391,7 +391,7 @@
          <children>
             <ScrollPane id="noticiasPanel" fx:id="noticiasPanel" layoutX="14.0" layoutY="14.0" prefHeight="334.0" prefWidth="620.0">
                <content>
-                  <JFXTextArea prefHeight="334.0" prefWidth="616.0" />
+                  <JFXTextArea fx:id="areaNoticias" prefHeight="334.0" prefWidth="616.0" />
                </content>
             </ScrollPane>
             <JFXButton id="backToMenuPrincipalFromNoticiasButton" fx:id="backToMenuPrincipalFromNoticiasButton" layoutX="14.0" layoutY="361.0" onMouseClicked="#backToMenuPrincipalFromNoticias" style="-fx-background-color: #ff0000;" text="Regresar" textFill="WHITE">

@@ -246,6 +246,8 @@ public class MenuInicioController implements Initializable {
     //Ventab¿na de estadisticas
     @FXML private AnchorPane estadisticasWindow;
 
+    //Area de noticias
+    @FXML private JFXTextArea areaNoticias;
 
 
     @FXML public Label IngresarError;
