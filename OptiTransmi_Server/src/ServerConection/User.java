@@ -562,17 +562,15 @@ public class User extends Thread {
                 AddInToWriteQueue(new RutaListAnswer(idRequest, valores));
             } catch(SQLException ex){ }
         }else if(readedObject instanceof ModificarRuta){
-            String query="UPDATE RUTA"+
-                    "SET CODIGO_RUTA='" + ((ModificarRuta)readedObject).getCodigo_ruta() + "', DIA='" + ((ModificarRuta)readedObject).getDia() + "', INICIO='" + ((ModificarRuta)readedObject).getInicio() + "', FIN='" + ((ModificarRuta)readedObject).getFin() +"'";
-            singleton.getConexion().executeQuery(query);
-
+            String query="UPDATE RUTA "+
+                    "SET CODIGO_RUTA = '" + ((ModificarRuta)readedObject).getCodigo_ruta() + "', DIA = '" + ((ModificarRuta)readedObject).getDia() + "', INICIO = '" + ((ModificarRuta)readedObject).getInicio() + "', FIN = '" + ((ModificarRuta)readedObject).getFin() + "' "+
+                    "WHERE CODIGO_RUTA= '" + ((ModificarRuta) readedObject).getCodigo_ruta()+ "' AND DIA = '" + ((ModificarRuta) readedObject).getDia() + "'";
+            singleton.getConexion().executeSQL(query);
         }else if(readedObject instanceof  EliminarRuta){
-            RutaListRequest rlr = (RutaListRequest)readedObject;
-
             String query = "DELETE FROM RUTA" +
-                    "CODIGO_RUTA=" + ((EliminarRuta)readedObject).getCodigo_ruta() +
+                    "WHERE CODIGO_RUTA=" + ((EliminarRuta)readedObject).getCodigo_ruta() +
                     "AND DIA=" + ((EliminarRuta)readedObject).getDia();
-            ResultSet result = singleton.getConexion().executeQuery(query);
+            singleton.getConexion().executeSQL(query);
         }
     }
 }
