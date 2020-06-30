@@ -800,7 +800,9 @@ public class MenuInicioController implements Initializable {
 
 
     public void crearSolicitud(MouseEvent mouseEvent) {
-        
+        model.AddInToWriteQueue(new RequestRoute(nombreRutaSolicitud.getText(), nombreEstacionSolicitud.getText(), model.getCurrentIdRequest()));
+        nombreRutaSolicitud.clear();
+        nombreEstacionSolicitud.clear();
     }
 
     public void backFromSolicitudToMenuPrincipal(MouseEvent mouseEvent) {//pasar de CrearSolicitudWindow a menuPrincipal

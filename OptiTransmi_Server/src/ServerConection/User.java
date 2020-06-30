@@ -483,6 +483,11 @@ public class User extends Thread {
                 answer = new Answer(idRequest, true, "Cambio de nombre de usuario, correo y contraseña exitoso");
                 AddInToWriteQueue(answer);
             }
+        } else if(readedObject instanceof RequestRoute){
+            Notificar(new News("Reta requerida", 
+                    "Un usuario ha solicitado la ruta " + ((RequestRoute) readedObject).getRoute() +
+                    "en la estacion " + ((RequestRoute) readedObject).getStation(), 
+                    idRequest), true);
         }
     }
     
@@ -494,14 +499,14 @@ public class User extends Thread {
                     ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
                     "', " + ((News) readedObject).getTitle() + "')";
             singleton.getConexion().executeSQL(query);
-            Notificar((News)readedObject);
+            Notificar((News)readedObject, false);
 
         } else if(readedObject instanceof News){
             String query = "INSERT INTO NOTICIA VALUES(" + readedObject.getIdRequest() +
                     ", '" + this.userName + "', '" + ((News) readedObject).getContent() + 
                     "', " + ((News) readedObject).getTitle() + "')";
             singleton.getConexion().executeSQL(query);
-            Notificar((News)readedObject);
+            Notificar((News)readedObject, false);
         }else if(readedObject instanceof AddEstacion){
             String query = "INSERT INTO ESTACION VALUES('"
                     + ((AddEstacion) readedObject).getNombre() + "', '"
@@ -512,7 +517,7 @@ public class User extends Thread {
             
             Notificar(new News("Ha llegado una nueva estación!", "Se ha agregado una nueva estacion en " + ((AddEstacion) readedObject).getDireccion() +
                             ", llamada " + ((AddEstacion) readedObject).getNombre() + " que contara con " + ((AddEstacion) readedObject).getnVagones() + " vagones. ¡Buen viaje!", 
-            idRequest));
+            idRequest), false);
         }else if(readedObject instanceof AddRuta){
             String query = "INSERT INTO RUTA VALUES('"
                     + ((AddRuta) readedObject).getCodigo() + "', '"
@@ -526,7 +531,7 @@ public class User extends Thread {
                     "Se ha agregado una nueva ruta al sistema, la cual inicia su recorrido en la estacion " + ((AddRuta) readedObject).getInicio()
                             + " y finaliza en la estacion " + ((AddRuta) readedObject).getFin()
                             + ", va a operar en dia " + ((AddRuta) readedObject).getDia(),
-                    idRequest));
+                    idRequest), false);
         }else if(readedObject instanceof StationListRequest){
             StationListRequest slr = (StationListRequest)readedObject;
 
@@ -588,7 +593,16 @@ public class User extends Thread {
         }
     }
     
-    private void Notificar(News news){
-        Singleton.getSingleton().getActiveUsers().forEach((k, v) -> ((User)(v)).AddInToWriteQueue(news));
+    public void NotificarSoloAdmin(News news){
+       if(userType == UserType.administrator){
+           AddInToWriteQueue(news);
+       }
+    }
+    
+    private void Notificar(News news, boolean onlyAdmins){
+        if(onlyAdmins)
+            Singleton.getSingleton().getActiveUsers().forEach((k, v) -> ((User)(v)).NotificarSoloAdmin(news));
+        else
+            Singleton.getSingleton().getActiveUsers().forEach((k, v) -> ((User)(v)).AddInToWriteQueue(news));
     }
 }
