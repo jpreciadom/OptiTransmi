@@ -152,7 +152,13 @@ public class Model extends Thread {
                         }
                     }
                 } else if(readed instanceof News){
-                    news.AddFirst((News)readed);
+                    if(controler.noticiasWindow.isVisible()){
+                        controler.areaNoticias.appendText(((News)readed).getTitle() + "\n");
+                        controler.areaNoticias.appendText(((News)readed).getContent() + "\n");
+                        controler.areaNoticias.appendText("______________________________________\n");
+                    } else {
+                        news.AddFirst((News)readed);
+                    }
                 }
             }
         }

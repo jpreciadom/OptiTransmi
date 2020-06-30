@@ -130,7 +130,7 @@ public class MenuInicioController implements Initializable {
 
 
     //Ventana de estaciones
-    @FXML private AnchorPane noticiasWindow;
+    @FXML public AnchorPane noticiasWindow;
     @FXML private ScrollPane noticiasPanel;//Panel donde se van a mostrar las noticias
     @FXML private JFXButton backToMenuPrincipalFromNoticiasButton;
 
@@ -247,7 +247,7 @@ public class MenuInicioController implements Initializable {
     @FXML private AnchorPane estadisticasWindow;
 
     //Area de noticias
-    @FXML private JFXTextArea areaNoticias;
+    @FXML public JFXTextArea areaNoticias;
 
 
     @FXML public Label IngresarError;
@@ -592,9 +592,9 @@ public class MenuInicioController implements Initializable {
         noticiasWindow.setVisible(true);
         while(!model.news.isEmpty()){
             News news = model.news.removeFirst();
-            areaNoticias.appendText(news.getTitle());
-            areaNoticias.appendText(news.getContent());
-            areaNoticias.appendText("\n");
+            areaNoticias.appendText(news.getTitle() + "\n");
+            areaNoticias.appendText(news.getContent() + "\n");
+            areaNoticias.appendText("______________________________________\n");
         }
     }
 
