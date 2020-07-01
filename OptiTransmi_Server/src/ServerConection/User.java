@@ -327,6 +327,20 @@ public class User extends Thread {
                     AddInToWriteQueue(new StationListAnswer(idRequest, name, direction, zona,wagons));
                 }
             } catch(SQLException ex){ }
+        }else if(readedObject instanceof StationRequest) {
+            StationRequest sr = (StationRequest)readedObject;
+
+            String query = "SELECT NOMBRE_ESTACION " +
+                    "FROM estacion ";
+
+            ResultSet result = singleton.getConexion().executeQuery(query);
+            try{
+                AddInToWriteQueue(new StationAnswer(idRequest, null));
+                while(result.next()){
+                    String name = result.getString(1);
+                    AddInToWriteQueue(new StationAnswer(idRequest, name));
+                }
+            } catch(SQLException ex){ }
         }else if(readedObject instanceof RutaListRequest){
            RutaListRequest rlr = (RutaListRequest)readedObject;
 

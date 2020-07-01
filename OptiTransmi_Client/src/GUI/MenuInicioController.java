@@ -112,12 +112,11 @@ public class MenuInicioController implements Initializable {
 
     //Ventana de planear ruta
     @FXML private AnchorPane planearRutaWindow;//ventana planear ruta
-    @FXML private JFXTextField rutaInicio;//ruta de inicio en planear ruta
-    @FXML private JFXTextField rutaDestino;//ruta de destino en planearRuta
+    @FXML public ComboBox<String> estacionInicio;//ruta de inicio en planear ruta
+    @FXML public ComboBox<String> estacionDestino;//ruta de destino en planearRuta
     @FXML private JFXButton planearRutaButton;//boton de planear ruta en planearRutaWindow
     @FXML private JFXButton backFromPlanearToMenuPrincipalButton;
     @FXML private JFXTextArea resultadosPlanearRuta;//text area para colocar resultados de planear ruta
-
 
 
     //Ventana de solicitar articulado
@@ -757,10 +756,6 @@ public class MenuInicioController implements Initializable {
         resultadosBuscarRuta.setRoot(null);
     }
 
-    public void passToPlanearRutaWindow(MouseEvent mouseEvent) {//Metodo de planearRutaButton, pasa a planearRutaWindow
-        menuPrincipal.setVisible(false);
-        planearRutaWindow.setVisible(true);
-    }
 
     public void passToSolicitarArticuladoWindow(MouseEvent mouseEvent) {//Metodo de solicitarArticuladoButton, pasa a solicitarArticuladoWindow
         solicitarArticuladoWindow.setVisible(true);
@@ -787,8 +782,17 @@ public class MenuInicioController implements Initializable {
         ResultadosBuscarEstacion.setText("");
     }
 
+    public void passToPlanearRutaWindow(MouseEvent mouseEvent) {//Metodo de planearRutaButton, pasa a planearRutaWindow
+        StationRequest sr = new StationRequest(model.getCurrentIdRequest());
+        model.createRequest(sr);
+
+        menuPrincipal.setVisible(false);
+        planearRutaWindow.setVisible(true);
+
+        //new AutoCompleteComboBoxListener<>(estacionInicio);
+    }
+
     public void planearRuta(MouseEvent mouseEvent) { //Metodo del boton planearRutaButton, muestra resultados de mejores rutas
-        
     }                                                // en el textArea resultadosPlanearRuta
 
 

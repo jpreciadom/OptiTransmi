@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -19,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
+<AnchorPane id="AnchorPane" fx:id="panel" prefHeight="400.0" prefWidth="649.0" style="-fx-background-image: url( 'file:/C:/Users/ADMIN/Documents/Ingeniería%20de%20software%201/OptiTransmi/OptiTransmi_Client/src/GUI/images/mapa_bogota.png');" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuInicioController">
    <children>
       <AnchorPane id="inicioWindow" fx:id="inicioWindow" prefHeight="400.0" prefWidth="649.0">
          <children>
@@ -323,16 +318,6 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <JFXTextField id="rutaInicio" fx:id="rutaInicio" focusColor="RED" layoutX="242.0" layoutY="11.0" prefHeight="25.0" prefWidth="391.0" promptText="Ruta de inicio">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField id="rutaDestino" fx:id="rutaDestino" focusColor="RED" layoutX="242.0" layoutY="54.0" prefHeight="25.0" prefWidth="391.0" promptText="Ruta de destino">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </JFXTextField>
             <JFXButton id="planearRutaButton" fx:id="planearRutaButton" layoutX="533.0" layoutY="95.0" onMouseClicked="#planearRuta" prefHeight="35.0" prefWidth="102.0" style="-fx-background-color: #ff0000;" text="Ir" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
@@ -352,6 +337,8 @@
                   </JFXTextArea>
                </content>
             </ScrollPane>
+            <JFXComboBox fx:id="estacionInicio" editable="true" layoutX="242.0" layoutY="20.0" prefHeight="25.0" prefWidth="391.0" promptText="Estacion de inicio" />
+            <JFXComboBox fx:id="estacionDestino" editable="true" layoutX="242.0" layoutY="56.0" prefHeight="25.0" prefWidth="391.0" promptText="Estacion de destino" />
          </children>
       </AnchorPane>
       <AnchorPane id="solicitarArticuladoWindow" fx:id="solicitarArticuladoWindow" prefHeight="410.0" prefWidth="649.0" visible="false">

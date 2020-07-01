@@ -3,6 +3,7 @@ package optitransmi_client;
 import Base.BasePackage;
 import Connection.ConnectionModel;
 import DataStructures.*;
+import GUI.AutoCompleteComboBoxListener;
 import GUI.MenuInicioController;
 import Information.*;
 import Login.*;
@@ -13,6 +14,8 @@ import java.io.PrintWriter;
 import java.util.PriorityQueue;
 import java.util.concurrent.locks.ReentrantLock;
 import Request.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Model extends Thread {
     //Connection with the GUI
@@ -137,6 +140,17 @@ public class Model extends Thread {
                                     "Direccion: " + sla.getDirection()+ "\n" +
                                     "Vagones: " + sla.getWagons() + "\n\n";
                            controler.ResultadosBuscarEstacion.appendText(toAppend);
+                        } else {
+                            RequestFulfilled(readed);
+                        }
+                    }
+                }else if(readed instanceof StationAnswer){
+                    StationAnswer sa = (StationAnswer)readed;
+                    BasePackage request = this.request.get(readed.getIdRequest());
+                    if(request != null){
+                        if(controler.buscarEstacionWindow.isVisible() && sa.getName() != null){
+                            System.out.println(sa.getName());
+                            controler.estacionInicio.getItems().add(sa.getName());
                         } else {
                             RequestFulfilled(readed);
                         }
