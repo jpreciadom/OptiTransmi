@@ -74,7 +74,7 @@ public class MenuInicioController implements Initializable {
 
 
     //Ventana menu principal
-    @FXML private AnchorPane menuPrincipal;//menu principal
+    @FXML public AnchorPane menuPrincipal;//menu principal
     @FXML private Label labelNombre;//nombre de la persona que inicio sesion para colocar en el menu principal
     @FXML private Label labelCorreo;//correo de la persona que ingreso para mostrarlo en menuPrincipal
     @FXML private JFXButton passToBuscarEstacionWindowButton;
@@ -111,7 +111,7 @@ public class MenuInicioController implements Initializable {
 
 
     //Ventana de planear ruta
-    @FXML private AnchorPane planearRutaWindow;//ventana planear ruta
+    @FXML public AnchorPane planearRutaWindow;//ventana planear ruta
     @FXML public ComboBox<String> estacionInicio;//ruta de inicio en planear ruta
     @FXML public ComboBox<String> estacionDestino;//ruta de destino en planearRuta
     @FXML private JFXButton planearRutaButton;//boton de planear ruta en planearRutaWindow
@@ -789,7 +789,7 @@ public class MenuInicioController implements Initializable {
         menuPrincipal.setVisible(false);
         planearRutaWindow.setVisible(true);
 
-        //new AutoCompleteComboBoxListener<>(estacionInicio);
+        new AutoCompleteComboBoxListener<>(estacionInicio);
     }
 
     public void planearRuta(MouseEvent mouseEvent) { //Metodo del boton planearRutaButton, muestra resultados de mejores rutas

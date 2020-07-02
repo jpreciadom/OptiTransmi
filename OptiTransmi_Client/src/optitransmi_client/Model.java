@@ -148,8 +148,7 @@ public class Model extends Thread {
                     StationAnswer sa = (StationAnswer)readed;
                     BasePackage request = this.request.get(readed.getIdRequest());
                     if(request != null){
-                        if(controler.buscarEstacionWindow.isVisible() && sa.getName() != null){
-                            System.out.println(sa.getName());
+                        if(controler.planearRutaWindow.isVisible() && sa.getName() != null){
                             controler.estacionInicio.getItems().add(sa.getName());
                         } else {
                             RequestFulfilled(readed);

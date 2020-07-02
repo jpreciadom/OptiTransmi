@@ -335,11 +335,11 @@ public class User extends Thread {
 
             ResultSet result = singleton.getConexion().executeQuery(query);
             try{
-                AddInToWriteQueue(new StationAnswer(idRequest, null));
                 while(result.next()){
                     String name = result.getString(1);
                     AddInToWriteQueue(new StationAnswer(idRequest, name));
                 }
+                AddInToWriteQueue(new StationAnswer(idRequest, null));
             } catch(SQLException ex){ }
         }else if(readedObject instanceof RutaListRequest){
            RutaListRequest rlr = (RutaListRequest)readedObject;
