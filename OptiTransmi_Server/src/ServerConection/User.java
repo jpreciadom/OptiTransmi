@@ -259,9 +259,9 @@ public class User extends Thread {
                             }else{
                                 userType = UserType.administrator;
                             }
-                            //userType = tipo == 1 ? UserType.logged : UserType.administrator;
+                            InicializarUsuario();
                         } else {
-                            answer = new Answer(idRequest, true, "Contraseña incorrecta");
+                            answer = new Answer(idRequest, false, "Contraseña incorrecta");
                         }
                     } else {
                         answer = new Answer(idRequest, false, "Correo incorrecto");
@@ -296,6 +296,7 @@ public class User extends Thread {
                 singleton.getConexion().executeSQL(SQL);
                 AddInToWriteQueue(new Answer(idRequest, true));
                 Singleton.getSingleton().getActiveUsers().updateKey(this.userName, singUp.getMail());
+                InicializarUsuario();
                 this.userType = UserType.logged;
             } else {
                 AddInToWriteQueue(new Answer(idRequest, false, "El correo ya esta en uso"));
@@ -604,6 +605,31 @@ public class User extends Thread {
                     "WHERE CODIGO_RUTA=" + ((EliminarRuta)readedObject).getCodigo_ruta() +
                     "AND DIA=" + ((EliminarRuta)readedObject).getDia();
             singleton.getConexion().executeSQL(query);
+        }
+    }
+    
+    private void InicializarUsuario(){
+        String query = "SELECT DISTINCT CODIGO_RUTA FROM RUTA";
+        ResultSet rs = Singleton.getSingleton().getConexion().executeQuery(query);
+        try {
+            ArrayList<String> rutas = new ArrayList<>();
+            while(rs.next()){
+                rutas.add(rs.getString(1));
+            }
+            AddInToWriteQueue(new RutaListAnswer(0, rutas));
+        } catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        
+        query = "SELECT NOMBRE_ESTACION FROM ESTACION";
+        rs = Singleton.getSingleton().getConexion().executeQuery(query);
+        try {
+            while(rs.next()){
+                AddInToWriteQueue(new StationNamesList(rs.getString(1), 0));
+            }
+            AddInToWriteQueue(new StationNamesList(null, 0));
+        } catch(SQLException ex){
+            System.out.println(ex.getMessage());
         }
     }
     

@@ -31,6 +31,8 @@ public class Model extends Thread {
     
     //News objects
     public final SynchronizedLinkedList<News> news;
+    public final ObservableList<String> rutas;
+    public final ObservableList<String> estaciones;
 
     //Model objects
     private boolean RunningThread;
@@ -56,6 +58,8 @@ public class Model extends Thread {
         
         //News objects
         news = new SynchronizedLinkedList<>();
+        rutas = FXCollections.observableArrayList();
+        estaciones = FXCollections.observableArrayList();
         
         //Model objets
         RunningThread = true;
@@ -156,13 +160,15 @@ public class Model extends Thread {
                     }
                 }else if(readed instanceof RutaListAnswer){
                     RutaListAnswer rla = (RutaListAnswer)readed;
-                    BasePackage request = this.request.get(readed.getIdRequest());
-                    if(request != null){
-                        if(controler.buscarRutaWindow.isVisible()){
+                    if(controler.buscarRutaWindow.isVisible()){
+                        BasePackage request = this.request.get(readed.getIdRequest());
+                        if(request != null){
                             controler.CrearListaRutas(rla.getValores());
                         } else {
                             RequestFulfilled(readed);
                         }
+                    } else {
+                        rutas.addAll(((RutaListAnswer)readed).getValores());
                     }
                 } else if(readed instanceof News){
                     if(controler.noticiasWindow.isVisible()){
@@ -171,6 +177,11 @@ public class Model extends Thread {
                         controler.areaNoticias.appendText("______________________________________\n");
                     } else {
                         news.AddFirst((News)readed);
+                    }
+                } else if(readed instanceof StationNamesList){
+                    StationNamesList snl = (StationNamesList)readed;
+                    if(snl.getNameStation() != null){
+                        estaciones.add(snl.getNameStation());
                     }
                 }
             }
