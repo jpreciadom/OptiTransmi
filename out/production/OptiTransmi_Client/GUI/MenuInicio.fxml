@@ -201,12 +201,12 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToPlanearRutaWindowButton" fx:id="passToPlanearRutaWindowButton" layoutX="364.0" layoutY="223.0" onMouseClicked="#passToPlanearRutaWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Planear ruta" textFill="WHITE">
+            <JFXButton id="passToPlanearRutaWindowButton" fx:id="passToPlanearRutaWindowButton" disable="true" layoutX="364.0" layoutY="223.0" onMouseClicked="#passToPlanearRutaWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Planear ruta" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToSolicitarArticuladoWindowButton" fx:id="passToSolicitarArticuladoWindowButton" layoutX="364.0" layoutY="270.0" onMouseClicked="#passToSolicitarArticuladoWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Solicitar articulado" textFill="WHITE">
+            <JFXButton id="passToSolicitarArticuladoWindowButton" fx:id="passToSolicitarArticuladoWindowButton" disable="true" layoutX="364.0" layoutY="270.0" onMouseClicked="#passToSolicitarArticuladoWindow" prefHeight="35.0" prefWidth="191.0" style="-fx-background-color: #ff0000;" text="Solicitar articulado" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
                </font>
@@ -328,17 +328,16 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <ScrollPane layoutX="16.0" layoutY="139.0" prefHeight="200.0" prefWidth="620.0">
-               <content>
-                  <JFXTextArea id="resultadosPlanearRuta" fx:id="resultadosPlanearRuta" prefHeight="197.0" prefWidth="616.0">
-                     <font>
-                        <Font name="Century Gothic" size="14.0" />
-                     </font>
-                  </JFXTextArea>
-               </content>
-            </ScrollPane>
             <JFXComboBox fx:id="estacionInicio" editable="true" layoutX="242.0" layoutY="20.0" prefHeight="25.0" prefWidth="391.0" promptText="Estacion de inicio" />
             <JFXComboBox fx:id="estacionDestino" editable="true" layoutX="242.0" layoutY="56.0" prefHeight="25.0" prefWidth="391.0" promptText="Estacion de destino" />
+            <ImageView fitHeight="123.0" fitWidth="132.0" layoutX="263.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="124.0" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="263.0" AnchorPane.topAnchor="163.0">
+               <image>
+                  <Image url="@images/estacionimg.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="estacionIncicioRes" layoutX="7.0" layoutY="219.0" prefHeight="17.0" prefWidth="250.0" text="Sale de la estacion" visible="false" />
+            <Label fx:id="estacionDestinoRes" layoutX="396.0" layoutY="225.0" prefHeight="17.0" prefWidth="250.0" text="Hasta la estación" visible="false" />
+            <Label fx:id="rutaAleatoria" layoutX="290.0" layoutY="204.0" prefHeight="31.0" prefWidth="70.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <AnchorPane id="solicitarArticuladoWindow" fx:id="solicitarArticuladoWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
@@ -353,16 +352,6 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </Label>
-            <JFXTextField id="nombreEstacionSolicitud" fx:id="nombreEstacionSolicitud" focusColor="RED" layoutX="257.0" layoutY="9.0" prefHeight="25.0" prefWidth="382.0" promptText="Nombre de la estacion">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField id="nombreRutaSolicitud" fx:id="nombreRutaSolicitud" focusColor="RED" layoutX="257.0" layoutY="57.0" prefHeight="25.0" prefWidth="382.0" promptText="Nombre de la ruta">
-               <font>
-                  <Font name="Century Gothic" size="14.0" />
-               </font>
-            </JFXTextField>
             <JFXButton id="crearSolicitudButton" fx:id="crearSolicitudButton" layoutX="530.0" layoutY="104.0" onMouseClicked="#crearSolicitud" prefHeight="35.0" prefWidth="109.0" style="-fx-background-color: #ff0000;" text="Solicitar" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="18.0" />
@@ -378,6 +367,8 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXTextArea>
+            <JFXComboBox fx:id="nombreEstacionSolicitud" layoutX="256.0" layoutY="11.0" prefHeight="25.0" prefWidth="372.0" promptText="nombre estacion" />
+            <JFXComboBox fx:id="nombreRutaSolicitud" layoutX="256.0" layoutY="59.0" prefHeight="25.0" prefWidth="372.0" promptText="nombre ruta" />
          </children>
       </AnchorPane>
       <AnchorPane id="noticiasWindow" fx:id="noticiasWindow" prefHeight="410.0" prefWidth="649.0" visible="false">

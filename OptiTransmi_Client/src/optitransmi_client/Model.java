@@ -169,6 +169,7 @@ public class Model extends Thread {
                         }
                     } else {
                         rutas.addAll(((RutaListAnswer)readed).getValores());
+                        controler.nombreRutaSolicitud.setItems(rutas);
                     }
                 } else if(readed instanceof News){
                     if(controler.noticiasWindow.isVisible()){
@@ -182,6 +183,12 @@ public class Model extends Thread {
                     StationNamesList snl = (StationNamesList)readed;
                     if(snl.getNameStation() != null){
                         estaciones.add(snl.getNameStation());
+                    }else{
+                        controler.estacionInicio.setItems(estaciones);
+                        controler.estacionDestino.setItems(estaciones);
+                        controler.nombreEstacionSolicitud.setItems(estaciones);
+                        controler.passToPlanearRutaWindowButton.setDisable(false);
+                        controler.passToSolicitarArticuladoWindowButton.setDisable(false);
                     }
                 }
             }

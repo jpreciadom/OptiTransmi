@@ -30,10 +30,13 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 import optitransmi_client.Model;
 
+import javax.swing.*;
+import javax.swing.text.html.ImageView;
 import java.awt.*;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.io.IOException;
 
@@ -79,8 +82,8 @@ public class MenuInicioController implements Initializable {
     @FXML private Label labelCorreo;//correo de la persona que ingreso para mostrarlo en menuPrincipal
     @FXML private JFXButton passToBuscarEstacionWindowButton;
     @FXML private JFXButton passToBuscarRutaWindowButton;
-    @FXML private JFXButton passToPlanearRutaWindowButton;
-    @FXML private JFXButton passToSolicitarArticuladoWindowButton;
+    @FXML public JFXButton passToPlanearRutaWindowButton;
+    @FXML public JFXButton passToSolicitarArticuladoWindowButton;
     @FXML private JFXButton passToModificarInfoWindowButton;
     @FXML private JFXButton cerrarSesion;
     @FXML private JFXButton botonRecargas;
@@ -116,13 +119,16 @@ public class MenuInicioController implements Initializable {
     @FXML public ComboBox<String> estacionDestino;//ruta de destino en planearRuta
     @FXML private JFXButton planearRutaButton;//boton de planear ruta en planearRutaWindow
     @FXML private JFXButton backFromPlanearToMenuPrincipalButton;
-    @FXML private JFXTextArea resultadosPlanearRuta;//text area para colocar resultados de planear ruta
+    @FXML private Label estacionIncicioRes;
+    @FXML private Label rutaAleatoria;
+    @FXML private Label estacionDestinoRes;
+    @FXML private ImageView imagenRuta;
 
 
     //Ventana de solicitar articulado
     @FXML private AnchorPane solicitarArticuladoWindow;//ventana de solicitar articulado
-    @FXML private JFXTextField nombreEstacionSolicitud;//nombre de la estacion en planear solicitud
-    @FXML private JFXTextField nombreRutaSolicitud;//nombre de ruta e solicitarArticulado
+    @FXML public ComboBox<String> nombreEstacionSolicitud;//nombre de la estacion en planear solicitud
+    @FXML public ComboBox<String> nombreRutaSolicitud;//nombre de ruta e solicitarArticulado
     @FXML private JFXButton crearSolicitudButton;//boton de crearSolicitud en crearSolicitudWindow
     @FXML private JFXTextArea respuestaSolicitud;//text area para mostrar procesamiento de solicitud
     @FXML private JFXButton backFromSolicitudToMenuPrincipalButton;
@@ -760,6 +766,9 @@ public class MenuInicioController implements Initializable {
     public void passToSolicitarArticuladoWindow(MouseEvent mouseEvent) {//Metodo de solicitarArticuladoButton, pasa a solicitarArticuladoWindow
         solicitarArticuladoWindow.setVisible(true);
         menuPrincipal.setVisible(false);
+
+        new AutoCompleteComboBoxListener<>(nombreEstacionSolicitud);
+        new AutoCompleteComboBoxListener<>(nombreRutaSolicitud);
     }
 
     public void backToBeginSession(MouseEvent mouseEvent) {
@@ -783,30 +792,39 @@ public class MenuInicioController implements Initializable {
     }
 
     public void passToPlanearRutaWindow(MouseEvent mouseEvent) {//Metodo de planearRutaButton, pasa a planearRutaWindow
-        StationRequest sr = new StationRequest(model.getCurrentIdRequest());
-        model.createRequest(sr);
-
         menuPrincipal.setVisible(false);
         planearRutaWindow.setVisible(true);
 
         new AutoCompleteComboBoxListener<>(estacionInicio);
+        new AutoCompleteComboBoxListener<>(estacionDestino);
     }
 
     public void planearRuta(MouseEvent mouseEvent) { //Metodo del boton planearRutaButton, muestra resultados de mejores rutas
-    }                                                // en el textArea resultadosPlanearRuta
+        estacionIncicioRes.setVisible(true);
+        estacionDestinoRes.setVisible(true);
+        estacionIncicioRes.setText(estacionIncicioRes.getText()+" "+estacionInicio.getValue());
+        estacionDestinoRes.setText(estacionDestinoRes.getText()+" "+estacionDestino.getValue());
+        Random r = new Random();
+        int ruta = r.nextInt(217)+1;
+        rutaAleatoria.setText(model.rutas.get(ruta));
+    }
 
 
     public void backFromPlanearToMenuPrincipal(MouseEvent mouseEvent) {
+        estacionIncicioRes.setText("Sale de la estacion");
+        estacionDestinoRes.setText("Hasta la estación");
+        rutaAleatoria.setText("");
+        estacionIncicioRes.setVisible(false);
+        estacionDestinoRes.setVisible(false);
         planearRutaWindow.setVisible(false);
         menuPrincipal.setVisible(true);
-        resultadosPlanearRuta.setText("");
     }
 
 
     public void crearSolicitud(MouseEvent mouseEvent) {
-        model.AddInToWriteQueue(new RequestRoute(nombreRutaSolicitud.getText(), nombreEstacionSolicitud.getText(), model.getCurrentIdRequest()));
-        nombreRutaSolicitud.clear();
-        nombreEstacionSolicitud.clear();
+        model.AddInToWriteQueue(new RequestRoute(nombreRutaSolicitud.getValue(), nombreEstacionSolicitud.getValue(), model.getCurrentIdRequest()));
+        nombreRutaSolicitud.getEditor().clear();
+        nombreEstacionSolicitud.getEditor().clear();
     }
 
     public void backFromSolicitudToMenuPrincipal(MouseEvent mouseEvent) {//pasar de CrearSolicitudWindow a menuPrincipal
