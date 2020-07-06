@@ -65,6 +65,7 @@ public class MenuInicioController implements Initializable {
     @FXML private RadioButton inicioAdmin;//radioButton para iniciar como administrador
     @FXML private JFXButton iniciarSesionButton;//boton de iniciar sesion en inicioSesionWindow
     @FXML private JFXButton atrasButton;
+    @FXML public Label datosIncorrectos;
 
 
     //Ventana de registro
@@ -254,8 +255,6 @@ public class MenuInicioController implements Initializable {
     //Area de noticias
     @FXML public JFXTextArea areaNoticias;
 
-
-    @FXML public Label IngresarError;
     public boolean ingresoPorAdmin=false;
 
 
@@ -306,8 +305,8 @@ public class MenuInicioController implements Initializable {
                     menuPrincipal.setVisible(true);
                     labelNombre.setText(login.getMessage());
                     labelCorreo.setText(mail);
-                    if(IngresarError.isVisible() == true){
-                        IngresarError.setVisible(false);
+                    if(datosIncorrectos.isVisible() == true){
+                        datosIncorrectos.setVisible(false);
                     }
                 }else if(login.getUserType()==0){
                     model.setAdmin(true);
@@ -315,16 +314,16 @@ public class MenuInicioController implements Initializable {
                     menuPrincipalAdmin.setVisible(true);
                     labelNombreAdmin.setText(login.getUserName());
                     labelCorreoAdmin.setText(mail);
-                    if(IngresarError.isVisible() == true){
-                        IngresarError.setVisible(false);
+                    if(datosIncorrectos.isVisible() == true){
+                        datosIncorrectos.setVisible(false);
                     }
                 }
             } else {
-                IngresarError.setVisible(true);
+                datosIncorrectos.setVisible(true);
                 if(login == null){
-                    IngresarError.setText("Tiempo de espera excedido");
+                    datosIncorrectos.setText("Tiempo de espera excedido");
                 } else {
-                    IngresarError.setText(login.getMessage());
+                    datosIncorrectos.setVisible(true);
                 }
             }
         }
@@ -338,6 +337,7 @@ public class MenuInicioController implements Initializable {
     public void back(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         inicioSesionWindow.setVisible(false);
         inicioWindow.setVisible(true);
+        datosIncorrectos.setVisible(false);
     }
 
     public void registrarUsuario(MouseEvent mouseEvent) {

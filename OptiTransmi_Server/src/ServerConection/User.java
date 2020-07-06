@@ -247,7 +247,7 @@ public class User extends Thread {
                 ResultSet result = singleton.getConexion().executeQuery(query);
 
                 try {
-                    Answer answer;
+                    SingInAnswer answer;
                     if(result.next()){
                         String nombreUsuario = result.getString(1);
                         String contrasenna = result.getString(2);
@@ -261,10 +261,10 @@ public class User extends Thread {
                             }
                             InicializarUsuario();
                         } else {
-                            answer = new Answer(idRequest, false, "Contraseña incorrecta");
+                            answer = new SingInAnswer(idRequest, false, "Contraseña incorrecta", -1);
                         }
                     } else {
-                        answer = new Answer(idRequest, false, "Correo incorrecto");
+                        answer = new SingInAnswer(idRequest, false, "Correo incorrecto", -1);
                     }
                     AddInToWriteQueue(answer);
                 } catch(Exception e){
@@ -363,10 +363,17 @@ public class User extends Thread {
                     valores.add(dia);
                     valores.add(inicio);
                     valores.add(fin);
-                    //System.out.println(codigo);
-                    //System.out.println("aqui"+valores.get(0));
+
+                    String queryy = "INSERT INTO RUTAS_BUSCADAS VALUES('"
+                            + codigo + "', '"
+                            + dia + "', '"
+                            + this.userName + "', "
+                            + "SYSDATE()" + ")";
+                    singleton.getConexion().executeSQL(queryy);
                 }
                 AddInToWriteQueue(new RutaListAnswer(idRequest, valores));
+
+
             } catch(SQLException ex){ }
         }else if(readedObject instanceof ChangePassword){
             ChangePassword cp = (ChangePassword)readedObject;

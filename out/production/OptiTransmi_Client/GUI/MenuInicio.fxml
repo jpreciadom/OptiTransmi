@@ -50,7 +50,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane id="inicioSesionWindow" fx:id="inicioSesionWindow" layoutX="-2.0" prefHeight="410.0" prefWidth="649.0" visible="false">
+      <AnchorPane id="inicioSesionWindow" fx:id="inicioSesionWindow" layoutX="7.0" layoutY="14.0" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
             <Label layoutX="211.0" layoutY="14.0" text="Inicio de Sesion">
                <font>
@@ -97,7 +97,7 @@
                   <Font name="Century Gothic" size="14.0" />
                </font>
             </JFXPasswordField>
-            <Label fx:id="IngresarError" layoutX="154.0" layoutY="258.0" prefHeight="17.0" prefWidth="228.0" text="usuario o contraseña incorrectos" textFill="RED" visible="false" />
+            <Label fx:id="datosIncorrectos" layoutX="154.0" layoutY="258.0" text="usuario o contraseña incorrectos" textFill="#f80000" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane id="registroWindow" fx:id="registroWindow" prefHeight="410.0" prefWidth="649.0" visible="false">

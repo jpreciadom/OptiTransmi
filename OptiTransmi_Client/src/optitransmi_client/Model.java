@@ -14,8 +14,14 @@ import java.io.PrintWriter;
 import java.util.PriorityQueue;
 import java.util.concurrent.locks.ReentrantLock;
 import Request.*;
+import com.jfoenix.controls.RecursiveTreeItem;
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TreeItem;
+import javafx.stage.StageStyle;
 
 public class Model extends Thread {
     //Connection with the GUI
@@ -177,7 +183,16 @@ public class Model extends Thread {
                         controler.areaNoticias.appendText(((News)readed).getContent() + "\n");
                         controler.areaNoticias.appendText("______________________________________\n");
                     } else {
-                        news.AddFirst((News)readed);
+                        Platform.runLater(() -> {
+                            Alert dialogoAlerta = new Alert(Alert.AlertType.WARNING);
+                            dialogoAlerta.setTitle("Nueva noticia");
+                            dialogoAlerta.setHeaderText(null);
+                            dialogoAlerta.setContentText("Se agrego una nueva noticia");
+                            dialogoAlerta.initStyle(StageStyle.UTILITY);
+                            java.awt.Toolkit.getDefaultToolkit().beep();
+                            dialogoAlerta.showAndWait();
+                            news.AddFirst((News)readed);
+                        });
                     }
                 } else if(readed instanceof StationNamesList){
                     StationNamesList snl = (StationNamesList)readed;
