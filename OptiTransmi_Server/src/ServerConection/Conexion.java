@@ -12,9 +12,9 @@ public class Conexion {
 
     public Conexion() {
         String driver="com.mysql.cj.jdbc.Driver";
-        String url="jdbc:mysql://localhost:3306/dboptitransmi?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        String user="root";
-        String pass="wigeta777";
+        String url="jdbc:mysql://b6weauyywe5e2pwv3dse-mysql.services.clever-cloud.com:3306/b6weauyywe5e2pwv3dse";
+        String user="u61iedj6a3olwg6n";
+        String pass="nRryeH8CgyA10kEQlx9p";
         connection=null;
         try{
             Class.forName(driver);

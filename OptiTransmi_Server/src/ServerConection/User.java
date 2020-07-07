@@ -313,7 +313,7 @@ public class User extends Thread {
             StationListRequest slr = (StationListRequest)readedObject;
 
             String query = "SELECT NOMBRE_ESTACION, DIRECCION, VAGONES " +
-                           "FROM estacion " +
+                           "FROM ESTACION " +
                            "WHERE LOWER(NOMBRE_ESTACION) LIKE '%" + slr.getSubName().toLowerCase() + "%'";
 
             ResultSet result = singleton.getConexion().executeQuery(query);
@@ -332,7 +332,7 @@ public class User extends Thread {
             StationRequest sr = (StationRequest)readedObject;
 
             String query = "SELECT NOMBRE_ESTACION " +
-                    "FROM estacion ";
+                    "FROM ESTACION ";
 
             ResultSet result = singleton.getConexion().executeQuery(query);
             try{
@@ -346,7 +346,7 @@ public class User extends Thread {
            RutaListRequest rlr = (RutaListRequest)readedObject;
 
            String query = "SELECT CODIGO_RUTA, DIA, INICIO, FIN " +
-                   "FROM ruta " +
+                   "FROM RUTA " +
                    "WHERE LOWER(CODIGO_RUTA) LIKE '%" + rlr.getSubName().toLowerCase() + "%'";
 
             ResultSet result = singleton.getConexion().executeQuery(query);
@@ -390,7 +390,7 @@ public class User extends Thread {
                     }
                     Answer answer;
                     if(contrasennaCorrecta == true){
-                        String query = "UPDATE usuario " +
+                        String query = "UPDATE USUARIO " +
                            "SET CONTRASENNA = '" + cp.getNewPassword() +"' "+
                            "WHERE CORREO= '" + this.userName + "'";
                         
@@ -558,7 +558,7 @@ public class User extends Thread {
             StationListRequest slr = (StationListRequest)readedObject;
 
             String query = "SELECT NOMBRE_ESTACION, DIRECCION, ZONA, VAGONES " +
-                    "FROM estacion " +
+                    "FROM ESTACION " +
                     "WHERE LOWER(NOMBRE_ESTACION) LIKE '%" + slr.getSubName().toLowerCase() + "%'";
 
             ResultSet result = singleton.getConexion().executeQuery(query);
@@ -586,7 +586,7 @@ public class User extends Thread {
             RutaListRequest rlr = (RutaListRequest)readedObject;
 
             String query = "SELECT CODIGO_RUTA, DIA, INICIO, FIN " +
-                    "FROM ruta " +
+                    "FROM RUTA " +
                     "WHERE LOWER(CODIGO_RUTA) LIKE '%" + rlr.getSubName().toLowerCase() + "%'"+
                     "AND DIA='" + rlr.getDay() + "'";
             ResultSet result = singleton.getConexion().executeQuery(query);
