@@ -506,7 +506,7 @@ public class User extends Thread {
                 AddInToWriteQueue(answer);
             }
         } else if(readedObject instanceof RequestRoute){
-            Notificar(new News("Reta requerida", 
+            Notificar(new News("Ruta requerida",
                     "Un usuario ha solicitado la ruta " + ((RequestRoute) readedObject).getRoute() +
                     "en la estacion " + ((RequestRoute) readedObject).getStation(), 
                     idRequest), true);
@@ -612,6 +612,17 @@ public class User extends Thread {
                     "WHERE CODIGO_RUTA=" + ((EliminarRuta)readedObject).getCodigo_ruta() +
                     "AND DIA=" + ((EliminarRuta)readedObject).getDia();
             singleton.getConexion().executeSQL(query);
+        }else if(readedObject instanceof Estadisticas){
+            String query = "SELECT CODIGO_RUTA, COUNT(CODIGO_RUTA) FROM RUTAS_BUSCADAS GROUP BY CODIGO_RUTA";
+            ResultSet result = singleton.getConexion().executeQuery(query);
+            try{
+                while(result.next()) {
+                    //Si hay resultados obtengo el valor.
+                    String codigo = result.getString(1);
+                    int cantidad = result.getInt(2);
+                    AddInToWriteQueue(new EstadisticasAnswer(idRequest, codigo,cantidad));
+                }
+            } catch(SQLException ex){ }
         }
     }
     

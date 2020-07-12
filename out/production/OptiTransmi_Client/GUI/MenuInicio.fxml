@@ -6,6 +6,9 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
@@ -461,7 +464,7 @@
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToAjustarRutasWindowButton" fx:id="passToAjustarRutasWindowButton" layoutX="312.0" layoutY="93.0" onMouseClicked="#passToAjustarRutasWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Rutas" textFill="WHITE">
+            <JFXButton id="passToAjustarRutasWindowButton" fx:id="passToAjustarRutasWindowButton" layoutX="312.0" layoutY="109.0" onMouseClicked="#passToAjustarRutasWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Rutas" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
@@ -471,29 +474,35 @@
                   <Font name="Century Gothic" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToAgregarNoticiaWindowButton" fx:id="passToAgregarNoticiaWindowButton" layoutX="312.0" layoutY="158.0" onMouseClicked="#passToAgregarNoticiaWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Agregar Noticia" textFill="WHITE">
+            <JFXButton id="passToAgregarNoticiaWindowButton" fx:id="passToAgregarNoticiaWindowButton" layoutX="312.0" layoutY="182.0" onMouseClicked="#passToAgregarNoticiaWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Agregar Noticia" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToEstadisticasWindowButton" fx:id="passToEstadisticasWindowButton" layoutX="312.0" layoutY="349.0" onMouseClicked="#passToEstadisticasWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Estadisticas" textFill="WHITE">
+            <JFXButton id="passToEstadisticasWindowButton" fx:id="passToEstadisticasWindowButton" layoutX="312.0" layoutY="332.0" onMouseClicked="#passToEstadisticasWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Estadisticas" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
-            <JFXButton id="passToAgregarNoticiaWindowButton" fx:id="passToAgregarNoticiaWindowButton1" layoutX="312.0" layoutY="223.0" onMouseClicked="#passToAgregarNoticiaWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Agregar Noticia" textFill="WHITE">
-               <font>
-                  <Font name="Century Gothic" size="24.0" />
-               </font>
-            </JFXButton>
-            <JFXButton id="passToNoticiasWindowButton2" fx:id="passToNoticiasWindowButton2" layoutX="312.0" layoutY="287.0" onMouseClicked="#passToNoticiasWindow2" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Noticias" textFill="WHITE">
+            <JFXButton id="passToNoticiasWindowButton2" fx:id="passToNoticiasWindowButton2" layoutX="312.0" layoutY="256.0" onMouseClicked="#passToNoticiasWindow2" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Noticias" textFill="WHITE">
                <font>
                   <Font name="Century Gothic" size="24.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane id="estadisticasWindow" fx:id="estadisticasWindow" prefHeight="410.0" prefWidth="649.0" visible="false" />
+      <AnchorPane id="estadisticasWindow" fx:id="estadisticasWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
+         <children>
+            <BarChart fx:id="estadisticasRutas" layoutY="40.0" prefHeight="377.0" prefWidth="649.0" title="Busquedas de rutas">
+              <xAxis>
+                <CategoryAxis label="Nombre de la ruta" side="BOTTOM" fx:id="xRutas" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="yRutas" label="Cantidad de busquedas" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <JFXButton fx:id="backFromEstadisticas" layoutX="35.0" layoutY="14.0" onMouseClicked="#backFromEstadisticasButton" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #ff0000;" text="Volver" textFill="#f5f5f5" />
+         </children></AnchorPane>
       <AnchorPane id="ajustesEstacionesWindow" fx:id="ajustesEstacionesWindow" prefHeight="410.0" prefWidth="649.0" visible="false">
          <children>
             <JFXButton id="passToAgregarEstacionWindowButton" fx:id="passToAgregarEstacionWindowButton" layoutX="208.0" layoutY="78.0" onMouseClicked="#passToAgregarEstacionWindow" prefHeight="47.0" prefWidth="242.0" style="-fx-background-color: #ff0000;" text="Agregar Estacion" textFill="WHITE">

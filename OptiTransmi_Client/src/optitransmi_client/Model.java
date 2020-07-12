@@ -1,5 +1,6 @@
 package optitransmi_client;
 
+import Administrator.EstadisticasAnswer;
 import Base.BasePackage;
 import Connection.ConnectionModel;
 import DataStructures.*;
@@ -19,6 +20,7 @@ import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TreeItem;
 import javafx.stage.StageStyle;
@@ -137,6 +139,20 @@ public class Model extends Thread {
                         }
                     } else if(readed instanceof News){
                         RequestFulfilled(readed);
+                    }else if(readed instanceof EstadisticasAnswer){
+                        EstadisticasAnswer esa = (EstadisticasAnswer)readed;
+                        BasePackage request = this.request.get(readed.getIdRequest());
+
+                        if(request!=null){
+                            Platform.runLater(() -> {
+                                XYChart.Series series = new XYChart.Series<>();
+                                if(controler.estadisticasWindow.isVisible() && esa.getCodigo() != null){
+                                    series.setName(esa.getCodigo());
+                                    series.getData().add(new XYChart.Data("",esa.getCantidad()));
+                                    controler.estadisticasRutas.getData().add(series);
+                                }
+                            });
+                        }
                     }
                 }
                 

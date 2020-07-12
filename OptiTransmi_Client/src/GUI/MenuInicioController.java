@@ -21,6 +21,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -250,7 +251,11 @@ public class MenuInicioController implements Initializable {
     @FXML private JFXButton backToMenAdminFromAgregarNoticiaButton;
 
     //Ventab¿na de estadisticas
-    @FXML private AnchorPane estadisticasWindow;
+    @FXML public AnchorPane estadisticasWindow;
+    @FXML public BarChart<?, ?> estadisticasRutas;
+    @FXML public CategoryAxis xRutas;
+    @FXML public NumberAxis yRutas;
+    @FXML private JFXButton backFromEstadisticas;
 
     //Area de noticias
     @FXML public JFXTextArea areaNoticias;
@@ -675,8 +680,17 @@ public class MenuInicioController implements Initializable {
     }
 
     public void passToEstadisticasWindow(MouseEvent mouseEvent) {
+        Estadisticas es = new Estadisticas(model.getCurrentIdRequest());
+        model.createRequest(es);
+
         menuPrincipalAdmin.setVisible(false);
         estadisticasWindow.setVisible(true);
+    }
+
+    public void backFromEstadisticasButton(MouseEvent mouseEvent){
+        estadisticasRutas.getData().clear();
+        estadisticasWindow.setVisible(false);
+        menuPrincipalAdmin.setVisible(true);
     }
 
     public void passToNoticiasWindow2(MouseEvent mouseEvent) {
