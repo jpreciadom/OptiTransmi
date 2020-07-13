@@ -207,8 +207,8 @@ public class Model extends Thread {
                             dialogoAlerta.initStyle(StageStyle.UTILITY);
                             java.awt.Toolkit.getDefaultToolkit().beep();
                             dialogoAlerta.showAndWait();
-                            news.AddFirst((News)readed);
                         });
+                        news.AddFirst((News)readed);
                     }
                 } else if(readed instanceof StationNamesList){
                     StationNamesList snl = (StationNamesList)readed;

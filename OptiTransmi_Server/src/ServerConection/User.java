@@ -508,7 +508,7 @@ public class User extends Thread {
         } else if(readedObject instanceof RequestRoute){
             Notificar(new News("Ruta requerida",
                     "Un usuario ha solicitado la ruta " + ((RequestRoute) readedObject).getRoute() +
-                    "en la estacion " + ((RequestRoute) readedObject).getStation(), 
+                    " en la estacion " + ((RequestRoute) readedObject).getStation(), 
                     idRequest), true);
         }
     }

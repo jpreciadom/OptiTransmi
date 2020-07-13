@@ -697,6 +697,12 @@ public class MenuInicioController implements Initializable {
         menuPrincipalAdmin.setVisible(false);
         noticiasWindow.setVisible(true);
         ingresoPorAdmin=true;
+        while(!model.news.isEmpty()){
+            News news = model.news.removeFirst();
+            areaNoticias.appendText(news.getTitle() + "\n");
+            areaNoticias.appendText(news.getContent() + "\n");
+            areaNoticias.appendText("______________________________________\n");
+        }
     }
 
 
